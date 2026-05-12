@@ -716,7 +716,7 @@ if (loading)
                                   <iframe
                                     width="100%"
                                     height="100%"
-                                    src={`https://player.twitch.tv/?video=${(item as any).videoId}&parent=localhost&parent=hazimarinomahoutukai001-ai.github.io&autoplay=false`}
+                                    src={`https://player.twitch.tv/?video=${(item as any).videoId}&parent=localhost&parent=streamerhubjp-lab.github.io&autoplay=false`}
                                     frameBorder="0"
                                     allowFullScreen
                                     className={`w-full h-full ${
