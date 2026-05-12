@@ -3,11 +3,11 @@ export const siteConfig = {
   description: "The Streamer Creator Server",
   
   // 👇 右側に表示されるロゴの画像パス
-  logo: '/ittannn/GoznTJVa4AAoq0S.jpg',  
+  logo: '/tsc-official/GoznTJVa4AAoq0S.jpg',  
   
   // 👇 中央に表示される11人の集合写真の画像パス
   heroImages: [
-    '/ittannn/Snapshot_868.webp', 
+    '/tsc-official/Snapshot_868.webp', 
   ],
 };
 
@@ -38,13 +38,13 @@ export const memoryItems = [
   {
     id: 'm1',
     type: 'image',
-    src: '/ittannn/Snapshot_841.PNG',
+    src: '/tsc-official/Snapshot_841.PNG',
     title: 'TSC公式サイトオープン',
   },
   {
     id: 'm2',
     type: 'image',
-    src: '/ittannn/HHXii0FbcAAbaDj.jpg',
+    src: '/tsc-official/HHXii0FbcAAbaDj.jpg',
     title: '管理者ヒロキングtwitchパートナーへ',
   },
   {
@@ -61,13 +61,13 @@ export const staffList = [
     id: 'collective',
     name: 'TSC STAFF COLLECTIVE',
     role: '運営チーム',
-    image: '/ittannn/collective.png',
+    image: '/tsc-official/collective.png',
   },
   {
     id: 'admin_hiro',
     name: 'ヒロキング',
     role: '管理者',
-    image: '/ittannn/IMG_0795 (1).webp',
+    image: '/tsc-official/IMG_0795 (1).webp',
     profile: 'Twitchパートナーとして活動する配信者。ゲーム配信や雑談配信を中心に活動しながら、配信者・VTuber・クリエイター交流コミュニティ「TSC」を運営。コラボ企画やイベント運営を通して、活動者同士が繋がれる場所を作り続けている。',
     links: {
     x: 'https://x.com/hiroking_0306',
@@ -87,7 +87,7 @@ export const staffList = [
     id: 'SUB_ADMIN_01',
     name: 'ふゆち',
     role: 'サブ管理人',
-    image: '/ittannn/ba32f0a3566c8740.png',
+    image: '/tsc-official/ba32f0a3566c8740.png',
     profile:
       'TSCの舞台裏を支える技術担当。Discordの複雑な権限設定やロール構築、機能的なチャンネルレイアウトの設計を一手に引き受けるスペシャリスト。メンバーが『使いやすい』と感じるその瞬間のために、裏側で緻密なコードと設定を組み上げる、鯖の心臓部を守るエンジニアです。技術的な相談があれば、ふゆちに聞けば間違いなし。',
     customScale: 'scale-90',
@@ -106,7 +106,7 @@ export const staffList = [
     id: 'sub_admin_2',
     name: 'ひうひむ',
     role: 'サブ管理人',
-    image: '/ittannn/hiuhimu2.png',
+    image: '/tsc-official/hiuhimu2.png',
     profile: '3匹の手下おばけを連れた、おっとりとした物静かな幽霊メイド。RPGなどのストーリーものを心から愛する配信者。ホラーゲームでも叫ばないくらいなので、作業中寂しいときにラジオ感覚で聴ける。神出鬼没なので、VCで会えたらラッキー。◆好きなもの紅茶、読書、映画鑑賞(ホラー大好き)、語学学習',
     customScale: 'scale-110',
     customPosition: 'translate-y-4',
@@ -126,7 +126,7 @@ export const staffList = [
     id: 'sub_admin_3',
     name: 'がいくま',
     role: 'サブ管理人',
-    image: '/ittannn/gaikuma.png', 
+    image: '/tsc-official/gaikuma.png', 
     profile: '人間に憧れて熊から人間へ転生。VCは夕方から深夜で出没します。少人数用のVCにいることが多く、大人数が苦手でもご安心ください。APEXやちょっと変わったゲームをしています。共通するゲームがあれば、ぜひ一緒に遊びましょう！プレイを鑑賞したいだけでも大丈夫です。困ったことがあればご相談ください。',
     offsetX: -180,
     offsetY: 170,
@@ -146,7 +146,7 @@ export const staffList = [
     id: 'sub_admin_4',
     name: 'しいな',
     role: 'サブ管理人',
-    image: '/ittannn/siinatatie.png',
+    image: '/tsc-official/siinatatie.png',
     profile: '不定期にPS5で怪奇現象（配信）をしているオバケ、というコンセプトストリーマー。『リトルナイトメア』や『ロックマン2』などのゲーム実況に加え、音ゲーの『DEEMO』をピアノで演奏するなど多岐にわたる。おっとりとした癒やし系の雰囲気があり、リスナーを大切にする温かい交流が魅力の配信者。TSC内でも細やかな気遣いや丁寧な仕事ぶりで運営を支えている。',
     offsetX: -250,
     offsetY: 170,
@@ -164,7 +164,7 @@ export const staffList = [
     id: 'sub_admin_5',
     name: '狼の野郎',
     role: 'サブ管理人',
-    image: '/ittannn/3599568-3.png',
+    image: '/tsc-official/3599568-3.png',
     profile: 'まぁ俺のは適当で良き',
     offsetX: -250,
     offsetY: 270,
@@ -178,7 +178,7 @@ export const staffList = [
     id: 'sub_admin_6',
     name: 'こゆき',
     role: 'サブ管理人',
-    image: '/ittannn/koyukitatie.png',
+    image: '/tsc-official/koyukitatie.png',
     profile: 'ゲームとお酒とお喋り大好き、個人勢Vtuber。『Apex Legends』のゲーム実況を中心に活動中。七皇の剣の専属モデレーターも兼任中。おしゃべりが大好きなのでTSCでは主にVCの盛り上げ役や、裏方として技術面のサポートも行っている。',
     offsetX: -250,
     offsetY: 270,
@@ -198,7 +198,7 @@ export const staffList = [
     id: 'sub_admin_7',
     name: 'あるぅ',
     role: 'サブ管理人',
-    image: '/ittannn/aruxuuuu.png',
+    image: '/tsc-official/aruxuuuu.png',
     profile: 'サプライズが得意な個人勢Vstreamer。落ち着いた声色が特徴的だが、人を楽しませたり喜ばせるのが得意。『Apex Legends』や『DBD』のゲーム以外にも、料理配信や視聴者参加型の配信など、バラエティ豊かな企画配信も多く行っているエンターテイナー。',
     offsetX: -220,
     offsetY: 220,
@@ -219,7 +219,7 @@ export const staffList = [
     id: 'sub_admin_8',
     name: 'つゆりひお',
     role: 'サブ管理人',
-    image: '/ittannn/tuyuriho.png',
+    image: '/tsc-official/tuyuriho.png',
     profile: 'result e-Sports所属のハムスターモチーフの小動物系配信者。『Apex Legends』、『VAROLANT』、『DBD』やホラーゲームなど、多岐にわたるゲームを配信中。おっとりとしたかわいらしい雰囲気を持ちつつ、ゲームに対しては真剣に取り組むギャップも魅力的。',
     offsetX: -220,
     offsetY: 180,
@@ -241,7 +241,7 @@ export const staffList = [
     id: 'sub_admin_9',
     name: 'よるねるか',
     role: 'サブ管理人',
-    image: '/ittannn/yoruneruka.png',
+    image: '/tsc-official/yoruneruka.png',
     profile: '「セクシーサンキュー」な清楚癒し系お姉さんVstreamer。『Apex Legends』や『Minecraft』などのゲーム実況を中心に活動中。おっとりとした装いとは裏腹に、ゲームの腕前もお見事。自信のチャンネル内素材を作成する程のお絵描きスキルも持ち合わせている。',
     offsetX: -220,
     offsetY: 180,
@@ -261,7 +261,7 @@ export const staffList = [
     id: 'sub_admin_19',
     name: 'ʸᵘᵏⁱʰᵃ/ₖₐᵧₒ',
     role: 'サブ管理人',
-    image: '/ittannn/kayotatie.png',
+    image: '/tsc-official/kayotatie.png',
     profile: 'クラゲの「かよ」が生み出した「雪羽」という、コンセプトストリーマー。『あつまれどうぶつの森』や『原神』など、まったりとした空間でゲームを配信を行うのが特徴的。表情豊かで癒やしをお届け！',
     offsetX: -220,
     offsetY: 200,
@@ -280,7 +280,7 @@ export const staffList = [
     id: 'sub_admin_11',
     name: '一楓あやの',
     role: 'サブ管理人',
-    image: '/ittannn/ibukiayano0.png',
+    image: '/tsc-official/ibukiayano0.png',
     profile: '自称「どこでも迷子」方向音痴系個人勢VStreamer。けもみみとしっぽを愛する獣人。ファンからは「いぶたそ」の愛称で親しまれている。『Apex Legends』や『NTE』などのゲーム実況を中心に活動中。',
     offsetX: -220,
     offsetY: 40,
@@ -301,7 +301,7 @@ export const staffList = [
 export const galleryItems = [
   {
     id: 1,
-    image: '/ittannn/sss.png',
+    image: '/tsc-official/sss.png',
     date: '2026.03.25',
     title: '第3回 TSC3000人記念杯',
     category: 'TOURNAMENT',
@@ -318,7 +318,7 @@ export const galleryItems = [
 // ⭐ 運営チーム（ABOUT）データ
 // ==========================================
 export const collectiveData = {
-  image: '/ittannn/Snapshot_849.PNG', // ※実際の画像パスに直してくださいね
+  image: '/tsc-official/Snapshot_849.PNG', // ※実際の画像パスに直してくださいね
   adminCount: 1,
   subAdminCount: 11,
   totalCount: 12,
@@ -350,8 +350,8 @@ export const faqList = [
     a: '専用の「宣伝・告知チャンネル」を用意しております。そちらであれば、ご自身の配信開始の通知や、新作動画のアップロード報告を自由に行っていただいて構いません。',
   },
   {
-    q: 'トラブルが起きた場合はどうすればいいですか？',
-    a: '当事者同士で直接解決しようとせず、速やかにサーバー内の『お問い合わせチケット』を作成するか、運営陣（管理者・サブ管理人）へご報告ください。運営チームが間に入り、中立な立場でしっかりと対応いたします。',
+    q: '配信者じゃなくても入れますか？',
+    a: 'もちろんです！現在はクリエイター様、モデレーター様、企業様なども多数参加しており、配信者以外の方も活発に活動しております！',
   },
 ];
 
@@ -437,7 +437,7 @@ export const articleItems = [
     category: 'IMPORTANT',
     date: '2026.04.15',
     title: 'TSC公式ポータルサイトがついにオープンしました！',
-    thumbnail: '/ittannn/Snapshot_841.PNG',
+    thumbnail: '/tsc-official/Snapshot_841.PNG',
     content: `ストリーマーとクリエイターのための次世代コミュニティ「TSC」の公式ポータルサイトが、ついに本日オープンいたしました！
 
 今までDiscord内だけで完結していた情報を、外部の方やこれから参加を検討している方にも分かりやすくお伝えできるよう、このサイトを立ち上げました。
@@ -459,7 +459,7 @@ export const articleItems = [
     category: 'TOURNAMENT',
     date: '2026.03.25',
     title: '第1回 TSC3000人記念杯 開催レポート！',
-    thumbnail: '/ittannn/sss.png',
+    thumbnail: '/tsc-official/sss.png',
     content: 
 `2025年8月30日（土）、配信者やクリエイターが集うDiscordサーバー「The streamer Creator server」の参加者3,000人突破を記念した、特別なAPEXカスタムマッチが開催されました！サーバー設立以来の大きな節目を祝うべく行われた本大会。総勢60名の配信者が参戦し、豪華な演出と驚愕のプレゼント企画で、始終熱気に包まれた当日の様子をレポートをお届けします。
 【豪華演出で祭典の幕を開け！】
