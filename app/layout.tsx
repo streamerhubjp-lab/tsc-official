@@ -8,16 +8,16 @@ export const metadata: Metadata = {
   title: "TSC - The Streamer Community",
   description: "4000人以上のストリーマーが所属する国内最大級のクリエイターコミュニティ。",
   icons: {
-    icon: "/ittannn/TSCaikon.jpg", // ※ファビコンを別の名前にしている場合はここも合わせてください
+    icon: "/tsc-official/TSCaikon.jpg", // ※ファビコンを別の名前にしている場合はここも合わせてください
   },
   openGraph: {
     title: "TSC - The Streamer Community",
     description: "イベント情報や所属メンバーの活躍をチェック！",
-    url: "https://hazimarinomahoutukai001-ai.github.io/ittannn/",
+    url: "https://streamerhubjp-lab.github.io/tsc-official/",
     siteName: "TSC",
     images: [
       {
-        url: "https://hazimarinomahoutukai001-ai.github.io/ittannn/Snapshot_841.PNG", // 🌟 ここを「TSCaikon.jpg」に変更しました！
+        url: "https://streamerhubjp-lab.github.io/tsc-official/Snapshot_841.PNG", // 🌟 ここを「TSCaikon.jpg」に変更しました！
         width: 1200,
         height: 630,
         alt: "TSC公式ロゴ",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "TSC - The Streamer Community",
     description: "4000人以上のストリーマーが所属するコミュニティ",
-    images: ["https://hazimarinomahoutukai001-ai.github.io/ittannn/Snapshot_841.PNG"], // 🌟 X(Twitter)用も「TSCaikon.jpg」に変更！
+    images: ["https://streamerhubjp-lab.github.io/tsc-official/Snapshot_841.PNG"], // 🌟 X(Twitter)用も「TSCaikon.jpg」に変更！
   },
 }
 
