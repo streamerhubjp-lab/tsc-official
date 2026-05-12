@@ -811,7 +811,7 @@ if (loading)
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
                       <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInVariant} className="space-y-6 text-slate-600 relative z-10">
-                        <p className="text-xl leading-loose font-medium text-slate-800 bg-white/50 backdrop-blur-sm rounded-lg">ストリーマー、クリエイター、そしてゲームを愛するすべての人が集う「第三の居場所」です。</p>
+                        <p className="text-xl leading-loose font-medium text-slate-800 bg-white/50 backdrop-blur-sm rounded-lg">表現する人、創る人、そして支える人。交差するすべての人が集う「第三の居場所」です。</p>
                         <p className="leading-loose text-slate-500 bg-white/50 backdrop-blur-sm rounded-lg">一人で遊ぶよりも、誰かと共有する喜びを。技術と創造性を掛け合わせ、新しいエンターテインメントの形を追求しています。</p>
                       </motion.div>
                       
