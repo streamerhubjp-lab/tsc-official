@@ -1848,7 +1848,7 @@ if (loading)
             </button>
 
             <img
-              src="/ittannn/hirokinngutatie.jpg" 
+              src="/tsc-official/hirokinngutatie.jpg" 
               alt="ヒロキング"
               className="w-32 h-32 rounded-full object-cover border-4 border-gray-100 mx-auto mb-4"
             />
