@@ -368,6 +368,8 @@ return (
             <motion.button variants={headerNavItem} onClick={() => switchPage('profile')} className="hover:text-blue-600 transition-colors">PROFILE</motion.button>
             <motion.button variants={headerNavItem} onClick={() => switchPage('activity')} className="hover:text-blue-600 transition-colors">ACTIVITY</motion.button>
             <motion.button variants={headerNavItem} onClick={() => switchPage('guidelines')} className="hover:text-blue-600 transition-colors">GUIDELINES</motion.button>
+            <motion.button variants={headerNavItem} onClick={() => switchPage('magazine')} className="hover:text-blue-600 transition-colors">MAGAZINE</motion.button>
+            <motion.button variants={headerNavItem} onClick={() => switchPage('sponsors')} className="hover:text-blue-600 transition-colors">SPONSORS</motion.button>
             <motion.button variants={headerNavItem} onClick={() => switchPage('faq')} className="hover:text-blue-600 transition-colors">FAQ</motion.button>
           </motion.nav>
           
