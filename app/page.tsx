@@ -1816,7 +1816,7 @@ return (
             </button>
           </div>
 
-          {/* 中段：サーバー名のロゴ部分 */}
+        {/* 中段：サーバー名のロゴ部分 */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-10">
             <h2 className={`text-xl md:text-2xl font-black tracking-tight text-white uppercase leading-tight text-center md:text-left ${montserrat.className}`}>
               The Streamer <span className="text-slate-700 hidden md:inline">/</span>
@@ -1829,19 +1829,17 @@ return (
                 { name: 'X (Twitter)', url: 'https://x.com/hiroking_0306?lang=ja' },
                 { name: 'Twitch', url: 'https://www.twitch.tv/theseventhone666' },
               ].map((sns, idx) => (
-                
-                {/* 🌟 2. <button> を <a> タグに変更し、href と target を追加！ */}
                 <a
                   key={idx}
                   href={sns.url}
-                  target="_blank" // 💡 新しいタブで開く設定
-                  rel="noopener noreferrer" // 💡 セキュリティ対策のおまじない（必須）
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`block px-5 py-2 bg-slate-800 border border-slate-700 hover:bg-blue-600 hover:border-blue-600 hover:text-white rounded-full transition-all duration-300 text-xs font-bold tracking-wider text-slate-400 hover:-translate-y-1 shadow-sm ${montserrat.className}`}
                 >
                   {sns.name}
                 </a>
-                
               ))}
+              
             </div>
           </div>
           {/* 最下部：コピーライト */}
