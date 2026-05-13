@@ -298,7 +298,7 @@ if (loading)
       <nav>
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="fixed top-6 left-6 md:top-8 md:left-8 z-[100] p-4 bg-white/90 backdrop-blur-md rounded-full shadow-sm border border-slate-200 text-slate-800 hover:text-blue-600 hover:shadow-md hover:scale-105 active:scale-95 transition-all"
+          className="fixed top-6 left-6 md:top-20 md:left-8 z-[110] p-4 bg-white/90 backdrop-blur-md rounded-full shadow-sm border border-slate-200 text-slate-800 hover:text-blue-600 transition-all"
         >
           <AnimatePresence mode="wait">
             <motion.div key={isMenuOpen ? 'close' : 'menu'} initial={{ opacity: 0, rotate: -90 }} animate={{ opacity: 1, rotate: 0 }} exit={{ opacity: 0, rotate: 90 }} transition={{ duration: 0.3 }}>
@@ -328,6 +328,27 @@ if (loading)
           )}
         </AnimatePresence>
       </nav>
+
+      {/* 🌟 2. PC版専用：Cygames風スリムヘッダー */}
+      {/* 💡 hidden md:block でスマホでは完全非表示にします */}
+      <header className="hidden md:block fixed top-0 left-0 w-full h-14 z-[100] bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm transition-all">
+        <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-end">
+          {/* 💡 右側にメニューを寄せることで、左側の丸ボタンとバランスを取ります */}
+          <nav className={`flex items-center space-x-10 text-[11px] font-bold tracking-[0.25em] text-slate-500 uppercase ${montserrat.className}`}>
+            <button onClick={() => switchPage('home')} className="hover:text-blue-600 transition-colors">HOME</button>
+            <button onClick={() => switchPage('news')} className="hover:text-blue-600 transition-colors">NEWS</button>
+            <button onClick={() => switchPage('profile')} className="hover:text-blue-600 transition-colors">PROFILE</button>
+            <button onClick={() => switchPage('activity')} className="hover:text-blue-600 transition-colors">ACTIVITY</button>
+            <button onClick={() => switchPage('guidelines')} className="hover:text-blue-600 transition-colors">GUIDELINES</button>
+            <button onClick={() => switchPage('faq')} className="hover:text-blue-600 transition-colors">FAQ</button>
+          </nav>
+        </div>
+      </header>
+
+      {/* 🌟 3. メインコンテンツ */}
+      {/* 💡 md:pt-14 を入れることで、PC版の時だけヘッダー分の余白を作ります */}
+      <div className="flex-grow flex flex-col w-full md:pt-14">
+        <AnimatePresence mode="wait">
 
       <div className="flex-grow flex flex-col w-full">
         <AnimatePresence mode="wait">
