@@ -860,7 +860,7 @@ return (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
                       <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInVariant} className="space-y-6 text-slate-600 relative z-10">
                         <p className="text-xl leading-loose font-medium text-slate-800 bg-white/50 backdrop-blur-sm rounded-lg">表現する人、創る人、そして支える人。交差するすべての人が集う「第三の居場所」です。</p>
-                        <p className="leading-loose text-slate-500 bg-white/50 backdrop-blur-sm rounded-lg">一人で遊ぶよりも、誰かと共有する喜びを。技術と創造性を掛け合わせ、新しいエンターテインメントの形を追求しています。</p>
+                        <p className="leading-loose text-slate-500 bg-white/50 backdrop-blur-sm rounded-lg">ここは、ただのチャットサーバーではありません。何気ない雑談からふと生まれるアイデアや、一人では辿り着けなかった最高の仲間との出会い。そして、培ってきた配信のノウハウや技術を惜しみなく分かち合う、創造の連鎖。一人で歩むよりも、遊ぶよりも誰かと共有する喜びを。技術と創造性を掛け合わせ、私たちは新しいエンターテインメントの形を追求しています。私たちは、あなたの「次の一歩」を応援するとともに、数ある世界の中の、ひとつの新しい居場所でありたいと願っています。</p>
                       </motion.div>
                       
                       <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 gap-4 relative z-10">
