@@ -320,7 +320,7 @@ return (
       <nav>
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="fixed top-6 left-6 md:top-20 md:left-8 z-[110] p-4 bg-white/90 backdrop-blur-md rounded-full shadow-sm border border-slate-200 text-slate-800 hover:text-blue-600 transition-all"
+          className="fixed top-6 left-6 md:top-20 md:left-8 z-[120] p-4 bg-white/90 backdrop-blur-md rounded-full shadow-sm border border-slate-200 text-slate-800 hover:text-blue-600 transition-all"
         >
           <AnimatePresence mode="wait">
             <motion.div key={isMenuOpen ? 'close' : 'menu'} initial={{ opacity: 0, rotate: -90 }} animate={{ opacity: 1, rotate: 0 }} exit={{ opacity: 0, rotate: 90 }} transition={{ duration: 0.3 }}>
@@ -331,7 +331,7 @@ return (
         <AnimatePresence>
           {isMenuOpen && (
             <>
-              <motion.div initial={{ x: '-100%', opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: '-100%', opacity: 0 }} transition={menuBgTransition} className="fixed inset-y-0 left-0 z-[90] bg-white/95 backdrop-blur-2xl w-full md:w-[450px] border-r border-slate-200 px-12 pt-36 pb-12 overflow-y-auto flex flex-col shadow-[20px_0_60px_-15px_rgba(0,0,0,0.05)]">
+              <motion.div initial={{ x: '-100%', opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: '-100%', opacity: 0 }} transition={menuBgTransition} className="fixed inset-y-0 left-0 z-[110] bg-white/95 backdrop-blur-2xl w-full md:w-[450px] border-r border-slate-200 px-12 pt-36 pb-12 overflow-y-auto flex flex-col shadow-[20px_0_60px_-15px_rgba(0,0,0,0.05)]">
                 <motion.div variants={menuStaggerContainer} initial="hidden" animate="visible" className="space-y-8 mt-auto mb-auto">
                   {menuItems.map((item) => (
                     <div key={item.id} className="overflow-hidden py-1">
@@ -345,7 +345,7 @@ return (
                   ))}
                 </motion.div>
               </motion.div>
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className="fixed inset-0 z-[80] bg-slate-900/20 backdrop-blur-sm" onClick={() => setIsMenuOpen(false)} />
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} className="fixed inset-0 z-[105] bg-slate-900/20 backdrop-blur-sm" onClick={() => setIsMenuOpen(false)} />
             </>
           )}
         </AnimatePresence>
