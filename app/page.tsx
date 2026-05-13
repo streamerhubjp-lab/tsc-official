@@ -864,7 +864,7 @@ return (
                       </motion.div>
                       
                       <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-1 gap-4 relative z-10">
-                        {[ { icon: <Globe size={20} />, title: 'Open Environment', desc: '誰でも歓迎するオープンな空気感。' }, { icon: <Zap size={20} />, title: 'Tech & Creative', desc: '最新技術を取り入れた配信環境。' }, ].map((item, idx) => (
+                        {[ { icon: <Globe size={20} />, title: 'Open Environment', desc: '誰でも歓迎するオープンな空気感。' }, { icon: <Zap size={20} />, title: 'Tech & Creative', desc: '最新技術を取り入れた配信環境。' },{ icon: <Users size={20} />, title: 'A New Third Place', desc: '役割の垣根を超え、すべての人が自分らしくいられる「もうひとつの居場所」。' } ].map((item, idx) => (
                           <motion.div variants={staggerItem} key={idx} className="flex items-start gap-5 p-8 bg-[#FAFAFA] rounded-2xl border border-slate-100 transition-all hover:shadow-md hover:border-blue-100 hover:-translate-y-1 group relative overflow-hidden">
                             <div className="text-blue-500 p-3 bg-white rounded-xl shadow-sm group-hover:scale-110 transition-transform relative z-10">{item.icon}</div>
                             <div className="relative z-10">
