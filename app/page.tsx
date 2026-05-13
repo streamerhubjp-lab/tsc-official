@@ -90,6 +90,24 @@ export default function UltimateCommunitySite() {
   const parallaxAbout = useTransform(scrollYProgress, [0, 1], [50, -150]);
   const parallaxX = useTransform(scrollYProgress, [0, 1], [0, -1000]);
   const carouselRef = useRef(null);
+
+  const headerNavContainer = { 
+  hidden: { opacity: 0 }, 
+  visible: { 
+    opacity: 1, 
+    transition: { 
+      staggerChildren: 0.1, // 0.1秒間隔で順番に出現させる！
+      delayChildren: 0.6  // ローディング画面明けを考慮して、少しだけ開始を遅らせる
+    } 
+  } 
+};
+const headerNavItem = { 
+  hidden: { opacity: 0, y: -10 }, // 最初は透明で少し上（y: -10）に配置
+  visible: { 
+    opacity: 1, y: 0, // 定位置（y: 0）にフワッと降りてくる
+    transition: { duration: 0.4, ease: 'easeOut' } 
+  } 
+};
 // =========================================================================
   // ⭐ 画像サイズ＆位置調整パネル
   // =========================================================================
@@ -329,19 +347,26 @@ return (
         </AnimatePresence>
       </nav>
 
-      {/* 🌟 2. PC版専用：Cygames風スリムヘッダー */}
+{/* 🌟 2. PC版専用：Cygames風スリムヘッダー */}
       <header className="hidden md:block fixed top-0 left-0 w-full h-14 z-[100] bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm transition-all">
         <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-end">
-          <nav className={`flex items-center space-x-10 text-[11px] font-bold tracking-[0.25em] text-slate-500 uppercase ${montserrat.className}`}>
-            <button onClick={() => switchPage('home')} className="hover:text-blue-600 transition-colors">HOME</button>
-            <button onClick={() => switchPage('news')} className="hover:text-blue-600 transition-colors">NEWS</button>
-            <button onClick={() => switchPage('profile')} className="hover:text-blue-600 transition-colors">PROFILE</button>
-            <button onClick={() => switchPage('activity')} className="hover:text-blue-600 transition-colors">ACTIVITY</button>
-            <button onClick={() => switchPage('guidelines')} className="hover:text-blue-600 transition-colors">GUIDELINES</button>
-            <button onClick={() => switchPage('magazine')} className="hover:text-blue-600 transition-colors">MAGAZINE</button>
-            <button onClick={() => switchPage('sponsors')} className="hover:text-blue-600 transition-colors">SPONSORS</button>
-            <button onClick={() => switchPage('faq')} className="hover:text-blue-600 transition-colors">FAQ</button>
-          </nav>
+          
+          {/* 🌟 nav を motion.nav にし、variants をセット！ */}
+          <motion.nav 
+            variants={headerNavContainer}
+            initial="hidden"
+            animate="visible"
+            className={`flex items-center space-x-10 text-[11px] font-bold tracking-[0.25em] text-slate-500 uppercase ${montserrat.className}`}
+          >
+            {/* 🌟 各 button を motion.button にし、variants={headerNavItem} を追加！ */}
+            <motion.button variants={headerNavItem} onClick={() => switchPage('home')} className="hover:text-blue-600 transition-colors">HOME</motion.button>
+            <motion.button variants={headerNavItem} onClick={() => switchPage('news')} className="hover:text-blue-600 transition-colors">NEWS</motion.button>
+            <motion.button variants={headerNavItem} onClick={() => switchPage('profile')} className="hover:text-blue-600 transition-colors">PROFILE</motion.button>
+            <motion.button variants={headerNavItem} onClick={() => switchPage('activity')} className="hover:text-blue-600 transition-colors">ACTIVITY</motion.button>
+            <motion.button variants={headerNavItem} onClick={() => switchPage('guidelines')} className="hover:text-blue-600 transition-colors">GUIDELINES</motion.button>
+            <motion.button variants={headerNavItem} onClick={() => switchPage('faq')} className="hover:text-blue-600 transition-colors">FAQ</motion.button>
+          </motion.nav>
+          
         </div>
       </header>
 
