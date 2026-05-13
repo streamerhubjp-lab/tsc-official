@@ -52,7 +52,7 @@ export const memoryItems = [
     type: 'video',
     platform: 'twitch', // 👈 ここを twitch にする！
     videoId: '2553796570', // 👈 Twitchの動画IDを入れる！
-    title: 'TSC３０００人記念杯', // 👈 動画のタイトルを入れる！
+    title: 'TSC3000人記念杯', // 👈 動画のタイトルを入れる！
   },
 ];
 
@@ -165,7 +165,7 @@ export const staffList = [
     name: '狼の野郎',
     role: 'サブ管理人',
     image: '/tsc-official/3599568-3.png',
-    profile: 'ただの狼、とことこ歩いていく狼。『Apex Legends』、『原神』、『VAROLANT』や『魔法少女ノ魔女裁判』などのストーリー系ゲームなど、多岐にわたるゲームを配信中。動画制作など楽しく作成中。たのしぃ',
+    profile: 'ただの狼、人間生活大満喫中狼。『Apex Legends』、『原神』、『VAROLANT』や『魔法少女ノ魔女裁判』などのストーリー系ゲームなど、多岐にわたるゲームを配信中。動画制作など色々と作り中ぜひみてね～。たのしぃ',
     offsetX: -250,
     offsetY: 270,
     scale: 2.5,
