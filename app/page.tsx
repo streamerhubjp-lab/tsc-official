@@ -916,7 +916,7 @@ return (
                               alt={member.displayName}
                               /* 🌟 修正2：pointer-events-none を追加しました！ */
 
-                              className="w-full h-full object-cover pointer-events-none"
+                              className="w-full h-full object-cover object-top pointer-events-none"
                             />
                             <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent p-6 flex flex-col justify-end h-1/2">
                               <span className={`text-[10px] md:text-xs font-black text-blue-400 tracking-widest uppercase mb-1 drop-shadow-md ${montserrat.className}`}>
