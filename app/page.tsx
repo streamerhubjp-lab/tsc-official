@@ -91,24 +91,24 @@ export default function UltimateCommunitySite() {
   const parallaxX = useTransform(scrollYProgress, [0, 1], [0, -1000]);
   const carouselRef = useRef(null);
 
-  // 🌟 既存の設定の並びに追加した部分を、これに上書き！
+// 🌟 フワッと感を極めたヘッダーアニメーション設定
 const headerNavContainer = { 
   hidden: { opacity: 0 }, 
   visible: { 
     opacity: 1, 
     transition: { 
-      staggerChildren: 0.1,
-      delayChildren: 0.6
+      staggerChildren: 0.15, // 💡 パラパラめくれる間隔を少しゆっくりに（0.1 -> 0.15）
+      delayChildren: 0.8     // 💡 ローディング明けの「タメ」を少し長く（0.6 -> 0.8）
     } 
   } 
 };
 
 const headerNavItem = { 
-  hidden: { opacity: 0, y: -10 },
+  hidden: { opacity: 0, y: -20 }, // 💡 もう少し高い位置からフワッと落とす（-10 -> -20）
   visible: { 
     opacity: 1, y: 0, 
-    // 💡 最後に「as const」をつけることで「これは絶対アニメーションの指示です！」とTypeScriptを納得させます
-    transition: { duration: 0.4, ease: 'easeOut' as const } 
+    // 💡 時間を倍の0.8秒にし、動きを「じわ〜っ」と止まる高級なカーブに！
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] } 
   } 
 };
  
