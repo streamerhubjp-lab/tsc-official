@@ -338,6 +338,8 @@ return (
             <button onClick={() => switchPage('profile')} className="hover:text-blue-600 transition-colors">PROFILE</button>
             <button onClick={() => switchPage('activity')} className="hover:text-blue-600 transition-colors">ACTIVITY</button>
             <button onClick={() => switchPage('guidelines')} className="hover:text-blue-600 transition-colors">GUIDELINES</button>
+            <button onClick={() => switchPage('magazine')} className="hover:text-blue-600 transition-colors">MAGAZINE</button>
+            <button onClick={() => switchPage('sponsors')} className="hover:text-blue-600 transition-colors">SPONSORS</button>
             <button onClick={() => switchPage('faq')} className="hover:text-blue-600 transition-colors">FAQ</button>
           </nav>
         </div>
