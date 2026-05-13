@@ -246,10 +246,10 @@ if (loading)
       </div>
     );
 
-  return (
+return (
     <div className={`bg-white text-slate-800 selection:bg-blue-100 selection:text-blue-600 overflow-x-hidden min-h-screen flex flex-col ${softFont.className}`}>
 
-     {/* 🌟🌟🌟 ここから：時間差で上がる3枚のベール（多重レイヤー演出） 🌟🌟🌟 */}
+      {/* 🌟🌟🌟 ここから：時間差で上がる3枚のベール（多重レイヤー演出） 🌟🌟🌟 */}
       <div className="fixed inset-0 z-[9999] pointer-events-none flex flex-col">
         {/* 1枚目（最背面）：ほんの少しだけグレー */}
         <motion.div
@@ -272,12 +272,11 @@ if (loading)
           transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
           className="absolute inset-0 bg-white"
         >
-          {/* この1pxの線と影が、ベールの立体感と高級感を生み出します */}
           <div className="absolute bottom-0 w-full h-[1px] bg-slate-100 shadow-[0_10px_30px_rgba(0,0,0,0.03)]" />
         </motion.div>
       </div>
       {/* 🌟🌟🌟 追加ここまで 🌟🌟🌟 */}
-      
+
       <style jsx global>{`
         .outline-text-elegant {
           color: transparent;
@@ -295,6 +294,7 @@ if (loading)
         }
       `}</style>
 
+      {/* 🌟 1. 丸ボタンとスライドメニュー */}
       <nav>
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -330,10 +330,8 @@ if (loading)
       </nav>
 
       {/* 🌟 2. PC版専用：Cygames風スリムヘッダー */}
-      {/* 💡 hidden md:block でスマホでは完全非表示にします */}
       <header className="hidden md:block fixed top-0 left-0 w-full h-14 z-[100] bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm transition-all">
         <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-end">
-          {/* 💡 右側にメニューを寄せることで、左側の丸ボタンとバランスを取ります */}
           <nav className={`flex items-center space-x-10 text-[11px] font-bold tracking-[0.25em] text-slate-500 uppercase ${montserrat.className}`}>
             <button onClick={() => switchPage('home')} className="hover:text-blue-600 transition-colors">HOME</button>
             <button onClick={() => switchPage('news')} className="hover:text-blue-600 transition-colors">NEWS</button>
@@ -345,12 +343,8 @@ if (loading)
         </div>
       </header>
 
-      {/* 🌟 3. メインコンテンツ */}
-      {/* 💡 md:pt-14 を入れることで、PC版の時だけヘッダー分の余白を作ります */}
+      {/* 🌟 3. メインコンテンツ（ここに md:pt-14 を入れています！） */}
       <div className="flex-grow flex flex-col w-full md:pt-14">
-        <AnimatePresence mode="wait">
-
-      <div className="flex-grow flex flex-col w-full">
         <AnimatePresence mode="wait">
           <motion.main key={activePage} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={pageTransition} className="w-full flex-grow flex flex-col">
             
