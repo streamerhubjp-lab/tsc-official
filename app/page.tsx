@@ -91,23 +91,27 @@ export default function UltimateCommunitySite() {
   const parallaxX = useTransform(scrollYProgress, [0, 1], [0, -1000]);
   const carouselRef = useRef(null);
 
-  const headerNavContainer = { 
+  // 🌟 既存の設定の並びに追加した部分を、これに上書き！
+const headerNavContainer = { 
   hidden: { opacity: 0 }, 
   visible: { 
     opacity: 1, 
     transition: { 
-      staggerChildren: 0.1, // 0.1秒間隔で順番に出現させる！
-      delayChildren: 0.6  // ローディング画面明けを考慮して、少しだけ開始を遅らせる
+      staggerChildren: 0.1,
+      delayChildren: 0.6
     } 
   } 
 };
+
 const headerNavItem = { 
-  hidden: { opacity: 0, y: -10 }, // 最初は透明で少し上（y: -10）に配置
+  hidden: { opacity: 0, y: -10 },
   visible: { 
-    opacity: 1, y: 0, // 定位置（y: 0）にフワッと降りてくる
-    transition: { duration: 0.4, ease: 'easeOut' } 
+    opacity: 1, y: 0, 
+    // 💡 最後に「as const」をつけることで「これは絶対アニメーションの指示です！」とTypeScriptを納得させます
+    transition: { duration: 0.4, ease: 'easeOut' as const } 
   } 
 };
+ 
 // =========================================================================
   // ⭐ 画像サイズ＆位置調整パネル
   // =========================================================================
