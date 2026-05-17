@@ -391,7 +391,7 @@ export const sponsorData = {
   headerTitle: 'Official Sponsors',
   mainTitle: 'Sponsors',
   description:
-    'TSCサーバーを応援してくださる企業様をご紹介します。\nメンバー限定の特別価格や、専用のサポートをご提供いただいております。詳細はDiscordサーバー内の専用チャンネルをご確認ください。',
+    'TSCサーバーを応援してくださる企業様をご紹介します。\nメンバー限定の特別価格や、専用のサポートをご提供いただいております。\n詳細はDiscordサーバー内の専用チャンネルをご確認ください。',
   homeSection: {
     title: '協賛企業様について',
     subtitle: '企業様もこのコミュニティに参加されています',
