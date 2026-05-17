@@ -1025,8 +1025,9 @@ return (
                       <h3 className={`text-xl md:text-2xl font-bold text-slate-800 mb-6 ${cleanFont.className}`}>
                         {sponsorData.homeSection.subtitle}
                       </h3>
-                      <p className="text-sm md:text-base text-slate-600 leading-loose mb-10 max-w-2xl mx-auto">
-                        {sponsorData.homeSection.text}
+                      {/* 🌟 修正後： break-keep を追加し、max-w-3xl に広げる！ */}
+                      <p className="text-sm md:text-base text-slate-600 leading-loose mb-10 max-w-3xl mx-auto break-keep">
+                      {sponsorData.homeSection.text}
                       </p>
 
                       {/* 🌟 data.ts からタイトルと説明文を自動で読み込んでカードを作る！ */}
