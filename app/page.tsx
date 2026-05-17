@@ -1025,10 +1025,11 @@ return (
                       <h3 className={`text-xl md:text-2xl font-bold text-slate-800 mb-6 ${cleanFont.className}`}>
                         {sponsorData.homeSection.subtitle}
                       </h3>
-                      {/* 🌟 修正後： break-keep を追加し、max-w-3xl に広げる！ */}
-                      <p className="text-sm md:text-base text-slate-600 leading-loose mb-10 max-w-3xl mx-auto break-keep">
+                      {/* 🌟 修正後： whitespace-pre-wrap に変更！ */}
+                      <p className="text-sm md:text-base text-slate-600 leading-loose mb-10 max-w-3xl mx-auto whitespace-pre-wrap">
                       {sponsorData.homeSection.text}
                       </p>
+  
 
                       {/* 🌟 data.ts からタイトルと説明文を自動で読み込んでカードを作る！ */}
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mb-12 text-left relative z-10">
