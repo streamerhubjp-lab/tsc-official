@@ -4,7 +4,5 @@ const nextConfig = {
   images: {
     unoptimized: true, 
   },
-  basePath: '/ittannn', // 🌟 これで住所を教え込みます
 };
-
 module.exports = nextConfig;
