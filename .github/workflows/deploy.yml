@@ -1,10 +1,9 @@
 name: Deploy to GitHub Pages
 
-
 on:
   push:
-    branches: ["main"] # mainブランチに更新があったら実行
-  workflow_dispatch:  # 🌟 これがあるから「手動ボタン」が出る！
+    branches: ["main"]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -23,6 +22,9 @@ jobs:
           node-version: "20"
       - name: Install dependencies
         run: npm install
+      # 🌟 ここで古いビルドファイルを強制的に全消去する！
+      - name: Clean up old build
+        run: rm -rf .next out
       - name: Build with Next.js
         run: npx next build
         env:
@@ -31,7 +33,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out # 書き出されたHTMLがある場所
+          path: ./out
 
   deploy:
     environment:
