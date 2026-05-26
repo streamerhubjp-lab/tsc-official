@@ -884,68 +884,51 @@ return (
                 </section>
 
    {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
-            <section className="py-16 bg-[#0B0F19] border-y border-slate-800 overflow-hidden relative">
-  {/* 背景のサイバーなアクセント（うっすらグリッド） */}
-  <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none"></div>
-
-  <div className="mb-10 flex flex-col items-center z-10 relative">
-    <p className={`text-cyan-400 font-bold text-[10px] tracking-[0.4em] uppercase mb-2 ${montserrat.className}`}>
-      Select Character
+               <section className="py-20 bg-[#FAFAFA] border-y border-slate-200 overflow-hidden relative">
+  {/* 🌟 タイトル部分を「管理者・サブ管理人」が伝わるように変更 */}
+  <div className="mb-12 flex flex-col items-center z-10 relative">
+    <p className={`text-blue-500 font-bold text-xs tracking-[0.3em] uppercase mb-2 ${montserrat.className}`}>
+      Management & Sub-Admins
     </p>
-    <h3 className={`text-2xl md:text-3xl font-black text-white tracking-widest uppercase italic ${cleanFont.className}`}>
-      Roster
+    <h3 className={`text-2xl md:text-3xl font-black text-slate-800 tracking-wider ${cleanFont.className}`}>
+      コミュニティ運営陣
     </h3>
   </div>
 
-  <div className="w-full flex overflow-hidden px-0 relative z-10" ref={carouselRef}>
-    <motion.div
-      drag="x"
-      dragConstraints={carouselRef}
-      /* 🌟 1列の横並びで固定。無限ループさせない方が「名簿感」が出ます */
-      className="flex gap-4 md:gap-6 px-4 md:px-8 w-max cursor-grab active:cursor-grabbing"
-    >
-      {marqueeMembers.map((member, idx) => (
+  {/* 🌟 全員を1列の画面内に収めるコンテナ */}
+  <div className="w-full max-w-7xl mx-auto px-2 md:px-4 flex justify-center items-center h-[50vh] md:h-[60vh] gap-1 md:gap-2">
+    {marqueeMembers.map((member, idx) => {
+      // 偶数・奇数の判定
+      const isEven = idx % 2 === 0;
+
+      return (
         <motion.div
-          key={`roster-${idx}`}
-          className="group relative w-[45vw] sm:w-[30vw] md:w-[18vw] h-[45vh] md:h-[55vh] bg-slate-900 shrink-0 overflow-hidden cursor-pointer"
-          style={{
-            /* 🌟 VALORANT風の「角を斜めに切り落とした」シャープなデザイン */
-            clipPath: 'polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%)'
-          }}
-          whileHover={{ y: -10 }}
+          key={`admin-${idx}`}
+          // 🌟 互い違い＆細身スタイル。ホバー時に flex-[3] になって横に広がる！
+          className={`group relative flex-1 min-w-[30px] md:min-w-[40px] h-[80%] bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden cursor-pointer transition-all duration-500 ease-in-out hover:flex-[3] md:hover:flex-[4] hover:shadow-xl ${
+            isEven ? 'translate-y-4 md:translate-y-6' : '-translate-y-4 md:-translate-y-6'
+          }`}
           onClick={() => switchPage('profile')}
         >
-          {/* 背景グラデーション（ホバー時に下からサイバーブルーが湧き上がる） */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-900 group-hover:to-cyan-900/80 transition-colors duration-500 z-10"></div>
-
-          {/* 立ち絵・写真 */}
+          {/* 🌟 立ち絵の顔がしっかり映るように object-top を指定 */}
           <img
             src={member.image}
             alt={member.displayName}
-            /* 🌟 初期は白黒（モノクロ）、カーソルを合わせるとカラーになる演出！ */
-            className="w-full h-full object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-500 pointer-events-none grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100"
+            className="w-full h-full object-cover object-top transition-transform duration-500"
           />
 
-          {/* 名前プレート（ホバーでスッと上にスライドしてくる） */}
-          <div className="absolute bottom-0 left-0 w-full p-4 z-20 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-            <div className="border-l-4 border-cyan-400 pl-3">
-              <p className={`text-[10px] md:text-xs font-black text-cyan-400 tracking-widest uppercase mb-1 drop-shadow-md ${montserrat.className}`}>
-                {member.roleName}
-              </p>
-              <p className="text-lg md:text-xl font-bold text-white tracking-wider drop-shadow-md truncate">
-                {member.displayName}
-              </p>
-            </div>
+          {/* ホバーした時だけ下からフワッと役職と名前が出る */}
+          <div className="absolute inset-x-0 bottom-0 pt-20 pb-4 px-2 bg-gradient-to-t from-white via-white/90 to-transparent flex flex-col items-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span className={`text-[9px] md:text-[10px] font-black text-blue-500 tracking-widest uppercase mb-1 ${montserrat.className}`}>
+              {member.roleName}
+            </span>
+            <span className="text-xs md:text-sm font-bold text-slate-800 truncate w-full">
+              {member.displayName}
+            </span>
           </div>
-
-          {/* ホバー時に光るネオン枠線 */}
-          <div 
-            className="absolute inset-0 border-2 border-transparent group-hover:border-cyan-400/50 transition-colors duration-300 z-30 pointer-events-none" 
-            style={{ clipPath: 'polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%)' }}
-          ></div>
         </motion.div>
-      ))}
-    </motion.div>
+      );
+    })}
   </div>
 </section>
    {/* 🔽🔽🔽変更中🔽🔽🔽 */}
