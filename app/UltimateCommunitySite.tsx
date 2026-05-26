@@ -912,73 +912,68 @@ return (
                 </section>
 
    {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
-               <section className="py-20 bg-[#FAFAFA] border-y border-slate-200 overflow-hidden relative">
-  {/* 🌟 タイトル部分は元のまま */}
-  <div className="mb-12 flex flex-col items-center z-10 relative">
-    <p className={`text-blue-500 font-bold text-xs tracking-[0.3em] uppercase mb-2 ${montserrat.className}`}>
-      Management & Sub-Admins
-    </p>
-    <h3 className={`text-2xl md:text-3xl font-black text-slate-800 tracking-wider ${cleanFont.className}`}>
-      コミュニティ運営陣
-    </h3>
-  </div>
-
-  {/* 🌟 コンテナ部分は元のまま */}
-  <div className="w-full max-w-7xl mx-auto px-2 md:px-4 flex justify-center items-center h-[50vh] md:h-[60vh] gap-1 md:gap-2">
-    {marqueeMembers.map((member, idx) => {
-      const isEven = idx % 2 === 0;
-
-      return (
-        <motion.div
-          key={`admin-${idx}`}
-          // 🌟 ここからFramer Motionの設定（登場アニメーションだけを担当）
-          // ⚠️ Tailwindと喧嘩しないように 'y' ではなく 'top' プロパティを使用！
-          // 初期状態（見えない時）：透明。偶数は下(+100px)、奇数は上(-100px)から。
-          initial={{ opacity: 0, top: isEven ? 100 : -100 }}
-          
-          // スクロールで見えた瞬間（最初だけ）：透明度を1にして、本来の位置(top:0)へ移動！
-          // ※ これでTailwindの translate-y-4 などで作ったジグザグ配置が完全に維持されます。
-          whileInView={{ opacity: 1, top: 0 }}
-          
-          // 最初の一回だけ発動させる設定（画面の少し下で発動）
-          viewport={{ once: true, margin: "-100px" }}
-          
-          // アニメーションのなめらかさ（「すすすすっ」と出るディレイ）
-          transition={{
-            duration: 0.8, // かける時間
-            ease: [0.22, 1, 0.36, 1], // スムーズなイージング
-            delay: idx * 0.1, // 👈 これが左から「上下上下」と順番に現れる魔法のディレイ
-          }}
-          // 🌟 ここまでFramer Motionの設定
-
-          // ⚠️ classNameは君が「完ぺき」と言った「前回のコード」を完全に維持！！
-          className={`group relative flex-1 min-w-[30px] md:min-w-[40px] h-[80%] bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden cursor-pointer transition-all duration-500 ease-in-out hover:flex-[3] md:hover:flex-[4] hover:shadow-xl ${
-            isEven ? 'translate-y-4 md:translate-y-6' : '-translate-y-4 md:-translate-y-6'
-          }`}
-          onClick={() => switchPage('profile')}
-        >
-          {/* 画像部分は元のまま（チラつき防止の小技だけ追加） */}
-          <img
-            src={member.image}
-            alt={member.displayName}
-            fetchPriority="high"
-            className="w-full h-full object-cover object-top transition-transform duration-500 bg-slate-200"
-          />
-
-          {/* ホバーテキスト部分は元のまま */}
-          <div className="absolute inset-x-0 bottom-0 pt-20 pb-4 px-2 bg-gradient-to-t from-white via-white/90 to-transparent flex flex-col items-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span className={`text-[9px] md:text-[10px] font-black text-blue-500 tracking-widest uppercase mb-1 ${montserrat.className}`}>
-              {member.roleName}
-            </span>
-            <span className="text-xs md:text-sm font-bold text-slate-800 truncate w-full">
-              {member.displayName}
-            </span>
-          </div>
-        </motion.div>
-      );
-    })}
-  </div>
-</section>
+                                 <section className="py-20 bg-white border-y border-slate-200 overflow-hidden relative">
+                      {/* 🌟 タイトル部分は元のまま */}
+                      <div className="mb-12 flex flex-col items-center z-10 relative">
+                        <p className={`text-blue-500 font-bold text-xs tracking-[0.3em] uppercase mb-2 ${montserrat.className}`}>
+                          Management & Sub-Admins
+                        </p>
+                        <h3 className={`text-2xl md:text-3xl font-black text-slate-800 tracking-wider ${cleanFont.className}`}>
+                          コミュニティ運営陣
+                        </h3>
+                      </div>
+                    
+                      {/* 🌟 コンテナ部分は元のまま */}
+                      <div className="w-full max-w-7xl mx-auto px-2 md:px-4 flex justify-center items-center h-[50vh] md:h-[60vh] gap-1 md:gap-2">
+                        {marqueeMembers.map((member, idx) => {
+                          const isEven = idx % 2 === 0;
+                    
+                          return (
+                            /* 🌟 外箱（ジグザグ配置とホバー伸縮） */
+                            <div
+                              key={`admin-wrapper-${idx}`}
+                              className={`relative flex-1 min-w-[30px] md:min-w-[40px] h-[80%] transition-all duration-500 ease-in-out hover:flex-[3] md:hover:flex-[4] ${
+                                isEven ? 'translate-y-4 md:translate-y-6' : '-translate-y-4 md:-translate-y-6'
+                              }`}
+                            >
+                              {/* 🌟 中身（超軽量アニメーション仕様） */}
+                              <motion.div
+                                // 動きをほんの少しに！ 100px -> 20px に縮小
+                                initial={{ opacity: 0, y: isEven ? 20 : -20 }}
+                                
+                                // whileInView を animate に変更！
+                                // これでサイトが開いた瞬間に裏でスッと動く
+                                animate={{ opacity: 1, y: 0 }}
+                                
+                                transition={{
+                                  duration: 0.8,
+                                  ease: "easeOut", // 計算が一番軽いスッと止まる動きに
+                                  delay: idx * 0.05,
+                                }}
+                                className="w-full h-full group bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden cursor-pointer hover:shadow-xl"
+                                onClick={() => switchPage('profile')}
+                              >
+                                <img
+                                  src={member.image}
+                                  alt={member.displayName}
+                                  fetchPriority="high"
+                                  className="w-full h-full object-cover object-top transition-transform duration-500 bg-slate-200"
+                                />
+                    
+                                <div className="absolute inset-x-0 bottom-0 pt-20 pb-4 px-2 bg-gradient-to-t from-white via-white/90 to-transparent flex flex-col items-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                  <span className={`text-[9px] md:text-[10px] font-black text-blue-500 tracking-widest uppercase mb-1 ${montserrat.className}`}>
+                                    {member.roleName}
+                                  </span>
+                                  <span className="text-xs md:text-sm font-bold text-slate-800 truncate w-full">
+                                    {member.displayName}
+                                  </span>
+                                </div>
+                              </motion.div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </section>
    {/* 🔽🔽🔽変更中🔽🔽🔽 */}
                 
                 {/* 🔽🔽🔽 ここにABOUTをペースト！！ 🔽🔽🔽 */}
