@@ -912,8 +912,8 @@ return (
                 </section>
 
    {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
-               <section className="py-20 bg-[#FAFAFA] border-y border-slate-200 overflow-hidden relative">
-  {/* 🌟 タイトル部分を「管理者・サブ管理人」が伝わるように変更 */}
+                  <section className="py-20 bg-[#FAFAFA] border-y border-slate-200 overflow-hidden relative">
+  {/* 🌟 タイトル部分はそのまま */}
   <div className="mb-12 flex flex-col items-center z-10 relative">
     <p className={`text-blue-500 font-bold text-xs tracking-[0.3em] uppercase mb-2 ${montserrat.className}`}>
       Management & Sub-Admins
@@ -923,31 +923,46 @@ return (
     </h3>
   </div>
 
-  {/* 🌟 全員を1列の画面内に収めるコンテナ */}
+  {/* 🌟 コンテナ部分はそのまま */}
   <div className="w-full max-w-7xl mx-auto px-2 md:px-4 flex justify-center items-center h-[50vh] md:h-[60vh] gap-1 md:gap-2">
     {marqueeMembers.map((member, idx) => {
-      // 偶数・奇数の判定
       const isEven = idx % 2 === 0;
 
       return (
         <motion.div
           key={`admin-${idx}`}
-          // 🌟 互い違い＆細身スタイル。ホバー時に flex-[3] になって横に広がる！
+          // 🌟 1. 初期状態（見えない時）：透明。偶数は下(+100px)から、奇数は上(-100px)から。
+          initial={{ opacity: 0, y: isEven ? 100 : -100 }}
+          
+          // 🌟 2. スクロールで見えた瞬間（最初だけ）：透明度を1にして、定位置(y:0)へ移動！
+          // ※ Tailindの translate-y-4 などで作ったジグザグ配置が定位置(y:0)になります。
+          whileInView={{ opacity: 1, y: 0 }}
+          
+          // 🌟 最初の一回だけ発動させる設定（画面の少し下で発動）
+          viewport={{ once: true, margin: "-100px" }}
+          
+          // 🌟 アニメーションのなめらかさ（「すすすすっ」と出るディレイ）
+          transition={{
+            duration: 0.8, // かける時間
+            ease: [0.22, 1, 0.36, 1], // スムーズなイージング
+            delay: idx * 0.1, // 👈 これが左から「上下上下」と順番に現れる魔法のディレイ
+          }}
+
+          // ⚠️ classNameは元のコードを完璧に維持！ホバー時の挙動はTailwindが担当。
           className={`group relative flex-1 min-w-[30px] md:min-w-[40px] h-[80%] bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden cursor-pointer transition-all duration-500 ease-in-out hover:flex-[3] md:hover:flex-[4] hover:shadow-xl ${
             isEven ? 'translate-y-4 md:translate-y-6' : '-translate-y-4 md:-translate-y-6'
           }`}
           onClick={() => switchPage('profile')}
         >
-          {/* 🌟 立ち絵の顔がしっかり映るように object-top を指定 */}
+          {/* 画像部分はそのまま */}
           <img
             src={member.image}
             alt={member.displayName}
-           /* ついでに、この画像は超重要だぞ！とブラウザに念押しする属性を追加 */
             fetchPriority="high"
             className="w-full h-full object-cover object-top transition-transform duration-500"
           />
 
-          {/* ホバーした時だけ下からフワッと役職と名前が出る */}
+          {/* ホバーテキスト部分はそのまま */}
           <div className="absolute inset-x-0 bottom-0 pt-20 pb-4 px-2 bg-gradient-to-t from-white via-white/90 to-transparent flex flex-col items-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <span className={`text-[9px] md:text-[10px] font-black text-blue-500 tracking-widest uppercase mb-1 ${montserrat.className}`}>
               {member.roleName}
