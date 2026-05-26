@@ -142,13 +142,36 @@ const headerNavItem = {
   }, []);
 
  useEffect(() => {
-  // サイト訪問から3.5秒後にロードを解除する
-  const timer = setTimeout(() => {
-    setLoading(false);
-  }, 3500); 
+ // 🌟 1. 読み込みたい画像のURLを配列にまとめる（立ち絵など重い画像を優先）
+    const imageUrls = marqueeMembers.map((member) => member.image);
+    
+    // 他にもトップページの背景画像など、確実に読み込みたい画像があればここに追加！
+    // imageUrls.push('/images/hero-bg.png'); 
 
-  return () => clearTimeout(timer);
-}, []);
+    // 🌟 2. 画像を裏側でダウンロードする関数
+    const preloadImages = async () => {
+      const promises = imageUrls.map((url) => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.src = url;
+          img.onload = resolve; // 読み込み成功したら次へ
+          img.onerror = resolve; // 万が一エラーになっても、サイト全体が止まらないように次へ
+        });
+      });
+
+      // 🌟 3. すべての画像の読み込みが終わるまでここで待機！
+      await Promise.all(promises);
+
+      // 🌟 4. 最低限アニメーションを見せるための待機時間（ミリ秒）
+      // 君のローディングアニメーションが3.5秒くらいあるから、
+      // 画像が一瞬で読み込めた場合でも、少しだけアニメーションを見せるために時間を稼ぐ。
+      setTimeout(() => {
+        setLoading(false); // ここでついにローディング画面が消える！
+      }, 3500); 
+    };
+
+    preloadImages();
+  }, []); // 最初の1回だけ実行
 
   const switchPage = (pageName: string) => {
     setActivePage(pageName);
