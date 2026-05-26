@@ -145,8 +145,13 @@ const headerNavItem = {
  // 🌟 1. 読み込みたい画像のURLを配列にまとめる（立ち絵など重い画像を優先）
     const imageUrls = marqueeMembers.map((member) => member.image);
     
-    // 他にもトップページの背景画像など、確実に読み込みたい画像があればここに追加！
-    // imageUrls.push('/images/hero-bg.png'); 
+  // 🌟 2. ここに追加したい画像のURLを push（追加）していく！
+  // 例：トップページの背景画像を絶対URLで追加する場合
+  //imageUrls.push('https://hazimarinomahoutukai001-ai.github.io/tsc-official/images/hero-bg.png');
+
+  // 複数あるなら、何行でも続けて書いてOKだ！
+  //imageUrls.push('https://hazimarinomahoutukai001-ai.github.io/tsc-official/images/logo.png');
+  //imageUrls.push('https://別の場所にある画像.jpg');
 
     // 🌟 2. 画像を裏側でダウンロードする関数
     const preloadImages = async () => {
