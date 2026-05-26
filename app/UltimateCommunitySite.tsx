@@ -883,70 +883,72 @@ return (
                   </div>
                 </section>
 
+   {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
+            <section className="py-16 bg-[#0B0F19] border-y border-slate-800 overflow-hidden relative">
+  {/* 背景のサイバーなアクセント（うっすらグリッド） */}
+  <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none"></div>
 
-             <section className="py-24 bg-[#FAFAFA] border-t border-slate-200/50 overflow-hidden relative">
-  <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-    {/* タイトル部分 */}
-    <div className="mb-20 flex flex-col items-center">
-      <p className={`text-blue-500 font-bold text-[10px] tracking-[0.4em] uppercase mb-2 ${montserrat.className}`}>
-        Our Staffs
-      </p>
-      <h3 className={`text-2xl md:text-3xl font-black text-slate-800 tracking-wider ${cleanFont.className}`}>
-        総勢12名の運営チーム
-      </h3>
-    </div>
+  <div className="mb-10 flex flex-col items-center z-10 relative">
+    <p className={`text-cyan-400 font-bold text-[10px] tracking-[0.4em] uppercase mb-2 ${montserrat.className}`}>
+      Select Character
+    </p>
+    <h3 className={`text-2xl md:text-3xl font-black text-white tracking-widest uppercase italic ${cleanFont.className}`}>
+      Roster
+    </h3>
+  </div>
 
-    {/* 写真の互い違い配置部分 */}
-    <div className="flex flex-col gap-16 md:gap-24 items-center">
-      {marqueeMembers.map((member, idx) => {
-        // 🌟 魔法の変数：偶数番目(0,2,4...)か奇数番目(1,3,5...)かを判定
-        const isEven = idx % 2 === 0;
+  <div className="w-full flex overflow-hidden px-0 relative z-10" ref={carouselRef}>
+    <motion.div
+      drag="x"
+      dragConstraints={carouselRef}
+      /* 🌟 1列の横並びで固定。無限ループさせない方が「名簿感」が出ます */
+      className="flex gap-4 md:gap-6 px-4 md:px-8 w-max cursor-grab active:cursor-grabbing"
+    >
+      {marqueeMembers.map((member, idx) => (
+        <motion.div
+          key={`roster-${idx}`}
+          className="group relative w-[45vw] sm:w-[30vw] md:w-[18vw] h-[45vh] md:h-[55vh] bg-slate-900 shrink-0 overflow-hidden cursor-pointer"
+          style={{
+            /* 🌟 VALORANT風の「角を斜めに切り落とした」シャープなデザイン */
+            clipPath: 'polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%)'
+          }}
+          whileHover={{ y: -10 }}
+          onClick={() => switchPage('profile')}
+        >
+          {/* 背景グラデーション（ホバー時に下からサイバーブルーが湧き上がる） */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/50 to-slate-900 group-hover:to-cyan-900/80 transition-colors duration-500 z-10"></div>
 
-        return (
-          <motion.div
-            key={`staff-${idx}`}
-            // 🌟 スクロールして画面に入った時のアニメーション
-            initial={{ opacity: 0, y: 50, rotate: isEven ? -10 : 10 }}
-            whileInView={{ opacity: 1, y: 0, rotate: isEven ? -3 : 3 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, type: 'spring', bounce: 0.4 }}
-            className={`
-              relative w-[75vw] max-w-[320px] bg-white p-3 pb-16 sm:p-4 sm:pb-20
-              shadow-xl rounded-sm cursor-pointer
-              hover:z-40 hover:scale-105 hover:shadow-2xl transition-all duration-300
-              /* 🌟 偶数なら左寄り、奇数なら右寄りに配置して「互い違い」を作る */
-              ${isEven ? 'mr-auto md:ml-[10%] md:mr-auto' : 'ml-auto md:mr-[10%] md:ml-auto'}
-            `}
-            onClick={() => switchPage('profile')}
-          >
-            {/* 写真（立ち絵）部分 */}
-            <div className="w-full aspect-[3/4] overflow-hidden bg-slate-100 rounded-sm">
-              <img
-                src={member.image}
-                alt={member.displayName}
-                className="w-full h-full object-cover object-top pointer-events-none"
-              />
-            </div>
+          {/* 立ち絵・写真 */}
+          <img
+            src={member.image}
+            alt={member.displayName}
+            /* 🌟 初期は白黒（モノクロ）、カーソルを合わせるとカラーになる演出！ */
+            className="w-full h-full object-cover object-center scale-105 group-hover:scale-110 transition-transform duration-500 pointer-events-none grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100"
+          />
 
-            {/* チェキの余白部分（名前と役職） */}
-            <div className="absolute bottom-4 inset-x-0 flex flex-col items-center px-4">
-              <span className={`text-[10px] md:text-xs font-black text-blue-500 tracking-widest uppercase mb-1 ${montserrat.className}`}>
+          {/* 名前プレート（ホバーでスッと上にスライドしてくる） */}
+          <div className="absolute bottom-0 left-0 w-full p-4 z-20 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            <div className="border-l-4 border-cyan-400 pl-3">
+              <p className={`text-[10px] md:text-xs font-black text-cyan-400 tracking-widest uppercase mb-1 drop-shadow-md ${montserrat.className}`}>
                 {member.roleName}
-              </span>
-              <span className="text-base md:text-xl font-bold text-slate-800 truncate w-full text-center">
+              </p>
+              <p className="text-lg md:text-xl font-bold text-white tracking-wider drop-shadow-md truncate">
                 {member.displayName}
-              </span>
+              </p>
             </div>
+          </div>
 
-            {/* 🌟 写真を留めるテープ風の装飾（おまけ） */}
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-white/40 backdrop-blur-sm shadow-sm rotate-2"></div>
-          </motion.div>
-        );
-      })}
-    </div>
+          {/* ホバー時に光るネオン枠線 */}
+          <div 
+            className="absolute inset-0 border-2 border-transparent group-hover:border-cyan-400/50 transition-colors duration-300 z-30 pointer-events-none" 
+            style={{ clipPath: 'polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%)' }}
+          ></div>
+        </motion.div>
+      ))}
+    </motion.div>
   </div>
 </section>
-   {/* 🔽🔽🔽 ここに変更中をペースト！！ 🔽🔽🔽 */}
+   {/* 🔽🔽🔽変更中🔽🔽🔽 */}
                 
                 {/* 🔽🔽🔽 ここにABOUTをペースト！！ 🔽🔽🔽 */}
                 {/* ⭐ ABOUT セクション（data.ts 連動＆安全対策版） ⭐ */}
