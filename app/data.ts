@@ -192,7 +192,7 @@ export const staffList = [
     id: 'sub_admin_6',
     name: 'こゆき',
     role: 'サブ管理人',
-    image: '/tsc-official/koyukitatie.png',
+    image: '/tsc-official/koyukitatie.webp',
     profile: 'ゲームとお酒とお喋り大好き、個人勢Vtuber。『Apex Legends』のゲーム実況を中心に活動中。七皇の剣の専属モデレーターも兼任中。おしゃべりが大好きなのでTSCでは主にVCの盛り上げ役や、裏方として技術面のサポートも行っている。',
     offsetX: -250,
     offsetY: 270,
