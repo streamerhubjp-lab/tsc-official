@@ -884,60 +884,70 @@ return (
                 </section>
 
 
-                <section className="py-16 bg-[#FAFAFA] border-t border-slate-200/50 overflow-hidden flex flex-col items-center justify-center relative">
-                  <div className="mb-10 flex flex-col items-center z-10">
-                    <p className={`text-blue-500 font-bold text-[10px] tracking-[0.4em] uppercase mb-2 ${montserrat.className}`}>
-                      Our Staffs
-                    </p>
-                    <h3
-                      className={`text-xl md:text-2xl font-black text-slate-800 tracking-wider ${cleanFont.className}`}
-                    >
-                      総勢12名の運営チーム
-                    </h3>
-                  </div>
+             <section className="py-24 bg-[#FAFAFA] border-t border-slate-200/50 overflow-hidden relative">
+  <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+    {/* タイトル部分 */}
+    <div className="mb-20 flex flex-col items-center">
+      <p className={`text-blue-500 font-bold text-[10px] tracking-[0.4em] uppercase mb-2 ${montserrat.className}`}>
+        Our Staffs
+      </p>
+      <h3 className={`text-2xl md:text-3xl font-black text-slate-800 tracking-wider ${cleanFont.className}`}>
+        総勢12名の運営チーム
+      </h3>
+    </div>
 
-                  <div className="w-full flex overflow-hidden group px-0" ref={carouselRef}>
-                    <motion.div
-                      drag="x"
-                      dragConstraints={carouselRef}
-                      /* 🌟 修正1：全て半角スペースに直しました！ */
-                      className="flex gap-8 md:gap-12 px-4 md:px-6 w-max cursor-grab active:cursor-grabbing"
-                      animate={{ x: ['-50%', '0%'] }}
-                      transition={{
-                        ease: 'linear',
-                        duration: 180,
-                        repeat: Infinity,
-                      }}
-                    >
-                      {[...marqueeMembers, ...marqueeMembers].map(
-                        (member, idx) => (
-                          <div
-                            key={`marquee-item-${idx}`}
-                            className="w-[70vw] h-[50vh] sm:w-[45vw] sm:h-[40vh] md:w-[30vw] md:h-[45vh] lg:w-[25vw] lg:h-[55vh] shrink-0 bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-md relative transition-all duration-500 group-hover:opacity-50 hover:!opacity-100 hover:scale-105 hover:shadow-2xl cursor-pointer hover:z-20"
-                            onClick={() => switchPage('profile')}
-                          >
-                            <img
-                              src={member.image}
-                              alt={member.displayName}
-                              /* 🌟 修正2：pointer-events-none を追加しました！ */
+    {/* 写真の互い違い配置部分 */}
+    <div className="flex flex-col gap-16 md:gap-24 items-center">
+      {marqueeMembers.map((member, idx) => {
+        // 🌟 魔法の変数：偶数番目(0,2,4...)か奇数番目(1,3,5...)かを判定
+        const isEven = idx % 2 === 0;
 
-                              className="w-full h-full object-cover object-top pointer-events-none"
-                            />
-                            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent p-6 flex flex-col justify-end h-1/2">
-                              <span className={`text-[10px] md:text-xs font-black text-blue-400 tracking-widest uppercase mb-1 drop-shadow-md ${montserrat.className}`}>
-                                {member.roleName}
-                              </span>
-                              <span className="text-lg md:text-2xl font-bold text-white truncate drop-shadow-md">
-                                {member.displayName}
-                              </span>
-                            </div>
-                          </div>
-                        )
-                      )}
-                    </motion.div>
-                  </div>
-                </section>
+        return (
+          <motion.div
+            key={`staff-${idx}`}
+            // 🌟 スクロールして画面に入った時のアニメーション
+            initial={{ opacity: 0, y: 50, rotate: isEven ? -10 : 10 }}
+            whileInView={{ opacity: 1, y: 0, rotate: isEven ? -3 : 3 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, type: 'spring', bounce: 0.4 }}
+            className={`
+              relative w-[75vw] max-w-[320px] bg-white p-3 pb-16 sm:p-4 sm:pb-20
+              shadow-xl rounded-sm cursor-pointer
+              hover:z-40 hover:scale-105 hover:shadow-2xl transition-all duration-300
+              /* 🌟 偶数なら左寄り、奇数なら右寄りに配置して「互い違い」を作る */
+              ${isEven ? 'mr-auto md:ml-[10%] md:mr-auto' : 'ml-auto md:mr-[10%] md:ml-auto'}
+            `}
+            onClick={() => switchPage('profile')}
+          >
+            {/* 写真（立ち絵）部分 */}
+            <div className="w-full aspect-[3/4] overflow-hidden bg-slate-100 rounded-sm">
+              <img
+                src={member.image}
+                alt={member.displayName}
+                className="w-full h-full object-cover object-top pointer-events-none"
+              />
+            </div>
 
+            {/* チェキの余白部分（名前と役職） */}
+            <div className="absolute bottom-4 inset-x-0 flex flex-col items-center px-4">
+              <span className={`text-[10px] md:text-xs font-black text-blue-500 tracking-widest uppercase mb-1 ${montserrat.className}`}>
+                {member.roleName}
+              </span>
+              <span className="text-base md:text-xl font-bold text-slate-800 truncate w-full text-center">
+                {member.displayName}
+              </span>
+            </div>
+
+            {/* 🌟 写真を留めるテープ風の装飾（おまけ） */}
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-white/40 backdrop-blur-sm shadow-sm rotate-2"></div>
+          </motion.div>
+        );
+      })}
+    </div>
+  </div>
+</section>
+   {/* 🔽🔽🔽 ここに変更中をペースト！！ 🔽🔽🔽 */}
+                
                 {/* 🔽🔽🔽 ここにABOUTをペースト！！ 🔽🔽🔽 */}
                 {/* ⭐ ABOUT セクション（data.ts 連動＆安全対策版） ⭐ */}
                <section className="py-32 px-6 bg-[#FAFAFA] relative overflow-hidden border-t border-slate-100">
