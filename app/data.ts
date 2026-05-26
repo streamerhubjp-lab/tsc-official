@@ -173,7 +173,7 @@ export const staffList = [
     id: 'sub_admin_5',
     name: '狼の野郎',
     role: 'サブ管理人',
-    image: '/tsc-official/3599568-3.png',
+    image: '/tsc-official/ookaminoyarou.webp',
     profile: 'ただの狼、人間生活大満喫中狼。配信者やら、物作りやら、小説書いたり、自由気ままにインターネット生活ライフ『Apex Legends』、『原神』、『VAROLANT』や『魔法少女ノ魔女裁判』などのストーリー系ゲームなど、多岐にわたるゲームを配信中。動画制作など色々と作り中ぜひみてね～。たのしぃ',
     offsetX: -250,
     offsetY: 270,
