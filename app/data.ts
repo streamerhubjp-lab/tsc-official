@@ -155,7 +155,7 @@ export const staffList = [
     id: 'sub_admin_4',
     name: 'しいな',
     role: 'サブ管理人',
-    image: '/tsc-official/siinatatie.png',
+    image: '/tsc-official/siinatatie.webp',
     profile: '不定期にPS5で怪奇現象（配信）をしているオバケ、というコンセプトストリーマー。『リトルナイトメア』や『ロックマン2』などのゲーム実況に加え、音ゲーの『DEEMO』をピアノで演奏するなど多岐にわたる。おっとりとした癒やし系の雰囲気があり、リスナーを大切にする温かい交流が魅力の配信者。TSC内でも細やかな気遣いや丁寧な仕事ぶりで運営を支えている。',
     offsetX: -250,
     offsetY: 170,
