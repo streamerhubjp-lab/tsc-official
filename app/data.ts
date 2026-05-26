@@ -135,7 +135,7 @@ export const staffList = [
     id: 'sub_admin_3',
     name: 'がいくま',
     role: 'サブ管理人',
-    image: '/tsc-official/gaikuma.png', 
+    image: '/tsc-official/gaikuma.webp', 
     profile: '人間に憧れて熊から人間へ転生。VCは夕方から深夜で出没します。少人数用のVCにいることが多く、大人数が苦手でもご安心ください。APEXやちょっと変わったゲームをしています。共通するゲームがあれば、ぜひ一緒に遊びましょう！プレイを鑑賞したいだけでも大丈夫です。困ったことがあればご相談ください。',
     offsetX: -180,
     offsetY: 170,
