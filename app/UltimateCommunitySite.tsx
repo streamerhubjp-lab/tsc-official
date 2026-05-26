@@ -914,7 +914,6 @@ return (
           <img
             src={member.image}
             alt={member.displayName}
-            loading="lazy"   /* 🌟追加1：画面に近づくまで画像の読み込みをサボる */
             decoding="async" /* 🌟追加2：画像を画面に出す処理を裏側でやって、スクロールを止めない */
             className="w-full h-full object-cover object-top transition-transform duration-500"
           />
