@@ -942,7 +942,8 @@ return (
           <img
             src={member.image}
             alt={member.displayName}
-            decoding="async" /* 🌟追加2：画像を画面に出す処理を裏側でやって、スクロールを止めない */
+           /* ついでに、この画像は超重要だぞ！とブラウザに念押しする属性を追加 */
+            fetchpriority="high"
             className="w-full h-full object-cover object-top transition-transform duration-500"
           />
 
