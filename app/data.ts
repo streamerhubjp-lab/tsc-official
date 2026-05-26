@@ -233,7 +233,7 @@ export const staffList = [
     id: 'sub_admin_8',
     name: 'つゆりひお',
     role: 'サブ管理人',
-    image: '/tsc-official/tuyuriho.png',
+    image: '/tsc-official/tuyuriho.webp',
     profile: 'result e-Sports所属のハムスターモチーフの小動物系配信者。『Apex Legends』、『VAROLANT』、『DBD』やホラーゲームなど、多岐にわたるゲームを配信中。おっとりとしたかわいらしい雰囲気を持ちつつ、ゲームに対しては真剣に取り組むギャップも魅力的。',
     offsetX: -220,
     offsetY: 180,
