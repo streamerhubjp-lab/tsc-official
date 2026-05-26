@@ -943,7 +943,7 @@ return (
             src={member.image}
             alt={member.displayName}
            /* ついでに、この画像は超重要だぞ！とブラウザに念押しする属性を追加 */
-            fetchpriority="high"
+            fetchPriority="high"
             className="w-full h-full object-cover object-top transition-transform duration-500"
           />
 
