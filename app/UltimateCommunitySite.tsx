@@ -912,7 +912,7 @@ return (
                 </section>
 
    {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
-                <section className="py-20 bg-white border-y border-slate-200 overflow-hidden relative">
+              <section className="py-20 bg-white border-y border-slate-200 overflow-hidden relative">
   {/* タイトル部分 */}
   <div className="mb-12 flex flex-col items-center z-10 relative">
     <p className={`text-blue-500 font-bold text-xs tracking-[0.3em] uppercase mb-2 ${montserrat.className}`}>
@@ -928,32 +928,38 @@ return (
     {marqueeMembers.map((member, idx) => {
       const isEven = idx % 2 === 0;
 
+      // 🌟 魔法の計算：右から順番にする
+      // 全体の人数(length)から、現在の番号(idx)を引くことで、右から順にディレイを設定する。
+      const membersCount = marqueeMembers.length;
+      const rightToLeftDelay = (membersCount - 1 - idx) * 0.15; // 👈 0.15秒ずつのディレイ
+
       return (
-        /* 🌟 外箱（ジグザグ配置とホバー伸縮） */
+        /* 🌟 外箱（ジグザグ配置とホバー伸縮）はそのまま */
         <div
           key={`admin-wrapper-${idx}`}
           className={`relative flex-1 min-w-[30px] md:min-w-[40px] h-[80%] transition-all duration-500 ease-in-out hover:flex-[3] md:hover:flex-[4] ${
             isEven ? 'translate-y-4 md:translate-y-6' : '-translate-y-4 md:-translate-y-6'
           }`}
         >
-          {/* 🌟 中身（極上の「ふわっと」アニメーション仕様） */}
+          {/* 🌟 中身（極上の「ふわっ、ふわっ」 & 右から順番仕様） */}
           <motion.div
-            // 初期状態：距離を短く(40px)して、よりソフトに
-            initial={{ opacity: 0, y: isEven ? 40 : -40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            // 🌟 1. 初期状態：opacityとscaleを組み合わせて「ふわっ」と感を出す
+            initial={{ opacity: 0, scale: 0.9, y: isEven ? 20 : -20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
             
-            // 🌟 トリガーを少し手前(-100px)にして、ゆっくり見せる準備をする
+            // 最初の一回だけ発動
             viewport={{ once: true, margin: "-100px" }}
             
             transition={{
-              duration: 0.9, // 🌟 時間をかけてゆっくり動かす
+              duration: 1.2, // 🌟 さらにゆっくり（1.2秒）かけて動かすことで「ふわふわ」感を強調
               
-              // 🌟 これが魔法の超スムーズ・イージング（bounce/springはナシ！）
-              ease: [0.22, 1, 0.36, 1], 
+              // 🌟 霧が晴れるような、超スムーズなイージング
+              ease: [0.25, 1, 0.5, 1], 
               
-              delay: idx * 0.08, // 🌟 順番に出る間隔も少し広げて、優雅にする
+              // 🌟 計算した右からのディレイを適用！
+              delay: rightToLeftDelay, 
             }}
-            // ✅ 絶妙な灰色は削除されたまま。完璧な白背景！
+            // 問題のグレー背景は削除されたまま。完璧な白背景！
             className="w-full h-full group bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden cursor-pointer hover:shadow-xl"
             onClick={() => switchPage('profile')}
           >
