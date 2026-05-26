@@ -912,8 +912,8 @@ return (
                 </section>
 
    {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
-                          <section className="py-20 bg-white border-y border-slate-200 overflow-hidden relative">
-  {/* 🌟 タイトル部分 */}
+                <section className="py-20 bg-white border-y border-slate-200 overflow-hidden relative">
+  {/* タイトル部分 */}
   <div className="mb-12 flex flex-col items-center z-10 relative">
     <p className={`text-blue-500 font-bold text-xs tracking-[0.3em] uppercase mb-2 ${montserrat.className}`}>
       Management & Sub-Admins
@@ -923,7 +923,7 @@ return (
     </h3>
   </div>
 
-  {/* 🌟 コンテナ部分 */}
+  {/* コンテナ部分 */}
   <div className="w-full max-w-7xl mx-auto px-2 md:px-4 flex justify-center items-center h-[50vh] md:h-[60vh] gap-1 md:gap-2">
     {marqueeMembers.map((member, idx) => {
       const isEven = idx % 2 === 0;
@@ -936,22 +936,28 @@ return (
             isEven ? 'translate-y-4 md:translate-y-6' : '-translate-y-4 md:-translate-y-6'
           }`}
         >
-          {/* 🌟 中身（ダイナミックなアニメーションを復活！） */}
+          {/* 🌟 中身（極上の「ふわっと」アニメーション仕様） */}
           <motion.div
-            // 🌟 動きの幅を 80px に拡大してダイナミックに！
-            initial={{ opacity: 0, y: isEven ? 80 : -80 }}
+            // 初期状態：距離を短く(40px)して、よりソフトに
+            initial={{ opacity: 0, y: isEven ? 40 : -40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
+            
+            // 🌟 トリガーを少し手前(-100px)にして、ゆっくり見せる準備をする
+            viewport={{ once: true, margin: "-100px" }}
+            
             transition={{
-              duration: 0.6,
-              type: "spring", // 🌟 クセになるバネ感（ポヨンとした動き）を復活！
-              bounce: 0.3,
-              delay: idx * 0.05,
+              duration: 0.9, // 🌟 時間をかけてゆっくり動かす
+              
+              // 🌟 これが魔法の超スムーズ・イージング（bounce/springはナシ！）
+              ease: [0.22, 1, 0.36, 1], 
+              
+              delay: idx * 0.08, // 🌟 順番に出る間隔も少し広げて、優雅にする
             }}
+            // ✅ 絶妙な灰色は削除されたまま。完璧な白背景！
             className="w-full h-full group bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden cursor-pointer hover:shadow-xl"
             onClick={() => switchPage('profile')}
           >
-            {/* 🌟 問題の「絶妙な灰色（bg-slate-200）」を抹殺！ */}
+            {/* 画像（立ち絵） */}
             <img
               src={member.image}
               alt={member.displayName}
@@ -959,6 +965,7 @@ return (
               className="w-full h-full object-cover object-top transition-transform duration-500"
             />
 
+            {/* ホバー時のテキスト */}
             <div className="absolute inset-x-0 bottom-0 pt-20 pb-4 px-2 bg-gradient-to-t from-white via-white/90 to-transparent flex flex-col items-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <span className={`text-[9px] md:text-[10px] font-black text-blue-500 tracking-widest uppercase mb-1 ${montserrat.className}`}>
                 {member.roleName}
