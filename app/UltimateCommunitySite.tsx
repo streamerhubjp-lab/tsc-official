@@ -912,15 +912,38 @@ return (
                 </section>
 
    {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
-        return (
-        /* 外箱（ジグザグ配置とホバー伸縮）はそのまま */
+       <section className="py-20 bg-white border-y border-slate-200 overflow-hidden relative">
+  {/* タイトル部分 */}
+  <div className="mb-12 flex flex-col items-center z-10 relative">
+    <p className={`text-blue-500 font-bold text-xs tracking-[0.3em] uppercase mb-2 ${montserrat.className}`}>
+      Management & Sub-Admins
+    </p>
+    <h3 className={`text-2xl md:text-3xl font-black text-slate-800 tracking-wider ${cleanFont.className}`}>
+      コミュニティ運営陣
+    </h3>
+  </div>
+
+  {/* 🌟 親コンテナ：ここで「子どもたちを順番に動かせ！」という魔法の号令（staggerChildren）をかける */}
+  <motion.div 
+    initial="initial"
+    whileInView="animate"
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ staggerChildren: 0.18 }} // 👈 これが0.18秒ずらしのドミノ倒し！
+    className="w-full max-w-7xl mx-auto px-2 md:px-4 flex justify-center items-center h-[50vh] md:h-[60vh] gap-1 md:gap-2"
+  >
+    {/* 🌟 ちゃんと (member, idx) があるか確認！ */}
+    {marqueeMembers.map((member, idx) => {
+      const isEven = idx % 2 === 0;
+
+      return (
+        /* 外箱（ジグザグ配置とホバー伸縮） */
         <div
           key={`admin-wrapper-${idx}`}
           className={`relative flex-1 min-w-[30px] md:min-w-[40px] h-[80%] transition-all duration-500 ease-in-out hover:flex-[3] md:hover:flex-[4] ${
             isEven ? 'translate-y-4 md:translate-y-6' : '-translate-y-4 md:-translate-y-6'
           }`}
         >
-          {/* 🌟 中身：TypeScriptに怒られないように variants を直接（インライン）書く！ */}
+          {/* 中身（インラインでvariantsを書いてTypeScriptを黙らせる！） */}
           <motion.div
             variants={{
               initial: { 
@@ -934,7 +957,7 @@ return (
                 y: 0,
                 transition: {
                   duration: 0.7,
-                  ease: [0.215, 0.610, 0.355, 1.000], // インラインならTSも納得する！
+                  ease: [0.215, 0.610, 0.355, 1.000], // 超滑らかなイージング
                 }
               }
             }}
@@ -961,6 +984,9 @@ return (
           </motion.div>
         </div>
       );
+    })}
+  </motion.div>
+</section>
    {/* 🔽🔽🔽変更中🔽🔽🔽 */}
                 
                 {/* 🔽🔽🔽 ここにABOUTをペースト！！ 🔽🔽🔽 */}
