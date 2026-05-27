@@ -912,53 +912,7 @@ return (
                 </section>
 
    {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
-            <section className="py-20 bg-white border-y border-slate-200 overflow-hidden relative">
-  {/* タイトル部分はそのまま */}
-  <div className="mb-12 flex flex-col items-center z-10 relative">
-    <p className={`text-blue-500 font-bold text-xs tracking-[0.3em] uppercase mb-2 ${montserrat.className}`}>
-      Management & Sub-Admins
-    </p>
-    <h3 className={`text-2xl md:text-3xl font-black text-slate-800 tracking-wider ${cleanFont.className}`}>
-      コミュニティ運営陣
-    </h3>
-  </div>
-
-  {/* 🌟 1. 親コンテナを motion.div に変更！ここで「1人ずつ呼ぶ」大号令をかける */}
-  <motion.div 
-    // スクロールして見えたら、子どもたち（各メンバー）に「アニメーション開始！」の合図(animate)を送る
-    initial="initial"
-    whileInView="animate"
-    viewport={{ once: true, margin: "-100px" }}
-    // 🌟 ここが魔法！「子どもたちを、左から0.18秒ずらしで順番に動かせ！」という指示
-    transition={{
-      staggerChildren: 0.18, 
-    }}
-    className="w-full max-w-7xl mx-auto px-2 md:px-4 flex justify-center items-center h-[50vh] md:h-[60vh] gap-1 md:gap-2"
-  >
-    {marqueeMembers.map((member, idx) => {
-      const isEven = idx % 2 === 0;
-
-      // 🌟 各メンバーごとの「ふわっ」とする動きの設計図（バリアント）
-      const cardVariants = {
-        // 最初：透明で、少し縮んでいて、上下の定位置より「15px」だけ引っ込んで待機
-        initial: { 
-          opacity: 0, 
-          scale: 0.92, 
-          y: isEven ? 15 : -15 
-        },
-        // 出番が来たら：0.7秒かけて、極上の滑らかさで「ふわっ」と定位置へ！
-        animate: { 
-          opacity: 1, 
-          scale: 1, 
-          y: 0,
-          transition: {
-            duration: 0.7,
-            ease: [0.215, 0.610, 0.355, 1.000], // 🌟 高級感のある滑らかな減速（Cubic Out）
-          }
-        }
-      };
-
-      return (
+        return (
         /* 外箱（ジグザグ配置とホバー伸縮）はそのまま */
         <div
           key={`admin-wrapper-${idx}`}
@@ -966,9 +920,24 @@ return (
             isEven ? 'translate-y-4 md:translate-y-6' : '-translate-y-4 md:-translate-y-6'
           }`}
         >
-          {/* 🌟 2. 中身：独自のディレイ計算を消して、親の号令に従う形にスリム化！ */}
+          {/* 🌟 中身：TypeScriptに怒られないように variants を直接（インライン）書く！ */}
           <motion.div
-            variants={cardVariants} // 👈 上で定義した「ふわっ」の設計図を適用
+            variants={{
+              initial: { 
+                opacity: 0, 
+                scale: 0.92, 
+                y: isEven ? 15 : -15 
+              },
+              animate: { 
+                opacity: 1, 
+                scale: 1, 
+                y: 0,
+                transition: {
+                  duration: 0.7,
+                  ease: [0.215, 0.610, 0.355, 1.000], // インラインならTSも納得する！
+                }
+              }
+            }}
             className="w-full h-full group bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden cursor-pointer hover:shadow-xl"
             onClick={() => switchPage('profile')}
           >
@@ -992,9 +961,6 @@ return (
           </motion.div>
         </div>
       );
-    })}
-  </motion.div>
-</section>
    {/* 🔽🔽🔽変更中🔽🔽🔽 */}
                 
                 {/* 🔽🔽🔽 ここにABOUTをペースト！！ 🔽🔽🔽 */}
