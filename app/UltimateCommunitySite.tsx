@@ -912,82 +912,48 @@ return (
                 </section>
 
    {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
- <section className="py-20 bg-white border-y border-slate-200 overflow-hidden relative">
-  {/* タイトル部分は安定してそのまま */}
-  <div className="mb-12 flex flex-col items-center z-10 relative">
-    <p className={`text-blue-500 font-bold text-xs tracking-[0.3em] uppercase mb-2 ${montserrat.className}`}>
-      Management & Sub-Admins
-    </p>
-    <h3 className={`text-2xl md:text-3xl font-black text-slate-800 tracking-wider ${cleanFont.className}`}>
-      コミュニティ運営陣
-    </h3>
-  </div>
-
-  {/* 🌟 1. 親コンテナ（Framer Motion担当）：ここで「左から順番に」子どもを呼ぶ */}
-  <motion.div 
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, margin: "-100px" }}
-    transition={{ staggerChildren: 0.18 }} // 👈 これが0.18秒ずらしのドミノ倒し！
-    className="w-full max-w-7xl mx-auto px-2 md:px-4 flex justify-center items-center h-[50vh] md:h-[60vh] gap-1 md:gap-2"
-  >
-    {marqueeMembers.map((member, idx) => {
-      const isEven = idx % 2 === 0;
-
-      return (
-        /* 🌟 外箱（CPU担当）：ジグザグ配置とホバー伸縮（ transition-all） */
-        <div
-          key={`admin-wrapper-${idx}`}
-          className={`relative flex-1 min-w-[30px] md:min-w-[40px] h-[80%] transition-all duration-500 ease-in-out hover:flex-[4] md:hover:flex-[5] ${
-            isEven ? 'translate-y-4 md:translate-y-6' : '-translate-y-4 md:-translate-y-6'
-          }`}
-        >
-          {/* 🌟 2. 中身（GPU担当）：フワッとダイナミックに登場させるアニメーション */}
+{/* 🌟 中身（GPU担当）：ゆっくり豪華に登場させるアニメーション */}
           <motion.div
-            // インラインでvariantsを書いてTypeScriptを黙らせる！
             variants={{
               hidden: { 
                 opacity: 0, 
-                scale: 0.92, 
-                y: isEven ? 60 : -60 // 👈 動きの幅を広げてダイナミックに！
+                scale: 0.95, // 縮み具合を少し抑えて上品に
+                y: isEven ? 40 : -40 // 移動距離も少し抑えて、ゆっくりな動きに合わせる
               },
               visible: { 
                 opacity: 1, 
                 scale: 1, 
                 y: 0,
                 transition: {
-                  duration: 0.7,
-                  ease: [0.215, 0.610, 0.355, 1.000], // 超滑らかなイージング
+                  duration: 1.5, // 🌟 0.7秒 → 1.5秒に大幅延長！超ゆったり動かす！
+                  ease: [0.25, 1, 0.5, 1], // 🌟 「スーーーーッ…」と最後に長く減速する魔法のイージング
                 }
               }
             }}
             className="w-full h-full group bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden cursor-pointer hover:shadow-xl"
             onClick={() => switchPage('profile')}
           >
-            {/* 🌟 3. 究極のごまかし＆完全白背景コンテナ */}
-            {/* 絶妙な灰色は抹殺！！背景透過の立ち絵もこれで完璧な白背景になるぜ！ */}
+            {/* 完全白背景コンテナ */}
             <div className="w-full h-full relative aspect-[2/3] bg-white overflow-hidden"> 
               
               {/* 画像（立ち絵） */}
               <img
                 src={member.image}
                 alt={member.displayName}
-                // 🚫 fetchPriority="high" は大渋滞の元なので削除！！
-                
-                // 🌟 魔法のサボりコード＆クロスフェードコンボ
                 loading="lazy" 
                 decoding="async" 
-                // 初期状態は透明(opacity-0)。 transition-opacity duration-1000 で「1秒かけてぬるっと」表示！
-                className="absolute inset-0 w-full h-full object-cover object-top opacity-0 transition-opacity duration-1000 ease-in-out group-hover:scale-105 z-10"
                 
-                // 🌟 読み込みが完了した瞬間に opacity-0 を消し去るマジック
+                // 🌟 箱が動いている間にサクッと合流させる！
+                // duration-1000（1秒）だと遅すぎるので、duration-500（0.5秒）に短縮！
+                className="absolute inset-0 w-full h-full object-cover object-top opacity-0 transition-opacity duration-500 ease-in-out group-hover:scale-105 z-10"
+                
                 onLoad={(e) => {
                   e.currentTarget.classList.remove('opacity-0');
                 }}
               />
             </div>
 
-            {/* ホバー時のテキスト（安定） */}
+            {/* ホバー時のテキスト（そのまま） */}
             <div className="absolute inset-x-0 bottom-0 pt-20 pb-4 px-2 bg-gradient-to-t from-white via-white/90 to-transparent flex flex-col items-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
               <span className={`text-[9px] md:text-[10px] font-black text-blue-500 tracking-widest uppercase mb-1 ${montserrat.className}`}>
                 {member.roleName}
@@ -997,11 +963,6 @@ return (
               </span>
             </div>
           </motion.div>
-        </div>
-      );
-    })}
-  </motion.div>
-</section>
    {/* 🔽🔽🔽変更中🔽🔽🔽 */}
                 
                 {/* 🔽🔽🔽 ここにABOUTをペースト！！ 🔽🔽🔽 */}
