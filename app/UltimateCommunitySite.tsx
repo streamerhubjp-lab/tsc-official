@@ -912,21 +912,52 @@ return (
                 </section>
 
    {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
-{/* 🌟 中身（GPU担当）：ゆっくり豪華に登場させるアニメーション */}
+<section className="py-20 bg-white border-y border-slate-200 overflow-hidden relative">
+  {/* タイトル部分 */}
+  <div className="mb-12 flex flex-col items-center z-10 relative">
+    <p className={`text-blue-500 font-bold text-xs tracking-[0.3em] uppercase mb-2 ${montserrat.className}`}>
+      Management & Sub-Admins
+    </p>
+    <h3 className={`text-2xl md:text-3xl font-black text-slate-800 tracking-wider ${cleanFont.className}`}>
+      コミュニティ運営陣
+    </h3>
+  </div>
+
+  {/* 🌟 親コンテナ（Framer Motion担当）：左から順番にドミノ倒し */}
+  <motion.div 
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ staggerChildren: 0.18 }}
+    className="w-full max-w-7xl mx-auto px-2 md:px-4 flex justify-center items-center h-[50vh] md:h-[60vh] gap-1 md:gap-2"
+  >
+    {marqueeMembers.map((member, idx) => {
+      // 🌟 エラーの原因はコレが消えていたことだ！今回はバッチリ入ってるぜ！
+      const isEven = idx % 2 === 0;
+
+      return (
+        /* 外箱（CPU担当）：ジグザグ配置とホバー伸縮 */
+        <div
+          key={`admin-wrapper-${idx}`}
+          className={`relative flex-1 min-w-[30px] md:min-w-[40px] h-[80%] transition-all duration-500 ease-in-out hover:flex-[4] md:hover:flex-[5] ${
+            isEven ? 'translate-y-4 md:translate-y-6' : '-translate-y-4 md:-translate-y-6'
+          }`}
+        >
+          {/* 🌟 中身（GPU担当）：ゆっくり豪華に登場させるアニメーション */}
           <motion.div
             variants={{
               hidden: { 
                 opacity: 0, 
-                scale: 0.95, // 縮み具合を少し抑えて上品に
-                y: isEven ? 40 : -40 // 移動距離も少し抑えて、ゆっくりな動きに合わせる
+                scale: 0.95, 
+                y: isEven ? 40 : -40 
               },
               visible: { 
                 opacity: 1, 
                 scale: 1, 
                 y: 0,
                 transition: {
-                  duration: 1.5, // 🌟 0.7秒 → 1.5秒に大幅延長！超ゆったり動かす！
-                  ease: [0.25, 1, 0.5, 1], // 🌟 「スーーーーッ…」と最後に長く減速する魔法のイージング
+                  duration: 1.5, // 箱は1.5秒かけて超ゆったり定位置へ
+                  ease: [0.25, 1, 0.5, 1], 
                 }
               }
             }}
@@ -942,18 +973,15 @@ return (
                 alt={member.displayName}
                 loading="lazy" 
                 decoding="async" 
-                
-                // 🌟 箱が動いている間にサクッと合流させる！
-                // duration-1000（1秒）だと遅すぎるので、duration-500（0.5秒）に短縮！
+                // 箱がゆったり動いている間に、0.5秒でサクッと合流させる！
                 className="absolute inset-0 w-full h-full object-cover object-top opacity-0 transition-opacity duration-500 ease-in-out group-hover:scale-105 z-10"
-                
                 onLoad={(e) => {
                   e.currentTarget.classList.remove('opacity-0');
                 }}
               />
             </div>
 
-            {/* ホバー時のテキスト（そのまま） */}
+            {/* ホバー時のテキスト */}
             <div className="absolute inset-x-0 bottom-0 pt-20 pb-4 px-2 bg-gradient-to-t from-white via-white/90 to-transparent flex flex-col items-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
               <span className={`text-[9px] md:text-[10px] font-black text-blue-500 tracking-widest uppercase mb-1 ${montserrat.className}`}>
                 {member.roleName}
@@ -963,6 +991,11 @@ return (
               </span>
             </div>
           </motion.div>
+        </div>
+      );
+    })}
+  </motion.div>
+</section>
    {/* 🔽🔽🔽変更中🔽🔽🔽 */}
                 
                 {/* 🔽🔽🔽 ここにABOUTをペースト！！ 🔽🔽🔽 */}
