@@ -912,8 +912,8 @@ return (
                 </section>
 
    {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
-              <section className="py-20 bg-white border-y border-slate-200 overflow-hidden relative">
-  {/* タイトル部分 */}
+            <section className="py-20 bg-white border-y border-slate-200 overflow-hidden relative">
+  {/* タイトル部分はそのまま */}
   <div className="mb-12 flex flex-col items-center z-10 relative">
     <p className={`text-blue-500 font-bold text-xs tracking-[0.3em] uppercase mb-2 ${montserrat.className}`}>
       Management & Sub-Admins
@@ -923,43 +923,52 @@ return (
     </h3>
   </div>
 
-  {/* コンテナ部分 */}
-  <div className="w-full max-w-7xl mx-auto px-2 md:px-4 flex justify-center items-center h-[50vh] md:h-[60vh] gap-1 md:gap-2">
+  {/* 🌟 1. 親コンテナを motion.div に変更！ここで「1人ずつ呼ぶ」大号令をかける */}
+  <motion.div 
+    // スクロールして見えたら、子どもたち（各メンバー）に「アニメーション開始！」の合図(animate)を送る
+    initial="initial"
+    whileInView="animate"
+    viewport={{ once: true, margin: "-100px" }}
+    // 🌟 ここが魔法！「子どもたちを、左から0.18秒ずらしで順番に動かせ！」という指示
+    transition={{
+      staggerChildren: 0.18, 
+    }}
+    className="w-full max-w-7xl mx-auto px-2 md:px-4 flex justify-center items-center h-[50vh] md:h-[60vh] gap-1 md:gap-2"
+  >
     {marqueeMembers.map((member, idx) => {
       const isEven = idx % 2 === 0;
 
-      // 🌟 魔法の計算：右から順番にする
-      // 全体の人数(length)から、現在の番号(idx)を引くことで、右から順にディレイを設定する。
-      const membersCount = marqueeMembers.length;
-      const rightToLeftDelay = (membersCount - 1 - idx) * 0.15; // 👈 0.15秒ずつのディレイ
+      // 🌟 各メンバーごとの「ふわっ」とする動きの設計図（バリアント）
+      const cardVariants = {
+        // 最初：透明で、少し縮んでいて、上下の定位置より「15px」だけ引っ込んで待機
+        initial: { 
+          opacity: 0, 
+          scale: 0.92, 
+          y: isEven ? 15 : -15 
+        },
+        // 出番が来たら：0.7秒かけて、極上の滑らかさで「ふわっ」と定位置へ！
+        animate: { 
+          opacity: 1, 
+          scale: 1, 
+          y: 0,
+          transition: {
+            duration: 0.7,
+            ease: [0.215, 0.610, 0.355, 1.000], // 🌟 高級感のある滑らかな減速（Cubic Out）
+          }
+        }
+      };
 
       return (
-        /* 🌟 外箱（ジグザグ配置とホバー伸縮）はそのまま */
+        /* 外箱（ジグザグ配置とホバー伸縮）はそのまま */
         <div
           key={`admin-wrapper-${idx}`}
           className={`relative flex-1 min-w-[30px] md:min-w-[40px] h-[80%] transition-all duration-500 ease-in-out hover:flex-[3] md:hover:flex-[4] ${
             isEven ? 'translate-y-4 md:translate-y-6' : '-translate-y-4 md:-translate-y-6'
           }`}
         >
-          {/* 🌟 中身（極上の「ふわっ、ふわっ」 & 右から順番仕様） */}
+          {/* 🌟 2. 中身：独自のディレイ計算を消して、親の号令に従う形にスリム化！ */}
           <motion.div
-            // 🌟 1. 初期状態：opacityとscaleを組み合わせて「ふわっ」と感を出す
-            initial={{ opacity: 0, scale: 0.9, y: isEven ? 20 : -20 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            
-            // 最初の一回だけ発動
-            viewport={{ once: true, margin: "-100px" }}
-            
-            transition={{
-              duration: 1.2, // 🌟 さらにゆっくり（1.2秒）かけて動かすことで「ふわふわ」感を強調
-              
-              // 🌟 霧が晴れるような、超スムーズなイージング
-              ease: [0.25, 1, 0.5, 1], 
-              
-              // 🌟 計算した右からのディレイを適用！
-              delay: rightToLeftDelay, 
-            }}
-            // 問題のグレー背景は削除されたまま。完璧な白背景！
+            variants={cardVariants} // 👈 上で定義した「ふわっ」の設計図を適用
             className="w-full h-full group bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden cursor-pointer hover:shadow-xl"
             onClick={() => switchPage('profile')}
           >
@@ -984,7 +993,7 @@ return (
         </div>
       );
     })}
-  </div>
+  </motion.div>
 </section>
    {/* 🔽🔽🔽変更中🔽🔽🔽 */}
                 
