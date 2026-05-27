@@ -912,80 +912,70 @@ return (
                 </section>
 
    {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
-       <section className="py-20 bg-white border-y border-slate-200 overflow-hidden relative">
-  {/* タイトル部分 */}
-  <div className="mb-12 flex flex-col items-center z-10 relative">
-    <p className={`text-blue-500 font-bold text-xs tracking-[0.3em] uppercase mb-2 ${montserrat.className}`}>
-      Management & Sub-Admins
-    </p>
-    <h3 className={`text-2xl md:text-3xl font-black text-slate-800 tracking-wider ${cleanFont.className}`}>
-      コミュニティ運営陣
-    </h3>
-  </div>
-
-  {/* 🌟 親コンテナ：ここで「子どもたちを順番に動かせ！」という魔法の号令（staggerChildren）をかける */}
-  <motion.div 
-    initial="initial"
-    whileInView="animate"
-    viewport={{ once: true, margin: "-100px" }}
-    transition={{ staggerChildren: 0.18 }} // 👈 これが0.18秒ずらしのドミノ倒し！
-    className="w-full max-w-7xl mx-auto px-2 md:px-4 flex justify-center items-center h-[50vh] md:h-[60vh] gap-1 md:gap-2"
+    <section className="py-20 bg-white border-y border-slate-200 overflow-hidden relative">
+  {/* 🌟 タイトル部分をFramer Motionでリッチに動かす！ */}
+  <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, margin: "-50px" }}
+    transition={{ staggerChildren: 0.2 }} // サブタイトル→タイトルの順で時間差で出す！
+    className="mb-12 flex flex-col items-center z-10 relative"
   >
-    {/* 🌟 ちゃんと (member, idx) があるか確認！ */}
+    <motion.p
+      variants={{
+        hidden: { opacity: 0, y: 15 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+      }}
+      className={`text-blue-500 font-bold text-xs tracking-[0.3em] uppercase mb-2 ${montserrat.className}`}
+    >
+      Management & Sub-Admins
+    </motion.p>
+    <motion.h3
+      variants={{
+        hidden: { opacity: 0, y: 15 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+      }}
+      className={`text-2xl md:text-3xl font-black text-slate-800 tracking-wider ${cleanFont.className}`}
+    >
+      コミュニティ運営陣
+    </motion.h3>
+  </motion.div>
+
+  {/* 🌟 コンテナ＆メンバー部分：アニメーションを完全に排除して「カクつきゼロ」の鉄壁仕様に！ */}
+  <div className="w-full max-w-7xl mx-auto px-2 md:px-4 flex justify-center items-center h-[50vh] md:h-[60vh] gap-1 md:gap-2">
     {marqueeMembers.map((member, idx) => {
       const isEven = idx % 2 === 0;
 
       return (
-        /* 外箱（ジグザグ配置とホバー伸縮） */
+        /* 🌟 画像の外箱と中身を一つにまとめてスッキリ！ジグザグ配置もホバーのぬるっ感も健在！ */
         <div
-          key={`admin-wrapper-${idx}`}
-          className={`relative flex-1 min-w-[30px] md:min-w-[40px] h-[80%] transition-all duration-500 ease-in-out hover:flex-[3] md:hover:flex-[4] ${
+          key={`admin-${idx}`}
+          className={`group relative flex-1 min-w-[30px] md:min-w-[40px] h-[80%] bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden cursor-pointer transition-all duration-500 ease-in-out hover:flex-[3] md:hover:flex-[4] hover:shadow-xl ${
             isEven ? 'translate-y-4 md:translate-y-6' : '-translate-y-4 md:-translate-y-6'
           }`}
+          onClick={() => switchPage('profile')}
         >
-          {/* 中身（インラインでvariantsを書いてTypeScriptを黙らせる！） */}
-          <motion.div
-            variants={{
-              initial: { 
-                opacity: 0, 
-                scale: 0.92, 
-                y: isEven ? 15 : -15 
-              },
-              animate: { 
-                opacity: 1, 
-                scale: 1, 
-                y: 0,
-                transition: {
-                  duration: 0.7,
-                  ease: [0.215, 0.610, 0.355, 1.000], // 超滑らかなイージング
-                }
-              }
-            }}
-            className="w-full h-full group bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden cursor-pointer hover:shadow-xl"
-            onClick={() => switchPage('profile')}
-          >
-            {/* 画像（立ち絵） */}
-            <img
-              src={member.image}
-              alt={member.displayName}
-              fetchPriority="high"
-              className="w-full h-full object-cover object-top transition-transform duration-500"
-            />
+          {/* 画像（立ち絵） */}
+          <img
+            src={member.image}
+            alt={member.displayName}
+            fetchPriority="high"
+            className="w-full h-full object-cover object-top transition-transform duration-500"
+          />
 
-            {/* ホバー時のテキスト */}
-            <div className="absolute inset-x-0 bottom-0 pt-20 pb-4 px-2 bg-gradient-to-t from-white via-white/90 to-transparent flex flex-col items-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <span className={`text-[9px] md:text-[10px] font-black text-blue-500 tracking-widest uppercase mb-1 ${montserrat.className}`}>
-                {member.roleName}
-              </span>
-              <span className="text-xs md:text-sm font-bold text-slate-800 truncate w-full">
-                {member.displayName}
-              </span>
-            </div>
-          </motion.div>
+          {/* ホバー時のテキスト */}
+          <div className="absolute inset-x-0 bottom-0 pt-20 pb-4 px-2 bg-gradient-to-t from-white via-white/90 to-transparent flex flex-col items-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span className={`text-[9px] md:text-[10px] font-black text-blue-500 tracking-widest uppercase mb-1 ${montserrat.className}`}>
+              {member.roleName}
+            </span>
+            <span className="text-xs md:text-sm font-bold text-slate-800 truncate w-full">
+              {member.displayName}
+            </span>
+          </div>
         </div>
       );
     })}
-  </motion.div>
+  </div>
 </section>
    {/* 🔽🔽🔽変更中🔽🔽🔽 */}
                 
