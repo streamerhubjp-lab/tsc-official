@@ -912,42 +912,24 @@ return (
                 </section>
 
    {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
-    <section className="py-20 bg-white border-y border-slate-200 overflow-hidden relative">
-  {/* 🌟 タイトル部分をFramer Motionでリッチに動かす！ */}
-  <motion.div
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, margin: "-50px" }}
-    transition={{ staggerChildren: 0.2 }} // サブタイトル→タイトルの順で時間差で出す！
-    className="mb-12 flex flex-col items-center z-10 relative"
-  >
-    <motion.p
-      variants={{
-        hidden: { opacity: 0, y: 15 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-      }}
-      className={`text-blue-500 font-bold text-xs tracking-[0.3em] uppercase mb-2 ${montserrat.className}`}
-    >
+  <section className="py-20 bg-white border-y border-slate-200 overflow-hidden relative">
+  {/* タイトル部分はそのまま（安定） */}
+  <div className="mb-12 flex flex-col items-center z-10 relative">
+    <p className={`text-blue-500 font-bold text-xs tracking-[0.3em] uppercase mb-2 ${montserrat.className}`}>
       Management & Sub-Admins
-    </motion.p>
-    <motion.h3
-      variants={{
-        hidden: { opacity: 0, y: 15 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-      }}
-      className={`text-2xl md:text-3xl font-black text-slate-800 tracking-wider ${cleanFont.className}`}
-    >
+    </p>
+    <h3 className={`text-2xl md:text-3xl font-black text-slate-800 tracking-wider ${cleanFont.className}`}>
       コミュニティ運営陣
-    </motion.h3>
-  </motion.div>
+    </h3>
+  </div>
 
-  {/* 🌟 コンテナ＆メンバー部分：アニメーションを完全に排除して「カクつきゼロ」の鉄壁仕様に！ */}
+  {/* メンバーコンテナ（安定） */}
   <div className="w-full max-w-7xl mx-auto px-2 md:px-4 flex justify-center items-center h-[50vh] md:h-[60vh] gap-1 md:gap-2">
     {marqueeMembers.map((member, idx) => {
       const isEven = idx % 2 === 0;
 
       return (
-        /* 🌟 画像の外箱と中身を一つにまとめてスッキリ！ジグザグ配置もホバーのぬるっ感も健在！ */
+        /* 外箱（ジグザグ配置とホバー伸縮はそのまま維持） */
         <div
           key={`admin-${idx}`}
           className={`group relative flex-1 min-w-[30px] md:min-w-[40px] h-[80%] bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden cursor-pointer transition-all duration-500 ease-in-out hover:flex-[3] md:hover:flex-[4] hover:shadow-xl ${
@@ -955,16 +937,34 @@ return (
           }`}
           onClick={() => switchPage('profile')}
         >
-          {/* 画像（立ち絵） */}
-          <img
-            src={member.image}
-            alt={member.displayName}
-            fetchPriority="high"
-            className="w-full h-full object-cover object-top transition-transform duration-500"
-          />
+          {/* 🌟 究極のガタつき対策：アスペクト比固定コンテナ */}
+          {/* 立ち絵に最適な「2:3」の比率を強制。画像が入る前から空き地を確保！ */}
+          <div className="w-full h-full relative aspect-[2/3] bg-slate-100"> 
+            
+            {/* 画像（立ち絵） */}
+            <img
+              src={member.image}
+              alt={member.displayName}
+              
+              // 🚫 強すぎる指示 fetchPriority="high" は削除！大渋滞の元だ！
+              
+              // 🌟 1. 魔法の遅延読み込み。画面に近づくまで読み込まず、ブラウザを休ませる！
+              loading="lazy" 
+              
+              // 🌟 2. 非同期デコード。裏側でこっそり画像を展開し、ペイント時の引っ掛かりを防ぐ！
+              decoding="async" 
+              
+              // 🌟 3. CSSだけでふわっと出す（画像自体のtransitionは消して、親コンテナに任せる）
+              className="w-full h-full object-cover object-top opacity-0 transition-opacity duration-700 group-hover:scale-105 transition-transform duration-500"
+              
+              // 🌟 4. 読み込み終わったら opacity-100 にするCSSマジック（※Next.jsならImageタグを使うのがベスト）
+              // ※React標準のimgを使う場合、簡単なJS(onLoad)が必要だが、まずはこのHTML/CSSだけで驚くほど軽くなる！
+              onLoad={(e) => e.currentTarget.classList.remove('opacity-0')}
+            />
+          </div>
 
-          {/* ホバー時のテキスト */}
-          <div className="absolute inset-x-0 bottom-0 pt-20 pb-4 px-2 bg-gradient-to-t from-white via-white/90 to-transparent flex flex-col items-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          {/* ホバー時のテキスト部分 */}
+          <div className="absolute inset-x-0 bottom-0 pt-20 pb-4 px-2 bg-gradient-to-t from-white via-white/90 to-transparent flex flex-col items-center text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
             <span className={`text-[9px] md:text-[10px] font-black text-blue-500 tracking-widest uppercase mb-1 ${montserrat.className}`}>
               {member.roleName}
             </span>
