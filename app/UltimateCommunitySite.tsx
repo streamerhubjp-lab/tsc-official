@@ -410,10 +410,10 @@ const headerNavItem = {
         <AnimatePresence mode="wait">
           <motion.main key={activePage} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={pageTransition} className="w-full flex-grow flex flex-col">
             
-              {activePage === 'home' && (
+            {activePage === 'home' && (
               <>{/* 🌟🌟🌟 ここで「ホーム画面の箱」スタート！ 🌟🌟🌟 */}
                 {/* 💡 flex-row (左右分割) に設定 */}
-                <section className="relative w-full min-h-screen flex flex-col items-center justify-start overflow-hidden bg-white">
+                <section className="relative w-full min-h-screen flex flex-col lg:flex-row items-center justify-between overflow-hidden bg-white">
                   
                   {/* 1. 背景グリッド */}
                   <div className="absolute inset-0 z-0 bg-grid-pattern opacity-100 pointer-events-none" />
@@ -430,81 +430,76 @@ const headerNavItem = {
                     </span>
                   </div>
 
-                  {/* 💡 PC時は flex-row で左右に分けるコンテナ */}
-                  <div className="relative w-full h-full flex flex-col lg:flex-row items-center justify-between z-10">
+                  {/* 🌟 5. キャラクター層（absoluteで親コンテナを無視して巨大化・右寄せ） 🌟 */}
+                  {/* 💡 親コンテナ全体に対して配置する土台にする */}
+                  <motion.div 
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1.2, ease: 'easeOut', delay: 0.2 }}
+                    className="absolute z-20 w-full h-full flex justify-start items-end pointer-events-none left-0 top-0"
+                  >
+                    <motion.img
+                      src={siteConfig.heroImages[heroIndex] || siteConfig.logo}
+                      alt="TSC Members"
+                      // 🌟 ここを改造！ ユーザーの要望通り、画面の半分くらいを占領できるように、めっちゃ大きく！
+                      // 1. メチャクチャ大きくする: PCでの幅を w-[400%] (画面全体の2倍！) に巨大化
+                      // 2. 右に食い込ませる: lg:translate-x-[30%] を追加して、本来の中央位置からさらに右側へとずらす！
+                      // 3. max-w-none は必須！
+                      className="w-[400%] lg:w-[400%] lg:translate-x-[30%] max-w-none h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.2)] pointer-events-auto transition-transform duration-300"
+                    />
+                  </motion.div>
 
-                    {/* 🌟 5. キャラクター層（左半分に配置し、右へ強烈に食い込ませる） 🌟 */}
-                    {/* 💡 w-full lg:w-[50%] で画面の左半分を確保 */}
-                    <motion.div 
-                      className="relative z-20 w-full lg:w-[50%] h-full flex justify-center lg:justify-start items-end pointer-events-none mt-20 lg:mt-0"
-                    >
-                      <motion.img
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 1.2, ease: 'easeOut', delay: 0.2 }}
-                        src={siteConfig.heroImages[heroIndex] || siteConfig.logo}
-                        alt="TSC Members"
-                        // 🌟 ここを調整！ width をメチャクチャ大きく (w-[350%]) する！
-                        // 💡 ユーザーの要望通り、「右なんよ右」。
-                        // 💡 巨大化させた画像を、 lg:translate-x-[20%] で右側（テキストエリア側）へ大胆に食い込ませる！
-                        // 💡 PC時は left-0 で左端を基準にする
-                        className="w-[350%] lg:w-[350%] lg:translate-x-[20%] max-w-none h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.2)] pointer-events-auto relative lg:left-0"
-                      />
+                  {/* 🌟 3 & 4. テキストエリア（右半分にまとめて配置） 🌟 */}
+                  {/* 💡 w-full lg:w-[50%] で画面の右半分を確保し、中央に寄せる */}
+                  <div className="relative z-30 w-full lg:w-[50%] h-full flex flex-col justify-center items-start px-8 lg:px-16 pointer-events-none pb-32 lg:pb-0">
+                    
+                    {/* 🌟 4. 右側オシャレ文字（英語ロゴ：上） 🌟 */}
+                    <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2, duration: 1.2, ease: "easeOut" }} className="relative text-left mb-16">
+                      {/* 🌟 クラス： font-[200] text-slate-800 のまま！ */}
+                      <h1 className={`${montserrat.className} text-4xl xl:text-[4.5rem] font-[200] tracking-[0.2em] text-slate-800 leading-[1.1]`}>
+                        THE<br />STREAMER<br />CREATOR<br /><span className="text-blue-600 font-[300]">SERVER</span>
+                      </h1>
+                      <div className="mt-8 flex items-center gap-4 opacity-60">
+                        <div className="w-16 h-[1px] bg-slate-800"></div>
+                        <span className={`text-[10px] tracking-[0.4em] font-bold uppercase ${montserrat.className}`}>EST. 2026</span>
+                      </div>
                     </motion.div>
 
-                    {/* 🌟 3 & 4. テキストエリア（右半分にまとめて配置：z-30で手前に） 🌟 */}
-                    {/* 💡 w-full lg:w-[50%] で画面の右半分を確保し、中央に寄せる */}
-                    <div className="relative z-30 w-full lg:w-[50%] h-full flex flex-col justify-center items-start px-8 lg:px-16 pointer-events-none pb-32 lg:pb-0 mt-12 lg:mt-0">
-                      
-                      {/* 🌟 4. 右側オシャレ文字（英語ロゴ：上） 🌟 */}
-                      <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2, duration: 1.2, ease: "easeOut" }} className="relative text-left mb-16">
-                        {/* 🌟 クラス： font-[200] text-slate-800 のまま！ */}
-                        <h1 className={`${montserrat.className} text-4xl xl:text-[4.5rem] font-[200] tracking-[0.2em] text-slate-800 leading-[1.1]`}>
-                          THE<br />STREAMER<br />CREATOR<br /><span className="text-blue-600 font-[300]">SERVER</span>
-                        </h1>
-                        <div className="mt-8 flex items-center gap-4 opacity-60">
-                          <div className="w-16 h-[1px] bg-slate-800"></div>
-                          <span className={`text-[10px] tracking-[0.4em] font-bold uppercase ${montserrat.className}`}>EST. 2026</span>
-                        </div>
-                      </motion.div>
-
-                      {/* 🌟 3. キャッチコピー（日本語キャッチ：下） 🌟 */}
-                      <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.8, duration: 0.5, ease: "easeOut" }}
-                        className="relative"
+                    {/* 🌟 3. キャッチコピー（日本語キャッチ：下） 🌟 */}
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.8, duration: 0.5, ease: "easeOut" }}
+                      className="relative"
+                    >
+                     <motion.h1 
+                        initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.8 }} 
+                        // 🌟 クラス： font-bold text-slate-800 のまま！影もそのまま！
+                        className={`${cleanFont.className} text-4xl xl:text-5xl font-bold tracking-widest text-slate-800 relative leading-loose flex flex-col items-start`}
+                        style={{ filter: "drop-shadow(0px 0px 15px rgba(255,255,255,0.9)) drop-shadow(0px 4px 4px rgba(255,255,255,1))" }}
                       >
-                       <motion.h1 
-                          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.8 }} 
-                          // 🌟 クラス： font-bold text-slate-800 のまま！影もそのまま！
-                          className={`${cleanFont.className} text-4xl xl:text-5xl font-bold tracking-widest text-slate-800 relative leading-loose flex flex-col items-start`}
-                          style={{ filter: "drop-shadow(0px 0px 15px rgba(255,255,255,0.9)) drop-shadow(0px 4px 4px rgba(255,255,255,1))" }}
-                        >
-                          {/* ⭐ 1行目 */}
-                          <div className="relative overflow-hidden w-fit px-1">
-                            <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4, duration: 0.01 }} className="block">良き出会いを！</motion.span>
-                            <motion.div initial={{ x: "-101%" }} animate={{ x: ["-101%", "0%", "101%"] }} transition={{ delay: 1.0, duration: 0.8 }} className="absolute inset-0 bg-slate-800" />
-                          </div>
-                          {/* ⭐ 2行目 */}
-                          <div className="relative overflow-hidden w-fit px-1">
-                            <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.6, duration: 0.01 }} className="block">良き活動を！</motion.span>
-                            <motion.div initial={{ x: "-101%" }} animate={{ x: ["-101%", "0%", "101%"] }} transition={{ delay: 1.2, duration: 0.8 }} className="absolute inset-0 bg-slate-800" />
-                          </div>
-                          {/* ⭐ 3行目 */}
-                          <div className="relative overflow-hidden w-fit px-1">
-                            <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.8, duration: 0.01 }} className="block">そして良き居場所を！</motion.span>
-                            <motion.div initial={{ x: "-101%" }} animate={{ x: ["-101%", "0%", "101%"] }} transition={{ delay: 1.4, duration: 0.8 }} className="absolute inset-0 bg-slate-800" />
-                          </div>
-                        </motion.h1>
-                      </motion.div>
-
-                    </div>
+                        {/* ⭐ 1行目 */}
+                        <div className="relative overflow-hidden w-fit px-1">
+                          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4, duration: 0.01 }} className="block">良き出会いを！</motion.span>
+                          <motion.div initial={{ x: "-101%" }} animate={{ x: ["-101%", "0%", "101%"] }} transition={{ delay: 1.0, duration: 0.8 }} className="absolute inset-0 bg-slate-800" />
+                        </div>
+                        {/* ⭐ 2行目 */}
+                        <div className="relative overflow-hidden w-fit px-1">
+                          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.6, duration: 0.01 }} className="block">良き活動を！</motion.span>
+                          <motion.div initial={{ x: "-101%" }} animate={{ x: ["-101%", "0%", "101%"] }} transition={{ delay: 1.2, duration: 0.8 }} className="absolute inset-0 bg-slate-800" />
+                        </div>
+                        {/* ⭐ 3行目 */}
+                        <div className="relative overflow-hidden w-fit px-1">
+                          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.8, duration: 0.01 }} className="block">そして良き居場所を！</motion.span>
+                          <motion.div initial={{ x: "-101%" }} animate={{ x: ["-101%", "0%", "101%"] }} transition={{ delay: 1.4, duration: 0.8 }} className="absolute inset-0 bg-slate-800" />
+                        </div>
+                      </motion.h1>
+                    </motion.div>
 
                   </div>
-                  
+
                   {/* 🌟 復活：モバイル用テキスト（PC版コンテナの外に配置してスマホ対応をキープ！） 🌟 */}
-                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.8 }} className="block md:hidden mt-6 text-center relative z-20 pointer-events-none px-4 pb-12">
+                  <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.8 }} className="block md:hidden mt-6 text-center relative z-20 pointer-events-none px-4">
                     <h1 className={`text-2xl font-black text-slate-800 tracking-widest ${cleanFont.className}`}>TSC OFFICIAL</h1>
                     <p className={`text-[10px] font-bold text-slate-400 tracking-[0.3em] mt-1 uppercase ${montserrat.className}`}>The Streamer Creator Server</p>
                   </motion.div>
