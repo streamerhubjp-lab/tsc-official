@@ -242,67 +242,8 @@ const headerNavItem = {
     </div>
   );
 
-if (loading)
-    return (
-      <div className="h-screen w-full flex flex-col items-center justify-center bg-white fixed inset-0 z-[9999]">
-        
-        {/* max-w-xsを外して、画面幅いっぱい(w-full)で中央揃えにすることで狭いスマホにも対応 */}
-        <div className="flex flex-col items-center w-full px-2">
-          
-          {/* 1. 英語名称：絶対に改行させない (whitespace-nowrap) */}
-          <motion.div
-            initial={{ opacity: 0, letterSpacing: "0.2em" }}
-            animate={{ opacity: 1, letterSpacing: "0.6em" }} // スマホでもはみ出ないように最大幅を少し調整
-            transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[9px] sm:text-[10px] md:text-xs font-serif font-extralight text-[#111] uppercase whitespace-nowrap ml-[0.6em]"
-          >
-            The Streamer Creator Community
-          </motion.div>
-
-          {/* 2. センターライン */}
-          <motion.div 
-            initial={{ height: 0 }}
-            animate={{ height: "60px" }}
-            transition={{ duration: 1.5, delay: 0.8, ease: "easeInOut" }}
-            className="w-[0.5px] bg-[#333] my-6 md:my-8" 
-          />
-
-          {/* 3. 日本語名称（テキスト変更）：絶対に改行させない (whitespace-nowrap) */}
-          <div className="overflow-hidden w-full flex justify-center">
-            <motion.div
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1.5, delay: 1.5, ease: "easeOut" }}
-              // 🌟 スマホでは文字と字間を少し小さくし、PCでは大きくするレスポンシブ対応！
-              className="text-[8px] sm:text-[9px] md:text-[11px] font-serif font-light tracking-[0.3em] sm:tracking-[0.4em] md:tracking-[0.8em] text-[#555] ml-[0.3em] sm:ml-[0.4em] md:ml-[0.8em] whitespace-nowrap"
-            >
-              配信者クリエイターコミュニティ
-            </motion.div>
-          </div>
-
-          {/* 4. 下部の進行状況 */}
-          <div className="w-24 md:w-32 h-[1px] bg-[#eee] mt-12 md:mt-16 relative overflow-hidden">
-            <motion.div 
-              initial={{ x: "-100%" }}
-              animate={{ x: "100%" }}
-              transition={{ duration: 3, ease: "easeInOut", repeat: Infinity }}
-              className="absolute inset-0 bg-[#999]"
-            />
-          </div>
-        </div>
-
-        {/* 5. 画面全体のフェードアウト予兆 */}
-        <motion.div 
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 0 }}
-          transition={{ duration: 1, delay: 3.5 }}
-          className="fixed inset-0 bg-white pointer-events-none z-[-1]"
-        />
-      </div>
-    );
-
-  return (
-  <div className={`bg-white text-slate-800 selection:bg-blue-100 selection:text-blue-600 overflow-x-hidden min-h-screen flex flex-col ${softFont.className}`}>
+return (
+    <div className={`bg-white text-slate-800 selection:bg-blue-100 selection:text-blue-600 overflow-x-hidden min-h-screen flex flex-col ${softFont.className}`}>
       {/* 🌟🌟🌟 ここから：時間差で上がる3枚のベール（多重レイヤー演出） 🌟🌟🌟 */}
       <div className="fixed inset-0 z-[9999] pointer-events-none flex flex-col">
         {/* 1枚目（最背面）：ほんの少しだけグレー */}
@@ -383,18 +324,15 @@ if (loading)
         </AnimatePresence>
       </nav>
 
-{/* 🌟 2. PC版専用：Cygames風スリムヘッダー */}
+      {/* 🌟 2. PC版専用：Cygames風スリムヘッダー */}
       <header className="hidden md:block fixed top-0 left-0 w-full h-14 z-[100] bg-white/80 backdrop-blur-md border-b border-gray-200/50 shadow-sm transition-all">
         <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-end">
-          
-          {/* 🌟 nav を motion.nav にし、variants をセット！ */}
           <motion.nav 
             variants={headerNavContainer}
             initial="hidden"
             animate="visible"
             className={`flex items-center space-x-10 text-[11px] font-bold tracking-[0.25em] text-slate-500 uppercase ${montserrat.className}`}
           >
-            {/* 🌟 各 button を motion.button にし、variants={headerNavItem} を追加！ */}
             <motion.button variants={headerNavItem} onClick={() => switchPage('home')} className="hover:text-blue-600 transition-colors">HOME</motion.button>
             <motion.button variants={headerNavItem} onClick={() => switchPage('news')} className="hover:text-blue-600 transition-colors">NEWS</motion.button>
             <motion.button variants={headerNavItem} onClick={() => switchPage('profile')} className="hover:text-blue-600 transition-colors">PROFILE</motion.button>
@@ -404,11 +342,10 @@ if (loading)
             <motion.button variants={headerNavItem} onClick={() => switchPage('sponsors')} className="hover:text-blue-600 transition-colors">SPONSORS</motion.button>
             <motion.button variants={headerNavItem} onClick={() => switchPage('faq')} className="hover:text-blue-600 transition-colors">FAQ</motion.button>
           </motion.nav>
-          
         </div>
       </header>
 
-      {/* 🌟 3. メインコンテンツ（ここに md:pt-14 を入れています！） */}
+      {/* 🌟 3. メインコンテンツ */}
       <div className="flex-grow flex flex-col w-full md:pt-14">
         <AnimatePresence mode="wait">
           <motion.main key={activePage} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={pageTransition} className="w-full flex-grow flex flex-col">
@@ -420,19 +357,7 @@ if (loading)
                   {/* 1. 背景グリッド */}
                   <div className="absolute inset-0 z-0 bg-grid-pattern opacity-100 pointer-events-none" />
                   
-                    {/* サイドの縦書きテキスト */}
-                    <div className={`absolute left-4 md:left-12 top-[40vh] z-30 opacity-40 ${montserrat.className}`}>
-                      <span className="vertical-text text-[10px] md:text-xs font-bold tracking-[0.5em] text-slate-500 uppercase">
-                        Official Portal Site — EST. 2026
-                      </span>
-                    </div>
-
-                    <div className={`absolute right-4 md:right-12 top-[40vh] z-30 opacity-40 ${montserrat.className}`}>
-                      <span className="vertical-text text-[10px] md:text-xs font-bold tracking-[0.5em] text-slate-500 uppercase">
-                        The Streamer Creator Server
-                      </span>
-                    </div>
-                  </div>
+                  {/* 🚫 ここにあったタイポグラフィ（文字装飾）ブロックを、エラーが出ないように綺麗に削除したぜ 🚫 */}
 
                   {/* 3. 左下キャッチコピーエリア（マスクアニメーション維持） */}
                   <div className="absolute hidden lg:flex flex-col justify-center items-start left-[5%] bottom-[60vh] z-10 pointer-events-none overflow-hidden">
@@ -453,26 +378,20 @@ if (loading)
                           <motion.span
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            // 黒い箱が文字を覆い隠した瞬間（1.4秒）に、箱の裏で文字をパッと表示させます
                             transition={{ delay: 1.4, duration: 0.01 }} 
                             className="block"
                           >
                             良き出会いを！
                           </motion.span>
                           <motion.div
-                            initial={{ x: "-101%" }} // 最初は左の外側で待機
-                            animate={{ x: ["-101%", "0%", "101%"] }} // 左から入ってきて(0%)、右へ抜ける(101%)
-                            transition={{ 
-                              delay: 1.0, 
-                              duration: 0.8, // 全体で0.8秒かける
-                              times: [0, 0.5, 1], // 0秒(左), 0.4秒で真ん中, 0.8秒で右へ抜ける
-                              ease: "easeInOut" 
-                            }} 
+                            initial={{ x: "-101%" }} 
+                            animate={{ x: ["-101%", "0%", "101%"] }} 
+                            transition={{ delay: 1.0, duration: 0.8, times: [0, 0.5, 1], ease: "easeInOut" }} 
                             className="absolute inset-0 bg-slate-800" 
                           />
                         </div>
 
-                        {/* ⭐ 2行目 (タイミングを0.2秒遅らせる) */}
+                        {/* ⭐ 2行目 */}
                         <div className="relative overflow-hidden w-fit px-1">
                           <motion.span
                             initial={{ opacity: 0 }}
@@ -490,7 +409,7 @@ if (loading)
                           />
                         </div>
 
-                        {/* ⭐ 3行目 (さらに0.2秒遅らせる) */}
+                        {/* ⭐ 3行目 */}
                         <div className="relative overflow-hidden w-fit px-1">
                           <motion.span
                             initial={{ opacity: 0 }}
@@ -511,13 +430,11 @@ if (loading)
                     </motion.div>
                   </div>
 
-                  {/* ⭐ 4. 右側オシャレ文字エリア（ふわっと浮き上がるアニメーションに変更） ⭐ */}
+                  {/* ⭐ 4. 右側オシャレ文字エリア */}
                   <div className="absolute hidden lg:flex flex-col justify-center items-start right-[4%] xl:right-[6%] top-[48%] -translate-y-1/2 z-10 pointer-events-none">
                     <motion.div
-                      // 下から（y: 30）上へ（y: 0）ふわっとフェードインします
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
-                      // タイミングは左のキャッチコピーと合うようにディレイを調整
                       transition={{ delay: 1.2, duration: 1.2, ease: "easeOut" }}
                       className="relative"
                     >
@@ -559,7 +476,6 @@ if (loading)
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 1, delay: 0.8 }}
-                      // ⭐ ここが魔法！「block」で表示し、「md:hidden」でPCの時は消す！
                       className="block md:hidden mt-6 text-center relative z-20 pointer-events-none"
                     >
                       <h1 className={`text-2xl font-black text-slate-800 tracking-widest ${cleanFont.className}`}>
@@ -570,21 +486,18 @@ if (loading)
                       </p>
                     </motion.div>
 
-                      {/* 6. スクロールボタン（SCROLLテキスト＋縦線アニメーション） */}
+                  {/* 6. スクロールボタン */}
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 2, duration: 1 }}
-                    // クリックしたら、画面1枚分（100vh）下に自動スクロールする便利な機能付き！
                     onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-                    // ⭐ ここに hidden md:flex を追加！
                     className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-40 flex-col items-center pointer-events-auto cursor-pointer gap-3 opacity-60 hover:opacity-100 transition-opacity"
                   >
                     <span className={`text-[9px] font-bold tracking-[0.4em] text-slate-800 pl-1 uppercase ${montserrat.className}`}>
                       SCROLL
                     </span>
                     <div className="w-[1px] h-6 bg-slate-300 relative overflow-hidden">
-                      {/* ⭐ 上から下へスーッと線が伸びて消えるアニメーション */}
                       <motion.div 
                         animate={{ y: ['-100%', '0%', '100%'] }} 
                         transition={{ 
@@ -598,6 +511,13 @@ if (loading)
                     </div>
                   </motion.div>
                 </section>
+              </>
+            )}
+          </motion.main>
+        </AnimatePresence>
+      </div>
+    </div>
+  );
 
             {/* ⭐ NEWS & MAGAZINE セクション（2カラムレイアウト） ⭐ */}
                 <section className="py-24 bg-white relative z-20">
