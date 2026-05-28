@@ -411,7 +411,7 @@ const headerNavItem = {
           <motion.main key={activePage} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={pageTransition} className="w-full flex-grow flex flex-col">
             
             {activePage === 'home' && (
-              <>
+              <>{/* 🌟🌟🌟 ここで「ホーム画面の箱」スタート！ 🌟🌟🌟 */}
                 <section className="relative w-full min-h-screen flex flex-col items-center justify-start overflow-hidden bg-white">
                   
                   {/* 1. 背景グリッド */}
@@ -431,60 +431,8 @@ const headerNavItem = {
                   </div>
                   
                   {/* 🚫 ここにあったタイポグラフィ（文字装飾）ブロックを、エラーが出ないように綺麗に削除したぜ 🚫 */}
-
-                  {/* 3. 左下キャッチコピーエリア（マスクアニメーション維持） */}
-                  <div className="absolute hidden lg:flex flex-col justify-center items-start left-[5%] bottom-[60vh] z-10 pointer-events-none overflow-hidden">
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.8, duration: 0.5, ease: "easeOut" }}
-                      className="relative"
-                    >
-                     <motion.h1 
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 1, duration: 0.8 }}
-                        className={`${cleanFont.className} text-4xl xl:text-5xl font-bold tracking-widest text-slate-800 relative leading-loose flex flex-col items-start`}
-                      >
-                        {/* ⭐ 1行目 */}
-                        <div className="relative overflow-hidden w-fit px-1">
-                          <motion.span
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 1.4, duration: 0.01 }} 
-                            className="block"
-                          >
-                            良き出会いを！
-                          </motion.span>
-                          <motion.div
-                            initial={{ x: "-101%" }} 
-                            animate={{ x: ["-101%", "0%", "101%"] }} 
-                            transition={{ delay: 1.0, duration: 0.8, times: [0, 0.5, 1], ease: "easeInOut" }} 
-                            className="absolute inset-0 bg-slate-800" 
-                          />
-                        </div>
-
-                        {/* ⭐ 2行目 */}
-                        <div className="relative overflow-hidden w-fit px-1">
-                          <motion.span
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 1.6, duration: 0.01 }} 
-                            className="block"
-                          >
-                            良き活動を！
-                          </motion.span>
-                          <motion.div
-                            initial={{ x: "-101%" }} 
-                            animate={{ x: ["-101%", "0%", "101%"] }} 
-                            transition={{ delay: 1.2, duration: 0.8, times: [0, 0.5, 1], ease: "easeInOut" }} 
-                            className="absolute inset-0 bg-slate-800" 
-                          />
-                        </div>
-
-                       
-                  {/* 🌟 3. 左下キャッチコピー（キャラクターの【手前: z-30】＆ 白いオーラ影） */}
-                  <div className="absolute hidden lg:flex flex-col justify-center items-start left-[5%] bottom-[15vh] z-30 pointer-events-none overflow-hidden">
+                   {/* 🌟 3. 左下キャッチコピー（キャラクターの【手前: z-30】＆ 白いオーラ影） */}
+                    <div className="absolute hidden lg:flex flex-col justify-center items-start left-[5%] bottom-[15vh] z-30 pointer-events-none overflow-hidden">
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8, duration: 0.5, ease: "easeOut" }} className="relative">
                      <motion.h1 
                         initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.8 }} 
