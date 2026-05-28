@@ -431,8 +431,9 @@ const headerNavItem = {
                   </div>
                   
                   {/* 🚫 ここにあったタイポグラフィ（文字装飾）ブロックを、エラーが出ないように綺麗に削除したぜ 🚫 */}
-                   {/* 🌟 3. 左下キャッチコピー（キャラクターの【手前: z-30】＆ 白いオーラ影） */}
-                    <div className="absolute hidden lg:flex flex-col justify-center items-start left-[5%] bottom-[15vh] z-30 pointer-events-none overflow-hidden">
+                  {/* 🌟 3. 左上キャッチコピー（キャラクターの【手前: z-30】＆ 白いオーラ影） */}
+                  {/* 💡 変更点: bottom-[15vh] を消して、 top-[20vh] に変更！ */}
+                  <div className="absolute hidden lg:flex flex-col justify-center items-start left-[5%] top-[20vh] z-30 pointer-events-none overflow-hidden">
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8, duration: 0.5, ease: "easeOut" }} className="relative">
                      <motion.h1 
                         initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.8 }} 
