@@ -421,26 +421,6 @@ return (
                   {/* 1. 背景グリッド */}
                   <div className="absolute inset-0 z-0 bg-grid-pattern opacity-100 pointer-events-none" />
                   
-                  {/* 2. 背景タイポグラフィ装飾 */}
-                  <div className="absolute top-0 left-0 w-full h-screen z-10 pointer-events-none overflow-visible select-none">
-                    <motion.div style={{ y: yBg1 }} className={`absolute top-[10vh] left-[5vw] opacity-40 ${playfair.className}`}>
-                      <div className="text-[40vw] md:text-[30vw] font-black text-slate-100 leading-[0.7] tracking-tighter italic">
-                        TSC
-                      </div>
-                    </motion.div>
-
-                    <motion.div style={{ y: yBg2 }} className={`absolute top-[20vh] w-full flex justify-center opacity-70 z-0 ${montserrat.className}`}>
-                      <div className="text-[12vw] md:text-[8vw] font-black outline-text-elegant tracking-[0.2em] uppercase">
-                        Streamer
-                      </div>
-                    </motion.div>
-                    
-                    <motion.div style={{ y: yBg2 }} className={`absolute top-[50vh] w-full flex justify-center opacity-70 z-0 ${montserrat.className}`}>
-                      <div className="text-[12vw] md:text-[8vw] font-black outline-text-elegant tracking-[0.2em] uppercase">
-                        Creator
-                      </div>
-                    </motion.div>
-
                     {/* サイドの縦書きテキスト */}
                     <div className={`absolute left-4 md:left-12 top-[40vh] z-30 opacity-40 ${montserrat.className}`}>
                       <span className="vertical-text text-[10px] md:text-xs font-bold tracking-[0.5em] text-slate-500 uppercase">
