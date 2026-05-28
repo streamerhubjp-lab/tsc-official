@@ -521,8 +521,6 @@ const headerNavItem = {
                     </div>
                   </motion.div>
                 </section>
-              </>
-            )}
 
                 {/* ⭐ NEWS & MAGAZINE セクション（2カラムレイアウト） ⭐ */}
                 <section className="py-24 bg-white relative z-20">
