@@ -410,7 +410,7 @@ const headerNavItem = {
         <AnimatePresence mode="wait">
           <motion.main key={activePage} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={pageTransition} className="w-full flex-grow flex flex-col">
             
-           {activePage === 'home' && (
+             {activePage === 'home' && (
               <>{/* 🌟🌟🌟 ここで「ホーム画面の箱」スタート！ 🌟🌟🌟 */}
                 {/* 💡 flex-row (左右分割) に設定 */}
                 <section className="relative w-full min-h-screen flex flex-col lg:flex-row items-center justify-between overflow-hidden bg-white">
@@ -430,22 +430,20 @@ const headerNavItem = {
                     </span>
                   </div>
 
-                  {/* 🌟 5. キャラクター層（absoluteで親コンテナを無視して巨大化・右寄せ） 🌟 */}
-                  {/* 💡 親コンテナ全体に対して配置する土台にする */}
+                  {/* 🌟 5. キャラクター層（左半分に超巨大に配置） 🌟 */}
+                  {/* 💡 w-full lg:w-[50%] で画面の左半分を確保 */}
                   <motion.div 
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1.2, ease: 'easeOut', delay: 0.2 }}
-                    className="absolute z-20 w-full h-full flex justify-start items-end pointer-events-none left-0 top-0"
+                    className="relative z-20 w-full lg:w-[50%] h-full flex justify-center items-end pointer-events-none mt-20 lg:mt-0 overflow-hidden"
                   >
                     <motion.img
+                      initial={{ opacity: 0, x: -50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 1.2, ease: 'easeOut', delay: 0.2 }}
                       src={siteConfig.heroImages[heroIndex] || siteConfig.logo}
                       alt="TSC Members"
-                      // 🌟 ここを改造！ ユーザーの要望通り、画面の半分くらいを占領できるように、めっちゃ大きく！
-                      // 1. メチャクチャ大きくする: PCでの幅を w-[400%] (画面全体の2倍！) に巨大化
-                      // 2. 右に食い込ませる: lg:translate-x-[30%] を追加して、本来の中央位置からさらに右側へとずらす！
-                      // 3. max-w-none は必須！
-                      className="w-[400%] lg:w-[400%] lg:translate-x-[30%] max-w-none h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.2)] pointer-events-auto transition-transform duration-300"
+                      // 🌟 ここを調整！ width をメチャクチャ大きく (w-[350%]) する！
+                      // 💡 巨大化して右にはみ出す分を、 lg:translate-x-[-20%] で左へ押しやる調整！
+                      className="w-[350%] lg:w-[350%] lg:translate-x-[-20%] max-w-none h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.2)] pointer-events-auto"
                     />
                   </motion.div>
 
@@ -497,7 +495,7 @@ const headerNavItem = {
                     </motion.div>
 
                   </div>
-
+                  
                   {/* 🌟 復活：モバイル用テキスト（PC版コンテナの外に配置してスマホ対応をキープ！） 🌟 */}
                   <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.8 }} className="block md:hidden mt-6 text-center relative z-20 pointer-events-none px-4">
                     <h1 className={`text-2xl font-black text-slate-800 tracking-widest ${cleanFont.className}`}>TSC OFFICIAL</h1>
