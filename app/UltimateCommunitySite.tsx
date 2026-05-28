@@ -417,6 +417,19 @@ return (
                   {/* 1. 背景グリッド */}
                   <div className="absolute inset-0 z-0 bg-grid-pattern opacity-100 pointer-events-none" />
                   
+                  {/* 🌟 復活：サイドの縦書きテキスト 🌟 */}
+                  <div className={`absolute left-4 md:left-12 top-[40vh] z-30 opacity-40 pointer-events-none ${montserrat.className}`}>
+                    <span className="vertical-text text-[10px] md:text-xs font-bold tracking-[0.5em] text-slate-500 uppercase">
+                      Official Portal Site — EST. 2026
+                    </span>
+                  </div>
+
+                  <div className={`absolute right-4 md:right-12 top-[40vh] z-30 opacity-40 pointer-events-none ${montserrat.className}`}>
+                    <span className="vertical-text text-[10px] md:text-xs font-bold tracking-[0.5em] text-slate-500 uppercase">
+                      The Streamer Creator Server
+                    </span>
+                  </div>
+                  
                   {/* 🚫 ここにあったタイポグラフィ（文字装飾）ブロックを、エラーが出ないように綺麗に削除したぜ 🚫 */}
 
                   {/* 3. 左下キャッチコピーエリア（マスクアニメーション維持） */}
