@@ -429,9 +429,9 @@ const headerNavItem = {
                       The Streamer Creator Server
                     </span>
                   </div>
-
-                  {/* 🌟 5. キャラクター層（左半分に超巨大に配置） 🌟 */}
-                  {/* 💡 w-full lg:w-[50%] で画面の左半分を確保 */}
+                  
+                  {/* 🌟 5. キャラクター層（左半分から右半分へ【超巨大・右食い込み】配置） 🌟 */}
+                  {/* 💡 親コンテナ（左半分50%）はそのままに、巨大な画像をはみ出させる土台にする */}
                   <motion.div 
                     className="relative z-20 w-full lg:w-[50%] h-full flex justify-center items-end pointer-events-none mt-20 lg:mt-0"
                   >
@@ -441,8 +441,10 @@ const headerNavItem = {
                       transition={{ duration: 1.2, ease: 'easeOut', delay: 0.2 }}
                       src={siteConfig.heroImages[heroIndex] || siteConfig.logo}
                       alt="TSC Members"
-                      // 🌟 ここを調整！ width をさらに大きくして、左半分で超巨大に表示！
-                      className="w-[250%] lg:w-[220%] max-w-none h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.2)] pointer-events-auto"
+                      // 🌟 ここを改造！ ユーザーの要望通り、もっともっと大きく、そして意図的に右に食い込ませる！
+                      // 1. 大きくする: PCでの幅を w-[350%] (画面全体の1.75倍！) に巨大化
+                      // 2. 右に食い込ませる: lg:translate-x-[15%] を追加して、本来の中央位置からさらに右側へとずらす！
+                      className="w-[350%] lg:w-[350%] lg:translate-x-[15%] max-w-none h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.2)] pointer-events-auto"
                     />
                   </motion.div>
 
