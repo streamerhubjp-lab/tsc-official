@@ -459,21 +459,27 @@ const headerNavItem = {
                     </motion.div>
                   </div>
 
-                  {/* 🌟 4. 右側オシャレ文字（キャラクターの【奥: z-10】に隠す雑誌スタイル！） */}
-                  {/* 🌟 z-10 にすることで、キャラの背後に文字が回り込む。少し上にずらしてバランスを取る */}
-                  <div className="absolute hidden lg:flex flex-col justify-center items-start right-[4%] xl:right-[6%] top-[35%] -translate-y-1/2 z-10 pointer-events-none">
-                    <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2, duration: 1.2, ease: "easeOut" }} className="relative">
-                      {/* 🌟 黒系のまま、キャラの後ろに「透かし背景」のように巨大に配置 */}
-                      <h1 className={`${montserrat.className} text-5xl xl:text-[5.5rem] font-[300] tracking-[0.2em] text-slate-800 leading-[1.1]`}>
-                        THE<br />STREAMER<br />CREATOR<br /><span className="font-black text-slate-900">SERVER</span>
+                  {/* 🌟 4. 右側オシャレ文字（プロ仕様ミニマル・レイアウト） 🌟 */}
+                  <div className="absolute hidden lg:flex flex-col justify-center items-end right-[5%] xl:right-[8%] top-[35%] -translate-y-1/2 z-10 pointer-events-none">
+                    <motion.div 
+                      initial={{ opacity: 0, x: 20 }} 
+                      animate={{ opacity: 1, x: 0 }} 
+                      transition={{ delay: 0.8, duration: 1 }} 
+                      className="relative"
+                    >
+                      <h1 className={`${montserrat.className} text-[3.5rem] xl:text-[5rem] font-extralight tracking-[0.3em] text-slate-900 leading-[0.9] text-right`}>
+                        THE<br />
+                        STREAMER<br />
+                        CREATOR<br />
+                        <span className="font-bold tracking-[0.1em] text-slate-900">SERVER</span>
                       </h1>
-                      <div className="mt-6 flex items-center gap-4 opacity-60">
-                        <div className="w-12 h-[1px] bg-slate-800"></div>
-                        <span className={`text-[10px] tracking-[0.4em] font-bold uppercase ${montserrat.className}`}>EST. 2026</span>
+                      
+                      {/* Minimalist Line */}
+                      <div className="mt-8 flex justify-end">
+                        <div className="w-20 h-[0.5px] bg-slate-900" />
                       </div>
                     </motion.div>
                   </div>
-
                   {/* 5. キャラクター層 */}
                   <motion.div 
                     className="relative z-20 flex-shrink-0 flex justify-center pointer-events-none"
