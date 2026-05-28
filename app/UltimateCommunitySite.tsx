@@ -482,45 +482,46 @@ return (
                           />
                         </div>
 
+                       
+                  {/* 🌟 3. 左下キャッチコピー（キャラクターの【手前: z-30】＆ 白いオーラ影） */}
+                  <div className="absolute hidden lg:flex flex-col justify-center items-start left-[5%] bottom-[15vh] z-30 pointer-events-none overflow-hidden">
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8, duration: 0.5, ease: "easeOut" }} className="relative">
+                     <motion.h1 
+                        initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.8 }} 
+                        // 🌟 黒文字ベースのまま、強烈な「白い光彩（ドロップシャドウ）」で背景から浮かび上がらせる！
+                        className={`${cleanFont.className} text-4xl xl:text-5xl font-black tracking-widest text-slate-900 relative leading-loose flex flex-col items-start`}
+                        style={{ filter: "drop-shadow(0px 0px 15px rgba(255,255,255,0.9)) drop-shadow(0px 4px 4px rgba(255,255,255,1))" }}
+                      >
+                        {/* ⭐ 1行目 */}
+                        <div className="relative overflow-hidden w-fit px-1">
+                          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4, duration: 0.01 }} className="block">良き出会いを！</motion.span>
+                          <motion.div initial={{ x: "-101%" }} animate={{ x: ["-101%", "0%", "101%"] }} transition={{ delay: 1.0, duration: 0.8, times: [0, 0.5, 1], ease: "easeInOut" }} className="absolute inset-0 bg-slate-900" />
+                        </div>
+                        {/* ⭐ 2行目 */}
+                        <div className="relative overflow-hidden w-fit px-1">
+                          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.6, duration: 0.01 }} className="block">良き活動を！</motion.span>
+                          <motion.div initial={{ x: "-101%" }} animate={{ x: ["-101%", "0%", "101%"] }} transition={{ delay: 1.2, duration: 0.8, times: [0, 0.5, 1], ease: "easeInOut" }} className="absolute inset-0 bg-slate-900" />
+                        </div>
                         {/* ⭐ 3行目 */}
                         <div className="relative overflow-hidden w-fit px-1">
-                          <motion.span
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 1.8, duration: 0.01 }} 
-                            className="block"
-                          >
-                            そして良き居場所を！
-                          </motion.span>
-                          <motion.div
-                            initial={{ x: "-101%" }} 
-                            animate={{ x: ["-101%", "0%", "101%"] }} 
-                            transition={{ delay: 1.4, duration: 0.8, times: [0, 0.5, 1], ease: "easeInOut" }} 
-                            className="absolute inset-0 bg-slate-800" 
-                          />
+                          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.8, duration: 0.01 }} className="block">そして良き居場所を！</motion.span>
+                          <motion.div initial={{ x: "-101%" }} animate={{ x: ["-101%", "0%", "101%"] }} transition={{ delay: 1.4, duration: 0.8, times: [0, 0.5, 1], ease: "easeInOut" }} className="absolute inset-0 bg-slate-900" />
                         </div>
                       </motion.h1>
                     </motion.div>
                   </div>
 
-                  {/* ⭐ 4. 右側オシャレ文字エリア */}
-                  <div className="absolute hidden lg:flex flex-col justify-center items-start right-[4%] xl:right-[6%] top-[48%] -translate-y-1/2 z-10 pointer-events-none">
-                    <motion.div
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 1.2, duration: 1.2, ease: "easeOut" }}
-                      className="relative"
-                    >
-                      <h1 className={`${montserrat.className} text-4xl xl:text-[4.5rem] font-[200] tracking-[0.2em] text-slate-800 leading-[1.1]`}>
-                        THE<br />
-                        STREAMER<br />
-                        CREATOR<br />
-                        <span className="text-blue-600 font-[300]">SERVER</span>
+                  {/* 🌟 4. 右側オシャレ文字（キャラクターの【奥: z-10】に隠す雑誌スタイル！） */}
+                  {/* 🌟 z-10 にすることで、キャラの背後に文字が回り込む。少し上にずらしてバランスを取る */}
+                  <div className="absolute hidden lg:flex flex-col justify-center items-start right-[4%] xl:right-[6%] top-[35%] -translate-y-1/2 z-10 pointer-events-none">
+                    <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2, duration: 1.2, ease: "easeOut" }} className="relative">
+                      {/* 🌟 黒系のまま、キャラの後ろに「透かし背景」のように巨大に配置 */}
+                      <h1 className={`${montserrat.className} text-5xl xl:text-[5.5rem] font-[300] tracking-[0.2em] text-slate-800 leading-[1.1]`}>
+                        THE<br />STREAMER<br />CREATOR<br /><span className="font-black text-slate-900">SERVER</span>
                       </h1>
-                      
                       <div className="mt-6 flex items-center gap-4 opacity-60">
                         <div className="w-12 h-[1px] bg-slate-800"></div>
-                        <span className={`text-[9px] tracking-[0.4em] font-bold uppercase ${montserrat.className}`}>EST. 2026</span>
+                        <span className={`text-[10px] tracking-[0.4em] font-bold uppercase ${montserrat.className}`}>EST. 2026</span>
                       </div>
                     </motion.div>
                   </div>
