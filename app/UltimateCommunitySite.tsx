@@ -410,7 +410,7 @@ const headerNavItem = {
         <AnimatePresence mode="wait">
           <motion.main key={activePage} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={pageTransition} className="w-full flex-grow flex flex-col">
             
-             {activePage === 'home' && (
+           {activePage === 'home' && (
               <>{/* 🌟🌟🌟 ここで「ホーム画面の箱」スタート！ 🌟🌟🌟 */}
                 {/* 💡 flex-row (左右分割) に設定 */}
                 <section className="relative w-full min-h-screen flex flex-col lg:flex-row items-center justify-between overflow-hidden bg-white">
@@ -429,22 +429,23 @@ const headerNavItem = {
                       The Streamer Creator Server
                     </span>
                   </div>
-                  
-                  {/* 🌟 5. キャラクター層（左半分から右半分へ【超巨大・右食い込み】配置） 🌟 */}
-                  {/* 💡 親コンテナ（左半分50%）はそのままに、巨大な画像をはみ出させる土台にする */}
+
+                  {/* 🌟 5. キャラクター層（absoluteで親コンテナを無視して巨大化・右寄せ） 🌟 */}
+                  {/* 💡 親コンテナ全体に対して配置する土台にする */}
                   <motion.div 
-                    className="relative z-20 w-full lg:w-[50%] h-full flex justify-center items-end pointer-events-none mt-20 lg:mt-0"
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1.2, ease: 'easeOut', delay: 0.2 }}
+                    className="absolute z-20 w-full h-full flex justify-start items-end pointer-events-none left-0 top-0"
                   >
                     <motion.img
-                      initial={{ opacity: 0, x: -50 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 1.2, ease: 'easeOut', delay: 0.2 }}
                       src={siteConfig.heroImages[heroIndex] || siteConfig.logo}
                       alt="TSC Members"
-                      // 🌟 ここを改造！ ユーザーの要望通り、もっともっと大きく、そして意図的に右に食い込ませる！
-                      // 1. 大きくする: PCでの幅を w-[350%] (画面全体の1.75倍！) に巨大化
-                      // 2. 右に食い込ませる: lg:translate-x-[15%] を追加して、本来の中央位置からさらに右側へとずらす！
-                      className="w-[350%] lg:w-[350%] lg:translate-x-[15%] max-w-none h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.2)] pointer-events-auto"
+                      // 🌟 ここを改造！ ユーザーの要望通り、画面の半分くらいを占領できるように、めっちゃ大きく！
+                      // 1. メチャクチャ大きくする: PCでの幅を w-[400%] (画面全体の2倍！) に巨大化
+                      // 2. 右に食い込ませる: lg:translate-x-[30%] を追加して、本来の中央位置からさらに右側へとずらす！
+                      // 3. max-w-none は必須！
+                      className="w-[400%] lg:w-[400%] lg:translate-x-[30%] max-w-none h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.2)] pointer-events-auto transition-transform duration-300"
                     />
                   </motion.div>
 
