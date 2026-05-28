@@ -431,33 +431,26 @@ const headerNavItem = {
                   </div>
                   
                   {/* 🚫 ここにあったタイポグラフィ（文字装飾）ブロックを、エラーが出ないように綺麗に削除したぜ 🚫 */}
-                {/* 🌟 3. 左下キャッチコピーエリア（Z-30：手前・シンプル・細字） 🌟 */}
-                  {/* 💡 修正： 位置を少し上、少し右に移動させ、他の要素との被りを完璧に避ける！ */}
-                  <div className="absolute hidden lg:flex flex-col justify-center items-start left-[8%] bottom-[25vh] z-30 pointer-events-none overflow-hidden">
-                    {/* 🌟 プロの仕事： ホバーできるようにpointer-events-autoにし、薄い半透明背景を足す 🌟 */}
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8, duration: 0.5, ease: "easeOut" }} className="relative bg-white/5 backdrop-blur-sm p-3 rounded-lg transition-all duration-300">
-                     <motion.h1 
+                              {/* 🌟 3. 左下キャッチコピーエリア（Z-30：手前・シンプル・細字） 🌟 */}
+              {/* 🌟 3. 左下キャッチコピー（Z-30：最前面・白影付きで読ませる） 🌟 */}
+                  <div className="absolute hidden lg:flex flex-col justify-center items-start left-[5%] bottom-[8vh] z-30 pointer-events-none overflow-hidden">
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8, duration: 0.5 }} className="relative bg-white/10 backdrop-blur-sm p-4 rounded-xl">
+                      <motion.h1 
                         initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.8 }} 
-                        // 🌟 クラス： text-slate-800のままで、フォントを細く(font-light)、文字間を広く(tracking-wider) 🌟
-                        className={`${cleanFont.className} text-3xl xl:text-4xl font-light tracking-wider text-slate-800 relative leading-loose flex flex-col items-start`}
-                        // 🌟 ここに薄い白いドロップシャドウを付けて、視認性を確保する魔法（弱くする） 🌟
-                        style={{ filter: "drop-shadow(0px 0px 5px rgba(255,255,255,0.8))" }}
+                        className={`${cleanFont.className} text-4xl xl:text-5xl font-black tracking-widest text-slate-900 relative leading-loose flex flex-col items-start`}
+                        style={{ filter: "drop-shadow(0px 0px 8px rgba(255,255,255,1))" }}
                       >
-                        {/* ⭐ 1行目 */}
                         <div className="relative overflow-hidden w-fit px-1">
                           <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4, duration: 0.01 }} className="block">良き出会いを！</motion.span>
-                          {/* ⭐ マスクの背景色もSlate系に */}
-                          <motion.div initial={{ x: "-101%" }} animate={{ x: ["-101%", "0%", "101%"] }} transition={{ delay: 1.0, duration: 0.8, times: [0, 0.5, 1], ease: "easeInOut" }} className="absolute inset-0 bg-slate-100" />
+                          <motion.div initial={{ x: "-101%" }} animate={{ x: ["-101%", "0%", "101%"] }} transition={{ delay: 1.0, duration: 0.8 }} className="absolute inset-0 bg-slate-900" />
                         </div>
-                        {/* ⭐ 2行目 */}
                         <div className="relative overflow-hidden w-fit px-1">
                           <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.6, duration: 0.01 }} className="block">良き活動を！</motion.span>
-                          <motion.div initial={{ x: "-101%" }} animate={{ x: ["-101%", "0%", "101%"] }} transition={{ delay: 1.2, duration: 0.8, times: [0, 0.5, 1], ease: "easeInOut" }} className="absolute inset-0 bg-slate-100" />
+                          <motion.div initial={{ x: "-101%" }} animate={{ x: ["-101%", "0%", "101%"] }} transition={{ delay: 1.2, duration: 0.8 }} className="absolute inset-0 bg-slate-900" />
                         </div>
-                        {/* ⭐ 3行目 */}
                         <div className="relative overflow-hidden w-fit px-1">
                           <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.8, duration: 0.01 }} className="block">そして良き居場所を！</motion.span>
-                          <motion.div initial={{ x: "-101%" }} animate={{ x: ["-101%", "0%", "101%"] }} transition={{ delay: 1.4, duration: 0.8, times: [0, 0.5, 1], ease: "easeInOut" }} className="absolute inset-0 bg-slate-100" />
+                          <motion.div initial={{ x: "-101%" }} animate={{ x: ["-101%", "0%", "101%"] }} transition={{ delay: 1.4, duration: 0.8 }} className="absolute inset-0 bg-slate-900" />
                         </div>
                       </motion.h1>
                     </motion.div>
