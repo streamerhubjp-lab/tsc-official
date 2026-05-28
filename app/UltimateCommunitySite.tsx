@@ -410,108 +410,72 @@ const headerNavItem = {
         <AnimatePresence mode="wait">
           <motion.main key={activePage} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }} transition={pageTransition} className="w-full flex-grow flex flex-col">
             
-            {activePage === 'home' && (
+              {activePage === 'home' && (
               <>{/* 🌟🌟🌟 ここで「ホーム画面の箱」スタート！ 🌟🌟🌟 */}
-                <section className="relative w-full min-h-screen flex flex-col items-center justify-start overflow-hidden bg-white">
+                {/* 💡 flex-row にして左右に分ける設定 */}
+                <section className="relative w-full min-h-screen flex flex-col lg:flex-row items-center justify-between overflow-hidden bg-white">
                   
                   {/* 1. 背景グリッド */}
                   <div className="absolute inset-0 z-0 bg-grid-pattern opacity-100 pointer-events-none" />
                   
-                  {/* 🌟 復活：サイドの縦書きテキスト 🌟 */}
+                  {/* 🌟 復活：サイドの縦書きテキスト（そのまま維持） 🌟 */}
                   <div className={`absolute left-4 md:left-12 top-[40vh] z-30 opacity-40 pointer-events-none ${montserrat.className}`}>
                     <span className="vertical-text text-[10px] md:text-xs font-bold tracking-[0.5em] text-slate-500 uppercase">
                       Official Portal Site — EST. 2026
                     </span>
                   </div>
-
                   <div className={`absolute right-4 md:right-12 top-[40vh] z-30 opacity-40 pointer-events-none ${montserrat.className}`}>
                     <span className="vertical-text text-[10px] md:text-xs font-bold tracking-[0.5em] text-slate-500 uppercase">
                       The Streamer Creator Server
                     </span>
                   </div>
-                  
-                  {/* 🚫 ここにあったタイポグラフィ（文字装飾）ブロックを、エラーが出ないように綺麗に削除したぜ 🚫 */}
-                              {/* 🌟 3. 左下キャッチコピーエリア（Z-30：手前・シンプル・細字） 🌟 */}
-              {/* 🌟 3. 左下キャッチコピー（Z-30：最前面・白影付きで読ませる） 🌟 */}
-                  <div className="absolute hidden lg:flex flex-col justify-center items-start left-[5%] bottom-[8vh] z-30 pointer-events-none overflow-hidden">
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8, duration: 0.5 }} className="relative bg-white/10 backdrop-blur-sm p-4 rounded-xl">
-                      <motion.h1 
-                        initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.8 }} 
-                        className={`${cleanFont.className} text-4xl xl:text-5xl font-black tracking-widest text-slate-900 relative leading-loose flex flex-col items-start`}
-                        style={{ filter: "drop-shadow(0px 0px 8px rgba(255,255,255,1))" }}
-                      >
-                        <div className="relative overflow-hidden w-fit px-1">
-                          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4, duration: 0.01 }} className="block">良き出会いを！</motion.span>
-                          <motion.div initial={{ x: "-101%" }} animate={{ x: ["-101%", "0%", "101%"] }} transition={{ delay: 1.0, duration: 0.8 }} className="absolute inset-0 bg-slate-900" />
-                        </div>
-                        <div className="relative overflow-hidden w-fit px-1">
-                          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.6, duration: 0.01 }} className="block">良き活動を！</motion.span>
-                          <motion.div initial={{ x: "-101%" }} animate={{ x: ["-101%", "0%", "101%"] }} transition={{ delay: 1.2, duration: 0.8 }} className="absolute inset-0 bg-slate-900" />
-                        </div>
-                        <div className="relative overflow-hidden w-fit px-1">
-                          <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.8, duration: 0.01 }} className="block">そして良き居場所を！</motion.span>
-                          <motion.div initial={{ x: "-101%" }} animate={{ x: ["-101%", "0%", "101%"] }} transition={{ delay: 1.4, duration: 0.8 }} className="absolute inset-0 bg-slate-900" />
-                        </div>
-                      </motion.h1>
-                    </motion.div>
-                  </div>
 
-                  {/* 🌟 4. 右側オシャレ文字（プロ仕様ミニマル・レイアウト） 🌟 */}
-                  <div className="absolute hidden lg:flex flex-col justify-center items-end right-[5%] xl:right-[8%] top-[35%] -translate-y-1/2 z-10 pointer-events-none">
-                    <motion.div 
-                      initial={{ opacity: 0, x: 20 }} 
-                      animate={{ opacity: 1, x: 0 }} 
-                      transition={{ delay: 0.8, duration: 1 }} 
-                      className="relative"
-                    >
-                      <h1 className={`${montserrat.className} text-[3.5rem] xl:text-[5rem] font-extralight tracking-[0.3em] text-slate-900 leading-[0.9] text-right`}>
-                        THE<br />
-                        STREAMER<br />
-                        CREATOR<br />
-                        <span className="font-bold tracking-[0.1em] text-slate-900">SERVER</span>
-                      </h1>
-                      
-                      {/* Minimalist Line */}
-                      <div className="mt-8 flex justify-end">
-                        <div className="w-20 h-[0.5px] bg-slate-900" />
-                      </div>
-                    </motion.div>
-                  </div>
-                  {/* 5. キャラクター層 */}
+                  {/* 🌟 5. キャラクター層（左半分に配置） 🌟 */}
+                  {/* 💡 w-full lg:w-1/2 で画面の左半分を確保 */}
                   <motion.div 
-                    className="relative z-20 flex-shrink-0 flex justify-center pointer-events-none"
-                    style={{ 
-                      y: yHero, 
-                      marginTop: heroImageConfig.marginTop,
-                      marginBottom: heroImageConfig.marginBottom,
-                      transform: "translateX(-2%)" 
-                    }}
+                    className="relative z-20 w-full lg:w-[55%] h-full flex justify-center items-end pointer-events-none mt-20 lg:mt-0"
                   >
                     <motion.img
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
+                      initial={{ opacity: 0, x: -50 }}
+                      animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 1.2, ease: 'easeOut', delay: 0.2 }}
                       src={siteConfig.heroImages[heroIndex] || siteConfig.logo}
                       alt="TSC Members"
-                      className="w-[270%] max-w-none h-auto md:w-auto md:h-[130vh] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.2)] pointer-events-auto relative z-10"
+                      // 💡 width を調整して、左半分に収まるようにする（はみ出しすぎないように）
+                      className="w-[180%] lg:w-[150%] max-w-none h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.2)] pointer-events-auto"
                     />
                   </motion.div>
-                  
-                  <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 1, delay: 0.8 }}
-                      className="block md:hidden mt-6 text-center relative z-20 pointer-events-none"
-                    >
-                      <h1 className={`text-2xl font-black text-slate-800 tracking-widest ${cleanFont.className}`}>
-                        TSC OFFICIAL
+
+                  {/* 🌟 3 & 4. テキストエリア（右半分にまとめて配置） 🌟 */}
+                  {/* 💡 w-full lg:w-1/2 で画面の右半分を確保し、中央揃えにする */}
+                  <div className="relative z-30 w-full lg:w-[45%] h-full flex flex-col justify-center items-start px-8 lg:px-16 pointer-events-none pb-32 lg:pb-0">
+                    
+                    {/* 左上（上部）にあった日本語キャッチコピー */}
+                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.8 }} className="mb-12">
+                      <h1 className={`${cleanFont.className} text-4xl xl:text-5xl font-light tracking-wider text-slate-800 leading-loose flex flex-col items-start`}>
+                        <span className="block mb-2">良き出会いを！</span>
+                        <span className="block mb-2">良き活動を！</span>
+                        <span className="block">そして良き居場所を！</span>
                       </h1>
-                      <p className={`text-[10px] font-bold text-slate-400 tracking-[0.3em] mt-1 uppercase ${montserrat.className}`}>
-                        The Streamer Creator Server
-                      </p>
                     </motion.div>
 
-                  {/* 6. スクロールボタン */}
+                    {/* 右側（下部）にあった英語ロゴ */}
+                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.2, duration: 0.8 }}>
+                      <h2 className={`${montserrat.className} text-[3rem] xl:text-[4.5rem] font-extralight tracking-[0.2em] text-slate-800 leading-[1.1]`}>
+                        THE<br />
+                        STREAMER<br />
+                        CREATOR<br />
+                        <span className="font-bold text-blue-600">SERVER</span>
+                      </h2>
+                      <div className="mt-8 flex items-center gap-4 opacity-60">
+                        <div className="w-16 h-[1px] bg-slate-800"></div>
+                        <span className={`text-[10px] tracking-[0.4em] font-bold uppercase ${montserrat.className}`}>EST. 2026</span>
+                      </div>
+                    </motion.div>
+
+                  </div>
+                  
+                  {/* 6. スクロールボタン（変更なし） */}
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -525,12 +489,7 @@ const headerNavItem = {
                     <div className="w-[1px] h-6 bg-slate-300 relative overflow-hidden">
                       <motion.div 
                         animate={{ y: ['-100%', '0%', '100%'] }} 
-                        transition={{ 
-                          duration: 2, 
-                          repeat: Infinity, 
-                          ease: "easeInOut",
-                          times: [0, 0.5, 1]
-                        }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", times: [0, 0.5, 1] }}
                         className="absolute inset-0 w-full h-full bg-slate-800"
                       />
                     </div>
