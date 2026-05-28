@@ -301,9 +301,8 @@ if (loading)
       </div>
     );
 
-return (
-    <div className={`bg-white text-slate-800 selection:bg-blue-100 selection:text-blue-600 overflow-x-hidden min-h-screen flex flex-col ${softFont.className}`}>
-
+  return (
+  <div className={`bg-white text-slate-800 selection:bg-blue-100 selection:text-blue-600 overflow-x-hidden min-h-screen flex flex-col ${softFont.className}`}>
       {/* 🌟🌟🌟 ここから：時間差で上がる3枚のベール（多重レイヤー演出） 🌟🌟🌟 */}
       <div className="fixed inset-0 z-[9999] pointer-events-none flex flex-col">
         {/* 1枚目（最背面）：ほんの少しだけグレー */}
