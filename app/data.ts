@@ -41,6 +41,15 @@ export const newsItems = [
       'TSCサーバー4000人突破を記念した過去最大規模のAPEXカスタムが、いよいよ5月23日より開幕します！全120名の参加メンバーに加え、豪華視聴者プレゼントや特別動画もご用意。半年間の準備を注ぎ込んだ過去最高の大会をぜひお見逃しなく！',
     articleId: 'news-002',
   },
+    {
+    id: 3,
+    date: '2026.05.18',
+    category: 'EVENT',
+    title: '【TSC鯖4000人記念APEXカスタム本戦】',
+    content:
+      '8月29日(土)20時30分～【TSC鯖4000人記念APEXカスタム本戦】開催＆Twitchフロントページ掲載のお知らせ！！',
+    articleId: 'news-001',
+  },
 ];
 
 export const memoryItems = [
@@ -447,7 +456,7 @@ export const floatingMemories: never[] = [];
 
 export const articleItems = [
   {
-    id: 'news-001',
+    id: 'news-003',
     category: 'IMPORTANT',
     date: '2026.05.13',
     title: 'TSC公式ポータルサイトがついにオープンしました！',
@@ -556,7 +565,7 @@ APEXカスタムの魅力を、少しでも多くの方へ届けたい。
 更に向こうへ、Plus ultra！皆様のご参加・ご視聴を心よりお待ちしております。`,
   },
   {
-    id: 'news-003',
+    id: 'news-001',
     category: 'EVENT',
     date: '2026.08.29',
     title: '8月29日(土)20時30分～【TSC鯖4000人記念APEXカスタム本戦】開催＆Twitchフロントページ掲載のお知らせ！！',
