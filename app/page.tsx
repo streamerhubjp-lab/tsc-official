@@ -1,45 +1,16 @@
 import UltimateCommunitySite from './UltimateCommunitySite';
-import { fetchSheetData } from './lib/fetchData';
+// 👇 1. スプレッドシートの代わりに、先ほど作った data.ts から直接データを引っこ抜く！
+// （※ data.ts の場所に合わせてパス './data' は微調整してください）
+import { newsItems, articleItems, galleryItems } from './data';
 
 export const metadata = {
   title: 'TSC Official | The Streamer Creator Server',
   description: 'The Streamer Creator Server Official Portal Site',
 };
 
-export default async function Page() {
-  // 1. スプレッドシートの各タブ（シート）からデータを引っこ抜く！
-  const rawNews = await fetchSheetData('news', 'A2:F'); 
-  const rawArticles = await fetchSheetData('articles', 'A2:F'); 
-  const rawGallery = await fetchSheetData('gallery', 'A2:G');
-
-  // 2. 画面側が使いやすいように、配列をキレイな形（オブジェクト）に整える
-  const newsItems = rawNews.map((row: any) => ({
-    id: row[0] || '',
-    date: row[1] || '',
-    category: row[2] || '',
-    title: row[3] || '',
-    content: row[4] || '',
-    articleId: row[5] || null,
-  }));
-
-  const articleItems = rawArticles.map((row: any) => ({
-    id: row[0] || '',
-    category: row[1] || '',
-    date: row[2] || '',
-    title: row[3] || '',
-    thumbnail: row[4] || '',
-    content: row[5] || '',
-  }));
-
-  const galleryItems = rawGallery.map((row: any) => ({
-    id: row[0] || '',
-    image: row[1] || '',
-    date: row[2] || '',
-    title: row[3] || '',
-    category: row[4] || '',
-    description: row[5] || '',
-    articleId: row[6] || null,
-  }));
+// 外部と通信しないので async は外しました
+export default function Page() {
+  // 2. data.ts 側で既にキレイな形になっているので、配列を整える処理（.map）はもう不要です！
 
   // 3. 準備できたデータを「主役（UltimateCommunitySite）」にドカンと渡す！
   return (
