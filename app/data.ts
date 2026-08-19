@@ -43,7 +43,7 @@ export const newsItems = [
   },
     {
     id: 3,
-    date: '2026.05.18',
+    date: '2026.08.20',
     category: 'EVENT',
     title: '【TSC鯖4000人記念APEXカスタム本戦】',
     content:
