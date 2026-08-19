@@ -146,7 +146,7 @@ const headerNavItem = {
     const imageUrls = marqueeMembers.map((member) => member.image);
     
   // 🌟 2. ここに追加したい画像のURLを push（追加）していく！
-  // 例：トップページの背景画像を絶対URLで追加する場合
+  // 例：トップページの背景画像を絶対URLで追加する場合で
   //imageUrls.push('https://hazimarinomahoutukai001-ai.github.io/tsc-official/images/hero-bg.png');
 
   // 複数あるなら、何行でも続けて書いてOKだ！
