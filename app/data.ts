@@ -322,6 +322,16 @@ export const staffList = [
 ];
 
 export const galleryItems = [
+   {
+    id: 2,
+    image: '/tsc-official/Snapshot_923.PNG',
+    date: '2026.03.25',
+    title: '【開催レポート】参加者4000人突破記念！「The streamer Creator server APEXカスタム 予選」2日間の激闘をプレイバック！',
+    category: 'EVENT',
+    description:
+      '2026年5月23日・24日の2日間、「The streamer Creator server」4000人突破を記念したAPEXカスタム予選が開催されました！計40チーム・120名の配信者が激突した熱い2日間のハイライトをサクッとお届けします。主催「七皇の剣」による完全オリジナル映像の豪華演出で幕を開けました！',
+    articleId: 'activity-002',
+  },
   {
     id: 1,
     image: '/tsc-official/sss.png',
