@@ -50,6 +50,15 @@ export const newsItems = [
       '8月29日(土)20時30分～【TSC鯖4000人記念APEXカスタム本戦】開催＆Twitchフロントページ掲載のお知らせ！！',
     articleId: 'news-001',
   },
+  {
+    id: 4,
+    date: '2026.08.23',
+    category: 'EVENT',
+    title: '【開催レポート】参加者4000人突破記念！「The streamer Creator server APEXカスタム 予選」2日間の激闘をプレイバック！',
+    content:
+      '参加者120名が激突したTSC4000人記念APEXカスタム予選！2日間にわたる大波乱の末、Aブロックは「あるある探検隊」、Bブロックは「からあげ護衛隊」が見事優勝を飾りました！勝ち抜いた上位20チームが集う、8月29日(土)の『本戦』をお見逃しなく！',
+    articleId: 'activity-002',
+  },
 ];
 
 export const memoryItems = [
