@@ -460,7 +460,7 @@ export const articleItems = [
     category: 'EVENT',
     date: '2026.05.23,24',
     title: '【開催レポート】参加者4000人突破記念！「The streamer Creator server APEXカスタム 予選」2日間の激闘をプレイバック！',
-    thumbnail: '/tsc-official/2026_8_29TSCCustom.webp',
+    thumbnail: '/tsc-official/Snapshot_923.PNG',
     content: 
 `【開催レポート】
 参加者4000人突破記念！「The streamer Creator server APEXカスタム 予選」2日間の激闘をプレイバック！
