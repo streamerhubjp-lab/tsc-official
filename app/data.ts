@@ -493,7 +493,7 @@ export const adminList = [
     romanName: 'WOLF YAROU',
     role: 'Streamer / Creator',
     image: '/tsc-official/ookami.webp', // 狼の野郎さんの立ち絵パス
-    headerImage: '/ookamiitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    headerImage: '/tsc-official/ookamiitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
     // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
@@ -535,7 +535,7 @@ export const adminList = [
       youtube: 'https://www.youtube.com/channel/UCLJ0tGK4PpfdZJvf0fjGVWw',
     },
         pickupMedia: [
-    { type: 'image', src: '/ookamiitimaie.webp' },
+    { type: 'image', src: '/tsc-official/ookamiitimaie.webp' },
   ],
   },
   // 他のクリエイターもここに追加していきます
@@ -548,7 +548,7 @@ export const adminList = [
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
     // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
-    headerImage: '/kayoitimaie2.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    headerImage: '/tsc-official/kayoitimaie2.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     themeColor: '#0284C7',
 
     // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
@@ -598,12 +598,12 @@ export const adminList = [
       youtube: 'https://www.youtube.com/channel/UCOgBheyN6Ge4MG_kq2wkRCA',
     },
   pickupMedia: [
-    { type: 'image', src: '/kayotatie3.webp' },
-    { type: 'image', src: '/kayoitimaie2.webp' ,
+    { type: 'image', src: '/tsc-official/kayotatie3.webp' },
+    { type: 'image', src: '/tsc-official/kayoitimaie2.webp' ,
       // 🌟 今回のスクショのように「顔が上にあって切れてしまう」場合
     // これを入れると、画像の「上端」を基準に表示されるので顔が見えるようになります！
     position: 'top',},
-    { type: 'image', src: '/kayoitimaie.webp' },
+    { type: 'image', src: '/tsc-official/kayoitimaie.webp' },
   ],
     
   },
@@ -655,11 +655,11 @@ export const adminList = [
       twitch: 'https://www.twitch.tv/shiina_41777',
     },
     pickupMedia: [
-    { type: 'image', src: '/siinaB.png' ,
+    { type: 'image', src: '/tsc-official/siinaB.png' ,
     // 🌟 立ち絵など、絶対に全身を枠内に収めたい場合
       mode: 'contain',},
-    { type: 'image', src: '/siinaA.png',mode: 'contain'},
-    { type: 'image', src: '/siinaa09.png',mode: 'contain'},
+    { type: 'image', src: '/tsc-official/siinaA.png',mode: 'contain'},
+    { type: 'image', src: '/tsc-official/siinaa09.png',mode: 'contain'},
   ],
   },
   {
@@ -668,7 +668,7 @@ export const adminList = [
     romanName: 'Aruud',
     role: 'Streamer',
     image: '/tsc-official/arutatiekougasitu.png', // 立ち絵パス
-    headerImage: '/aruitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    headerImage: '/tsc-official/aruitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
     // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
@@ -704,9 +704,9 @@ export const adminList = [
       youtube: 'https://www.youtube.com/@aruu_jp',
     },
     pickupMedia: [
-    { type: 'image', src: '/aruitimaie.webp' },
-    { type: 'image', src: '/arutatieA.webp' },
-    { type: 'image', src: '/aruxitimaie3.webp' },
+    { type: 'image', src: '/tsc-official/aruitimaie.webp' },
+    { type: 'image', src: '/tsc-official/arutatieA.webp' },
+    { type: 'image', src: '/tsc-official/aruxitimaie3.webp' },
   ],
   },
   {
@@ -758,11 +758,11 @@ export const adminList = [
       youtube: 'https://www.youtube.com/@theseventhone71',
     },
     pickupMedia: [
-    { type: 'image', src: '/hirokingitimaie.webp' ,
+    { type: 'image', src: '/tsc-official/hirokingitimaie.webp' ,
     // 🌟 今回のスクショのように「顔が上にあって切れてしまう」場合
     // これを入れると、画像の「上端」を基準に表示されるので顔が見えるようになります！
     position: 'top',},
-    { type: 'image', src: '/hirokinngutatie2.webp',
+    { type: 'image', src: '/tsc-official/hirokinngutatie2.webp',
           // 🌟 立ち絵など、絶対に全身を枠内に収めたい場合
       mode: 'contain',
      },
@@ -815,7 +815,7 @@ export const adminList = [
       youtube: 'https://www.youtube.com/@theseventhone71',
     },
     pickupMedia: [
-    { type: 'image', src: 'hiuhimuitimaie.webp' },
+    { type: 'image', src: '/tsc-official/hiuhimuitimaie.webp' },
   ],
   },
   {
@@ -824,7 +824,7 @@ export const adminList = [
     romanName: 'tsuyuri_hio',
     role: 'Streamer',
     image: '/tsc-official/tuyuriho (1).webp', 
-    headerImage: '/tuyurihioitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    headerImage: '/tsc-official/tuyurihioitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
     // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
@@ -875,7 +875,7 @@ export const adminList = [
       youtube: 'https://www.youtube.com/@theseventhone71',
     },
     pickupMedia: [
-    { type: 'image', src: '/tuyurihioitimaie.webp' },
+    { type: 'image', src: '/tsc-official/tuyurihioitimaie.webp' },
   ],
   },
    {
@@ -884,7 +884,7 @@ export const adminList = [
     romanName: 'ibuki_ayano',
     role: 'Streamer',
     image: '/tsc-official/ibukiatanotatie.webp', 
-    headerImage: '/ayanoitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    headerImage: '/tsc-official/ayanoitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
     // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
@@ -934,7 +934,7 @@ export const adminList = [
       youtube: 'https://www.youtube.com/@theseventhone71',
     },
     pickupMedia: [
-    { type: 'image', src: '/ayanoitimaie.webp' },
+    { type: 'image', src: '/tsc-official/ayanoitimaie.webp' },
   ],
   },
     {
@@ -943,7 +943,7 @@ export const adminList = [
     romanName: 'huyuchi',
     role: 'Streamer',
     image: '/tsc-official/huyuti.webp', 
-    headerImage: '/huyuti.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    headerImage: '/tsc-official/huyuti.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
     // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
@@ -993,7 +993,7 @@ export const adminList = [
       youtube: 'https://www.youtube.com/@theseventhone71',
     },
     pickupMedia: [
-    { type: 'image', src: '/huyuti.webp', mode: 'contain'},
+    { type: 'image', src: '/tsc-official/huyuti.webp', mode: 'contain'},
   ],
   },
       {
@@ -1052,7 +1052,7 @@ export const adminList = [
       youtube: 'https://www.youtube.com/@hajikoyuch',
     },
     pickupMedia: [
-    { type: 'image', src: '/koyukiitimaie.webp'},
+    { type: 'image', src: '/tsc-official/koyukiitimaie.webp'},
   ],
   },
     {
@@ -1061,7 +1061,7 @@ export const adminList = [
     romanName: 'gaikuma',
     role: 'Streamer',
     image: '/tsc-official/gaikuma.webp', 
-    headerImage: '/gaikumaitimaie1.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    headerImage: '/tsc-official/gaikumaitimaie1.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
     // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
@@ -1110,8 +1110,8 @@ export const adminList = [
     },
 
     pickupMedia: [
-    { type: 'image', src: '/gaikumaitimaie1.webp', position: 'top'},
-    { type: 'image', src: '/gaikumaitimaie.webp'},
+    { type: 'image', src: '/tsc-official/gaikumaitimaie1.webp', position: 'top'},
+    { type: 'image', src: '/tsc-official/gaikumaitimaie.webp'},
     
   ],
   },
@@ -1171,7 +1171,7 @@ export const adminList = [
       youtube: 'https://www.youtube.com/@theseventhone71',
     },
     pickupMedia: [
-    { type: 'image', src: '/yorunerujaitimaie.webp' ,position: 'top',},
+    { type: 'image', src: '/tsc-official/yorunerujaitimaie.webp' ,position: 'top',},
   ],
   },
 ];
