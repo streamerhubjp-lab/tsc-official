@@ -701,7 +701,7 @@ export const adminList = [
     romanName: 'hiroking',
     role: 'Streamer',
     image: '/tsc-official/IMG_0795.webp', 
-    headerImage: '/hirokingitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    headerImage: '/tsc-official/hirokingitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
     // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
@@ -761,7 +761,7 @@ export const adminList = [
     role: 'Streamer',
     image: '/tsc-official/hiuhimu2 .webp', 
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
-    headerImage: '/hiuhimuitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    headerImage: '/tsc-official/hiuhimuitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
     // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
     themeColor: '#ffcbf6',
@@ -988,7 +988,7 @@ export const adminList = [
     romanName: 'koyuki',
     role: 'Streamer',
     image: '/tsc-official/koyukitatie .webp', 
-    headerImage: '/koyukiitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    headerImage: '/tsc-official/koyukiitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
     // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
