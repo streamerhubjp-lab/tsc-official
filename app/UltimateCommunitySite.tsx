@@ -2583,14 +2583,16 @@ useEffect(() => {
                                 isFeatured ? 'md:w-[60%] h-64 md:h-[400px]' : 'h-64'
                               }`}
                             >
-                            <img
-                              // 🌟 ここを item.image から item.thumbnail に変更！
-                              src={item.thumbnail || '/tsc-official/default-thumbnail.png'}
-                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-[0.22,1,0.36,1]"
-                              alt={item.title}
-                              // 🌟 画像リンク切れの時もデフォルト画像に切り替える裏技
-                              onError={(e) => { e.currentTarget.src = '/tsc-official/default-thumbnail.png'; }}
-                            />
+                              <img
+                                src={item.thumbnail || '/tsc-official/default-thumbnail.png'}
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-[0.22,1,0.36,1]"
+                                alt={item.title}
+                                // 🌟 ストッパー（onerror = null）を追加して無限ループを完全に防止！
+                                onError={(e) => { 
+                                  e.currentTarget.onerror = null; 
+                                  e.currentTarget.src = '/tsc-official/default-thumbnail.png'; 
+                                }}
+                              />
                               
                               {/* カテゴリバッジ */}
                               <div className={`absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-md text-[10px] font-black text-slate-800 tracking-widest uppercase shadow-sm ${montserrat.className}`}>
