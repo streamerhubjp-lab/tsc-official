@@ -344,7 +344,7 @@ export const articleItems = [
     category: 'TOURNAMENT',
     date: '2026.05.24',
     title: '参加者4000人突破記念！「TSC APEXカスタム 予選」2日間の激闘をプレイバック！',
-    thumbnail: '/aruitimaie.webp',
+    thumbnail: '/tsc-official/4000playsamune.PNG',
     content: `2026年5月23日（土）・24日（日）の2日間にわたり、配信者やクリエイターが集う大人気Discordサーバー「The streamer Creator server」の参加者<span class="text-blue-600 font-black text-xl md:text-2xl">4,000人突破</span>を記念したAPEXカスタム予選（Aブロック・Bブロック）が開催されました！<br><br>
 3000人記念大会からさらに規模が拡大し、今回は2日間で合計40チーム・120名の配信者が参戦！8月29日（土）に行われる「本戦」への切符（各ブロック上位10チーム・計20チーム）をかけた、熱すぎる予選の模様をお届けします。
 
