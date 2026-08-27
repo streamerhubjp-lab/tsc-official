@@ -6,7 +6,7 @@ export const siteConfig = {
   logo: '/tsc-official/GoznTJVa4AAoq0S.jpg',
 
   // 👇 中央に表示される11人の集合写真の画像パス
-  heroImages: ['/syuugou.webp'],
+  heroImages: ['/tsc-official/syuugou.webp'],
 };
 
 export const menuItems = [
@@ -47,13 +47,13 @@ export const memoryItems = [
   {
     id: 'm1',
     type: 'image',
-    src: '/kouryuuyousaba.PNG',
+    src: '/tsc-official/kouryuuyousaba.PNG',
     title: 'TSC公式サイトオープン',
   },
   {
     id: 'm2',
     type: 'image',
-    src: '/hirokinngupatona.jpg',
+    src: '/tsc-official/hirokinngupatona.jpg',
     title: '管理者ヒロキングtwitchパートナーへ',
   },
   
@@ -105,7 +105,7 @@ export const recommendedCreators: CreatorProfile[] = [
   {
     id: 'wolf_yarou',
     name: '狼の野郎',
-    image: '/ookami.webp', 
+    image: '/tsc-official/ookami.webp', 
     // ▼ ここで「このキャラ専用のベストポジション」を指定します！
     imageStyle: {
       scale: 3,    // ちょっと大きめに表示
@@ -124,7 +124,7 @@ export const recommendedCreators: CreatorProfile[] = [
   {
     id: 'aruxuxux',
     name: 'あるぅ',
-    image: '/aruxu.webp', 
+    image: '/tsc-official/aruxu.webp', 
     // ▼ ここで「このキャラ専用のベストポジション」を指定します！
     imageStyle: {
       scale: 2,    // ちょっと大きめに表示
@@ -144,7 +144,7 @@ export const recommendedCreators: CreatorProfile[] = [
 export const galleryItems = [
   {
     id: 1,
-    image: '/tsc-official/sss.png',
+    image: '/tsc-official/tsc-official/sss.png',
     date: '2026.03.25',
     title: '第3回 TSC3000人記念杯',
     category: 'TOURNAMENT',
@@ -311,7 +311,7 @@ export const articleItems = [
     category: 'TOURNAMENT',
     date: '2026.03.25',
     title: '第1回 TSC3000人記念杯 開催レポート！',
-    thumbnail: '/aruitimaie.webp',
+    thumbnail: '/tsc-official/aruitimaie.webp',
     content: `2025年8月30日（土）、配信者やクリエイターが集うDiscordサーバー「The streamer Creator server」の参加者<span class="text-blue-600 font-black text-xl md:text-2xl">3,000人突破</span>を記念した、特別なAPEXカスタムマッチが開催されました！<br><br>
 サーバー設立以来の大きな節目を祝うべく行われた本大会。総勢60名の配信者が参戦し、豪華な演出と驚愕のプレゼント企画で、始終熱気に包まれた当日の様子をレポートをお届けします。
 
@@ -492,7 +492,7 @@ export const adminList = [
     name: '狼の野郎',
     romanName: 'WOLF YAROU',
     role: 'Streamer / Creator',
-    image: '/ookami.webp', // 狼の野郎さんの立ち絵パス
+    image: '/tsc-official/ookami.webp', // 狼の野郎さんの立ち絵パス
     headerImage: '/ookamiitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
@@ -544,7 +544,7 @@ export const adminList = [
     name: '雪羽かよ',
     romanName: 'yukihanekayo',
     role: 'Streamer',
-    image: '/kayotatie.png', // 狼の野郎さんの立ち絵パス
+    image: '/tsc-official/kayotatie.png', // 狼の野郎さんの立ち絵パス
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
     // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
@@ -612,7 +612,7 @@ export const adminList = [
     name: 'しいな',
     romanName: 'Shiina',
     role: 'Streamer',
-    image: '/siinataiekougasitu.png', // 狼の野郎さんの立ち絵パス
+    image: '/tsc-official/siinataiekougasitu.png', // 狼の野郎さんの立ち絵パス
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
     // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
@@ -667,7 +667,7 @@ export const adminList = [
     name: 'あるぅ',
     romanName: 'Aruud',
     role: 'Streamer',
-    image: '/arutatiekougasitu.png', // 立ち絵パス
+    image: '/tsc-official/arutatiekougasitu.png', // 立ち絵パス
     headerImage: '/aruitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
@@ -714,7 +714,7 @@ export const adminList = [
     name: 'ヒロキング',
     romanName: 'hiroking',
     role: 'Streamer',
-    image: '/IMG_0795.webp', 
+    image: '/tsc-official/IMG_0795.webp', 
     headerImage: '/hirokingitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
@@ -773,7 +773,7 @@ export const adminList = [
     name: 'ひうひむ',
     romanName: 'hiu-himu',
     role: 'Streamer',
-    image: 'hiuhimu2 .webp', 
+    image: '/tsc-official/hiuhimu2 .webp', 
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     headerImage: '/hiuhimuitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
@@ -823,7 +823,7 @@ export const adminList = [
     name: 'つゆりひお',
     romanName: 'tsuyuri_hio',
     role: 'Streamer',
-    image: '/tuyuriho (1).webp', 
+    image: '/tsc-official/tuyuriho (1).webp', 
     headerImage: '/tuyurihioitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
@@ -883,7 +883,7 @@ export const adminList = [
     name: '一楓あやの',
     romanName: 'ibuki_ayano',
     role: 'Streamer',
-    image: '/ibukiatanotatie.webp', 
+    image: '/tsc-official/ibukiatanotatie.webp', 
     headerImage: '/ayanoitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
@@ -942,7 +942,7 @@ export const adminList = [
     name: 'ふゆち',
     romanName: 'huyuchi',
     role: 'Streamer',
-    image: '/huyuti.webp', 
+    image: '/tsc-official/huyuti.webp', 
     headerImage: '/huyuti.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
@@ -1001,7 +1001,7 @@ export const adminList = [
     name: 'こゆき',
     romanName: 'koyuki',
     role: 'Streamer',
-    image: '/koyukitatie .webp', 
+    image: '/tsc-official/koyukitatie .webp', 
     headerImage: '/koyukiitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
@@ -1060,7 +1060,7 @@ export const adminList = [
     name: 'がいくま',
     romanName: 'gaikuma',
     role: 'Streamer',
-    image: '/gaikuma.webp', 
+    image: '/tsc-official/gaikuma.webp', 
     headerImage: '/gaikumaitimaie1.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
@@ -1120,7 +1120,7 @@ export const adminList = [
     name: 'よるねるか',
     romanName: 'yoruneruka (1).webp',
     role: 'Streamer',
-    image: '/yoruneruka (1).webp', 
+    image: '/tsc-official/yoruneruka (1).webp', 
     headerImage: '/yorunerujaitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
