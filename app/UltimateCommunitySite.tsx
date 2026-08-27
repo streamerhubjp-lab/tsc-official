@@ -2587,10 +2587,11 @@ useEffect(() => {
                                 src={item.thumbnail || '/tsc-official/default-thumbnail.png'}
                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-[0.22,1,0.36,1]"
                                 alt={item.title}
-                                // 🌟 ストッパー（onerror = null）を追加して無限ループを完全に防止！
-                                onError={(e) => { 
-                                  e.currentTarget.onerror = null; 
-                                  e.currentTarget.src = '/tsc-official/default-thumbnail.png'; 
+                                onError={(e) => {
+                                  // 🌟 無限ループ防止の最終兵器
+                                  e.currentTarget.onerror = null; // エラー処理を無効化
+                                  // 代わりの画像も無い場合は、透明な1pxの画像データ（Base64）を入れて通信自体を強制終了！
+                                  e.currentTarget.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
                                 }}
                               />
                               
