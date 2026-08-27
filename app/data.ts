@@ -1,22 +1,22 @@
 export const siteConfig = {
-  name: "TSC Official",
-  description: "The Streamer Creator Server",
-  
+  name: 'TSC Official',
+  description: 'The Streamer Creator Server',
+
   // 👇 右側に表示されるロゴの画像パス
-  logo: '/tsc-official/GoznTJVa4AAoq0S.jpg',  
-  
+  logo: '/tsc-official/GoznTJVa4AAoq0S.jpg',
+
   // 👇 中央に表示される11人の集合写真の画像パス
-  heroImages: [
-    '/tsc-official/Snapshot_868.webp', 
-  ],
+  heroImages: ['/syuugou.webp'],
 };
 
 export const menuItems = [
   { id: 'home', label: 'HOME' },
   { id: 'news', label: 'NEWS' },
-  { id: 'profile', label: 'PROFILE' },
+  { id: 'admins', label: '管理者/サブ管理人' },
+  //{ id: 'profile', label: 'おすすめ配信者 / クリエイター' },
+  //{ id: 'navigation', label: 'サーバーの使い方' },
   { id: 'activity', label: 'ACTIVITY' },
-  { id: 'guidelines', label: 'GUIDELINES' },
+  { id: 'guidelines', label: 'ガイドライン' },
   { id: 'sponsors', label: 'SPONSORS' },
   { id: 'magazine', label: 'MAGAZINE' },
   { id: 'faq', label: 'FAQ' },
@@ -41,307 +41,118 @@ export const newsItems = [
       'TSCサーバー4000人突破を記念した過去最大規模のAPEXカスタムが、いよいよ5月23日より開幕します！全120名の参加メンバーに加え、豪華視聴者プレゼントや特別動画もご用意。半年間の準備を注ぎ込んだ過去最高の大会をぜひお見逃しなく！',
     articleId: 'news-002',
   },
-    {
-    id: 3,
-    date: '2026.08.20',
-    category: 'EVENT',
-    title: '【TSC鯖4000人記念APEXカスタム本戦】',
-    content:
-      '8月29日(土)20時30分～【TSC鯖4000人記念APEXカスタム本戦】開催＆Twitchフロントページ掲載のお知らせ！！',
-    articleId: 'news-001',
-  },
-  {
-    id: 4,
-    date: '2026.08.23',
-    category: 'EVENT',
-    title: '【開催レポート】参加者4000人突破記念！「The streamer Creator server APEXカスタム 予選」2日間の激闘をプレイバック！',
-    content:
-      '参加者120名が激突したTSC4000人記念APEXカスタム予選！2日間にわたる大波乱の末、Aブロックは「あるある探検隊」、Bブロックは「からあげ護衛隊」が見事優勝を飾りました！勝ち抜いた上位20チームが集う、8月29日(土)の『本戦』をお見逃しなく！',
-    articleId: 'activity-002',
-  },
 ];
 
 export const memoryItems = [
   {
     id: 'm1',
     type: 'image',
-    src: '/tsc-official/Snapshot_841.PNG',
+    src: '/kouryuuyousaba.PNG',
     title: 'TSC公式サイトオープン',
   },
   {
     id: 'm2',
     type: 'image',
-    src: '/tsc-official/HHXii0FbcAAbaDj.jpg',
+    src: '/hirokinngupatona.jpg',
     title: '管理者ヒロキングtwitchパートナーへ',
   },
+  
+  //動画が絶妙にダサかったのでコメントアウトしてます。ただし、例としては残しておきます。動画を追加する場合は、twitchの動画IDを取得して、下記のように記述してください。
+
+
+  //{
+  //  id: 'm3', // または m4 など
+  //  type: 'video',
+  //  platform: 'twitch', // 👈 ここを twitch にする！
+  //  videoId: '2553796570', // 👈 Twitchの動画IDを入れる！
+  //  title: 'TSC3000人記念杯', // 👈 動画のタイトルを入れる！
+  //},
+
+
   {
-    id: 'm3', // または m4 など
-    type: 'video',
-    platform: 'twitch', // 👈 ここを twitch にする！
-    videoId: '2553796570', // 👈 Twitchの動画IDを入れる！
-    title: 'TSC3000人記念杯', // 👈 動画のタイトルを入れる！
+    id: 'm4', // または m4 など
+    type: 'image',
+    src: '/aruitimaie.webp',
+    title: 'いっぱいどうだい？', // 👈 動画のタイトルを入れる！
   },
+    {
+    id: 'm5', // または m4 など
+    type: 'image',
+    src: '/hirokingitimaie.webp',
+    title: 'KING', // 👈 動画のタイトルを入れる！
+  },
+  
 ];
 
-export const staffList = [
-  {
-    id: 'collective',
-    name: 'TSC STAFF COLLECTIVE',
-    role: '運営チーム',
-    image: '/tsc-official/collective.png',
-  },
-  {
-    id: 'admin_hiro',
-    name: 'ヒロキング',
-    role: '管理者',
-    image: '/tsc-official/IMG_0795 (1).webp',
-    profile: 'Twitchパートナーとして活動する配信者。ゲーム配信や雑談配信を中心に活動しながら、配信者・VTuber・クリエイター交流コミュニティ「TSC」を運営。コラボ企画やイベント運営を通して、活動者同士が繋がれる場所を作り続けている。',
-    links: {
-    x: 'https://x.com/hiroking_0306',
-    twitch: 'https://www.twitch.tv/theseventhone666'
-      },
-    offsetX: -200,
-    offsetY: 200,
-    scale: 1.7,
-    // ▼ スマホ用の設定（追加！） ▼
-    mobileOffsetX: -150,   // スマホではズラさない（0）
-    mobileOffsetY: 400,   // スマホではズラさない（0）
-    mobileScale: 2.5,   // スマホでは等倍（1.0）に戻す
+// 🌟 1. データの型をアップデート
+export interface CreatorProfile {
+  id: string;
+  name: string;
+  image: string;
+  // ▼ これを追加！（立ち絵の微調整用データ）
+  imageStyle?: {
+    scale: number; // 拡大縮小（1が基準。1.2なら120%）
+    x: string;     // 横のズレ（例: '20px', '-5%'）
+    y: string;     // 縦のズレ（例: '10px', '-20px'）
+  };
+  scopes: string[]; 
+  platforms: { name: string; url: string }[]; 
+  description: string; 
+}
 
-
-},
+// 🌟 2. 実際のデータをアップデート
+export const recommendedCreators: CreatorProfile[] = [
   {
-    id: 'SUB_ADMIN_01',
-    name: 'ふゆち',
-    role: 'サブ管理人',
-    image: '/tsc-official/huyuti.webp',
-    profile:
-      'TSCの舞台裏を支える技術担当。Discordの複雑な権限設定やロール構築、機能的なチャンネルレイアウトの設計を一手に引き受けるスペシャリスト。メンバーが『使いやすい』と感じるその瞬間のために、裏側で緻密なコードと設定を組み上げる、鯖の心臓部を守るエンジニアです。技術的な相談があれば、ふゆちに聞けば間違いなし。',
-    customScale: 'scale-90',
-    links: {
-    twitch: 'https://www.twitch.tv/fuyuchi_'
-      },
-    offsetX: -250,
-    offsetY: 120,
-    scale: 1.00,
-    // ▼ スマホ用の設定（追加！） ▼
-    mobileOffsetX: -190,   // スマホではズラさない（0）
-    mobileOffsetY: 190,   // スマホではズラさない（0）
-    mobileScale: 1.1,  
-  },
- {
-    id: 'sub_admin_2',
-    name: 'ひうひむ',
-    role: 'サブ管理人',
-    image: '/tsc-official/hiuhimu2.webp',
-    profile: '3匹の手下おばけを連れた、おっとりとした物静かな幽霊メイド。RPGなどのストーリーものを心から愛する配信者。ホラーゲームでも叫ばないくらいなので、作業中寂しいときにラジオ感覚で聴ける。神出鬼没なので、VCで会えたらラッキー。◆好きなもの紅茶、読書、映画鑑賞(ホラー大好き)、語学学習',
-    customScale: 'scale-110',
-    customPosition: 'translate-y-4',
-    offsetX: -200,
-    offsetY: 220,
-    scale: 1.3,
-    links: {
-    x: 'https://x.com/hiuhymn',
-    twitch: 'https://www.twitch.tv/hiuhymn',
-    youtube: 'https://www.youtube.com/@hiuhymn'
-      },
-    mobileOffsetX: -150,
-    mobileOffsetY: 350,
-    mobileScale: 1.7,
-  },
-  {
-    id: 'sub_admin_3',
-    name: 'がいくま',
-    role: 'サブ管理人',
-    image: '/tsc-official/gaikuma.webp', 
-    profile: '人間に憧れて熊から人間へ転生。VCは夕方から深夜で出没します。少人数用のVCにいることが多く、大人数が苦手でもご安心ください。APEXやちょっと変わったゲームをしています。共通するゲームがあれば、ぜひ一緒に遊びましょう！プレイを鑑賞したいだけでも大丈夫です。困ったことがあればご相談ください。',
-    offsetX: -180,
-    offsetY: 170,
-    scale: 1.2,
-    links: {
-    x: 'https://x.com/subkumasan3310',
-    twitch: 'https://www.twitch.tv/gaikumasan_twitch?sr=a',
-      },
-
-    // ▼ スマホ用の設定（追加！） ▼
-    mobileOffsetX: -170,   // スマホではズラさない（0）
-    mobileOffsetY:420,   // スマホではズラさない（0）
-    mobileScale: 2,  
-  },
-
-  {
-    id: 'sub_admin_4',
-    name: 'しいな',
-    role: 'サブ管理人',
-    image: '/tsc-official/siinatatie.webp',
-    profile: '不定期にPS5で怪奇現象（配信）をしているオバケ、というコンセプトストリーマー。『リトルナイトメア』や『ロックマン2』などのゲーム実況に加え、音ゲーの『DEEMO』をピアノで演奏するなど多岐にわたる。おっとりとした癒やし系の雰囲気があり、リスナーを大切にする温かい交流が魅力の配信者。TSC内でも細やかな気遣いや丁寧な仕事ぶりで運営を支えている。',
-    offsetX: -250,
-    offsetY: 170,
-    scale: 1.4,
-    links: {
-    x: 'https://x.com/shiina_81417',
-    twitch: 'https://www.twitch.tv/shiina_41777',
-      },
-    // ▼ スマホ用の設定（追加！） ▼
-    mobileOffsetX: -190,   // スマホではズラさない（0）
-    mobileOffsetY:200,   // スマホではズラさない（0）
-    mobileScale: 1.7,  
-  },
-  {
-    id: 'sub_admin_5',
+    id: 'wolf_yarou',
     name: '狼の野郎',
-    role: 'サブ管理人',
-    image: '/tsc-official/ookaminoyarou.webp',
-    profile: 'ただの狼、人間生活大満喫中狼。配信者やら、物作りやら、小説書いたり、自由気ままにインターネット生活ライフ『Apex Legends』、『原神』、『VAROLANT』や『魔法少女ノ魔女裁判』などのストーリー系ゲームなど、多岐にわたるゲームを配信中。動画制作など色々と作り中ぜひみてね～。たのしぃ',
-    offsetX: -250,
-    offsetY: 270,
-    scale: 2.5,
-     // ▼ スマホ用の設定（追加！） ▼
-    mobileOffsetX: -220,   // スマホではズラさない（0）
-    mobileOffsetY: 300,   // スマホではズラさない（0）
-    mobileScale: 3,  
-    links: {
-    x: 'https://x.com/wolf_wolf_wolfA',
-    twitch: 'https://www.twitch.tv/wolfyarou',
-    youtube:'https://www.youtube.com/channel/UCLJ0tGK4PpfdZJvf0fjGVWw',
-      },
+    image: '/ookami.webp', 
+    // ▼ ここで「このキャラ専用のベストポジション」を指定します！
+    imageStyle: {
+      scale: 3,    // ちょっと大きめに表示
+      x: '450px',      // 右に10pxズラす
+      y: '700px',      // 下に20pxズラす（足が浮いているのを直す等）
+    },
+    scopes: ['配信者', 'VTuber', 'モデレーター'],
+    platforms: [
+      { name: 'Twitch', url: 'https://twitch.tv/...' },
+      { name: 'YouTube', url: 'https://youtube.com/...' },
+      { name: 'X (Twitter)', url: 'https://x.com/...' },
+    ],
+    description: 'FPSゲームを中心に、リスナーとの距離が近い参加型配信をメインに活動中！コミュニティの盛り上げ役として様々な企画にも顔を出しています。',
   },
+  // ... 他のメンバーも同様に追加（調整が不要なキャラは imageStyle を書かなくてもOKです）
   {
-    id: 'sub_admin_6',
-    name: 'こゆき',
-    role: 'サブ管理人',
-    image: '/tsc-official/koyukitatie.webp',
-    profile: 'ゲームとお酒とお喋り大好き、個人勢Vtuber。『Apex Legends』のゲーム実況を中心に活動中。七皇の剣の専属モデレーターも兼任中。おしゃべりが大好きなのでTSCでは主にVCの盛り上げ役や、裏方として技術面のサポートも行っている。',
-    offsetX: -250,
-    offsetY: 270,
-    scale: 1.3,
-    links: {
-    x: 'https://x.com/hajikoyuch',
-    twitch: 'https://www.twitch.tv/vtuberkoyuki',
-    youtube:'https://www.youtube.com/@hajikoyuch',
-      },
-     // ▼ スマホ用の設定（追加！） ▼
-    mobileOffsetX: -150,   // スマホではズラさない（0）
-    mobileOffsetY: 400,   // スマホではズラさない（0）
-    mobileScale: 2,  
-  },
-
-    {
-    id: 'sub_admin_7',
+    id: 'aruxuxux',
     name: 'あるぅ',
-    role: 'サブ管理人',
-    image: '/tsc-official/aruxu.webp',
-    profile: 'サプライズが得意な個人勢Vstreamer。落ち着いた声色が特徴的だが、人を楽しませたり喜ばせるのが得意。『Apex Legends』や『DBD』のゲーム以外にも、料理配信や視聴者参加型の配信など、バラエティ豊かな企画配信も多く行っているエンターテイナー。',
-    offsetX: -220,
-    offsetY: 220,
-    scale: 1.1,
-    links: {
-    x: 'https://x.com/aruu_jp',
-    twitch: 'https://m.twitch.tv/aruu_jp/home',
-    youtube: 'https://www.youtube.com/@aruu_jp',    
-   },
-    // ▼ スマホ用の設定（追加！） ▼
-    mobileOffsetX: -150,   // スマホではズラさない（0）
-    mobileOffsetY: 420,   // スマホではズラさない（0）
-    mobileScale: 1.8,  
-  
-  },
-
-  {
-    id: 'sub_admin_8',
-    name: 'つゆりひお',
-    role: 'サブ管理人',
-    image: '/tsc-official/tuyuriho.webp',
-    profile: 'result e-Sports所属のハムスターモチーフの小動物系配信者。『Apex Legends』、『VAROLANT』、『DBD』やホラーゲームなど、多岐にわたるゲームを配信中。おっとりとしたかわいらしい雰囲気を持ちつつ、ゲームに対しては真剣に取り組むギャップも魅力的。',
-    offsetX: -220,
-    offsetY: 180,
-    scale: 0.8,
-    links: {
-    x: 'https://x.com/hiokikai_twitch',
-    twitch: 'https://www.twitch.tv/noahio0507',
-    youtube: 'https://www.youtube.com/@Thuyurihio',   
-   },
-      
-    // ▼ スマホ用の設定（追加！） ▼
-    mobileOffsetX: -150,   // スマホではズラさない（0）
-    mobileOffsetY: 450,   // スマホではズラさない（0）
-    mobileScale: 1.5,  
-  
-  
-  },
-  {
-    id: 'sub_admin_9',
-    name: 'よるねるか',
-    role: 'サブ管理人',
-    image: '/tsc-official/yoruneruka.webp',
-    profile: '「セクシーサンキュー」な清楚癒し系お姉さんVstreamer。『Apex Legends』や『Minecraft』などのゲーム実況を中心に活動中。おっとりとした装いとは裏腹に、ゲームの腕前もお見事。自信のチャンネル内素材を作成する程のお絵描きスキルも持ち合わせている。',
-    offsetX: -220,
-    offsetY: 180,
-    scale: 1,
-    links: {
-    x: 'https://x.com/yorunerukamone',
-    twitch: 'https://www.twitch.tv/yoruneruka',
-    youtube: 'https://www.youtube.com/channel/UCOgBheyN6Ge4MG_kq2wkRCA',    
-   },
-    // ▼ スマホ用の設定（追加！） ▼
-    mobileOffsetX: -150,   // スマホではズラさない（0）
-    mobileOffsetY: 400,   // スマホではズラさない（0）
-    mobileScale: 1.8,  
-  },
-  
-  {
-    id: 'sub_admin_19',
-    name: 'ʸᵘᵏⁱʰᵃ/ₖₐᵧₒ',
-    role: 'サブ管理人',
-    image: '/tsc-official/kayotatie.webp',
-    profile: 'クラゲの「かよ」が生み出した「雪羽」という、コンセプトストリーマー。『あつまれどうぶつの森』や『原神』など、まったりとした空間でゲームを配信を行うのが特徴的。表情豊かで癒やしをお届け！',
-    offsetX: -220,
-    offsetY: 200,
-    scale: 1.2,
-    links: {
-    x: 'https://x.com/YukihaKayo',
-    twitch: 'https://www.twitch.tv/yukiha_kayo',
-    youtube: 'https://www.youtube.com/channel/UCOgBheyN6Ge4MG_kq2wkRCA',    
-   },
-    // ▼ スマホ用の設定（追加！） ▼
-    mobileOffsetX: -150,   // スマホではズラさない（0）
-    mobileOffsetY: 300,   // スマホではズラさない（0）
-    mobileScale: 1.7,  
-  },
-  {
-    id: 'sub_admin_11',
-    name: '一楓あやの',
-    role: 'サブ管理人',
-    image: '/tsc-official/ibukiayano0.webp',
-    profile: '自称「どこでも迷子」方向音痴系個人勢VStreamer。けもみみとしっぽを愛する獣人。ファンからは「いぶたそ」の愛称で親しまれている。『Apex Legends』や『NTE』などのゲーム実況を中心に活動中。',
-    offsetX: -220,
-    offsetY: 40,
-    scale: 1.6,
-    links: {
-    x: 'https://x.com/ibuki_ayano',
-    twitch: 'https://www.twitch.tv/ibuki_ayano',
-    youtube: 'https://www.youtube.com/@Ibuki_ayano',    
-   },
-      
-     // ▼ スマホ用の設定（追加！） ▼
-    mobileOffsetX: -150,   // スマホではズラさない（0）
-    mobileOffsetY: 120,   // スマホではズラさない（0）
-    mobileScale: 2,  
+    image: '/aruxu.webp', 
+    // ▼ ここで「このキャラ専用のベストポジション」を指定します！
+    imageStyle: {
+      scale: 2,    // ちょっと大きめに表示
+      x: '150px',      // 右に10pxズラす
+      y: '600px',      // 下に20pxズラす（足が浮いているのを直す等）
+    },
+    scopes: ['配信者', 'VTuber', 'モデレーター'],
+    platforms: [
+      { name: 'Twitch', url: 'https://twitch.tv/...' },
+      { name: 'YouTube', url: 'https://youtube.com/...' },
+      { name: 'X (Twitter)', url: 'https://x.com/...' },
+    ],
+    description: 'FPSゲームを中心に、リスナーとの距離が近い参加型配信をメインに活動中！コミュニティの盛り上げ役として様々な企画にも顔を出しています。',
   },
 ];
 
 export const galleryItems = [
-   {
-    id: 2,
-    image: '/tsc-official/Snapshot_923.PNG',
-    date: '2026.03.25',
-    title: '【開催レポート】参加者4000人突破記念！「The streamer Creator server APEXカスタム 予選」2日間の激闘をプレイバック！',
-    category: 'EVENT',
-    description:
-      '2026年5月23日・24日の2日間、「The streamer Creator server」4000人突破を記念したAPEXカスタム予選が開催されました！計40チーム・120名の配信者が激突した熱い2日間のハイライトをサクッとお届けします。主催「七皇の剣」による完全オリジナル映像の豪華演出で幕を開けました！',
-    articleId: 'activity-002',
-  },
   {
+    id: 1,
+    image: '/tsc-official/sss.png',
+    date: '2026.03.25',
+    title: '第3回 TSC3000人記念杯',
+    category: 'TOURNAMENT',
+    description:
+      '2025年8月30日（土）、配信者やクリエイターが集うDiscordサーバー「The streamer Creator server」の参加者3,000人突破を記念した、特別なAPEXカスタムマッチが開催されました！サーバー設立以来の大きな節目を祝うべく行われた本大会。総勢60名の配信者が参戦し、豪華な演出と驚愕のプレゼント企画で、始終熱気に包まれた当日の様子をレポートをお届けします。',
+    articleId: 'activity-001',
+  },
+    {
     id: 1,
     image: '/tsc-official/sss.png',
     date: '2026.03.25',
@@ -353,14 +164,13 @@ export const galleryItems = [
   },
 ];
 
-
 // data.ts
 
 // ==========================================
 // ⭐ 運営チーム（ABOUT）データ
 // ==========================================
 export const collectiveData = {
-  image: '/tsc-official/Snapshot_849.PNG', // ※実際の画像パスに直してくださいね
+  image: '/syuugoutatie.PNG', // ※実際の画像パスに直してくださいね
   adminCount: 1,
   subAdminCount: 11,
   totalCount: 12,
@@ -368,11 +178,10 @@ export const collectiveData = {
   subtitle: 'Admins & Sub-Admins',
   mainMessage: 'あなたの活動をサポートします。',
   description: [
-    "TSCサーバーでは、1名の管理人と11名のサブ管理人、計12名の運営チームが日々サーバーの治安維持と環境アップデートに努めています。",
-    "「Discordサーバーに参加するのは初めてで不安…」「もしトラブルがあったらどうしよう…」という方でも心配いりません。皆さんが安心して楽しく活動できるよう、しっかりとサポートする体制を整えています。"
-  ]
+    'TSCサーバーでは、1名の管理人と11名のサブ管理人、計12名の運営チームが日々サーバーの治安維持と環境アップデートに努めています。',
+    '「Discordサーバーに参加するのは初めてで不安…」「もしトラブルがあったらどうしよう…」という方でも心配いりません。皆さんが安心して楽しく活動できるよう、しっかりとサポートする体制を整えています。',
+  ],
 };
-
 
 export const faqList = [
   {
@@ -433,17 +242,19 @@ export const sponsorData = {
     title: '協賛企業様について',
     subtitle: '企業様もこのコミュニティに参加されています',
     text: 'TSCサーバーには、私たちの活動に賛同してくださる企業様も参加しています。クリエイターやストリーマーの皆様に向けて、このサーバー独自の特別価格や限定サポートをご提示いただくことも可能です。',
-    
+
     // 🌟 ここを実際の運用に合わせてアップデート！
     features: [
       {
         title: '協賛企業様からの特別案内', // ※「交流」から実情に合わせたタイトルに微調整しました
-        description: 'ご希望の方を専用サーバーへご案内し、企業担当者様から直接サービスの説明や案内を聞くことができる機会を設けています。有益な情報をキャッチして、活動の幅を広げるきっかけとしてご活用ください。'
+        description:
+          'ご希望の方を専用サーバーへご案内し、企業担当者様から直接サービスの説明や案内を聞くことができる機会を設けています。有益な情報をキャッチして、活動の幅を広げるきっかけとしてご活用ください。',
       },
       {
         title: 'サーバー限定価格のご案内',
-        description: 'TSC参加者様限定の特別割引や専用プランをご案内しています。現在はクリエイター活動を多角的にサポートする企業様と提携しており、今後はさらにジャンルを問わず、皆さんの活動を支えるパートナーをどんどん増やしていく予定です。日々進化していくTSCのサポート体制にぜひご期待ください！'
-      }
+        description:
+          'TSC参加者様限定の特別割引や専用プランをご案内しています。現在はクリエイター活動を多角的にサポートする企業様と提携しており、今後はさらにジャンルを問わず、皆さんの活動を支えるパートナーをどんどん増やしていく予定です。日々進化していくTSCのサポート体制にぜひご期待ください！',
+      },
     ],
   },
   companies: [
@@ -470,91 +281,11 @@ export const sponsorData = {
   },
 };
 
-
 export const floatingMemories: never[] = [];
 
 export const articleItems = [
   {
-    id: 'activity-002',
-    category: 'EVENT',
-    date: '2026.05.23,24',
-    title: '【開催レポート】参加者4000人突破記念！「The streamer Creator server APEXカスタム 予選」2日間の激闘をプレイバック！',
-    thumbnail: '/tsc-official/Snapshot_923.PNG',
-    content: 
-`【開催レポート】
-参加者4000人突破記念！「The streamer Creator server APEXカスタム 予選」2日間の激闘をプレイバック！
-2026年5月23日（土）・24日（日）の2日間にわたり、配信者やクリエイターが集う大人気Discordサーバー「The streamer Creator server」の参加者4000人突破を記念したAPEXカスタム予選（Aブロック・Bブロック）が開催されました！
-3000人記念大会からさらに拡大し、今回は2日間で合計40チーム・120名の配信者が参戦！ 8月29日（土）に行われる「本戦」への切符（各ブロック上位10チーム・計20チーム）をかけた、熱すぎる予選の模様をレポートします！
-2日間連続の豪華演出！
-今回の予選は、なんとAブロックとBブロックで異なるオリジナル映像を用意！
-カウントダウン、オープニング、エンディングにいたるまで、すべて主催の七皇の剣が完全新規でオリジナル制作。連日参加・視聴するファンを飽きさせない圧倒的なこだわりで大会を彩りました。
-全チームのメンバー紹介も丁寧に行われ、画面越しからも伝わる熱気とともに、2日間にわたる大祭典の幕が上がりました。
-
-【予選Aブロック】
-圧倒的火力と“拳”のドラマ（5月23日）
-Aブロックでは、途中で配信が途切れてしまうアクシデントもありつつも、それを吹き飛ばすほどの凄まじい名勝負が連発しました！
-19キル＆17キル！怒涛の2連チャン： 第一試合・第二試合では、リーダー「もの」氏率いる「ファイトマシマシ～ダウン多め、コール少なめ」が圧倒的なガンファイトを展開！第一試合で19キル、第二試合で17キルという破格のキル数を叩き出し、圧巻の2連続チャンピオンを獲得しました。
-武器禁止！“拳”で制した肉弾戦： 特殊ルール（武器禁止マッチ）となった第四試合・第五試合では、リーダー「あるーるん」氏率いる「あるある探検隊～頂をいただきに来た漢達～」が熱い殴り合いを制して2連続チャンピオンを獲得！
-結果、特殊ルール戦での怒涛の巻き返しで見事102ptという大差をつけた「あるある探検隊～頂をいただきに来た漢達～」がAブロック優勝を飾りました！
-
- 【予選Bブロック】
-大混戦を制したドラマチックな結末（5月24日）
-翌日行われたBブロックは、まさに最後まで展開が読めない大波乱の展開となりました。
-ぶるちゃっぴー氏の凄腕4タテ！： 第二試合・第三試合では、リーダー「こゆびさま」氏率いる「ぶるちゃっぽんさま2」が2連続チャンピオンを獲得！特にぶるちゃっぴー氏がダブルタップオルタネーターで魅せた華麗な「4タテ」には、コメント欄も大歓喜となりました。
-怒涛の追撃を見せた社会人チーム： 対する第四試合・第五試合では、リーダー「しゃっちくさく」氏率いる「社会の歯車」が連勝を飾り、チャンピオン（ちゃんぽん）を連続奪取！
-2強の激突となり、どちらのチームが頂点に立つのか誰もが固唾をのんで見守る中……総合ポイントで見事Bブロック優勝を勝ち取ったのは、安定した戦いぶりを見せたリーダー「からあげ揚げたて」氏率いる「からあげ護衛隊」！最後まで諦めない立ち回りが実を結ぶ、見事な逆転劇でした。
-いざ、8月29日（土）の本戦へ！
-予選Aブロック・Bブロックを勝ち抜いた猛者20チームが、ついに8月の「本戦」で一堂に会します。
-アクシデントを乗り越え、チームメンバー同士の絆と熱量がさらに深まった素晴らしい2日間となりました。参加された選手の皆様、長時間の配信を見守った視聴者の皆様、本当にお疲れ様でした！
-本戦まであと少し。さらなる高みへ――プルスウルトラ！
-
-【イベント概要まとめ】
-イベント名： The streamer Creator server 4000人記念APEXカスタム 予選
-開催日：
-【予選Aブロック】2026年5月23日（土）
-【予選Bブロック】2026年5月24日（日）
-参加規模： 各日20チーム60名（計120名）
-主催・運営・映像制作： 七皇の剣
-本戦日程： 2026年8月29日（土）20:30開始
-`,
-  },
-  {
     id: 'news-001',
-    category: 'EVENT',
-    date: '2026.08.29',
-    title: '8月29日(土)20時30分～【TSC鯖4000人記念APEXカスタム本戦】開催＆Twitchフロントページ掲載のお知らせ！！',
-    thumbnail: '/tsc-official/2026_8_29TSCCustom.webp',
-    content: `5月の予選Aブロック、Bブロックを勝ち上がった総勢60名が本戦大会で頂点を決定！予選大会から、スポンサー様や運営陣を合わせると総勢170名が関わる、「TSC鯖」過去最大規模のイベント【TSC4000人記念APEXカスタム】の本戦開催がいよいよ迫る！
-
-【本戦開催スケジュール】
-・日程：8月29日(土) 20:30～
-当日は配信待機画面、カウントダウン、クロスワードクイズ、オープニングムービーから始まり、スポンサー様紹介、チーム紹介、本戦、エンディングムービー、次回予告と盛りだくさん！
-
-【超豪華！視聴者プレゼント】
-カウントダウン後のクロスワードクイズでは、超豪華な視聴者プレゼントが当たるチャンスもあり！
-クロスワードクイズは20:45～21:00までになりますので、ぜひ刮目せよ！！
-（※賞品はすべて、同額分の「Amazonギフト券」でのお渡しとなります）
-
-・Stream Deck Neo 相当（14,000円×2）＝ 28,000円分
-・audio-technica AT4040 相当 ＝ 40,000円分
-・Amazonギフト券（10,000円）＝ 10,000円分
-・カタログギフト 相当（5,000円×6）＝ 30,000円分
-・INZONE Buds ワイヤレスイヤホン 相当 ＝ 30,000円分
-
-総額 約138,000円分！
-（EA提供ではございません）
-
-【Twitchフロントページ掲載！！】
-当日は初のTwitchフロントページ掲載も決定！！
-いつも応援いただいている皆様も、初見の皆様もたくさんの皆様に、過去最高の仕上がりのカスタムをお届けします！
-
-この夏最後の一番ホットな激戦、心血注いだ最大級のカスタムを是非お楽しみに♪
-
-皆様のご参加・ご視聴を心よりお待ちしております。 
-`,
-  },
-   {
-    id: 'news-003',
     category: 'IMPORTANT',
     date: '2026.05.13',
     title: 'TSC公式ポータルサイトがついにオープンしました！',
@@ -580,35 +311,123 @@ Aブロックでは、途中で配信が途切れてしまうアクシデント�
     category: 'TOURNAMENT',
     date: '2026.03.25',
     title: '第1回 TSC3000人記念杯 開催レポート！',
-    thumbnail: '/tsc-official/sss.png',
-    content: 
-`2025年8月30日（土）、配信者やクリエイターが集うDiscordサーバー「The streamer Creator server」の参加者3,000人突破を記念した、特別なAPEXカスタムマッチが開催されました！サーバー設立以来の大きな節目を祝うべく行われた本大会。総勢60名の配信者が参戦し、豪華な演出と驚愕のプレゼント企画で、始終熱気に包まれた当日の様子をレポートをお届けします。
-【豪華演出で祭典の幕を開け！】
-カウントダウンクイズ動画から始まり、記念大会にふさわしい圧倒的なクオリティーの豪華なオープニング映像演出でスタートしました。
-大会終わりのエンディング動画も含め、七皇の剣メンバー、りき狐りき子氏による完全オリジナル制作。プロフェッショナルな映像美が、参加者と視聴者の期待を一気に高めました。また、全20チーム60名のメンバー紹介や、本大会を支えてくださったスポンサー様紹介も丁寧に行われ、一人ひとりひとりが主役になれる、まさに「配信者・クリエイターサーバー」らしい愛の詰まった運営が印象的でした。
-【コミュニティが一体となった「ライブビューイング」】
-当日は配信画面だけでなく、Discordサーバー内のボイスチャットも大盛り上がり！ 多くのメンバーが集まり、リアルタイムで戦況を見守る「ライブビューイング」が実施されました。
+    thumbnail: '/aruitimaie.webp',
+    content: `2025年8月30日（土）、配信者やクリエイターが集うDiscordサーバー「The streamer Creator server」の参加者<span class="text-blue-600 font-black text-xl md:text-2xl">3,000人突破</span>を記念した、特別なAPEXカスタムマッチが開催されました！<br><br>
+サーバー設立以来の大きな節目を祝うべく行われた本大会。総勢60名の配信者が参戦し、豪華な演出と驚愕のプレゼント企画で、始終熱気に包まれた当日の様子をレポートをお届けします。
+
+<!-- 🌟 途中の挿絵（イベントの全体風景やロゴなどを想定） -->
+<img src="/tsc-official/placeholder-1.webp" alt="イベント風景" class="w-full rounded-2xl my-10 shadow-md" />
+
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">豪華演出で祭典の幕を開け！</h2>
+カウントダウンクイズ動画から始まり、記念大会にふさわしい圧倒的なクオリティーの豪華なオープニング映像演出でスタートしました。<br><br>
+大会終わりのエンディング動画も含め、七皇の剣メンバー、<b>りき狐りき子氏</b>による完全オリジナル制作。プロフェッショナルな映像美が、参加者と視聴者の期待を一気に高めました。また、全20チーム60名のメンバー紹介や、本大会を支えてくださったスポンサー様紹介も丁寧に行われ、一人ひとりが主役になれる、まさに「配信者・クリエイターサーバー」らしい愛の詰まった運営が印象的でした。
+
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">コミュニティが一体となった「ライブビューイング」</h2>
+当日は配信画面だけでなく、Discordサーバー内のボイスチャットも大盛り上がり！ 多くのメンバーが集まり、リアルタイムで戦況を見守る<span class="font-bold text-slate-900">「ライブビューイング」</span>が実施されました。<br><br>
 ナイスプレイには歓喜の声が上がり、惜しい場面ではため息が漏れる。サーバー内での結束力がより一層深まり、最高の交流の場となりました。
-【総額45万円超え！豪華視聴者プレゼントでコメント欄も熱狂】
-本大会の目玉の一つが、総額45万円を超えるという桁外れの視聴者プレゼント企画です。
+
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">総額45万円超え！豪華視聴者プレゼントでコメント欄も熱狂</h2>
+本大会の目玉の一つが、<span class="text-red-500 font-black text-xl">総額45万円を超える</span>という桁外れの視聴者プレゼント企画です。<br><br>
 豪華な景品が発表されるたびに、配信のコメント欄は驚きと喜びのメッセージで埋め尽くされました。プレイヤーだけでなく、視聴者も一緒に「お祭り」を楽しめる仕掛けが、大会の活気をさらに押し上げていました。
-【激戦を制した優勝チームは…？】
-ハイレベルな攻防が繰り広げられた戦場を勝ち抜き、見事栄冠に輝いたのは……
-優勝：チーム「シン・太陽神ゴッドサンシャインジャスティスの魂」 （リーダー：神鬼しゅらら 氏）
+
+<!-- 🌟 途中の挿絵（プレゼント企画の画像や熱狂するチャットの様子などを想定） -->
+<img src="/tsc-official/placeholder-2.webp" alt="プレゼント企画" class="w-full rounded-2xl my-10 shadow-md" />
+
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">激戦を制した優勝チームは…？</h2>
+ハイレベルな攻防が繰り広げられた戦場を勝ち抜き、見事栄冠に輝いたのは……<br><br>
+
+<!-- 🌟 優勝チーム発表の特別ハイライトボックス -->
+<div class="bg-blue-50 border border-blue-200 rounded-2xl p-8 text-center my-10 shadow-sm">
+  <span class="block text-blue-600 font-bold mb-3 tracking-widest text-sm">🏆 優勝チーム</span>
+  <span class="text-2xl md:text-4xl font-black text-slate-900 leading-tight">「シン・太陽神ゴッド<br class="md:hidden" />サンシャインジャスティスの魂」</span>
+  <span class="block text-slate-700 font-medium mt-4">（リーダー：神鬼しゅらら 氏）</span>
+</div>
+
 チームワークと個々のスキルが光る、素晴らしい立ち回りで大会を制しました！
-【配信最大同時接続数を更新！大成功のフィナーレ】
-今回のカスタムマッチは、大きなトラブルもなく、極めてスムーズに進行しました。
-その結果、配信での最大同時接続数も見事に更新。数字としても、コミュニティの熱量としても、過去最大級の成功を収めることができました。
-主催の七皇の剣（ヒロキング氏）を中心に、参加者、運営スタッフ、スポンサー、そして視聴者の皆様が一体となって作り上げたこの「3000人記念APEXカスタム」。The streamer Creator serverは、これからも配信者・クリエイターたちが繋がり、輝ける場所として歩み続けます。
+
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">配信最大同時接続数を更新！大成功のフィナーレ</h2>
+今回のカスタムマッチは、大きなトラブルもなく、極めてスムーズに進行しました。<br>
+その結果、配信での<b>最大同時接続数も見事に更新</b>。数字としても、コミュニティの熱量としても、過去最大級の成功を収めることができました。<br><br>
+主催の七皇の剣（ヒロキング氏）を中心に、参加者、運営スタッフ、スポンサー、そして視聴者の皆様が一体となって作り上げたこの「3000人記念APEXカスタム」。The streamer Creator serverは、これからも配信者・クリエイターたちが繋がり、輝ける場所として歩み続けます。<br><br>
 参加された皆様、本当にお疲れ様でした！
-【イベント概要まとめ】
-イベント名： The streamer Creator server 3000人記念APEXカスタム
-開催日： 2025年8月30日（土）
-参加規模： 20チーム 60名
-主催・運営： 七皇の剣
-映像制作： 七皇の剣`,
+
+<!-- 🌟 最後の「イベント概要」をリッチなカードデザインで配置 -->
+<div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 mt-16 shadow-sm">
+  <h3 class="text-xl font-black text-slate-900 mb-6 border-b border-slate-200 pb-4">📌 イベント概要まとめ</h3>
+  <ul class="space-y-4 text-slate-700 font-medium text-sm md:text-base">
+    <li class="flex flex-col md:flex-row"><span class="md:w-32 font-bold text-slate-400 shrink-0">イベント名</span><span>The streamer Creator server 3000人記念APEXカスタム</span></li>
+    <li class="flex flex-col md:flex-row"><span class="md:w-32 font-bold text-slate-400 shrink-0">開催日</span><span>2025年8月30日（土）</span></li>
+    <li class="flex flex-col md:flex-row"><span class="md:w-32 font-bold text-slate-400 shrink-0">参加規模</span><span>20チーム 60名</span></li>
+    <li class="flex flex-col md:flex-row"><span class="md:w-32 font-bold text-slate-400 shrink-0">主催・運営</span><span>七皇の剣</span></li>
+    <li class="flex flex-col md:flex-row"><span class="md:w-32 font-bold text-slate-400 shrink-0">映像制作</span><span>七皇の剣</span></li>
+  </ul>
+</div>`,
   },
-{
+  {
+    id: 'activity-002',
+    category: 'TOURNAMENT',
+    date: '2026.05.24',
+    title: '参加者4000人突破記念！「TSC APEXカスタム 予選」2日間の激闘をプレイバック！',
+    thumbnail: '/aruitimaie.webp',
+    content: `2026年5月23日（土）・24日（日）の2日間にわたり、配信者やクリエイターが集う大人気Discordサーバー「The streamer Creator server」の参加者<span class="text-blue-600 font-black text-xl md:text-2xl">4,000人突破</span>を記念したAPEXカスタム予選（Aブロック・Bブロック）が開催されました！<br><br>
+3000人記念大会からさらに規模が拡大し、今回は2日間で合計40チーム・120名の配信者が参戦！8月29日（土）に行われる「本戦」への切符（各ブロック上位10チーム・計20チーム）をかけた、熱すぎる予選の模様をお届けします。
+
+<!-- 🌟 途中の挿絵 -->
+<img src="/tsc-official/placeholder-1.webp" alt="イベント風景" class="w-full rounded-2xl my-10 shadow-md" />
+
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">2日間連続の豪華演出で開幕！</h2>
+今回の予選は、AブロックとBブロックで異なるオリジナル映像を用意！<br><br>
+カウントダウン、オープニング、エンディングにいたるまで、すべて主催の<b>七皇の剣</b>が完全新規でオリジナル制作。連日参加・視聴するファンを飽きさせない圧倒的なこだわりで大会を彩りました。全チームのメンバー紹介も丁寧に行われ、画面越しからも伝わる熱気とともに、2日間にわたる大祭典の幕が上がりました。
+
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">【予選Aブロック】圧倒的火力と“拳”のドラマ（5月23日）</h2>
+途中で配信が途切れてしまうアクシデントもありつつも、それを吹き飛ばすほどの凄まじい名勝負が連発しました！<br><br>
+<b>🔥 怒涛の2連チャン（19キル＆17キル）</b><br>
+第一試合・第二試合では、リーダー「もの」氏率いる「ファイトマシマシ～ダウン多め、コール少なめ」が圧倒的なガンファイトを展開！第一試合で19キル、第二試合で17キルという破格のキル数を叩き出し、圧巻の2連続チャンピオンを獲得しました。<br><br>
+<b>🥊 武器禁止！“拳”で制した肉弾戦</b><br>
+特殊ルール（武器禁止マッチ）となった第四試合・第五試合では、リーダー「あるーるん」氏率いる「あるある探検隊～頂をいただきに来た漢達～」が熱い殴り合いを制して2連続チャンピオンを獲得！<br><br>
+結果、特殊ルール戦での怒涛の巻き返しで見事102ptという大差をつけた<b>「あるある探検隊～頂をいただきに来た漢達～」</b>がAブロック優勝を飾りました！
+
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">【予選Bブロック】大混戦を制したドラマチックな結末（5月24日）</h2>
+翌日行われたBブロックは、まさに最後まで展開が読めない大波乱の展開となりました。<br><br>
+<b>⚡ ぶるちゃっぴー氏の凄腕4タテ！</b><br>
+第二試合・第三試合では、リーダー「こゆびさま」氏率いる「ぶるちゃっぽんさま2」が2連続チャンピオンを獲得！特にぶるちゃっぴー氏がダブルタップオルタネーターで魅せた華麗な「4タテ」には、コメント欄も大歓喜となりました。<br><br>
+<b>⚙️ 怒涛の追撃を見せた社会人チーム</b><br>
+対する第四試合・第五試合では、リーダー「しゃっちくさく」氏率いる「社会の歯車」が連勝を飾り、チャンピオンを連続奪取！
+
+<!-- 🌟 途中の挿絵 -->
+<img src="/tsc-official/placeholder-2.webp" alt="試合の様子" class="w-full rounded-2xl my-10 shadow-md" />
+
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">Bブロックを制したのは…？</h2>
+2強の激突となり、どちらのチームが頂点に立つのか誰もが固唾をのんで見守る中……総合ポイントで見事Bブロック優勝を勝ち取ったのはこちら！<br><br>
+
+<!-- 🌟 優勝チーム発表の特別ハイライトボックス -->
+<div class="bg-blue-50 border border-blue-200 rounded-2xl p-8 text-center my-10 shadow-sm">
+  <span class="block text-blue-600 font-bold mb-3 tracking-widest text-sm">🏆 Bブロック優勝チーム</span>
+  <span class="text-2xl md:text-4xl font-black text-slate-900 leading-tight">「からあげ護衛隊」</span>
+  <span class="block text-slate-700 font-medium mt-4">（リーダー：からあげ揚げたて 氏）</span>
+</div>
+
+最後まで諦めない立ち回りが実を結ぶ、見事な逆転劇となりました！
+
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">いざ、8月29日（土）の本戦へ！</h2>
+予選Aブロック・Bブロックを勝ち抜いた猛者20チームが、ついに8月の「本戦」で一堂に会します。<br>
+アクシデントを乗り越え、チームメンバー同士の絆と熱量がさらに深まった素晴らしい2日間となりました。参加された選手の皆様、長時間の配信を見守った視聴者の皆様、本当にお疲れ様でした！<br><br>
+本戦まであと少し。さらなる高みへ――プルスウルトラ！
+
+<!-- 🌟 最後の「イベント概要」をリッチなカードデザインで配置 -->
+<div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 mt-16 shadow-sm">
+  <h3 class="text-xl font-black text-slate-900 mb-6 border-b border-slate-200 pb-4">📌 イベント概要まとめ</h3>
+  <ul class="space-y-4 text-slate-700 font-medium text-sm md:text-base">
+    <li class="flex flex-col md:flex-row"><span class="md:w-32 font-bold text-slate-400 shrink-0">イベント名</span><span>The streamer Creator server 4000人記念APEXカスタム 予選</span></li>
+    <li class="flex flex-col md:flex-row"><span class="md:w-32 font-bold text-slate-400 shrink-0">開催日</span><span>【予選Aブロック】2026年5月23日（土）<br>【予選Bブロック】2026年5月24日（日）</span></li>
+    <li class="flex flex-col md:flex-row"><span class="md:w-32 font-bold text-slate-400 shrink-0">参加規模</span><span>各日20チーム 60名（計120名）</span></li>
+    <li class="flex flex-col md:flex-row"><span class="md:w-32 font-bold text-slate-400 shrink-0">主催・運営</span><span>七皇の剣</span></li>
+    <li class="flex flex-col md:flex-row"><span class="md:w-32 font-bold text-slate-400 shrink-0">映像制作</span><span>七皇の剣</span></li>
+    <li class="flex flex-col md:flex-row"><span class="md:w-32 font-bold text-slate-400 shrink-0">本戦日程</span><span>2026年8月29日（土）20:30開始</span></li>
+  </ul>
+</div>`,
+  },
+  {
     id: 'news-002',
     category: 'EVENT',
     date: '2026.05.18',
@@ -661,5 +480,698 @@ Aブロック・Bブロックの上位10チームずつ（計20チーム）が�
 
 APEXカスタムの魅力を、少しでも多くの方へ届けたい。
 更に向こうへ、Plus ultra！皆様のご参加・ご視聴を心よりお待ちしております。`,
+  },
+];
+
+// ==========================================
+// ⭐ 運営陣・管理者（ADMINS）データ
+// ==========================================
+export const adminList = [
+  {
+    id: 'creator_01',
+    name: '狼の野郎',
+    romanName: 'WOLF YAROU',
+    role: 'Streamer / Creator',
+    image: '/ookami.webp', // 狼の野郎さんの立ち絵パス
+    headerImage: '/ookamiitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
+    // 🌟 これを追加！好きな色コード（HEX）を入れてください
+    // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
+    themeColor: '#636160',
+
+    // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
+    offsetX: 900,
+    offsetY: 350,
+    scale: 3, // 👈 2倍の大きさに！
+    mobileOffsetX: 0,
+    mobileOffsetY: 170,
+    mobileScale: 2,
+
+
+   // 👇 ヘッダー用（眼だけカットイン用）の設定
+    headerPosition: 'center 50%', // ベースの位置
+    headerScale: 2,             // 画像をズームアップする（例：1.5倍）
+    headerX: 500,                  // 右に30pxずらす
+    headerY: 100,                 // 上に20pxずらす
+
+    catchphrases: ['ただの狼。最近は魔王になりたい。', '人間生活満喫中狼。'],
+    // 🌟 右側に並べるグリッド情報
+ profileGrid: [
+      { label: 'クラス', value: 'ただの狼（エンジョイ勢）' },
+      { label: '得意武器', value: 'Apex, VALORANT, 原神,まのさば' },
+      { label: 'クラフト能力', value: '動画制作・小説執筆など多岐' },
+      { label: '出没条件', value: '自由気まま（インターネットライフ）' },
+      { label: '称号', value: '人間生活大満喫中狼' },
+      { label: 'プレイスタイル', value: 'ジャンル問わず欲張りにエンジョイ' },
+      { label: '配信のモットー', value: '楽しみまくる！' },
+      { label: 'マルチタスク度', value: 'ゲームも創作も気ままに並行作業' },
+    ],
+    profileText:
+      'ただの狼、人間生活大満喫中狼。\n配信者やら、物作りやら、小説書いたり、自由気ままにインターネット生活ライフ！\n『Apex Legends』、『原神』、『VALORANT』や『魔法少女ノ魔女裁判』などのストーリー系ゲームなど、多岐にわたるゲームを配信中。動画制作など色々と作り中。ぜひみてね～たのしぃ。',
+    youtubeId: 'Pj1G8lVq8y0', // 🌟 ピックアップ動画のID
+    links: {
+      x: 'https://x.com/wolf_wolf_wolfA',
+      twitch: 'https://www.twitch.tv/wolfyarou',
+      youtube: 'https://www.youtube.com/channel/UCLJ0tGK4PpfdZJvf0fjGVWw',
+    },
+        pickupMedia: [
+    { type: 'image', src: '/ookamiitimaie.webp' },
+  ],
+  },
+  // 他のクリエイターもここに追加していきます
+  {
+    id: 'creator_02',
+    name: '雪羽かよ',
+    romanName: 'yukihanekayo',
+    role: 'Streamer',
+    image: '/kayotatie.png', // 狼の野郎さんの立ち絵パス
+    // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
+    // 🌟 これを追加！好きな色コード（HEX）を入れてください
+    // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
+    headerImage: '/kayoitimaie2.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    themeColor: '#0284C7',
+
+    // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
+    offsetX: 20,
+    offsetY: 260,
+    scale: 1.5, // 👈 2倍の大きさに！
+    mobileOffsetX: 0,
+    mobileOffsetY: 170,
+    mobileScale: 2,
+
+    
+   // 👇 ヘッダー用（眼だけカットイン用）の設定
+    headerPosition: 'center 20%', // ベースの位置
+    headerScale: 1,             // 画像をズームアップする（例：1.5倍）
+    headerX: 50,                  // 右に30pxずらす
+    headerY: 3,                 // 上に20pxずらす
+    
+    //後ろのキャラクターの背景画像を調整する場合は、以下の値を変更してください
+    bgFaceX: -1000,    // 🌟 プラスにすると「右」へ、マイナスにすると「左」へ移動
+    bgFaceY: 300,   // 🌟 プラスにすると「下」へ、マイナスにすると「上」へ移動
+    bgFaceScale: 0.8, // 🌟 大きさを変えたい場合（1.1倍など）
+
+
+
+    // 🌟 「真っ白」を海要素に変更し、リズムを整えました！
+    catchphrases: [
+      '皆と一緒に未来を紡ぐために',
+      '蒼い水底から浮かび上がった女の子。'
+    ],
+    // 🌟 右側に並べるグリッド情報
+      profileGrid: [
+      { label: '呼び名', value: 'ゆきは / かよ' },
+      { label: '誕生日', value: '12月7日' },
+      { label: 'コンセプト', value: 'クラゲの「かよ」が生み出した「雪羽」' },
+      { label: '世界観', value: '友達のフロウくんと水底から通信中' },
+      { label: 'プレイスタイル', value: 'まったり癒やし空間' },
+      { label: '配信・お知らせ', value: 'Twitchにて配信（毎週Xで告知＆縁巡回）' },
+      { label: '配信タグ', value: '#雪羽かよの遊び場 / #Yukihakayo_now' },
+      { label: 'ファンアート', value: '#ゆきはあーと' },
+    ],
+    profileText:
+      '「水底から、地上のあなたへ通信中——」\n\nクラゲの「かよ」が生み出した「雪羽」というコンセプトストリーマー。\n皆と一緒に未来を紡ぐため、深海から地上へ向けて癒やしの時間をお届けしています。\n普段は『あつまれどうぶつの森』や『原神』などをプレイ。まるで波間にたゆたうような、まったりとした空間と表情豊かな配信が特徴的！',
+    youtubeId: 'Pj1G8lVq8y0', // 🌟 ピックアップ動画のID
+    links: {
+      x: 'https://x.com/YukihaKayo',
+      twitch: 'https://www.twitch.tv/yukiha_kayo',
+      youtube: 'https://www.youtube.com/channel/UCOgBheyN6Ge4MG_kq2wkRCA',
+    },
+  pickupMedia: [
+    { type: 'image', src: '/kayotatie3.webp' },
+    { type: 'image', src: '/kayoitimaie2.webp' ,
+      // 🌟 今回のスクショのように「顔が上にあって切れてしまう」場合
+    // これを入れると、画像の「上端」を基準に表示されるので顔が見えるようになります！
+    position: 'top',},
+    { type: 'image', src: '/kayoitimaie.webp' },
+  ],
+    
+  },
+  {
+    id: 'creator_03',
+    name: 'しいな',
+    romanName: 'Shiina',
+    role: 'Streamer',
+    image: '/siinataiekougasitu.png', // 狼の野郎さんの立ち絵パス
+    // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
+    // 🌟 これを追加！好きな色コード（HEX）を入れてください
+    // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
+    themeColor: '#cff7f3',
+
+    // 👇 ヘッダー用（眼だけカットイン用）の設定
+    headerPosition: 'center 30%', // ベースの位置
+    headerScale: 2,             // 画像をズームアップする（例：1.5倍）
+    headerX: 50,                  // 右に30pxずらす
+    headerY: -10,                 // 上に20pxずらす
+
+    // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
+    offsetX: 50,
+    offsetY: 220,
+    scale: 1.7, // 👈 2倍の大きさに！
+    mobileOffsetX: 0,
+    mobileOffsetY: 170,
+    mobileScale: 2,
+
+    //後ろのキャラクターの背景画像を調整する場合は、以下の値を変更してください
+    bgFaceX: -800,    // 🌟 プラスにすると「右」へ、マイナスにすると「左」へ移動
+    bgFaceY: -200,   // 🌟 プラスにすると「下」へ、マイナスにすると「上」へ移動
+    bgFaceScale: 1, // 🌟 大きさを変えたい場合（1.1倍など）
+
+    catchphrases: ['心温まる怪奇現象。', '不定期に発生する'],
+    // 🌟 右側に並べるグリッド情報
+    profileGrid: [
+      { label: 'コンセプト', value: 'PS5に棲むオバケ' },
+      { label: 'プレイタイトル', value: 'レトロゲーから音ゲーまで' },
+      { label: '配信スタイル', value: 'おっとり癒やし系' },
+      { label: '配信の魅力', value: 'リスナー想いの温かい交流' },
+      { label: '出没時間', value: '深夜帯' },
+      { label: 'TSCでの顔', value: '細やかな運営サポート' },
+    ],
+    profileText:
+      '不定期にPS5で怪奇現象（配信）をしているオバケ、というコンセプトストリーマー。『リトルナイトメア』や『ロックマン2』などのゲーム実況に加え、音ゲーの『DEEMO』をピアノで演奏するなど多岐にわたる。おっとりとした癒やし系の雰囲気があり、リスナーを大切にする温かい交流が魅力の配信者。TSC内でも細やかな気遣いや丁寧な仕事ぶりで運営を支えている。',
+    youtubeId: 'Pj1G8lVq8y0', // 🌟 ピックアップ動画のID
+    links: {
+      x: 'https://x.com/shiina_81417',
+      twitch: 'https://www.twitch.tv/shiina_41777',
+    },
+    pickupMedia: [
+    { type: 'image', src: '/siinaB.png' ,
+    // 🌟 立ち絵など、絶対に全身を枠内に収めたい場合
+      mode: 'contain',},
+    { type: 'image', src: '/siinaA.png',mode: 'contain'},
+    { type: 'image', src: '/siinaa09.png',mode: 'contain'},
+  ],
+  },
+  {
+    id: 'creator_04',
+    name: 'あるぅ',
+    romanName: 'Aruud',
+    role: 'Streamer',
+    image: '/arutatiekougasitu.png', // 立ち絵パス
+    headerImage: '/aruitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
+    // 🌟 これを追加！好きな色コード（HEX）を入れてください
+    // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
+    themeColor: '#fffaea',
+
+    // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
+    offsetX: 100,
+    offsetY: 570,
+    scale: 1.5, // 👈 2倍の大きさに！
+    mobileOffsetX: 0,
+    mobileOffsetY: 170,
+    mobileScale: 2,
+
+    catchphrases: ['落ち着いた声色で届ける笑顔の時間。', 'サプライズ、準備完了。'],
+    // 🌟 右側に並べるグリッド情報
+// あるぅさんのプロフィールラベル（全8種）
+    profileGrid: [
+      { label: 'スタイル', value: 'サプライズ好きのエンターテイナー' },
+      { label: 'メインゲーム', value: 'Apex Legends, DbD' },
+      { label: '主食', value: 'リスナーの驚く顔と笑顔' },
+      { label: '声帯の治安', value: '極めて良好（落ち着いたトーン）' },
+      { label: '要注意事項', value: '突然のサプライズにご注意ください' },
+      { label: '総合タグ', value: '#思い出があるぅ' },
+      { label: 'ファンアート', value: '#素敵な絵があるぅ' },
+      { label: 'グッズタグ', value: '#うぇるかむあるぅ' },
+    ],
+    profileText:
+      'サプライズが得意な個人勢Vstreamer。落ち着いた声色が特徴的だが、人を楽しませたり喜ばせるのが得意。『Apex Legends』や『DBD』のゲーム以外にも、料理配信や視聴者参加型の配信など、バラエティ豊かな企画配信も多く行っているエンターテイナー。',
+    youtubeId: 'Pj1G8lVq8y0', // 🌟 ピックアップ動画のID
+    links: {
+      x: 'https://x.com/aruu_jp',
+      twitch: 'https://www.twitch.tv/aruu_jp',
+      youtube: 'https://www.youtube.com/@aruu_jp',
+    },
+    pickupMedia: [
+    { type: 'image', src: '/aruitimaie.webp' },
+    { type: 'image', src: '/arutatieA.webp' },
+    { type: 'image', src: '/aruxitimaie3.webp' },
+  ],
+  },
+  {
+    id: 'creator_05',
+    name: 'ヒロキング',
+    romanName: 'hiroking',
+    role: 'Streamer',
+    image: '/IMG_0795.webp', 
+    headerImage: '/hirokingitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
+    // 🌟 これを追加！好きな色コード（HEX）を入れてください
+    // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
+    themeColor: '#daebff',
+
+    // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
+    offsetX: 150,
+    offsetY: 650,
+    scale: 2.5, // 👈 2倍の大きさに！
+    mobileOffsetX: 0,
+    mobileOffsetY: 170,
+    mobileScale: 2,
+
+     // 👇 ヘッダー用（眼だけカットイン用）の設定
+    headerPosition: 'center 10%', // ベースの位置
+    headerScale: 2,             // 画像をズームアップする（例：1.5倍）
+    headerX: 500,                  // 右に30pxずらす
+    headerY: 100,                 // 上に20pxずらす
+
+    catchphrases: ['王冠を戴き、誰もが笑える温かい居場所を創り出す。', '毎夜二十二時半に降臨する、愛嬌たっぷりの王子様。'],
+    // 🌟 右側に並べるグリッド情報
+// 👑 ヒロキングさんのプロフィールグリッド（ここから必要なものをピックアップ）
+    profileGrid: [
+      { label: 'ロール', value: 'TSC代表 / Twitchパートナー' },
+      { label: 'メイン活動', value: 'APEX、ホラーゲーム、雑談' },
+      { label: '配信時間', value: 'Twitchにて 毎日22:30〜' },
+      { label: 'プラットフォーム', value: 'Twitch（ライブ） / YouTube（Shorts）' },
+      { label: '誕生日', value: '3月6日' },
+      { label: 'ファンマーク', value: '👑🩵' },
+      { label: 'ファンアート', value: '#キングのお絵描き' },
+      { label: '活動理念', value: '活動者同士が繋がれる居場所作り' }
+    ],
+
+    profileText:
+      'Twitchパートナーとして活動する配信者。ゲーム配信や雑談配信を中心に活動しながら、配信者・VTuber・クリエイター交流コミュニティ「TSC」を運営。コラボ企画やイベント運営を通して、活動者同士が繋がれる場所を作り続けている。',
+    youtubeId: 'Pj1G8lVq8y0', // 🌟 ピックアップ動画のID
+    links: {
+      x: 'https://x.com/hiroking_0306',
+      twitch: 'https://www.twitch.tv/theseventhone666',
+      youtube: 'https://www.youtube.com/@theseventhone71',
+    },
+    pickupMedia: [
+    { type: 'image', src: '/hirokingitimaie.webp' ,
+    // 🌟 今回のスクショのように「顔が上にあって切れてしまう」場合
+    // これを入れると、画像の「上端」を基準に表示されるので顔が見えるようになります！
+    position: 'top',},
+    { type: 'image', src: '/hirokinngutatie2.webp',
+          // 🌟 立ち絵など、絶対に全身を枠内に収めたい場合
+      mode: 'contain',
+     },
+  ],
+  },
+  {
+    id: 'creator_06',
+    name: 'ひうひむ',
+    romanName: 'hiu-himu',
+    role: 'Streamer',
+    image: 'hiuhimu2 .webp', 
+    // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
+    headerImage: '/hiuhimuitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    // 🌟 これを追加！好きな色コード（HEX）を入れてください
+    // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
+    themeColor: '#ffcbf6',
+
+    // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
+    offsetX: 120,
+    offsetY: 500,
+    scale: 1.8, // 👈 2倍の大きさに！
+    mobileOffsetX: 0,
+    mobileOffsetY: 170,
+    mobileScale: 2,
+
+  // 🌟 静かな夜のラジオ配信とメイド要素を合わせたキャッチコピー
+    catchphrases: [
+      '静かな夜のお供に、一杯の紅茶を。',
+      '三匹のおばけと寄り添う幽霊メイド。'
+    ],
+    // 🌟 右側に並べるグリッド情報
+// 👑 ヒロキングさんのプロフィールグリッド（ここから必要なものをピックアップ）
+    profileGrid: [
+      { label: 'コンセプト', value: '3匹の手下おばけを連れた幽霊メイド' },
+      { label: 'プレイスタイル', value: 'ホラーでも叫ばない、ゆったりラジオ感覚' },
+      { label: '好きなジャンル', value: 'RPGなどのストーリーもの' },
+      { label: '趣味', value: '紅茶, 読書, 映画鑑賞(ホラー), 語学学習' },
+      { label: '出没情報', value: '神出鬼没（VCで会えたらラッキー！）' },
+      { label: '配信・お知らせ', value: 'Twitch等にて配信（Xで告知）' },
+      { label: '配信タグ', value: '#ひうひむ 配信中' }, // ※実際のタグがあれば変更してください
+      { label: 'ファンアート', value: '#ひうひむあーと' }, // ※実際のタグがあれば変更してください
+    ],
+
+    profileText:
+      '3匹の手下おばけを連れた、おっとりとした物静かな幽霊メイド。\nRPGなどのストーリーものを心から愛しており、ホラーゲームでも叫ばないほどの落ち着きぶり。作業中で寂しい夜などに、ラジオ感覚でゆったり聴ける癒やしの配信をお届けしています。\n紅茶や読書、ホラー映画を嗜む多趣味な一面も。神出鬼没なので、サーバーのVC（ボイスチャット）で遭遇できたらラッキーかも？',
+    youtubeId: 'Pj1G8lVq8y0', // 🌟 ピックアップ動画のID
+    links: {
+      x: 'https://x.com/hiroking_0306',
+      twitch: 'https://www.twitch.tv/theseventhone666',
+      youtube: 'https://www.youtube.com/@theseventhone71',
+    },
+    pickupMedia: [
+    { type: 'image', src: 'hiuhimuitimaie.webp' },
+  ],
+  },
+  {
+    id: 'creator_07',
+    name: 'つゆりひお',
+    romanName: 'tsuyuri_hio',
+    role: 'Streamer',
+    image: '/tuyuriho (1).webp', 
+    headerImage: '/tuyurihioitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
+    // 🌟 これを追加！好きな色コード（HEX）を入れてください
+    // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
+    themeColor: '#6ca8f1',
+
+    // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
+    offsetX: 100,
+    offsetY: 500,
+    scale: 1.2, // 👈 2倍の大きさに！
+    mobileOffsetX: 0,
+    mobileOffsetY: 170,
+    mobileScale: 2,
+
+    // 👇 ヘッダー用（眼だけカットイン用）の設定
+    headerPosition: 'center 10%', // ベースの位置
+    headerScale: 3,             // 画像をズームアップする（例：1.5倍）
+    headerX: 200,                  // 右に30pxずらす
+    headerY: -180,                 // 上に20pxずらす
+    //後ろのキャラクターの背景画像を調整する場合は、以下の値を変更してください
+    bgFaceX: -400,    // 🌟 プラスにすると「右」へ、マイナスにすると「左」へ移動
+    bgFaceY: -200,   // 🌟 プラスにすると「下」へ、マイナスにすると「上」へ移動
+    bgFaceScale: 0.8, // 🌟 大きさを変えたい場合（1.1倍など）
+
+    catchphrases: [
+      'どこまでも真っ直ぐな、本気の軌跡。',
+      'ちいさな足跡が刻むのは'
+      
+    ],
+    // 🌟 右側に並べるグリッド情報
+// 👑 つゆりひおさんのプロフィールグリッド（ここから必要なものをピックアップ）
+    profileGrid: [
+      { label: '所属', value: 'result e-Sports (ストリーマー部門)' },
+      { label: '誕生日', value: '5月7日' },
+      { label: 'コンセプト', value: 'ハムスターモチーフの小動物系配信者' },
+      { label: 'プレイタイトル', value: 'Apex(💎), VALORANT(銅)' },
+      { label: 'プレイスタイル', value: 'おっとりとした癒やし × 真剣プレイ' },
+      { label: 'ファンマーク', value: '💧🐹' },
+      { label: '総合タグ', value: '#ひおの巣ごもり' },
+      { label: 'ファンアート', value: '#つゆひお絵画' },
+    ],
+
+    profileText:
+      'result e-Sports（ストリーマー部門）に所属する、ハムスターモチーフの小動物系配信者。\n主に『Apex Legends』や『VALORANT』などを配信中。普段のおっとりとした可愛らしい雰囲気とは裏腹に、ひとたびゲームが始まれば真剣に取り組むという「ギャップ」が最大の魅力。\n自身でイラスト制作も手掛けるなど、クリエイティブな一面も持ち合わせている。',
+    youtubeId: 'Pj1G8lVq8y0', // 🌟 ピックアップ動画のID
+    links: {
+      x: 'https://x.com/hiroking_0306',
+      twitch: 'https://www.twitch.tv/theseventhone666',
+      youtube: 'https://www.youtube.com/@theseventhone71',
+    },
+    pickupMedia: [
+    { type: 'image', src: '/tuyurihioitimaie.webp' },
+  ],
+  },
+   {
+    id: 'creator_08',
+    name: '一楓あやの',
+    romanName: 'ibuki_ayano',
+    role: 'Streamer',
+    image: '/ibukiatanotatie.webp', 
+    headerImage: '/ayanoitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
+    // 🌟 これを追加！好きな色コード（HEX）を入れてください
+    // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
+    themeColor: '#ffd9df',
+
+    // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
+    offsetX: 30,
+    offsetY: 140,
+    scale: 1.5, // 👈 2倍の大きさに！
+    mobileOffsetX: 0,
+    mobileOffsetY: 170,
+    mobileScale: 2,
+
+    // 👇 ヘッダー用（眼だけカットイン用）の設定
+    headerPosition: 'center 38%', // ベースの位置
+    headerScale: 3,             // 画像をズームアップする（例：1.5倍）
+    headerX: 600,                  // 右に30pxずらす
+    headerY: -200,                 // 上に20pxずらす
+    //後ろのキャラクターの背景画像を調整する場合は、以下の値を変更してください
+    bgFaceX: -400,    // 🌟 プラスにすると「右」へ、マイナスにすると「左」へ移動
+    bgFaceY: -200,   // 🌟 プラスにすると「下」へ、マイナスにすると「上」へ移動
+    bgFaceScale: 0.8, // 🌟 大きさを変えたい場合（1.1倍など）
+
+    catchphrases: [
+      'それでも辿り着くは、あなたが待つ温かな場所。',
+      '揺れるしっぽと、迷子の足取り。'
+    ],
+    // 🌟 右側に並べるグリッド情報
+    // 🌟 2. 右側のグリッド情報をリメイク！
+    profileGrid: [
+      { label: '所属', value: '完全個人勢' },
+      { label: '愛称', value: 'いぶたそ' },
+      { label: 'コンセプト', value: '方向音痴系獣人VStreamer' },
+      { label: 'プレイタイトル', value: 'Apex Legends, NTE' },
+      { label: '実績・称号', value: 'NTE公式コンテンツクリエイター🚗💨' },
+      { label: '出没情報', value: '毎月前半・連休は「社畜うぉんな」' },
+      { label: 'ファンアート', value: '#いぶたそあーと' },
+      { label: 'ママ / イラスト', value: '檜木乃某 様 / 真白フェア 様' },
+    ],
+
+    profileText:
+      '自称「どこでも迷子」の方向音痴系個人勢VStreamerであり、けもみみとしっぽをこよなく愛する獣人。ファンからは「いぶたそ」の愛称で親しまれている。\n『Apex Legends』や『NTE』などのゲーム実況を中心に活動しており、NTEでは公式コンテンツクリエイターも務める実力派！\nTwitchでの配信やYouTubeへの動画投稿をメインにしつつ、毎月前半やGW・お盆などの長期休み期間は「社畜うぉんな」として奮闘する親しみやすい一面も魅力。',
+    youtubeId: 'Pj1G8lVq8y0', // 🌟 ピックアップ動画のID
+    links: {
+      x: 'https://x.com/hiroking_0306',
+      twitch: 'https://www.twitch.tv/theseventhone666',
+      youtube: 'https://www.youtube.com/@theseventhone71',
+    },
+    pickupMedia: [
+    { type: 'image', src: '/ayanoitimaie.webp' },
+  ],
+  },
+    {
+    id: 'creator_09',
+    name: 'ふゆち',
+    romanName: 'huyuchi',
+    role: 'Streamer',
+    image: '/huyuti.webp', 
+    headerImage: '/huyuti.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
+    // 🌟 これを追加！好きな色コード（HEX）を入れてください
+    // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
+    themeColor: '#633372d7',
+
+    // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
+    offsetX: 100,
+    offsetY: 10,
+    scale: 1.2, // 👈 2倍の大きさに！
+    mobileOffsetX: 0,
+    mobileOffsetY: 170,
+    mobileScale: 2,
+
+    // 👇 ヘッダー用（眼だけカットイン用）の設定
+    headerPosition: 'center 20%', // ベースの位置
+    headerScale: 1.3,             // 画像をズームアップする（例：1.5倍）
+    headerX: 100,                  // 右に30pxずらす
+    headerY: -30,                 // 上に20pxずらす
+    //後ろのキャラクターの背景画像を調整する場合は、以下の値を変更してください
+    bgFaceX: -400,    // 🌟 プラスにすると「右」へ、マイナスにすると「左」へ移動
+    bgFaceY: -200,   // 🌟 プラスにすると「下」へ、マイナスにすると「上」へ移動
+    bgFaceScale: 0.8, // 🌟 大きさを変えたい場合（1.1倍など）
+
+    catchphrases: [
+      '誰もが心地よく過ごせるように。',
+      '裏側で静かに組み上げる、鯖の心臓。'
+    ],
+    // 🌟 右側に並べるグリッド情報
+    // 🌟 2. 右側のグリッド情報をリメイク！
+// 🌟 プロフィールグリッド（個別に分けたバージョン）
+    profileGrid: [
+      { label: '誕生日/記念日', value: '2月18日 / 12月6日' },
+      { label: '好きなゲーム', value: 'Apex, VALORANT, Tarkov, 原神' },
+      { label: '趣味', value: 'ゲーム, アニメ, 釣り, ギター' },
+      { label: '嫌いなもの', value: 'パクチー、労働' },
+      { label: 'ファンマーク', value: '🌨️💜' },
+      { label: 'ファンネーム', value: 'よこしまな奴ら' },
+      { label: '配信タグ', value: '#ふゆちちの配信' },
+      { label: 'ファンアート', value: '#ふゆちちあーと' },
+    ],
+    profileText:
+      'TSCの舞台裏を支える技術担当。Discordの複雑な権限設定やロール構築、機能的なチャンネルレイアウトの設計を一手に引き受けるスペシャリスト。\nメンバーが『使いやすい』と感じるその瞬間のために、裏側で緻密なコードと設定を組み上げる、鯖の心臓部を守るエンジニアです。\n趣味は釣りやギターなど多彩で、『Apex Legends』や『Escape From Tarkov』などをプレイ。なお、パクチーと「労働」は天敵。技術的な相談があれば、ふゆちに聞けば間違いなし！',
+    youtubeId: 'Pj1G8lVq8y0', // 🌟 ピックアップ動画のID
+    links: {
+      x: 'https://x.com/hiroking_0306',
+      twitch: 'https://www.twitch.tv/theseventhone666',
+      youtube: 'https://www.youtube.com/@theseventhone71',
+    },
+    pickupMedia: [
+    { type: 'image', src: '/huyuti.webp', mode: 'contain'},
+  ],
+  },
+      {
+    id: 'creator_10',
+    name: 'こゆき',
+    romanName: 'koyuki',
+    role: 'Streamer',
+    image: '/koyukitatie .webp', 
+    headerImage: '/koyukiitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
+    // 🌟 これを追加！好きな色コード（HEX）を入れてください
+    // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
+    themeColor: '#ffcef7d7',
+
+    // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
+    offsetX: 100,
+    offsetY: 520,
+    scale: 1.8, // 👈 2倍の大きさに！
+    mobileOffsetX: 0,
+    mobileOffsetY: 170,
+    mobileScale: 2,
+
+    // 👇 ヘッダー用（眼だけカットイン用）の設定
+    headerPosition: 'center -10%', // ベースの位置
+    headerScale: 1.3,             // 画像をズームアップする（例：1.5倍）
+    headerX: 200,                  // 右に30pxずらす
+    headerY: -10,                 // 上に20pxずらす
+    //後ろのキャラクターの背景画像を調整する場合は、以下の値を変更してください
+    bgFaceX: -400,    // 🌟 プラスにすると「右」へ、マイナスにすると「左」へ移動
+    bgFaceY: -200,   // 🌟 プラスにすると「下」へ、マイナスにすると「上」へ移動
+    bgFaceScale: 0.8, // 🌟 大きさを変えたい場合（1.1倍など）
+
+    catchphrases: [
+      '誰もが心地よく過ごせるように。',
+      '裏側で静かに組み上げる、鯖の心臓。'
+    ],
+    // 🌟 右側に並べるグリッド情報
+    // 🌟 2. 右側のグリッド情報をリメイク！
+// 🌟 プロフィールグリッド（個別に分けたバージョン）
+    profileGrid: [
+      { label: '誕生日/記念日', value: '3月18日 / 6月26日' },
+      { label: '好きなゲーム', value: 'Apex' },
+      { label: '趣味', value: 'お酒, ゲーム, おしゃべり' },
+      { label: '嫌いなもの', value: '虫全般、嘘つき' },
+      { label: 'ファンマーク', value: '🍻🌸' },
+      { label: '欲しいもの', value: 'アサヒビールさんからの案件' },
+      { label: 'APEXファンタグ', value: 'GGKP' },
+      { label: '好きな色', value: 'ピンク' },
+    ],
+    profileText:
+      'TSCの舞台裏を支える技術担当。Discordの複雑な権限設定やロール構築、機能的なチャンネルレイアウトの設計を一手に引き受けるスペシャリスト。\nメンバーが『使いやすい』と感じるその瞬間のために、裏側で緻密なコードと設定を組み上げる、鯖の心臓部を守るエンジニアです。\n趣味は釣りやギターなど多彩で、『Apex Legends』や『Escape From Tarkov』などをプレイ。なお、パクチーと「労働」は天敵。技術的な相談があれば、ふゆちに聞けば間違いなし！',
+    youtubeId: 'Pj1G8lVq8y0', // 🌟 ピックアップ動画のID
+    links: {
+      x: 'https://x.com/hajikoyuch',
+      twitch: 'https://www.twitch.tv/vtuberkoyuki',
+      youtube: 'https://www.youtube.com/@hajikoyuch',
+    },
+    pickupMedia: [
+    { type: 'image', src: '/koyukiitimaie.webp'},
+  ],
+  },
+    {
+    id: 'creator_11',
+    name: 'がいくま',
+    romanName: 'gaikuma',
+    role: 'Streamer',
+    image: '/gaikuma.webp', 
+    headerImage: '/gaikumaitimaie1.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
+    // 🌟 これを追加！好きな色コード（HEX）を入れてください
+    // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
+    themeColor: '#eba9fcd7',
+
+    // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
+    offsetX: 100,
+    offsetY: 210,
+    scale: 1.5, // 👈 2倍の大きさに！
+    mobileOffsetX: 0,
+    mobileOffsetY: 170,
+    mobileScale: 2,
+
+    // 👇 ヘッダー用（眼だけカットイン用）の設定
+    headerPosition: 'center 10%', // ベースの位置
+    headerScale: 1.3,             // 画像をズームアップする（例：1.5倍）
+    headerX: 140,                  // 右に30pxずらす
+    headerY: -30,                 // 上に20pxずらす
+    //後ろのキャラクターの背景画像を調整する場合は、以下の値を変更してください
+    bgFaceX: -400,    // 🌟 プラスにすると「右」へ、マイナスにすると「左」へ移動
+    bgFaceY: -200,   // 🌟 プラスにすると「下」へ、マイナスにすると「上」へ移動
+    bgFaceScale: 0.8, // 🌟 大きさを変えたい場合（1.1倍など）
+
+    catchphrases: [
+      '誰もが心地よく過ごせるように。',
+      '裏側で静かに組み上げる、鯖の心臓。'
+    ],
+    // 🌟 右側に並べるグリッド情報
+    // 🌟 2. 右側のグリッド情報をリメイク！
+// 🌟 プロフィールグリッド（個別に分けたバージョン）
+    profileGrid: [
+      { label: '誕生日/記念日', value: '2月18日 / 12月6日' },
+      { label: '好きなゲーム', value: 'Apex, VALORANT, Tarkov, 原神' },
+      { label: '趣味', value: 'ゲーム, アニメ, 釣り, ギター' },
+      { label: '嫌いなもの', value: 'パクチー、労働' },
+      { label: 'ファンマーク', value: '🌨️💜' },
+      { label: 'ファンネーム', value: 'よこしまな奴ら' },
+      { label: '配信タグ', value: '#ふゆちちの配信' },
+      { label: 'ファンアート', value: '#ふゆちちあーと' },
+    ],
+    profileText:
+      'TSCの舞台裏を支える技術担当。Discordの複雑な権限設定やロール構築、機能的なチャンネルレイアウトの設計を一手に引き受けるスペシャリスト。\nメンバーが『使いやすい』と感じるその瞬間のために、裏側で緻密なコードと設定を組み上げる、鯖の心臓部を守るエンジニアです。\n趣味は釣りやギターなど多彩で、『Apex Legends』や『Escape From Tarkov』などをプレイ。なお、パクチーと「労働」は天敵。技術的な相談があれば、ふゆちに聞けば間違いなし！',
+    links: {
+      x: 'https://x.com/subkumasan3310',
+      twitch: 'https://www.twitch.tv/gaikumasan_twitch',
+    },
+
+    pickupMedia: [
+    { type: 'image', src: '/gaikumaitimaie1.webp', position: 'top'},
+    { type: 'image', src: '/gaikumaitimaie.webp'},
+    
+  ],
+  },
+     {
+    id: 'creator_12',
+    name: 'よるねるか',
+    romanName: 'yoruneruka (1).webp',
+    role: 'Streamer',
+    image: '/yoruneruka (1).webp', 
+    headerImage: '/yorunerujaitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
+    // 🌟 これを追加！好きな色コード（HEX）を入れてください
+    // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
+    themeColor: '#cd98ff',
+
+    // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
+    offsetX: 120,
+    offsetY: 10,
+    scale: 1.2, // 👈 2倍の大きさに！
+    mobileOffsetX: 0,
+    mobileOffsetY: 170,
+    mobileScale: 2,
+
+    // 👇 ヘッダー用（眼だけカットイン用）の設定
+    headerPosition: 'center 10%', // ベースの位置
+    headerScale: 3,             // 画像をズームアップする（例：1.5倍）
+    headerX: 200,                  // 右に30pxずらす
+    headerY: 30,                 // 上に20pxずらす
+    //後ろのキャラクターの背景画像を調整する場合は、以下の値を変更してください
+    bgFaceX: -400,    // 🌟 プラスにすると「右」へ、マイナスにすると「左」へ移動
+    bgFaceY: -200,   // 🌟 プラスにすると「下」へ、マイナスにすると「上」へ移動
+    bgFaceScale: 0.8, // 🌟 大きさを変えたい場合（1.1倍など）
+
+    catchphrases: [
+      'それでも辿り着くは、あなたが待つ温かな場所。',
+      '揺れるしっぽと、迷子の足取り。'
+    ],
+    // 🌟 右側に並べるグリッド情報
+    // 🌟 2. 右側のグリッド情報をリメイク！
+    profileGrid: [
+      { label: '所属', value: '完全個人勢' },
+      { label: '愛称', value: 'いぶたそ' },
+      { label: 'コンセプト', value: '方向音痴系獣人VStreamer' },
+      { label: 'プレイタイトル', value: 'Apex Legends, NTE' },
+      { label: '実績・称号', value: 'NTE公式コンテンツクリエイター🚗💨' },
+      { label: '出没情報', value: '毎月前半・連休は「社畜うぉんな」' },
+      { label: 'ファンアート', value: '#いぶたそあーと' },
+      { label: 'ママ / イラスト', value: '檜木乃某 様 / 真白フェア 様' },
+    ],
+
+    profileText:
+      '自称「どこでも迷子」の方向音痴系個人勢VStreamerであり、けもみみとしっぽをこよなく愛する獣人。ファンからは「いぶたそ」の愛称で親しまれている。\n『Apex Legends』や『NTE』などのゲーム実況を中心に活動しており、NTEでは公式コンテンツクリエイターも務める実力派！\nTwitchでの配信やYouTubeへの動画投稿をメインにしつつ、毎月前半やGW・お盆などの長期休み期間は「社畜うぉんな」として奮闘する親しみやすい一面も魅力。',
+    youtubeId: 'Pj1G8lVq8y0', // 🌟 ピックアップ動画のID
+    links: {
+      x: 'https://x.com/hiroking_0306',
+      twitch: 'https://www.twitch.tv/theseventhone666',
+      youtube: 'https://www.youtube.com/@theseventhone71',
+    },
+    pickupMedia: [
+    { type: 'image', src: '/yorunerujaitimaie.webp' ,position: 'top',},
+  ],
   },
 ];
