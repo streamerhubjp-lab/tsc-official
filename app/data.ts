@@ -156,7 +156,7 @@ export const galleryItems = [
 // ⭐ 運営チーム（ABOUT）データ
 // ==========================================
 export const collectiveData = {
-  image: '/syuugoutatie.PNG', // ※実際の画像パスに直してくださいね
+  image: '/tsc-official/syuugoutatie.PNG', // ※実際の画像パスに直してくださいね
   adminCount: 1,
   subAdminCount: 11,
   totalCount: 12,
