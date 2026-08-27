@@ -265,7 +265,7 @@ export const articleItems = [
     category: 'IMPORTANT',
     date: '2026.05.13',
     title: 'TSC公式ポータルサイトがついにオープンしました！',
-    thumbnail: '/tsc-official/Snapshot_841.PNG',
+    thumbnail: '/tsc-official/kouryuuyousaba.PNG',
     content: `ストリーマーとクリエイターのための次世代コミュニティ「TSC」の公式ポータルサイトが、ついに本日オープンいたしました！
 
 今までDiscord内だけで完結していた情報を、外部の方やこれから参加を検討している方にも分かりやすくお伝えできるよう、このサイトを立ち上げました。
