@@ -796,9 +796,9 @@ export const adminList = [
       '3匹の手下おばけを連れた、おっとりとした物静かな幽霊メイド。\nRPGなどのストーリーものを心から愛しており、ホラーゲームでも叫ばないほどの落ち着きぶり。作業中で寂しい夜などに、ラジオ感覚でゆったり聴ける癒やしの配信をお届けしています。\n紅茶や読書、ホラー映画を嗜む多趣味な一面も。神出鬼没なので、サーバーのVC（ボイスチャット）で遭遇できたらラッキーかも？',
     youtubeId: 'Pj1G8lVq8y0', // 🌟 ピックアップ動画のID
     links: {
-      x: 'https://x.com/hiroking_0306',
-      twitch: 'https://www.twitch.tv/theseventhone666',
-      youtube: 'https://www.youtube.com/@theseventhone71',
+      x: 'https://x.com/hiuhymn',
+      twitch: 'https://www.twitch.tv/hiuhymn',
+      youtube: 'https://www.youtube.com/@hiuhymn',
     },
     pickupMedia: [
     { type: 'image', src: '/tsc-official/hiuhimuitimaie.webp' },
@@ -856,9 +856,9 @@ export const adminList = [
       'result e-Sports（ストリーマー部門）に所属する、ハムスターモチーフの小動物系配信者。\n主に『Apex Legends』や『VALORANT』などを配信中。普段のおっとりとした可愛らしい雰囲気とは裏腹に、ひとたびゲームが始まれば真剣に取り組むという「ギャップ」が最大の魅力。\n自身でイラスト制作も手掛けるなど、クリエイティブな一面も持ち合わせている。',
     youtubeId: 'Pj1G8lVq8y0', // 🌟 ピックアップ動画のID
     links: {
-      x: 'https://x.com/hiroking_0306',
-      twitch: 'https://www.twitch.tv/theseventhone666',
-      youtube: 'https://www.youtube.com/@theseventhone71',
+      x: 'https://x.com/hiokikai_twitch',
+      twitch: 'https://www.twitch.tv/noahio0507',
+      youtube: 'https://www.youtube.com/@Thuyurihio',
     },
     pickupMedia: [
     { type: 'image', src: '/tsc-official/tuyurihioitimaie.webp' },
@@ -915,9 +915,9 @@ export const adminList = [
       '自称「どこでも迷子」の方向音痴系個人勢VStreamerであり、けもみみとしっぽをこよなく愛する獣人。ファンからは「いぶたそ」の愛称で親しまれている。\n『Apex Legends』や『NTE』などのゲーム実況を中心に活動しており、NTEでは公式コンテンツクリエイターも務める実力派！\nTwitchでの配信やYouTubeへの動画投稿をメインにしつつ、毎月前半やGW・お盆などの長期休み期間は「社畜うぉんな」として奮闘する親しみやすい一面も魅力。',
     youtubeId: 'Pj1G8lVq8y0', // 🌟 ピックアップ動画のID
     links: {
-      x: 'https://x.com/hiroking_0306',
-      twitch: 'https://www.twitch.tv/theseventhone666',
-      youtube: 'https://www.youtube.com/@theseventhone71',
+      x: 'https://x.com/ibuki_ayano',
+      twitch: 'https://www.twitch.tv/ibuki_ayano',
+      youtube: 'https://www.youtube.com/@Ibuki_ayano',
     },
     pickupMedia: [
     { type: 'image', src: '/tsc-official/ayanoitimaie.webp' },
@@ -974,9 +974,9 @@ export const adminList = [
       'TSCの舞台裏を支える技術担当。Discordの複雑な権限設定やロール構築、機能的なチャンネルレイアウトの設計を一手に引き受けるスペシャリスト。\nメンバーが『使いやすい』と感じるその瞬間のために、裏側で緻密なコードと設定を組み上げる、鯖の心臓部を守るエンジニアです。\n趣味は釣りやギターなど多彩で、『Apex Legends』や『Escape From Tarkov』などをプレイ。なお、パクチーと「労働」は天敵。技術的な相談があれば、ふゆちに聞けば間違いなし！',
     youtubeId: 'Pj1G8lVq8y0', // 🌟 ピックアップ動画のID
     links: {
-      x: 'https://x.com/hiroking_0306',
-      twitch: 'https://www.twitch.tv/theseventhone666',
-      youtube: 'https://www.youtube.com/@theseventhone71',
+      x: 'https://x.com/fuyuch1_',
+      twitch: 'https://www.twitch.tv/fuyuchi_',
+      youtube: 'https://www.youtube.com/@fuyuchi_',
     },
     pickupMedia: [
     { type: 'image', src: '/tsc-official/huyuti.webp', mode: 'contain'},
@@ -1107,7 +1107,7 @@ export const adminList = [
     romanName: 'yoruneruka (1).webp',
     role: 'Streamer',
     image: '/tsc-official/yoruneruka (1).webp', 
-    headerImage: '/yorunerujaitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    headerImage: '/tsc-official/yorunerujaitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
     // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
@@ -1152,9 +1152,9 @@ export const adminList = [
       '自称「どこでも迷子」の方向音痴系個人勢VStreamerであり、けもみみとしっぽをこよなく愛する獣人。ファンからは「いぶたそ」の愛称で親しまれている。\n『Apex Legends』や『NTE』などのゲーム実況を中心に活動しており、NTEでは公式コンテンツクリエイターも務める実力派！\nTwitchでの配信やYouTubeへの動画投稿をメインにしつつ、毎月前半やGW・お盆などの長期休み期間は「社畜うぉんな」として奮闘する親しみやすい一面も魅力。',
     youtubeId: 'Pj1G8lVq8y0', // 🌟 ピックアップ動画のID
     links: {
-      x: 'https://x.com/hiroking_0306',
-      twitch: 'https://www.twitch.tv/theseventhone666',
-      youtube: 'https://www.youtube.com/@theseventhone71',
+      x: 'https://x.com/yorunerukamone',
+      twitch: 'https://www.twitch.tv/yoruneruka',
+      youtube: 'https://www.youtube.com/@よるねるか',
     },
     pickupMedia: [
     { type: 'image', src: '/tsc-official/yorunerujaitimaie.webp' ,position: 'top',},
