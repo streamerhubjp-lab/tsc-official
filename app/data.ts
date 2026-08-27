@@ -287,7 +287,7 @@ export const articleItems = [
     category: 'TOURNAMENT',
     date: '2026.03.25',
     title: '第1回 TSC3000人記念杯 開催レポート！',
-    thumbnail: '/tsc-official/aruitimaie.webp',
+    thumbnail: '/tsc-official/sss.png',
     content: `2025年8月30日（土）、配信者やクリエイターが集うDiscordサーバー「The streamer Creator server」の参加者<span class="text-blue-600 font-black text-xl md:text-2xl">3,000人突破</span>を記念した、特別なAPEXカスタムマッチが開催されました！<br><br>
 サーバー設立以来の大きな節目を祝うべく行われた本大会。総勢60名の配信者が参戦し、豪華な演出と驚愕のプレゼント企画で、始終熱気に包まれた当日の様子をレポートをお届けします。
 
