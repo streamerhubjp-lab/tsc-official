@@ -408,7 +408,7 @@ export const articleItems = [
     category: 'EVENT',
     date: '2026.05.18',
     title: '明日！！【TSC4000人APEX記念カスタム】開催のお知らせ',
-    thumbnail: '/tsc-official/TSChonabann1.jpg',
+    thumbnail: '/tsc-official/4000_play5.webp',
     content: `全チーム参加メンバー累計120名！スポンサー様や運営陣を合わせると総勢170名が関わる、TSC過去最大規模のイベント【TSC4000人APEX記念カスタム】がいよいよ開幕します！
 
 X（旧Twitter）掲載用の特別なプロモーション動画も作成しておりますので、当日のオープニングとは一味違う映像をぜひご覧ください！（※拡散大希望です！）
