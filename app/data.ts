@@ -323,11 +323,7 @@ export const articleItems = [
 ハイレベルな攻防が繰り広げられた戦場を勝ち抜き、見事栄冠に輝いたのは……<br><br>
 
 <!-- 🌟 優勝チーム発表の特別ハイライトボックス -->
-<div class="bg-blue-50 border border-blue-200 rounded-2xl p-8 text-center my-10 shadow-sm">
-  <span class="block text-blue-600 font-bold mb-3 tracking-widest text-sm">🏆 優勝チーム</span>
-  <span class="text-2xl md:text-4xl font-black text-slate-900 leading-tight">「シン・太陽神ゴッド<br class="md:hidden" />サンシャインジャスティスの魂」</span>
-  <span class="block text-slate-700 font-medium mt-4">（リーダー：神鬼しゅらら 氏）</span>
-</div>
+<img src="/tsc-official/3000_4.webp" alt="プレゼント企画" class="w-full rounded-2xl my-10 shadow-md" />
 
 チームワークと個々のスキルが光る、素晴らしい立ち回りで大会を制しました！
 
