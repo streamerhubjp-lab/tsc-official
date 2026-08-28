@@ -302,7 +302,7 @@ export const articleItems = [
 サーバー設立以来の大きな節目を祝うべく行われた本大会。総勢60名の配信者が参戦し、豪華な演出と驚愕のプレゼント企画で、始終熱気に包まれた当日の様子をレポートをお届けします。
 
 <!-- 🌟 途中の挿絵（イベントの全体風景やロゴなどを想定） -->
-<img src="/tsc-official/placeholder-1.webp" alt="イベント風景" class="w-full rounded-2xl my-10 shadow-md" />
+<img src="/tsc-official/3000_3.webp" alt="イベント風景" class="w-full rounded-2xl my-10 shadow-md" />
 
 <h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">豪華演出で祭典の幕を開け！</h2>
 カウントダウンクイズ動画から始まり、記念大会にふさわしい圧倒的なクオリティーの豪華なオープニング映像演出でスタートしました。<br><br>
