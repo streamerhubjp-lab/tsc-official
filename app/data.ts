@@ -1137,19 +1137,21 @@ export const adminList = [
     ],
     // 🌟 右側に並べるグリッド情報
     // 🌟 2. 右側のグリッド情報をリメイク！
+    // 🌟 右側に並べるグリッド情報
     profileGrid: [
-      { label: '所属', value: '完全個人勢' },
-      { label: '愛称', value: 'いぶたそ' },
-      { label: 'コンセプト', value: '方向音痴系獣人VStreamer' },
-      { label: 'プレイタイトル', value: 'Apex Legends, NTE' },
-      { label: '実績・称号', value: 'NTE公式コンテンツクリエイター🚗💨' },
-      { label: '出没情報', value: '毎月前半・連休は「社畜うぉんな」' },
-      { label: 'ファンアート', value: '#いぶたそあーと' },
-      { label: 'ママ / イラスト', value: '檜木乃某 様 / 真白フェア 様' },
+      { label: '所属', value: '個人勢' },
+      { label: 'コンセプト', value: '清楚癒し系お姉さんVstreamer' },
+      { label: '挨拶', value: 'セクシーサンキューこんばんは☪︎' },
+      { label: 'プレイタイトル', value: 'Apex Legends(💎), Minecraft' },
+      { label: '好きなもの', value: 'お酒🥂, マンガ, アニメ' },
+      { label: 'ファンマーク', value: '🌙🥂' },
+      { label: '推し', value: '👑💙' },
+      { label: 'ママ / パパ', value: '卯月うさぎ 様 / 病喰ゆめ 様' },
     ],
-
+       
     profileText:
-      '自称「どこでも迷子」の方向音痴系個人勢VStreamerであり、けもみみとしっぽをこよなく愛する獣人。ファンからは「いぶたそ」の愛称で親しまれている。\n『Apex Legends』や『NTE』などのゲーム実況を中心に活動しており、NTEでは公式コンテンツクリエイターも務める実力派！\nTwitchでの配信やYouTubeへの動画投稿をメインにしつつ、毎月前半やGW・お盆などの長期休み期間は「社畜うぉんな」として奮闘する親しみやすい一面も魅力。',
+      '「セクシーサンキュー」な清楚癒し系お姉さんVstreamer。『Apex Legends』や『Minecraft』などのゲーム実況を中心に活動中。おっとりとした装いとは裏腹に、ゲームの腕前もお見事。自身のチャンネル内素材を作成する程のお絵描きスキルも持ち合わせている。',
+       
     youtubeId: 'Pj1G8lVq8y0', // 🌟 ピックアップ動画のID
     links: {
       x: 'https://x.com/yorunerukamone',
