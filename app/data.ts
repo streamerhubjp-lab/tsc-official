@@ -365,8 +365,8 @@ export const articleItems = [
 3000人記念大会からさらに規模が拡大し、今回は2日間で合計40チーム・120名の配信者が参戦！8月29日（土）に行われる「本戦」への切符（各ブロック上位10チーム・計20チーム）をかけた、熱すぎる予選の模様をお届けします。
 
 <!-- 🌟 途中の挿絵 -->
-<img src="/tsc-official/placeholder-1.webp" alt="イベント風景" class="w-full rounded-2xl my-10 shadow-md" />
-
+<img src="/tsc-official/4000_play5.webp" alt="Aイベント風景" class="w-full rounded-2xl my-10 shadow-md" />
+<img src="/tsc-official/4000_play3.webp.webp" alt="Bイベント風景" class="w-full rounded-2xl my-10 shadow-md" />
 <h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">2日間連続の豪華演出で開幕！</h2>
 今回の予選は、AブロックとBブロックで異なるオリジナル映像を用意！<br><br>
 カウントダウン、オープニング、エンディングにいたるまで、すべて主催の<b>七皇の剣</b>が完全新規でオリジナル制作。連日参加・視聴するファンを飽きさせない圧倒的なこだわりで大会を彩りました。全チームのメンバー紹介も丁寧に行われ、画面越しからも伝わる熱気とともに、2日間にわたる大祭典の幕が上がりました。
@@ -378,6 +378,7 @@ export const articleItems = [
 <b>🥊 武器禁止！“拳”で制した肉弾戦</b><br>
 特殊ルール（武器禁止マッチ）となった第四試合・第五試合では、リーダー「あるーるん」氏率いる「あるある探検隊～頂をいただきに来た漢達～」が熱い殴り合いを制して2連続チャンピオンを獲得！<br><br>
 結果、特殊ルール戦での怒涛の巻き返しで見事102ptという大差をつけた<b>「あるある探検隊～頂をいただきに来た漢達～」</b>がAブロック優勝を飾りました！
+<img src="/tsc-official/4000_play3.webp" alt="Bブロック優勝の様子" class="w-full rounded-2xl my-10 shadow-md" />
 
 <h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">【予選Bブロック】大混戦を制したドラマチックな結末（5月24日）</h2>
 翌日行われたBブロックは、まさに最後まで展開が読めない大波乱の展開となりました。<br><br>
@@ -392,12 +393,20 @@ export const articleItems = [
 <h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">Bブロックを制したのは…？</h2>
 2強の激突となり、どちらのチームが頂点に立つのか誰もが固唾をのんで見守る中……総合ポイントで見事Bブロック優勝を勝ち取ったのはこちら！<br><br>
 
-<!-- 🌟 優勝チーム発表の特別ハイライトボックス -->
-<div class="bg-blue-50 border border-blue-200 rounded-2xl p-8 text-center my-10 shadow-sm">
-  <span class="block text-blue-600 font-bold mb-3 tracking-widest text-sm">🏆 Bブロック優勝チーム</span>
-  <span class="text-2xl md:text-4xl font-black text-slate-900 leading-tight">「からあげ護衛隊」</span>
-  <span class="block text-slate-700 font-medium mt-4">（リーダー：からあげ揚げたて 氏）</span>
+<div class="text-center my-16">
+  <p class="text-blue-600 font-bold tracking-[0.2em] text-sm md:text-base mb-4 flex items-center justify-center gap-2">
+    <span class="text-xl">🏆</span> Bブロック優勝チーム
+  </p>
+  
+  <h3 class="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-cyan-500 leading-tight py-2 tracking-wide">
+    からあげ護衛隊
+  </h3>
+  
+  <p class="text-slate-500 font-bold mt-6 text-sm md:text-base tracking-widest">
+    — リーダー：からあげ揚げたて 氏 —
+  </p>
 </div>
+<img src="/tsc-official/4000_play1.webp" alt="優勝者の様子" class="w-full rounded-2xl my-10 shadow-md" />
 
 最後まで諦めない立ち回りが実を結ぶ、見事な逆転劇となりました！
 
@@ -405,7 +414,7 @@ export const articleItems = [
 予選Aブロック・Bブロックを勝ち抜いた猛者20チームが、ついに8月の「本戦」で一堂に会します。<br>
 アクシデントを乗り越え、チームメンバー同士の絆と熱量がさらに深まった素晴らしい2日間となりました。参加された選手の皆様、長時間の配信を見守った視聴者の皆様、本当にお疲れ様でした！<br><br>
 本戦まであと少し。さらなる高みへ――プルスウルトラ！
-
+<img src="/tsc-official/4000_play2.webp" alt="試合の様子" class="w-full rounded-2xl my-10 shadow-md" />
 <!-- 🌟 最後の「イベント概要」をリッチなカードデザインで配置 -->
 <div class="bg-slate-50 border border-slate-200 rounded-2xl p-8 mt-16 shadow-sm">
   <h3 class="text-xl font-black text-slate-900 mb-6 border-b border-slate-200 pb-4">📌 イベント概要まとめ</h3>
