@@ -366,7 +366,7 @@ export const articleItems = [
 
 <!-- 🌟 途中の挿絵 -->
 <img src="/tsc-official/4000_play5.webp" alt="Aイベント風景" class="w-full rounded-2xl my-10 shadow-md" />
-<img src="/tsc-official/4000_play3.webp" alt="Bイベント風景" class="w-full rounded-2xl my-10 shadow-md" />
+<img src="/tsc-official/4000_play4.webp" alt="Bイベント風景" class="w-full rounded-2xl my-10 shadow-md" />
 <h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">2日間連続の豪華演出で開幕！</h2>
 今回の予選は、AブロックとBブロックで異なるオリジナル映像を用意！<br><br>
 カウントダウン、オープニング、エンディングにいたるまで、すべて主催の<b>七皇の剣</b>が完全新規でオリジナル制作。連日参加・視聴するファンを飽きさせない圧倒的なこだわりで大会を彩りました。全チームのメンバー紹介も丁寧に行われ、画面越しからも伝わる熱気とともに、2日間にわたる大祭典の幕が上がりました。
