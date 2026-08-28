@@ -284,7 +284,7 @@ export const articleItems = [
     category: 'EVENT',
     date: '2026.08.29',
     title: '8月29日(土)20時30分～【TSC鯖4000人記念APEXカスタム本戦】開催＆Twitchフロントページ掲載のお知らせ！！',
-    thumbnail: '/tsc-official/2026_8_29TSCCustom.webp',
+    thumbnail: '/tsc-official/4000kessyou.webp',
     content: `5月の予選Aブロック、Bブロックを勝ち上がった総勢60名が本戦大会で頂点を決定！<br>
 予選大会から、スポンサー様や運営陣を合わせると総勢170名が関わる、「TSC鯖」過去最大規模のイベント<span class="text-blue-600 font-black text-lg md:text-xl">【TSC4000人記念APEXカスタム】</span>の本戦開催がいよいよ迫る！
 
@@ -297,19 +297,8 @@ export const articleItems = [
 クロスワードクイズは<span class="text-red-500 font-bold bg-red-50 px-2 py-1 rounded">20:45～21:00</span>までになりますので、ぜひ刮目せよ！！<br>
 <span class="text-sm text-slate-500">（※賞品はすべて、同額分の「Amazonギフト券」でのお渡しとなります）</span><br><br>
 
-<div class="bg-blue-50 border border-blue-200 rounded-xl p-6 my-6">
-  <ul class="space-y-2 text-slate-800 font-medium">
-    <li>・Stream Deck Neo 相当（14,000円×2）＝ <b>28,000円分</b></li>
-    <li>・audio-technica AT4040 相当 ＝ <b>40,000円分</b></li>
-    <li>・Amazonギフト券（10,000円）＝ <b>10,000円分</b></li>
-    <li>・カタログギフト 相当（5,000円×6）＝ <b>30,000円分</b></li>
-    <li>・INZONE Buds ワイヤレスイヤホン 相当 ＝ <b>30,000円分</b></li>
-  </ul>
-  <div class="mt-4 pt-4 border-t border-blue-200 text-center">
-    <span class="text-lg font-bold text-blue-700">総額 約138,000円分！</span><br>
-    <span class="text-xs text-slate-500">（EA提供ではございません）</span>
-  </div>
-</div>
+<img src="/tsc-official/4000pl.webp" alt="プレゼント企画" class="w-full rounded-2xl my-10 shadow-md" />
+<img src="/tsc-official/4000pl2.webp" alt="プレゼント企画" class="w-full rounded-2xl my-10 shadow-md" />
 
 <h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">Twitchフロントページ掲載！！</h2>
 当日は初の<b>Twitchフロントページ掲載</b>も決定！！<br>
