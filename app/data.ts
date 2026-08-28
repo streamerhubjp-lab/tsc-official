@@ -321,8 +321,16 @@ export const articleItems = [
 
 <h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">激戦を制した優勝チームは…？</h2>
 ハイレベルな攻防が繰り広げられた戦場を勝ち抜き、見事栄冠に輝いたのは……<br><br>
-<h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mt-16 mb-8">
-  しゅらら率いるシン・太陽神ゴットサンシャインジャスティスの魂！
+<h2 class="text-center font-black mt-16 mb-12">
+  <!-- 飾り文字（少し小さくして上品に） -->
+  <span class="block text-lg md:text-xl text-slate-500 tracking-widest mb-2">
+    しゅらら率いる
+  </span>
+  
+  <!-- チーム名（メイン！色をつけてメリハリを出す） -->
+  <span class="block text-2xl md:text-3xl lg:text-4xl text-slate-900 leading-snug text-balance">
+    シン・太陽神ゴットサンシャインジャスティスの魂！
+  </span>
 </h2>
 <!-- 🌟 優勝チーム発表の特別ハイライトボックス -->
 <img src="/tsc-official/3000_4.webp" alt="優勝チーム" class="w-full rounded-2xl my-10 shadow-md" />
