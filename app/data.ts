@@ -296,7 +296,19 @@ export const articleItems = [
 カウントダウン後のクロスワードクイズでは、超豪華な視聴者プレゼントが当たるチャンスもあり！<br>
 クロスワードクイズは<span class="text-red-500 font-bold bg-red-50 px-2 py-1 rounded">20:45～21:00</span>までになりますので、ぜひ刮目せよ！！<br>
 <span class="text-sm text-slate-500">（※賞品はすべて、同額分の「Amazonギフト券」でのお渡しとなります）</span><br><br>
-
+<div class="bg-blue-50 border border-blue-200 rounded-xl p-6 my-6">
+  <ul class="space-y-2 text-slate-800 font-medium">
+    <li>・Stream Deck Neo 相当（14,000円×2）＝ <b>28,000円分</b></li>
+    <li>・audio-technica AT4040 相当 ＝ <b>40,000円分</b></li>
+    <li>・Amazonギフト券（10,000円）＝ <b>10,000円分</b></li>
+    <li>・カタログギフト 相当（5,000円×6）＝ <b>30,000円分</b></li>
+    <li>・INZONE Buds ワイヤレスイヤホン 相当 ＝ <b>30,000円分</b></li>
+  </ul>
+  <div class="mt-4 pt-4 border-t border-blue-200 text-center">
+    <span class="text-lg font-bold text-blue-700">総額 約138,000円分！</span><br>
+    <span class="text-xs text-slate-500">（EA提供ではございません）</span>
+  </div>
+</div>
 <img src="/tsc-official/4000pl.webp" alt="プレゼント企画" class="w-full rounded-2xl my-10 shadow-md" />
 <img src="/tsc-official/4000pl2.webp" alt="プレゼント企画" class="w-full rounded-2xl my-10 shadow-md" />
 
