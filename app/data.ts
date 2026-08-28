@@ -366,6 +366,7 @@ export const articleItems = [
 豪華な景品が発表されるたびに、配信のコメント欄は驚きと喜びのメッセージで埋め尽くされました。プレイヤーだけでなく、視聴者も一緒に「お祭り」を楽しめる仕掛けが、大会の活気をさらに押し上げていました。
 
 <!-- 🌟 途中の挿絵（プレゼント企画の画像や熱狂するチャットの様子などを想定） -->
+<img src="/tsc-official/3000_7_2.webp" alt="プレゼント企画" class="w-full rounded-2xl my-10 shadow-md" />
 <img src="/tsc-official/3000_7.webp" alt="プレゼント企画" class="w-full rounded-2xl my-10 shadow-md" />
 
 <h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">激戦を制した優勝チームは…？</h2>
