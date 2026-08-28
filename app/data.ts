@@ -525,53 +525,61 @@ APEXカスタムの魅力を、少しでも多くの方へ届けたい。
 export const adminList = [
   {
     id: 'creator_01',
-    name: '狼の野郎',
-    romanName: 'WOLF YAROU',
-    role: 'Streamer / Creator',
-    image: '/tsc-official/ookami.webp', // 狼の野郎さんの立ち絵パス
-    headerImage: '/tsc-official/ookamiitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    name: 'ヒロキング',
+    romanName: 'hiroking',
+    role: 'Streamer',
+    image: '/tsc-official/IMG_0795.webp', 
+    headerImage: '/tsc-official/hirokingitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
     // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
-    themeColor: '#636160',
+    themeColor: '#daebff',
 
     // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
-    offsetX: 900,
-    offsetY: 350,
-    scale: 3, // 👈 2倍の大きさに！
+    offsetX: 150,
+    offsetY: 650,
+    scale: 2.5, // 👈 2倍の大きさに！
     mobileOffsetX: 0,
     mobileOffsetY: 170,
     mobileScale: 2,
 
-
-   // 👇 ヘッダー用（眼だけカットイン用）の設定
-    headerPosition: 'center 50%', // ベースの位置
+     // 👇 ヘッダー用（眼だけカットイン用）の設定
+    headerPosition: 'center 10%', // ベースの位置
     headerScale: 2,             // 画像をズームアップする（例：1.5倍）
     headerX: 500,                  // 右に30pxずらす
     headerY: 100,                 // 上に20pxずらす
 
-    catchphrases: ['ただの狼。最近は魔王になりたい。', '人間生活満喫中狼。'],
+    catchphrases: ['王冠を戴き、誰もが笑える温かい居場所を創り出す。', '毎夜二十二時半に降臨する、愛嬌たっぷりの王子様。'],
     // 🌟 右側に並べるグリッド情報
- profileGrid: [
-      { label: 'クラス', value: 'ただの狼（エンジョイ勢）' },
-      { label: '得意武器', value: 'Apex, VALORANT, 原神,まのさば' },
-      { label: 'クラフト能力', value: '動画制作・小説執筆など多岐' },
-      { label: '出没条件', value: '自由気まま（インターネットライフ）' },
-      { label: '称号', value: '人間生活大満喫中狼' },
-      { label: 'プレイスタイル', value: 'ジャンル問わず欲張りにエンジョイ' },
-      { label: '配信のモットー', value: '楽しみまくる！' },
-      { label: 'マルチタスク度', value: 'ゲームも創作も気ままに並行作業' },
+// 👑 ヒロキングさんのプロフィールグリッド（ここから必要なものをピックアップ）
+    profileGrid: [
+      { label: 'ロール', value: 'TSC代表 / Twitchパートナー' },
+      { label: 'メイン活動', value: 'APEX、ホラーゲーム、雑談' },
+      { label: '配信時間', value: 'Twitchにて 毎日22:30〜' },
+      { label: 'プラットフォーム', value: 'Twitch（ライブ） / YouTube（Shorts）' },
+      { label: '誕生日', value: '3月6日' },
+      { label: 'ファンマーク', value: '👑🩵' },
+      { label: 'ファンアート', value: '#キングのお絵描き' },
+      { label: '活動理念', value: '活動者同士が繋がれる居場所作り' }
     ],
+
     profileText:
-      'ただの狼、人間生活大満喫中狼。\n配信者やら、物作りやら、小説書いたり、自由気ままにインターネット生活ライフ！\n『Apex Legends』、『原神』、『VALORANT』や『魔法少女ノ魔女裁判』などのストーリー系ゲームなど、多岐にわたるゲームを配信中。動画制作など色々と作り中。ぜひみてね～たのしぃ。',
+      'Twitchパートナーとして活動する配信者。ゲーム配信や雑談配信を中心に活動しながら、配信者・VTuber・クリエイター交流コミュニティ「TSC」を運営。コラボ企画やイベント運営を通して、活動者同士が繋がれる場所を作り続けている。',
     youtubeId: 'Pj1G8lVq8y0', // 🌟 ピックアップ動画のID
     links: {
-      x: 'https://x.com/wolf_wolf_wolfA',
-      twitch: 'https://www.twitch.tv/wolfyarou',
-      youtube: 'https://www.youtube.com/channel/UCLJ0tGK4PpfdZJvf0fjGVWw',
+      x: 'https://x.com/hiroking_0306',
+      twitch: 'https://www.twitch.tv/theseventhone666',
+      youtube: 'https://www.youtube.com/@theseventhone71',
     },
-        pickupMedia: [
-    { type: 'image', src: '/tsc-official/ookamiitimaie.webp' },
+    pickupMedia: [
+    { type: 'image', src: '/tsc-official/hirokingitimaie.webp' ,
+    // 🌟 今回のスクショのように「顔が上にあって切れてしまう」場合
+    // これを入れると、画像の「上端」を基準に表示されるので顔が見えるようになります！
+    position: 'top',},
+    { type: 'image', src: '/tsc-official/hirokinngutatie2.webp',
+          // 🌟 立ち絵など、絶対に全身を枠内に収めたい場合
+      mode: 'contain',
+     },
   ],
   },
   // 他のクリエイターもここに追加していきます
@@ -747,63 +755,55 @@ export const adminList = [
   },
   {
     id: 'creator_05',
-    name: 'ヒロキング',
-    romanName: 'hiroking',
-    role: 'Streamer',
-    image: '/tsc-official/IMG_0795.webp', 
-    headerImage: '/tsc-official/hirokingitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
+    name: '狼の野郎',
+    romanName: 'WOLF YAROU',
+    role: 'Streamer / Creator',
+    image: '/tsc-official/ookami.webp', // 狼の野郎さんの立ち絵パス
+    headerImage: '/tsc-official/ookamiitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
     // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
-    themeColor: '#daebff',
+    themeColor: '#636160',
 
     // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
-    offsetX: 150,
-    offsetY: 650,
-    scale: 2.5, // 👈 2倍の大きさに！
+    offsetX: 900,
+    offsetY: 350,
+    scale: 3, // 👈 2倍の大きさに！
     mobileOffsetX: 0,
     mobileOffsetY: 170,
     mobileScale: 2,
 
-     // 👇 ヘッダー用（眼だけカットイン用）の設定
-    headerPosition: 'center 10%', // ベースの位置
+
+   // 👇 ヘッダー用（眼だけカットイン用）の設定
+    headerPosition: 'center 50%', // ベースの位置
     headerScale: 2,             // 画像をズームアップする（例：1.5倍）
     headerX: 500,                  // 右に30pxずらす
     headerY: 100,                 // 上に20pxずらす
 
-    catchphrases: ['王冠を戴き、誰もが笑える温かい居場所を創り出す。', '毎夜二十二時半に降臨する、愛嬌たっぷりの王子様。'],
+    catchphrases: ['ただの狼。最近は魔王になりたい。', '人間生活満喫中狼。'],
     // 🌟 右側に並べるグリッド情報
-// 👑 ヒロキングさんのプロフィールグリッド（ここから必要なものをピックアップ）
-    profileGrid: [
-      { label: 'ロール', value: 'TSC代表 / Twitchパートナー' },
-      { label: 'メイン活動', value: 'APEX、ホラーゲーム、雑談' },
-      { label: '配信時間', value: 'Twitchにて 毎日22:30〜' },
-      { label: 'プラットフォーム', value: 'Twitch（ライブ） / YouTube（Shorts）' },
-      { label: '誕生日', value: '3月6日' },
-      { label: 'ファンマーク', value: '👑🩵' },
-      { label: 'ファンアート', value: '#キングのお絵描き' },
-      { label: '活動理念', value: '活動者同士が繋がれる居場所作り' }
+ profileGrid: [
+      { label: 'クラス', value: 'ただの狼（エンジョイ勢）' },
+      { label: '得意武器', value: 'Apex, VALORANT, 原神,まのさば' },
+      { label: 'クラフト能力', value: '動画制作・小説執筆など多岐' },
+      { label: '出没条件', value: '自由気まま（インターネットライフ）' },
+      { label: '称号', value: '人間生活大満喫中狼' },
+      { label: 'プレイスタイル', value: 'ジャンル問わず欲張りにエンジョイ' },
+      { label: '配信のモットー', value: '楽しみまくる！' },
+      { label: 'マルチタスク度', value: 'ゲームも創作も気ままに並行作業' },
     ],
-
     profileText:
-      'Twitchパートナーとして活動する配信者。ゲーム配信や雑談配信を中心に活動しながら、配信者・VTuber・クリエイター交流コミュニティ「TSC」を運営。コラボ企画やイベント運営を通して、活動者同士が繋がれる場所を作り続けている。',
+      'ただの狼、人間生活大満喫中狼。\n配信者やら、物作りやら、小説書いたり、自由気ままにインターネット生活ライフ！\n『Apex Legends』、『原神』、『VALORANT』や『魔法少女ノ魔女裁判』などのストーリー系ゲームなど、多岐にわたるゲームを配信中。動画制作など色々と作り中。ぜひみてね～たのしぃ。',
     youtubeId: 'Pj1G8lVq8y0', // 🌟 ピックアップ動画のID
     links: {
-      x: 'https://x.com/hiroking_0306',
-      twitch: 'https://www.twitch.tv/theseventhone666',
-      youtube: 'https://www.youtube.com/@theseventhone71',
+      x: 'https://x.com/wolf_wolf_wolfA',
+      twitch: 'https://www.twitch.tv/wolfyarou',
+      youtube: 'https://www.youtube.com/channel/UCLJ0tGK4PpfdZJvf0fjGVWw',
     },
-    pickupMedia: [
-    { type: 'image', src: '/tsc-official/hirokingitimaie.webp' ,
-    // 🌟 今回のスクショのように「顔が上にあって切れてしまう」場合
-    // これを入れると、画像の「上端」を基準に表示されるので顔が見えるようになります！
-    position: 'top',},
-    { type: 'image', src: '/tsc-official/hirokinngutatie2.webp',
-          // 🌟 立ち絵など、絶対に全身を枠内に収めたい場合
-      mode: 'contain',
-     },
+        pickupMedia: [
+    { type: 'image', src: '/tsc-official/ookamiitimaie.webp' },
   ],
-  },
+  },  
   {
     id: 'creator_06',
     name: 'ひうひむ',
