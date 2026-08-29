@@ -712,7 +712,7 @@ export const adminList = [
     name: 'あるぅ',
     romanName: 'Aruud',
     role: 'Streamer',
-    image: '/tsc-official/arutatiekougasitu.png', // 立ち絵パス
+    image: '/tsc-official/aruxutatie.webp', // 立ち絵パス
     headerImage: '/tsc-official/aruitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
