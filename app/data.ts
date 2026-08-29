@@ -589,7 +589,7 @@ export const adminList = [
     name: '雪羽かよ',
     romanName: 'yukihanekayo',
     role: 'Streamer',
-    image: '/tsc-official/kayotatie.png', // 狼の野郎さんの立ち絵パス
+    image: '/tsc-official/kayotatiekarui.webp', // 狼の野郎さんの立ち絵パス
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
     // 🌟 これを追加！好きな色コード（HEX）を入れてください
     // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
