@@ -1053,7 +1053,7 @@ export const adminList = [
 
     // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
     offsetX: 100,
-    offsetY: 520,
+    offsetY: 620,
     scale: 1.8, // 👈 2倍の大きさに！
     mobileOffsetX: 0,
     mobileOffsetY: 170,
@@ -1173,7 +1173,7 @@ export const adminList = [
 
     // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
     offsetX: 120,
-    offsetY: 10,
+    offsetY: 110,
     scale: 1.2, // 👈 2倍の大きさに！
     mobileOffsetX: 0,
     mobileOffsetY: 170,
