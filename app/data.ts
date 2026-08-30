@@ -856,7 +856,7 @@ export const adminList = [
     {  type: 'image', 
       src: '/tsc-official/hiuhiuitimaie1.webp',
       // 'center 30%' ＝ 左右は真ん中(center)、上下は上から30%の位置を中心に表示
-      position: 'center 30%', 
+      position: 'center 20%', 
     },
       { type: 'image', src: '/tsc-official/hiuhiuitimaie2.webp' },
   ],
