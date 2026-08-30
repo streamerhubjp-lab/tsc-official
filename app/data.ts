@@ -536,12 +536,12 @@ export const adminList = [
     // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
     themeColor: '#daebff',
 
-    // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
+   // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
     offsetX: 150,
     offsetY: 650,
     scale: 2.5, // 👈 2倍の大きさに！
-    mobileOffsetX: 0,
-    mobileOffsetY: 170,
+    mobileOffsetX: 50,
+    mobileOffsetY: 450,
     mobileScale: 2,
 
      // 👇 ヘッダー用（眼だけカットイン用）の設定
@@ -549,6 +549,15 @@ export const adminList = [
     headerScale: 2,             // 画像をズームアップする（例：1.5倍）
     headerX: 500,                  // 右に30pxずらす
     headerY: 100,                 // 上に20pxずらす
+
+    // ==========================================
+    // 📱 ③-b 【スマホ画面用】ネームヘッダー背景（★ここを追加！）
+    // ==========================================
+    // スマホだと箱の形が変わるので、倍率を下げたり位置をずらしたりします
+    spHeaderPosition: 'center -20%', // スマホ用のベース位置
+    spHeaderScale: 2,               // PCより少し小さめにするなど
+    spHeaderX: 300,                  // スマホ専用の右ズレ
+    spHeaderY: -30,                 // スマホ専用の上ズレ
 
     catchphrases: ['王冠を戴き、誰もが笑える温かい居場所を創り出す。', '毎夜二十二時半に降臨する、愛嬌たっぷりの王子様。'],
     // 🌟 右側に並べるグリッド情報
