@@ -2331,34 +2331,41 @@ useEffect(() => {
 
                 return (
                   <section className="relative w-full min-h-screen bg-[#FAFAFA] overflow-hidden flex flex-col lg:flex-row transition-colors duration-700">
-                    {/* 👇👇👇👇👇 ここから追加 👇👇👇👇👇 */}
-                    <div className="absolute top-4 lg:top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-auto">
-                      <div className="flex items-center gap-2 md:gap-3 overflow-x-auto pb-4 max-w-[95vw] lg:max-w-5xl px-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                   {/* 🌟 【ココから追加】画面上部のキャラクター選択ナビゲーション */}
+                    <div className="absolute top-4 lg:top-6 left-0 right-0 z-50 flex justify-center px-2 pointer-events-auto">
+                      {/* 🌟 修正：スクロールをなくし、flex-wrap（折り返し）と justify-center（中央揃え）に変更！ */}
+                      <div className="flex flex-wrap justify-center items-center gap-1.5 md:gap-2 pb-4 max-w-full lg:max-w-6xl px-1">
                         {adminList.map((person: any, idx: number) => {
                           const isActive = idx === selectedCreatorIndex;
                           return (
                             <button
                               key={person.id}
                               onClick={() => setSelectedCreatorIndex(idx)}
-                              className={`relative flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 rounded-full whitespace-nowrap transition-all duration-300 shrink-0 border shadow-sm group overflow-hidden
+                              // 🌟 ボタンを少しだけコンパクトにして、多人数でもスッキリ収まるように調整
+                              className={`relative flex items-center gap-1.5 px-3 py-1.5 md:px-4 md:py-2 rounded-full whitespace-nowrap transition-all duration-300 border shadow-sm group overflow-hidden
                                 ${isActive 
-                                  ? 'text-white border-transparent shadow-md scale-105' 
+                                  ? 'text-white border-transparent shadow-md scale-105 z-10' 
                                   : 'bg-white/70 hover:bg-white text-slate-600 border-slate-200/60 hover:shadow scale-100'
                                 }
                               `}
                               style={isActive ? { backgroundColor: person.themeColor } : {}}
                             >
+                              {/* ホバー時の背景エフェクト（非アクティブ時のみ） */}
                               {!isActive && (
                                 <div 
                                   className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300"
                                   style={{ backgroundColor: person.themeColor }}
                                 />
                               )}
+                              
+                              {/* 選択中のドットアイコン */}
                               <div 
-                                className={`w-2 h-2 rounded-full transition-colors duration-300 ${isActive ? 'bg-white' : ''}`}
+                                className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full transition-colors duration-300 ${isActive ? 'bg-white' : ''}`}
                                 style={!isActive ? { backgroundColor: person.themeColor } : {}}
                               />
-                              <span className={`text-xs md:text-sm font-bold tracking-widest ${cleanFont?.className || ''}`}>
+                              
+                              {/* 名前 */}
+                              <span className={`text-[10px] md:text-xs font-bold tracking-widest ${cleanFont?.className || ''}`}>
                                 {person.name}
                               </span>
                             </button>
@@ -2366,7 +2373,7 @@ useEffect(() => {
                         })}
                       </div>
                     </div>
-                    {/* 👆👆👆👆👆 ここまで追加 👆👆👆👆👆 */}
+                    {/* 🌟 【ココまで追加】 */}
                     {/* 🌟 メンバーカラーのふんわりオーラ背景 */}
                     <div
                       className="absolute inset-0 z-0 pointer-events-none transition-all duration-1000 opacity-15"
