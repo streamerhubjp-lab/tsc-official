@@ -122,7 +122,7 @@ const PickupMediaSlider = ({ mediaList, themeColor, cleanFont, adminId }: any) =
                   allowFullScreen
                 />
               ) : (
-                <img
+              <img
                   src={currentMedia.src}
                   alt="Pickup"
                   className={`w-full h-full absolute inset-0 z-10 transition-transform duration-[8s] ease-out group-hover:scale-105 
@@ -131,14 +131,9 @@ const PickupMediaSlider = ({ mediaList, themeColor, cleanFont, adminId }: any) =
                         ? 'object-contain drop-shadow-2xl p-2' 
                         : 'object-cover'                       
                     }
-                    ${
-                      currentMedia.position === 'top' 
-                        ? 'object-top' 
-                        : currentMedia.position === 'bottom' 
-                          ? 'object-bottom' 
-                          : 'object-center'
-                    }
                   `}
+                  // 🌟 ここを追加！どんな文字でも数値でも直接スタイルとして適用します
+                  style={{ objectPosition: currentMedia.position || 'center' }}
                 />
               )
             ) : (
