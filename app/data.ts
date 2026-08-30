@@ -554,14 +554,14 @@ export const adminList = [
     // 🌟 右側に並べるグリッド情報
 // 👑 ヒロキングさんのプロフィールグリッド（ここから必要なものをピックアップ）
     profileGrid: [
-      { label: 'ロール', value: 'TSC代表 / Twitchパートナー' },
-      { label: 'メイン活動', value: 'APEX、ホラーゲーム、雑談' },
-      { label: '配信時間', value: 'Twitchにて 毎日22:30〜' },
-      { label: 'プラットフォーム', value: 'Twitch（ライブ） / YouTube（Shorts）' },
+      { label: 'ロール', value: 'TSC代表 / Twitchパートナー / MEDISIA所属' },
+      { label: 'メイン活動', value: 'APEX、ホラーゲーム' },
+      { label: '配信時間', value: 'Twitchにて 曜日不定期22:30〜' },
+      { label: 'プラットフォーム', value: 'Twitch（ライブ）' },
       { label: '誕生日', value: '3月6日' },
       { label: 'ファンマーク', value: '👑🩵' },
       { label: 'ファンアート', value: '#キングのお絵描き' },
-      { label: '活動理念', value: '活動者同士が繋がれる居場所作り' }
+      { label: '活動理念', value: '活動者同士が繋がれる居場所作り、諦めないド根性' }
     ],
 
     profileText:
