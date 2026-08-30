@@ -853,6 +853,11 @@ export const adminList = [
     },
     pickupMedia: [
     { type: 'image', src: '/tsc-official/hiuhimuitimaie.webp' },
+    { type: 'image', src: '/tsc-official/hiuhiuitimaie1.webp' ,
+      // 🌟 今回のスクショのように「顔が上にあって切れてしまう」場合
+    // これを入れると、画像の「上端」を基準に表示されるので顔が見えるようになります！
+    position: 'top',},
+      { type: 'image', src: '/tsc-official/hiuhiuitimaie2.webp' },
   ],
   },
   {
