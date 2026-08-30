@@ -2331,49 +2331,70 @@ useEffect(() => {
 
                 return (
                   <section className="relative w-full min-h-screen bg-[#FAFAFA] overflow-hidden flex flex-col lg:flex-row transition-colors duration-700">
-                   {/* 🌟 【ココから追加】画面上部のキャラクター選択ナビゲーション */}
+                   {/* 🌟 パターン：キャラクターバナー（ゲームのキャラセレ風） */}
                     <div className="absolute top-4 lg:top-6 left-0 right-0 z-50 flex justify-center px-2 pointer-events-auto">
-                      {/* 🌟 修正：スクロールをなくし、flex-wrap（折り返し）と justify-center（中央揃え）に変更！ */}
-                      <div className="flex flex-wrap justify-center items-center gap-1.5 md:gap-2 pb-4 max-w-full lg:max-w-6xl px-1">
+                      <div className="flex flex-wrap justify-center items-center gap-1.5 md:gap-2 pb-4 max-w-full lg:max-w-7xl px-2">
                         {adminList.map((person: any, idx: number) => {
                           const isActive = idx === selectedCreatorIndex;
+
                           return (
                             <button
                               key={person.id}
                               onClick={() => setSelectedCreatorIndex(idx)}
-                              // 🌟 ボタンを少しだけコンパクトにして、多人数でもスッキリ収まるように調整
-                              className={`relative flex items-center gap-1.5 px-3 py-1.5 md:px-4 md:py-2 rounded-full whitespace-nowrap transition-all duration-300 border shadow-sm group overflow-hidden
+                              className={`relative group overflow-hidden rounded-md md:rounded-lg transition-all duration-300 flex-shrink-0 border-2
+                                w-20 sm:w-24 md:w-32 lg:w-36 
+                                h-8 sm:h-9 md:h-10 lg:h-12
                                 ${isActive 
-                                  ? 'text-white border-transparent shadow-md scale-105 z-10' 
-                                  : 'bg-white/70 hover:bg-white text-slate-600 border-slate-200/60 hover:shadow scale-100'
+                                  ? 'scale-110 shadow-lg z-10' 
+                                  : 'scale-95 border-transparent opacity-70 hover:opacity-100 hover:scale-100'
                                 }
                               `}
-                              style={isActive ? { backgroundColor: person.themeColor } : {}}
+                              style={{
+                                borderColor: isActive ? person.themeColor : 'transparent',
+                                boxShadow: isActive ? `0 0 15px ${person.themeColor}66` : 'none'
+                              }}
                             >
-                              {/* ホバー時の背景エフェクト（非アクティブ時のみ） */}
-                              {!isActive && (
+                              {/* 🌟 背景画像（ネームヘッダーの設定を完全に流用！） */}
+                              <img 
+                                src={person.headerImage || person.image}
+                                alt={person.name}
+                                className={`absolute inset-0 w-full h-full object-cover transition-all duration-500
+                                  ${isActive ? 'grayscale-0' : 'grayscale'}
+                                `}
+                                style={{
+                                  // すでにネームヘッダーで使っている位置設定をそのまま呼び出す
+                                  objectPosition: person.headerPosition || 'center 20%'
+                                }}
+                              />
+                              
+                              {/* 🌟 暗めのオーバーレイ */}
+                              <div 
+                                className={`absolute inset-0 transition-opacity duration-300
+                                  ${isActive ? 'bg-black/20' : 'bg-black/60 group-hover:bg-black/40'}
+                                `}
+                              />
+
+                              {/* 🌟 メンバーカラーの薄いフィルター */}
+                              {isActive && (
                                 <div 
-                                  className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+                                  className="absolute inset-0 opacity-30 mix-blend-color"
                                   style={{ backgroundColor: person.themeColor }}
                                 />
                               )}
-                              
-                              {/* 選択中のドットアイコン */}
-                              <div 
-                                className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full transition-colors duration-300 ${isActive ? 'bg-white' : ''}`}
-                                style={!isActive ? { backgroundColor: person.themeColor } : {}}
-                              />
-                              
-                              {/* 名前 */}
-                              <span className={`text-[10px] md:text-xs font-bold tracking-widest ${cleanFont?.className || ''}`}>
-                                {person.name}
-                              </span>
+
+                              {/* 🌟 名前テキスト */}
+                              <div className="absolute inset-0 flex items-center justify-center px-1">
+                                <span 
+                                  className={`text-[9px] md:text-[11px] font-bold tracking-wider text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] truncate w-full text-center ${cleanFont?.className || ''}`}
+                                >
+                                  {person.name}
+                                </span>
+                              </div>
                             </button>
                           );
                         })}
                       </div>
                     </div>
-                    {/* 🌟 【ココまで追加】 */}
                     {/* 🌟 メンバーカラーのふんわりオーラ背景 */}
                     <div
                       className="absolute inset-0 z-0 pointer-events-none transition-all duration-1000 opacity-15"
