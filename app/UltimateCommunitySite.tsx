@@ -2331,7 +2331,42 @@ useEffect(() => {
 
                 return (
                   <section className="relative w-full min-h-screen bg-[#FAFAFA] overflow-hidden flex flex-col lg:flex-row transition-colors duration-700">
-                    
+                    {/* 👇👇👇👇👇 ここから追加 👇👇👇👇👇 */}
+                    <div className="absolute top-4 lg:top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-auto">
+                      <div className="flex items-center gap-2 md:gap-3 overflow-x-auto pb-4 max-w-[95vw] lg:max-w-5xl px-2 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                        {adminList.map((person: any, idx: number) => {
+                          const isActive = idx === selectedCreatorIndex;
+                          return (
+                            <button
+                              key={person.id}
+                              onClick={() => setSelectedCreatorIndex(idx)}
+                              className={`relative flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 rounded-full whitespace-nowrap transition-all duration-300 shrink-0 border shadow-sm group overflow-hidden
+                                ${isActive 
+                                  ? 'text-white border-transparent shadow-md scale-105' 
+                                  : 'bg-white/70 hover:bg-white text-slate-600 border-slate-200/60 hover:shadow scale-100'
+                                }
+                              `}
+                              style={isActive ? { backgroundColor: person.themeColor } : {}}
+                            >
+                              {!isActive && (
+                                <div 
+                                  className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+                                  style={{ backgroundColor: person.themeColor }}
+                                />
+                              )}
+                              <div 
+                                className={`w-2 h-2 rounded-full transition-colors duration-300 ${isActive ? 'bg-white' : ''}`}
+                                style={!isActive ? { backgroundColor: person.themeColor } : {}}
+                              />
+                              <span className={`text-xs md:text-sm font-bold tracking-widest ${cleanFont?.className || ''}`}>
+                                {person.name}
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                    {/* 👆👆👆👆👆 ここまで追加 👆👆👆👆👆 */}
                     {/* 🌟 メンバーカラーのふんわりオーラ背景 */}
                     <div
                       className="absolute inset-0 z-0 pointer-events-none transition-all duration-1000 opacity-15"
