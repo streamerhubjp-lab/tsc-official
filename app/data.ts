@@ -987,12 +987,11 @@ export const adminList = [
     mobileOffsetY: 650,
     mobileScale: 2,
 
-
     // 👇 ヘッダー用（眼だけカットイン用）の設定
-    headerPosition: 'center 38%', // ベースの位置
+    headerPosition: 'center 42%', // ベースの位置
     headerScale: 3,             // 画像をズームアップする（例：1.5倍）
     headerX: 600,                  // 右に30pxずらす
-    headerY: -200,                 // 上に20pxずらす
+    headerY: -180,                 // 上に20pxずらす
     //後ろのキャラクターの背景画像を調整する場合は、以下の値を変更してください
     bgFaceX: -400,    // 🌟 プラスにすると「右」へ、マイナスにすると「左」へ移動
     bgFaceY: -200,   // 🌟 プラスにすると「下」へ、マイナスにすると「上」へ移動
