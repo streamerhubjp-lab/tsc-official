@@ -2329,10 +2329,10 @@ useEffect(() => {
 
                 return (
                   <section className="relative w-full min-h-screen bg-[#FAFAFA] overflow-hidden flex flex-col lg:flex-row transition-colors duration-700">
-                  {/* 🌟 パターン：キャラクターバナー（一列スライド ＆ スマホメニュー被り回避） */}
-                    {/* 👇 構造変更：スマホ時は top-16 にしてハンバーガーメニューとの被りを避ける！ */}
-                    <div className="absolute top-16 lg:top-6 left-0 right-0 w-full z-50 pointer-events-auto">
-                      <div className="flex flex-nowrap items-center justify-start gap-1.5 md:gap-2 pb-4 px-4 sm:px-8 lg:justify-center w-full overflow-x-auto snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                  {/* 🌟 パターン：キャラクターバナー */}
+                    <div className="absolute top-4 lg:top-6 left-0 right-0 w-full z-50 pointer-events-auto">
+                      {/* 👇 修正：スマホ時のみ pl-20 (左余白約80px) を追加し、左上のメニューボタンとの被りを完全回避！ */}
+                      <div className="flex flex-nowrap items-center justify-start gap-1.5 md:gap-2 pb-4 pl-20 pr-4 sm:px-8 lg:justify-center w-full overflow-x-auto snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                         {adminList.map((person: any, idx: number) => {
                           const isActive = idx === selectedCreatorIndex;
 
@@ -2343,7 +2343,6 @@ useEffect(() => {
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ duration: 0.4, delay: idx * 0.05, ease: "easeOut" }}
                               onClick={() => setSelectedCreatorIndex(idx)}
-                              // 👇 構造変更：スマホ時は指で押しやすいように高さ(h-10)を確保し、スワイプ時にピタッと止まる(snap-center)
                               className={`relative group overflow-hidden rounded-md md:rounded-lg transition-all duration-300 flex-shrink-0 border-2 snap-center
                                 w-20 sm:w-24 md:w-32 lg:w-36 
                                 h-10 sm:h-11 md:h-10 lg:h-12
@@ -2365,7 +2364,10 @@ useEffect(() => {
                                 className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 will-change-transform
                                   ${isActive ? 'grayscale-0' : 'grayscale'}
                                 `}
-                                style={{ objectPosition: person.headerPosition || 'center 20%' }}
+                                style={{
+                                  // 👇 修正：bannerPosition を最優先で読み込むように変更！
+                                  objectPosition: person.bannerPosition || person.headerPosition || 'center 20%'
+                                }}
                               />
                               
                               <div className={`absolute inset-0 transition-opacity duration-300 ${isActive ? 'bg-black/20' : 'bg-black/60 group-hover:bg-black/40'}`} />
@@ -2374,8 +2376,9 @@ useEffect(() => {
                                 <div className="absolute inset-0 opacity-40" style={{ backgroundColor: person.themeColor }} />
                               )}
                               
-                              <div className="absolute inset-0 flex items-end justify-end pb-1 md:pb-1.5 px-2 md:px-3">
-                                <span className={`text-[9px] md:text-[11px] font-bold tracking-wider text-white [text-shadow:_0_2px_4px_rgba(0,0,0,0.9)] truncate w-full text-right ${cleanFont?.className || ''}`}>
+                              <div className="absolute inset-0 flex items-end justify-end pb-1 md:pb-1.5 px-1.5 md:px-2">
+                                {/* 👇 修正：文字サイズをさらに小さく (text-[8px]) 限界まで調整！ */}
+                                <span className={`text-[8px] md:text-[10px] font-bold tracking-wider text-white [text-shadow:_0_2px_4px_rgba(0,0,0,0.9)] truncate w-full text-right ${cleanFont?.className || ''}`}>
                                   {person.name}
                                 </span>
                               </div>
