@@ -994,6 +994,8 @@ export const adminList = [
     offsetX: 30,
     offsetY: 140,
     scale: 1.5, // 👈 2倍の大きさに！
+
+    
     // ==========================================
     // 📱 ② 【スマホ画面】メイン立ち絵（スマホで見た時の専用設定）
     // ==========================================
@@ -1001,6 +1003,7 @@ export const adminList = [
     mobileOffsetX: 30,
     mobileOffsetY: 650,
     mobileScale: 2,
+
 
     // 👇 ヘッダー用（眼だけカットイン用）の設定
     headerPosition: 'center 42%', // ベースの位置
@@ -1020,6 +1023,7 @@ export const adminList = [
     spHeaderScale: 2,               // PCより少し小さめにするなど
     spHeaderX: 200,                  // スマホ専用の右ズレ
     spHeaderY: -60,                 // スマホ専用の上ズレ
+
 
 
     catchphrases: [
