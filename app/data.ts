@@ -541,8 +541,8 @@ export const adminList = [
     offsetY: 650,
     scale: 2.5, // 👈 2倍の大きさに！
     mobileOffsetX: 50,
-    mobileOffsetY: 450,
-    mobileScale: 2,
+    mobileOffsetY: 520,
+    mobileScale: 2.4,
 
      // 👇 ヘッダー用（眼だけカットイン用）の設定
     headerPosition: 'center 10%', // ベースの位置
@@ -609,8 +609,12 @@ export const adminList = [
     offsetX: 20,
     offsetY: 260,
     scale: 1.5, // 👈 2倍の大きさに！
-    mobileOffsetX: 0,
-    mobileOffsetY: 170,
+    // ==========================================
+    // 📱 ② 【スマホ画面】メイン立ち絵（スマホで見た時の専用設定）
+    // ==========================================
+    spOffsetX: -50,
+    mobileOffsetX: -50,
+    mobileOffsetY: 700,
     mobileScale: 2,
 
     
@@ -624,6 +628,17 @@ export const adminList = [
     bgFaceX: -1000,    // 🌟 プラスにすると「右」へ、マイナスにすると「左」へ移動
     bgFaceY: 300,   // 🌟 プラスにすると「下」へ、マイナスにすると「上」へ移動
     bgFaceScale: 0.8, // 🌟 大きさを変えたい場合（1.1倍など）
+
+    // ==========================================
+    // 📱 ③-b 【スマホ画面用】ネームヘッダー背景（★ここを追加！）
+    // ==========================================
+    // スマホだと箱の形が変わるので、倍率を下げたり位置をずらしたりします
+    spHeaderPosition: 'center 20%', // スマホ用のベース位置
+    spHeaderScale: 2,               // PCより少し小さめにするなど
+    spHeaderX: 50,                  // スマホ専用の右ズレ
+    spHeaderY: -30,                 // スマホ専用の上ズレ
+
+
 
 
 
