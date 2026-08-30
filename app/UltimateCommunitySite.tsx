@@ -2330,9 +2330,10 @@ useEffect(() => {
                 return (
                   <section className="relative w-full min-h-screen bg-[#FAFAFA] overflow-hidden flex flex-col lg:flex-row transition-colors duration-700">
                    {/* 👇👇👇👇👇 ここから差し替え 👇👇👇👇👇 */}
-                    {/* 🌟 パターン：キャラクターバナー（一列スライド＆ふわっと登場） */}
-                    <div className="absolute top-4 lg:top-6 left-0 right-0 z-50 flex justify-center pointer-events-auto">
-                      <div className="flex flex-nowrap items-center justify-start lg:justify-center gap-1.5 md:gap-2 pb-4 px-4 w-full max-w-full lg:max-w-7xl overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+               {/* 🌟 パターン：キャラクターバナー（一列スライド＆ふわっと登場） */}
+                    <div className="absolute top-4 lg:top-6 left-0 right-0 w-full z-50 pointer-events-auto">
+                      {/* 👇 修正：justify-center を外して「justify-start」に統一し、スクロールのロックを解除しました！ */}
+                      <div className="flex flex-nowrap items-center justify-start gap-1.5 md:gap-2 pb-4 px-4 sm:px-8 lg:px-12 w-full overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                         {adminList.map((person: any, idx: number) => {
                           const isActive = idx === selectedCreatorIndex;
 
