@@ -2329,15 +2329,19 @@ useEffect(() => {
 
                 return (
                   <section className="relative w-full min-h-screen bg-[#FAFAFA] overflow-hidden flex flex-col lg:flex-row transition-colors duration-700">
-                   {/* 🌟 パターン：キャラクターバナー */}
-                    <div className="absolute top-4 lg:top-6 left-0 right-0 z-50 flex justify-center px-2 pointer-events-auto">
-                      <div className="flex flex-wrap justify-center items-center gap-1.5 md:gap-2 pb-4 max-w-full lg:max-w-7xl px-2">
+                   {/* 👇👇👇👇👇 ここから差し替え 👇👇👇👇👇 */}
+                    {/* 🌟 パターン：キャラクターバナー（一列スライド＆ふわっと登場） */}
+                    <div className="absolute top-4 lg:top-6 left-0 right-0 z-50 flex justify-center pointer-events-auto">
+                      <div className="flex flex-nowrap items-center justify-start lg:justify-center gap-1.5 md:gap-2 pb-4 px-4 w-full max-w-full lg:max-w-7xl overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                         {adminList.map((person: any, idx: number) => {
                           const isActive = idx === selectedCreatorIndex;
 
                           return (
-                            <button
+                            <motion.button
                               key={person.id}
+                              initial={{ opacity: 0, y: -15 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.4, delay: idx * 0.05, ease: "easeOut" }}
                               onClick={() => setSelectedCreatorIndex(idx)}
                               className={`relative group overflow-hidden rounded-md md:rounded-lg transition-all duration-300 flex-shrink-0 border-2
                                 w-20 sm:w-24 md:w-32 lg:w-36 
@@ -2372,7 +2376,6 @@ useEffect(() => {
                               />
 
                               {isActive && (
-                                // 🌟 軽量化：mix-blend-color をやめて、単純な半透明に変更
                                 <div 
                                   className="absolute inset-0 opacity-40"
                                   style={{ backgroundColor: person.themeColor }}
@@ -2387,11 +2390,12 @@ useEffect(() => {
                                   {person.name}
                                 </span>
                               </div>
-                            </button>
+                            </motion.button>
                           );
                         })}
                       </div>
                     </div>
+                    {/* 👆👆👆👆👆 ここまで差し替え 👆👆👆👆👆 */}
                     
                     {/* 🌟 メンバーカラーのふんわりオーラ背景 */}
                     <div
