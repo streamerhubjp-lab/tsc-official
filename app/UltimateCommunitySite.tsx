@@ -2354,10 +2354,12 @@ useEffect(() => {
                                 boxShadow: isActive ? `0 0 15px ${person.themeColor}66` : 'none'
                               }}
                             >
-                              {/* 🌟 背景画像（ネームヘッダーの設定を完全に流用！） */}
+                              {/* 🌟 背景画像（ネームヘッダーの設定を完全に流用＆【遅延読み込みで超軽量化！】） */}
                               <img 
                                 src={person.headerImage || person.image}
                                 alt={person.name}
+                                loading="lazy"
+                                decoding="async"
                                 className={`absolute inset-0 w-full h-full object-cover transition-all duration-500
                                   ${isActive ? 'grayscale-0' : 'grayscale'}
                                 `}
@@ -2422,7 +2424,6 @@ useEffect(() => {
                         initial={{ opacity: 0, scale: 1.05, x: 30 }}
                         animate={{ opacity: 0.25, scale: 1, x: 0 }}
                         transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-                        // 🌟 修正：w-[75%] から w-full に変更して画面右端まで完全にカバーします
                         className="absolute top-0 right-0 w-full h-full flex items-start justify-end origin-top"
                       >
                         <img 
@@ -2445,7 +2446,8 @@ useEffect(() => {
                     <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
                       <motion.div animate={{ rotate: 360, y: [0, 20, 0] }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute top-[20%] left-[8%] text-slate-400/30 text-5xl font-light">+</motion.div>
                       <motion.div animate={{ rotate: -360, y: [0, -30, 0] }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }} className="absolute bottom-[25%] left-[40%] text-slate-400/20 text-3xl font-light">+</motion.div>
-                      <motion.div animate={{ x: [0, 40, 0], y: [0, -50, 0], scale: [1, 1.2, 1] }} transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }} className="absolute top-[20%] right-[15%] w-96 h-96 rounded-full blur-[100px] opacity-20" style={{ backgroundColor: admin.themeColor }} />
+                      {/* 🌟 【軽量化】重い光の玉のアニメーションを停止して固定配置に変更！ */}
+                      <div className="absolute top-[20%] right-[15%] w-96 h-96 rounded-full blur-[100px] opacity-20" style={{ backgroundColor: admin.themeColor }} />
                     </div>
 
                     {/* 🌟 背景の巨大透かし文字 */}
@@ -2486,7 +2488,8 @@ useEffect(() => {
                             }}
                             src={admin.image}
                             alt={admin.name}
-                            className="w-full h-auto object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)]"
+                            // 🌟 【軽量化】drop-shadowを消去 ＆ will-change-transform を追加して激軽に！
+                            className="w-full h-auto object-contain object-bottom will-change-transform"
                           />
                         </div>
                       </div>
@@ -2595,7 +2598,6 @@ useEffect(() => {
                         ))}
                       </motion.div>
                     </div>
-
 
                   </section>
                 );
