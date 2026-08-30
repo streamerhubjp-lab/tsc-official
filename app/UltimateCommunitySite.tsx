@@ -2312,7 +2312,7 @@ useEffect(() => {
             )}
 
             {/* 🌟 CREATOR ページ（Mac Dock風ボトムUI ＆ 白基調ポップアップ仕様） */}
-            {/* 🌟 CREATOR ページ（極限軽量化・サクサク動作仕様） */}
+            {/* 🌟 CREATOR ページ（極限軽量化・スマホ完全対応・スライドバナー仕様） */}
             {activePage === 'admins' &&
               (() => {
                 const admin = adminList[selectedCreatorIndex];
@@ -2329,55 +2329,39 @@ useEffect(() => {
 
                 return (
                   <section className="relative w-full min-h-screen bg-[#FAFAFA] overflow-hidden flex flex-col lg:flex-row transition-colors duration-700">
-                  {/* 🌟 パターン：キャラクターバナー */}
-                    <div className="absolute top-4 lg:top-6 left-0 right-0 w-full z-50 pointer-events-auto">
-                      {/* 👇 修正：スマホ時のみ pl-20 (左余白約80px) を追加し、左上のメニューボタンとの被りを完全回避！ */}
-                      <div className="flex flex-nowrap items-center justify-start gap-1.5 md:gap-2 pb-4 pl-20 pr-4 sm:px-8 lg:justify-center w-full overflow-x-auto snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                    
+                    {/* 🌟 1. キャラクターバナー（スマホのメニュー被り回避） */}
+                    <div className="absolute top-16 lg:top-6 left-0 right-0 w-full z-50 pointer-events-auto">
+                      <div className="flex flex-nowrap items-center justify-start gap-1.5 md:gap-2 pb-4 pr-4 sm:px-8 lg:justify-center w-full overflow-x-auto snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                        
+                        {/* 👇 これが効いていれば、左側に透明なスキマができてメニューと被らなくなります！ */}
+                        <div className="shrink-0 w-20 lg:hidden" />
+
                         {adminList.map((person: any, idx: number) => {
                           const isActive = idx === selectedCreatorIndex;
-
                           return (
                             <motion.button
                               key={person.id}
-                              initial={{ opacity: 0, y: -15 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ duration: 0.4, delay: idx * 0.05, ease: "easeOut" }}
+                              initial={{ opacity: 0, y: -15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: idx * 0.05, ease: "easeOut" }}
                               onClick={() => setSelectedCreatorIndex(idx)}
                               className={`relative group overflow-hidden rounded-md md:rounded-lg transition-all duration-300 flex-shrink-0 border-2 snap-center
                                 w-20 sm:w-24 md:w-32 lg:w-36 
                                 h-10 sm:h-11 md:h-10 lg:h-12
-                                ${isActive 
-                                  ? 'scale-110 shadow-lg z-10' 
-                                  : 'scale-95 border-transparent opacity-70 hover:opacity-100 hover:scale-100'
-                                }
+                                ${isActive ? 'scale-110 shadow-lg z-10' : 'scale-95 border-transparent opacity-70 hover:opacity-100 hover:scale-100'}
                               `}
-                              style={{
-                                borderColor: isActive ? person.themeColor : 'transparent',
-                                boxShadow: isActive ? `0 0 15px ${person.themeColor}66` : 'none'
-                              }}
+                              style={{ borderColor: isActive ? person.themeColor : 'transparent', boxShadow: isActive ? `0 0 15px ${person.themeColor}66` : 'none' }}
                             >
                               <img 
-                                src={person.headerImage || person.image}
-                                alt={person.name}
-                                loading="lazy"
-                                decoding="async"
-                                className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 will-change-transform
-                                  ${isActive ? 'grayscale-0' : 'grayscale'}
-                                `}
-                                style={{
-                                  // 👇 修正：bannerPosition を最優先で読み込むように変更！
-                                  objectPosition: person.bannerPosition || person.headerPosition || 'center 20%'
-                                }}
+                                src={person.headerImage || person.image} alt={person.name} loading="lazy" decoding="async"
+                                className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 will-change-transform ${isActive ? 'grayscale-0' : 'grayscale'}`}
+                                // 👇 バナー専用の顔位置調整！ bannerPosition が効くようになります
+                                style={{ objectPosition: person.bannerPosition || person.headerPosition || 'center 20%' }}
                               />
-                              
                               <div className={`absolute inset-0 transition-opacity duration-300 ${isActive ? 'bg-black/20' : 'bg-black/60 group-hover:bg-black/40'}`} />
-
-                              {isActive && (
-                                <div className="absolute inset-0 opacity-40" style={{ backgroundColor: person.themeColor }} />
-                              )}
+                              {isActive && ( <div className="absolute inset-0 opacity-40" style={{ backgroundColor: person.themeColor }} /> )}
                               
-                              <div className="absolute inset-0 flex items-end justify-end pb-1 md:pb-1.5 px-1.5 md:px-2">
-                                {/* 👇 修正：文字サイズをさらに小さく (text-[8px]) 限界まで調整！ */}
+                              <div className="absolute inset-0 flex items-end justify-end pb-1 md:pb-1.5 px-2">
+                                {/* 👇 文字も極小サイズになります！ */}
                                 <span className={`text-[8px] md:text-[10px] font-bold tracking-wider text-white [text-shadow:_0_2px_4px_rgba(0,0,0,0.9)] truncate w-full text-right ${cleanFont?.className || ''}`}>
                                   {person.name}
                                 </span>
@@ -2388,62 +2372,38 @@ useEffect(() => {
                       </div>
                     </div>
 
-                    {/* 🌟 メンバーカラーのふんわりオーラ背景 */}
+                    {/* 🌟 オーラ背景 ＆ 背景立ち絵 ＆ テック系図形 */}
                     <div className="absolute inset-0 z-0 pointer-events-none transition-all duration-1000 opacity-15" style={{ background: `radial-gradient(circle at 25% 50%, ${admin.themeColor} 0%, transparent 70%)` }} />
-
-                    {/* 🌟 巨大背景立ち絵 */}
                     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-                      <motion.div
-                        initial={{ scaleX: 0, opacity: 0 }} animate={{ scaleX: 1, opacity: 1 }} transition={{ duration: 1.2, ease: "easeOut" }}
-                        className="absolute top-[10%] right-[-10%] w-[120%] h-[350px] lg:h-[500px] origin-right will-change-transform"
-                        style={{ transform: 'rotate(25deg)', background: `linear-gradient(to left, ${admin.themeColor}33 0%, ${admin.themeColor}10 60%, transparent 100%)` }}
-                      />
-                      <motion.div
-                        key={`bg-face-${admin.id}`}
-                        initial={{ opacity: 0, scale: 1.05, x: 30 }} animate={{ opacity: 0.25, scale: 1, x: 0 }} transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-                        className="absolute top-0 right-0 w-full h-full flex items-start justify-end origin-top will-change-transform"
-                      >
-                        <img 
-                          src={admin.image} alt="" loading="lazy" decoding="async"
-                          className="absolute inset-0 w-full h-full object-cover object-top grayscale contrast-[1.1] brightness-110"
-                          style={{ transform: `translate(${(admin as any).bgFaceX || 0}px, ${(admin as any).bgFaceY || 0}px) scale(${(admin as any).bgFaceScale || 1.0})`, transformOrigin: 'top right' }}
-                        />
+                      <motion.div initial={{ scaleX: 0, opacity: 0 }} animate={{ scaleX: 1, opacity: 1 }} transition={{ duration: 1.2, ease: "easeOut" }} className="absolute top-[10%] right-[-10%] w-[120%] h-[350px] lg:h-[500px] origin-right will-change-transform" style={{ transform: 'rotate(25deg)', background: `linear-gradient(to left, ${admin.themeColor}33 0%, ${admin.themeColor}10 60%, transparent 100%)` }} />
+                      <motion.div key={`bg-face-${admin.id}`} initial={{ opacity: 0, scale: 1.05, x: 30 }} animate={{ opacity: 0.25, scale: 1, x: 0 }} transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }} className="absolute top-0 right-0 w-full h-full flex items-start justify-end origin-top will-change-transform">
+                        <img src={admin.image} alt="" loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover object-top grayscale contrast-[1.1] brightness-110" style={{ transform: `translate(${(admin as any).bgFaceX || 0}px, ${(admin as any).bgFaceY || 0}px) scale(${(admin as any).bgFaceScale || 1.0})`, transformOrigin: 'top right' }} />
                         <div className="absolute inset-0 opacity-30" style={{ backgroundColor: admin.themeColor }} />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#FAFAFA] via-transparent to-[#FAFAFA] opacity-100" />
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#FAFAFA] opacity-100" />
                       </motion.div>
                     </div>
-
-                    {/* 🌟 背景装飾 */}
                     <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
                       <motion.div animate={{ rotate: 360, y: [0, 20, 0] }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute top-[20%] left-[8%] text-slate-400/30 text-5xl font-light will-change-transform">+</motion.div>
                       <motion.div animate={{ rotate: -360, y: [0, -30, 0] }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }} className="absolute bottom-[25%] left-[40%] text-slate-400/20 text-3xl font-light will-change-transform">+</motion.div>
                       <div className="absolute top-[20%] right-[15%] w-96 h-96 rounded-full blur-[100px] opacity-20" style={{ backgroundColor: admin.themeColor }} />
                     </div>
-
-                    {/* 🌟 背景の巨大透かし文字 */}
                     <div className={`absolute top-20 right-10 text-[8rem] md:text-[15rem] font-black leading-none select-none pointer-events-none z-0 transition-colors duration-1000 ${cleanFont?.className || ''}`} style={{ color: admin.themeColor, opacity: 0.05 }}>
                       {admin.romanName.split(' ')[0]}
                     </div>
 
                     {/* 🌟 画面端の切り替えボタン */}
-                    <button onClick={handlePrev} className="absolute left-1 lg:left-6 top-1/2 -translate-y-1/2 z-40 p-2 md:p-4 rounded-full bg-white/90 hover:bg-white border border-slate-200/50 shadow-lg text-slate-400 hover:text-slate-800 transition-all group">
-                      <svg className="w-5 h-5 md:w-8 md:h-8 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg>
-                    </button>
-                    <button onClick={handleNext} className="absolute right-1 lg:right-6 top-1/2 -translate-y-1/2 z-40 p-2 md:p-4 rounded-full bg-white/90 hover:bg-white border border-slate-200/50 shadow-lg text-slate-400 hover:text-slate-800 transition-all group">
-                      <svg className="w-5 h-5 md:w-8 md:h-8 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" /></svg>
-                    </button>
+                    <button onClick={handlePrev} className="absolute left-1 lg:left-6 top-1/2 -translate-y-1/2 z-40 p-2 md:p-4 rounded-full bg-white/90 hover:bg-white border border-slate-200/50 shadow-lg text-slate-400 hover:text-slate-800 transition-all group"><svg className="w-5 h-5 md:w-8 md:h-8 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg></button>
+                    <button onClick={handleNext} className="absolute right-1 lg:right-6 top-1/2 -translate-y-1/2 z-40 p-2 md:p-4 rounded-full bg-white/90 hover:bg-white border border-slate-200/50 shadow-lg text-slate-400 hover:text-slate-800 transition-all group"><svg className="w-5 h-5 md:w-8 md:h-8 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" /></svg></button>
                     
-                    {/* 🎨 左カラム：立ち絵とキャッチコピー */}
-                    {/* 👇 構造変更：スマホ時は min-h-[65vh] で高さを絶対確保し、下のネームヘッダーが食い込むのを防ぎます！ */}
                     <div className="w-full lg:w-[45%] min-h-[65vh] lg:min-h-screen relative z-20 flex flex-col justify-center px-4 md:px-12 lg:pl-16 pt-32 lg:pt-24 pb-8 lg:pb-32">
                       
-                      {/* 👇 構造変更：スマホ時は top-8 left-4 にして邪魔にならない左上端に寄せます */}
-                      <div className="absolute top-8 lg:top-40 left-4 lg:left-24 flex gap-2 lg:gap-5 z-20 pointer-events-none">
+                      {/* 👇 左の縦文字が邪魔にならないように、さらに右下にずらしました！ */}
+                      <div className="absolute top-28 lg:top-40 left-8 lg:left-24 flex gap-2 lg:gap-5 z-20 pointer-events-none">
                         {admin.catchphrases?.map((phrase: string, idx: number) => (
                           <motion.div key={`phrase-${idx}-${admin.id}`} initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: idx * 0.2 }} className="relative group">
                             <div className="absolute inset-0 bg-gradient-to-b from-white/95 to-white/80 skew-y-[8deg] shadow-[0_10px_20px_rgba(0,0,0,0.1)] border border-white/50" />
-                            {/* 👇 構造変更：スマホ時はテキストと余白を少し小さくして収まりやすくします */}
+                            {/* 👇 いじる前の、元のサイズ・余白に戻しました！ */}
                             <div className={`relative vertical-text text-base lg:text-2xl font-black text-slate-800 tracking-[0.15em] px-2 py-6 lg:py-10 ${cleanFont?.className || ''}`}>{phrase}</div>
                           </motion.div>
                         ))}
@@ -2451,46 +2411,59 @@ useEffect(() => {
 
                       {/* 🌟 立ち絵コンテナ */}
                       <div className="absolute bottom-0 w-full flex justify-center pointer-events-none z-10">
-                        <div key={`wrapper-${admin.id}`} className="w-[120%] lg:w-[150%] max-w-none flex justify-center origin-bottom will-change-transform" style={{ transform: `translateX(${admin.offsetX || 0}px) translateY(${admin.offsetY || 0}px) scale(${admin.scale || 1.0})` }}>
-                          <motion.img
-                            key={`img-${admin.id}`}
-                            initial={{ opacity: 0, scale: 0.95, y: 0 }}
-                            animate={{ opacity: 1, scale: 1, y: [0, -12, 0] }}
-                            transition={{ opacity: { duration: 1.2, ease: [0.16, 1, 0.3, 1] }, scale: { duration: 1.2, ease: [0.16, 1, 0.3, 1] }, y: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 } }}
-                            src={admin.image}
-                            alt={admin.name}
-                            loading="eager"
-                            className="w-full h-auto object-contain object-bottom will-change-transform"
-                          />
+                        {/* 👇 ひうひうさんの mobileOffsetX 等が確実に動くようにセット！ */}
+                        <div 
+                          key={`wrapper-sp-${admin.id}`} 
+                          className="flex lg:hidden w-[130%] max-w-none justify-center origin-bottom will-change-transform" 
+                          style={{ transform: `translateX(${(admin as any).mobileOffsetX || 0}px) translateY(${(admin as any).mobileOffsetY || 0}px) scale(${(admin as any).mobileScale || 1.0})` }}
+                        >
+                          <motion.img key={`img-sp-${admin.id}`} initial={{ opacity: 0, scale: 0.95, y: 0 }} animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }} transition={{ opacity: { duration: 1.2 }, scale: { duration: 1.2 }, y: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 } }} src={admin.image} alt={admin.name} loading="eager" className="w-full h-auto object-contain object-bottom will-change-transform" />
+                        </div>
+                        
+                        <div 
+                          key={`wrapper-pc-${admin.id}`} 
+                          className="hidden lg:flex w-[150%] max-w-none justify-center origin-bottom will-change-transform" 
+                          style={{ transform: `translateX(${admin.offsetX || 0}px) translateY(${admin.offsetY || 0}px) scale(${admin.scale || 1.0})` }}
+                        >
+                          <motion.img key={`img-pc-${admin.id}`} initial={{ opacity: 0, scale: 0.95, y: 0 }} animate={{ opacity: 1, scale: 1, y: [0, -12, 0] }} transition={{ opacity: { duration: 1.2 }, scale: { duration: 1.2 }, y: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 } }} src={admin.image} alt={admin.name} loading="eager" className="w-full h-auto object-contain object-bottom will-change-transform" />
                         </div>
                       </div>
                     </div>
 
-                    {/* 🌟 背景レイヤー：Six Capsアウトライン＆グリッドライン */}
                     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" style={{ backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px)`, backgroundSize: '45px 45px', transform: 'skewY(-6deg) rotate(-6deg)', scale: 1.2 }}>
                       <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
                         <div className="absolute left-0 right-0 h-[1.5px] opacity-40 animate-pulse transition-colors duration-1000" style={{ top: '16%', background: `linear-gradient(to right, ${admin.themeColor} 70%, transparent)` }} />
                         <div className="absolute top-0 bottom-0 w-[1.5px] opacity-30 transition-colors duration-1000" style={{ right: '22%', background: `linear-gradient(to bottom, ${admin.themeColor}, transparent 90%)` }} />
                         <div className="absolute w-2 h-2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center font-mono text-[10px] font-bold opacity-60 transition-colors duration-1000" style={{ top: '16%', right: '22%', color: admin.themeColor }}>+</div>
                       </div>
-                      <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1.5, ease: 'easeOut' }} className={`absolute right-2 md:right-8 top-0 bottom-0 flex justify-center items-center [writing-mode:vertical-rl] text-[10rem] md:text-[16rem] leading-none tracking-widest select-none will-change-transform ${sixCaps?.className || ''}`} style={{ color: 'transparent', WebkitTextStroke: '2px rgba(0, 0, 0, 0.06)' }}>
-                        {admin.romanName}
-                      </motion.div>
+                      <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1.5, ease: 'easeOut' }} className={`absolute right-2 md:right-8 top-0 bottom-0 flex justify-center items-center [writing-mode:vertical-rl] text-[10rem] md:text-[16rem] leading-none tracking-widest select-none will-change-transform ${sixCaps?.className || ''}`} style={{ color: 'transparent', WebkitTextStroke: '2px rgba(0, 0, 0, 0.06)' }}>{admin.romanName}</motion.div>
                     </div>
 
-                    {/* 🎨 右カラム：スクロールできるプロフィールエリア */}
-                    {/* 👇 構造変更：スマホ時は左右の余白(px-3)を調整し、めり込まないようにしています */}
                     <div className="w-full lg:w-[55%] h-full relative z-20 px-3 sm:px-6 py-4 lg:px-16 lg:py-32 pb-32">
-                      
-                      {/* ネームヘッダー */}
-                      <motion.div
-                        key={`header-${admin.id}`}
-                        initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}
-                        className="relative mb-8 lg:mb-10 w-full max-w-none rounded-2xl overflow-hidden shadow-2xl bg-slate-900 border-l-4 will-change-transform"
-                        style={{ borderLeftColor: admin.themeColor }}
-                      >
+                      {/* 🌟 ここから差し替え：ネームヘッダー */}
+                      <motion.div key={`header-${admin.id}`} initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="relative mb-8 lg:mb-10 w-full max-w-none rounded-2xl overflow-hidden shadow-2xl bg-slate-900 border-l-4 will-change-transform" style={{ borderLeftColor: admin.themeColor }}>
                         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-                          <img src={(admin as any).headerImage || admin.image} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover opacity-50 grayscale contrast-125 origin-center will-change-transform" style={{ objectPosition: (admin as any).headerPosition || 'center 20%', transform: `translate(${(admin as any).headerX || 0}px, ${(admin as any).headerY || 0}px) scale(${(admin as any).headerScale || 1.0})` }} />
+                          
+                          {/* 👇 【追加】スマホ専用のヘッダー背景（spHeaderX などを読み込む） */}
+                          <img 
+                            src={(admin as any).headerImage || admin.image} alt="" loading="lazy" decoding="async" 
+                            className="block lg:hidden w-full h-full object-cover opacity-50 grayscale contrast-125 origin-center will-change-transform" 
+                            style={{ 
+                              objectPosition: (admin as any).spHeaderPosition || (admin as any).headerPosition || 'center 20%', 
+                              transform: `translate(${(admin as any).spHeaderX ?? (admin as any).headerX ?? 0}px, ${(admin as any).spHeaderY ?? (admin as any).headerY ?? 0}px) scale(${(admin as any).spHeaderScale ?? (admin as any).headerScale ?? 1.0})` 
+                            }} 
+                          />
+                          
+                          {/* 👇 PC専用のヘッダー背景（今まで通り） */}
+                          <img 
+                            src={(admin as any).headerImage || admin.image} alt="" loading="lazy" decoding="async" 
+                            className="hidden lg:block w-full h-full object-cover opacity-50 grayscale contrast-125 origin-center will-change-transform" 
+                            style={{ 
+                              objectPosition: (admin as any).headerPosition || 'center 20%', 
+                              transform: `translate(${(admin as any).headerX || 0}px, ${(admin as any).headerY || 0}px) scale(${(admin as any).headerScale || 1.0})` 
+                            }} 
+                          />
+                          
                           <div className="absolute inset-0 opacity-60" style={{ backgroundColor: admin.themeColor }} />
                           <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/60 to-transparent opacity-90" />
                         </div>
@@ -2503,8 +2476,7 @@ useEffect(() => {
                           <p className="text-slate-400 font-bold text-xs tracking-[0.4em] uppercase">{admin.romanName}</p>
                         </div>
                       </motion.div>
-
-                      {/* プロフィールカード */}
+                      {/* 🌟 ここまで差し替え */}
                       <motion.div key={`profile-card-${admin.id}`} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="relative z-20 mb-10 w-full max-w-none will-change-transform">
                         <div className="relative p-4 lg:p-6 rounded-none bg-white/95 border border-slate-900/[0.08] shadow-[0_20px_50px_rgba(0,0,0,0.03)] overflow-hidden">
                           <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 transition-colors duration-1000" style={{ borderColor: admin.themeColor }} />
@@ -2513,7 +2485,6 @@ useEffect(() => {
                           <div className="absolute bottom-0 right-0 w-2.5 h-2.5 border-b-2 border-r-2 transition-colors duration-1000" style={{ borderColor: admin.themeColor }} />
                           <div className="absolute inset-1 rounded-none border border-slate-900/[0.01] pointer-events-none" />
                           <div className="absolute inset-0 opacity-[0.01] pointer-events-none transition-colors duration-1000" style={{ background: `linear-gradient(135deg, transparent, ${admin.themeColor})` }} />
-
                           <div className="flex items-center justify-between mb-3.5 border-b border-slate-900/10 pb-2">
                             <div className="flex items-center gap-2">
                               <div className="w-1.5 h-3 rounded-none transition-colors duration-1000" style={{ backgroundColor: admin.themeColor }} />
@@ -2521,7 +2492,6 @@ useEffect(() => {
                             </div>
                             <div className="text-[9px] font-mono tracking-widest text-slate-400 uppercase hidden sm:block">SYS_REF // {admin.id}</div>
                           </div>
-
                           <div className="grid grid-cols-2 gap-x-4 lg:gap-x-6 gap-y-3 relative z-10 mb-4">
                             {admin.profileGrid.map((info: any, idx: number) => (
                               <div key={idx} className="flex flex-col border-l-2 pl-2.5 pb-0.5 group transition-colors duration-1000" style={{ borderLeftColor: `${admin.themeColor}33` }}>
@@ -2530,7 +2500,6 @@ useEffect(() => {
                               </div>
                             ))}
                           </div>
-
                           <div className="relative z-10 pt-3 border-t border-slate-900/10">
                             <div className="flex items-center gap-2 mb-1.5 opacity-60">
                               <span className="text-[8px] font-mono tracking-widest uppercase text-slate-400">// DESCRIPTION_LOG</span>
@@ -2542,7 +2511,6 @@ useEffect(() => {
 
                       <PickupMediaSlider mediaList={admin.pickupMedia} themeColor={admin.themeColor} cleanFont={cleanFont} adminId={admin.id} />
 
-                      {/* SNSリンク群 */}
                       <motion.div key={`links-${admin.id}`} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }} className="flex flex-wrap gap-3 lg:gap-4 will-change-transform mt-6">
                         {Object.entries(admin.links).map(([platform, url]) => (
                           <a key={platform} href={url as string} target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 lg:px-6 lg:py-3 bg-slate-900 border border-slate-700 text-slate-100 rounded-full text-[10px] lg:text-xs font-bold tracking-widest uppercase hover:-translate-y-1 transition-all shadow-md flex items-center gap-2 duration-1000">
@@ -2556,7 +2524,6 @@ useEffect(() => {
                   </section>
                 );
               })()}
-
 
 
               {activePage === 'activity' && (
