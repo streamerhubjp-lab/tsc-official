@@ -2378,11 +2378,11 @@ useEffect(() => {
                                   style={{ backgroundColor: person.themeColor }}
                                 />
                               )}
-
-                              <div className="absolute inset-0 flex items-center justify-center px-1">
+                              
+                              {/* 🌟 名前テキスト（右下バージョン） */}
+                              <div className="absolute inset-0 flex items-end justify-end pb-1 md:pb-1.5 px-2 md:px-3">
                                 <span 
-                                  // 🌟 軽量化：重い drop-shadow をやめて、超軽い [text-shadow:...] に変更
-                                  className={`text-[9px] md:text-[11px] font-bold tracking-wider text-white [text-shadow:_0_2px_4px_rgba(0,0,0,0.9)] truncate w-full text-center ${cleanFont?.className || ''}`}
+                                  className={`text-[9px] md:text-[11px] font-bold tracking-wider text-white [text-shadow:_0_2px_4px_rgba(0,0,0,0.9)] truncate w-full text-right ${cleanFont?.className || ''}`}
                                 >
                                   {person.name}
                                 </span>
