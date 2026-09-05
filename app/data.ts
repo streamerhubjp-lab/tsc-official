@@ -1269,8 +1269,8 @@ export const adminList = [
     offsetX: 120,
     offsetY: 110,
     scale: 1.2, // 👈 2倍の大きさに！
-    mobileOffsetX: 0,
-    mobileOffsetY: 170,
+    mobileOffsetX: 70,
+    mobileOffsetY: 770,
     mobileScale: 2,
 
     // 👇 ヘッダー用（眼だけカットイン用）の設定
