@@ -869,8 +869,16 @@ export const adminList = [
     offsetY: 500,
     scale: 1.8, // 👈 2倍の大きさに！
     mobileOffsetX: 0,
-    mobileOffsetY: 170,
+    mobileOffsetY: 600,
     mobileScale: 2,
+    // ==========================================
+    // 📱 ③-b 【スマホ画面用】ネームヘッダー背景（★ここを追加！）
+    // ==========================================
+    // スマホだと箱の形が変わるので、倍率を下げたり位置をずらしたりします
+    spHeaderPosition: 'center 20%', // スマホ用のベース位置
+    spHeaderScale: 2,               // PCより少し小さめにするなど
+    spHeaderX: -50,                  // スマホ専用の右ズレ
+    spHeaderY: 0,                 // スマホ専用の上ズレ
 
   // 🌟 静かな夜のラジオ配信とメイド要素を合わせたキャッチコピー
     catchphrases: [
