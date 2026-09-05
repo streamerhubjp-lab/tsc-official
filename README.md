@@ -5,6 +5,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 ```bash
+npm install
+# and
 npm run dev
 # or
 yarn dev
@@ -16,7 +18,7 @@ bun run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-If you can't open it, please access it via [http://localhost:3000/tsc-official].
+If you can't open it, please access it via [http://localhost:3000/tsc-official](http://localhost:3000/tsc-official).
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
