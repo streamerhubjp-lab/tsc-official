@@ -596,7 +596,7 @@ export const adminList = [
   {
     id: 'creator_02',
     name: '雪羽かよ',
-    romanName: 'yukihanekayo',
+    romanName: 'yukihakayo',
     role: 'Streamer',
     image: '/tsc-official/kayotatiekarui.webp', // 狼の野郎さんの立ち絵パス
     // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
