@@ -752,9 +752,14 @@ export const adminList = [
     offsetX: 100,
     offsetY: 570,
     scale: 1.5, // 👈 2倍の大きさに！
-    mobileOffsetX: 0,
-    mobileOffsetY: 170,
+    // ==========================================
+    // 📱 ② 【スマホ画面】メイン立ち絵（スマホで見た時の専用設定）
+    // ==========================================
+    spOffsetX: -50,
+    mobileOffsetX: 50,
+    mobileOffsetY: 840,
     mobileScale: 2,
+
 
     catchphrases: ['落ち着いた声色で届ける笑顔の時間。', 'サプライズ、準備完了。'],
     // 🌟 右側に並べるグリッド情報
