@@ -705,9 +705,6 @@ export const adminList = [
     offsetX: 50,
     offsetY: 220,
     scale: 1.7, // 👈 2倍の大きさに！
-    mobileOffsetX: 0,
-    mobileOffsetY: 170,
-    mobileScale: 2,
 
     //後ろのキャラクターの背景画像を調整する場合は、以下の値を変更してください
     bgFaceX: -800,    // 🌟 プラスにすると「右」へ、マイナスにすると「左」へ移動
