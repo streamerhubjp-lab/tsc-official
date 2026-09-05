@@ -692,6 +692,14 @@ export const adminList = [
     headerScale: 2,             // 画像をズームアップする（例：1.5倍）
     headerX: 50,                  // 右に30pxずらす
     headerY: -10,                 // 上に20pxずらす
+    // ==========================================
+    // 📱 ② 【スマホ画面】メイン立ち絵（スマホで見た時の専用設定）
+    // ==========================================
+    spOffsetX: -50,
+    mobileOffsetX: -50,
+    mobileOffsetY: 600,
+    mobileScale: 2,
+
 
     // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
     offsetX: 50,
