@@ -1251,7 +1251,7 @@ export const adminList = [
      {
     id: 'creator_12',
     name: 'よるねるか',
-    romanName: 'yoruneruka (1).webp',
+    romanName: 'yoruneruka',
     role: 'Streamer',
     image: '/tsc-official/yoruneruka (1).webp', 
     headerImage: '/tsc-official/yorunerujaitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
@@ -1277,6 +1277,14 @@ export const adminList = [
     bgFaceX: -400,    // 🌟 プラスにすると「右」へ、マイナスにすると「左」へ移動
     bgFaceY: -200,   // 🌟 プラスにすると「下」へ、マイナスにすると「上」へ移動
     bgFaceScale: 0.8, // 🌟 大きさを変えたい場合（1.1倍など）
+    // ==========================================
+    // 📱 ③-b 【スマホ画面用】ネームヘッダー背景（★ここを追加！）
+    // ==========================================
+    // スマホだと箱の形が変わるので、倍率を下げたり位置をずらしたりします
+    spHeaderPosition: 'center 10%', // スマホ用のベース位置
+    spHeaderScale: 2,               // PCより少し小さめにするなど
+    spHeaderX: 100,                  // スマホ専用の右ズレ
+    spHeaderY: 10,                 // スマホ専用の上ズレ
 
     catchphrases: [
       '今夜もあなたに、セクシーサンキュー。',
