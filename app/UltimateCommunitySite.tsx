@@ -2761,7 +2761,7 @@ useEffect(() => {
             </button>
 
             <img
-              src="/tsc-official/hirokinngutatie.jpg"
+              src="/tsc-official/vrKYYg_l_400x400.jpg"
               alt="ヒロキング"
               className="w-32 h-32 rounded-full object-cover border-4 border-gray-100 mx-auto mb-4"
             />
