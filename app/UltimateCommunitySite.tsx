@@ -3190,26 +3190,20 @@ export const ActivityLogGrid = ({
   montserrat,
   cleanFont,
 }: any) => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
   const fadeInVariant = {
-    hidden: { opacity: 0, y: 20 },
+    // スピード感を出すためにY軸の移動距離を少し短くしました
+    hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.08 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.5, ease: 'easeOut' },
-    },
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const { current } = scrollContainerRef;
+      const scrollAmount = direction === 'left' ? -current.offsetWidth / 1.5 : current.offsetWidth / 1.5;
+      current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
   };
 
   const handleTileClick = (item: any) => {
@@ -3218,50 +3212,109 @@ export const ActivityLogGrid = ({
   };
 
   return (
-    <section className="py-24 bg-[#FAFAFA] relative overflow-hidden z-20 shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
-      <div className="max-w-[85rem] mx-auto relative z-10 px-4 md:px-8">
+    <section 
+      // ★ py-16 -> py-4 に変更。上下の余白を極限まで削りました。上部シャドウも除去しています。
+      className="py-4 relative overflow-hidden z-20 bg-white"
+      style={{
+        backgroundImage: 'linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)',
+      }}
+    >
+      <div className="max-w-[85rem] mx-auto relative z-10 px-0">
+        
+        {/* ▼ ヘッダー部分 ▼ */}
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          variants={fadeInVariant}
-          className="mb-16 text-center relative z-50"
-        >
-          <p
-            className={`text-blue-500 font-bold text-[11px] tracking-[0.4em] uppercase mb-4 ${
-              montserrat?.className || ''
-            }`}
-          >
-            Activity Log
-          </p>
-          <h2
-            className={`text-3xl md:text-4xl font-black tracking-tight uppercase ${
-              cleanFont?.className || ''
-            }`}
-          >
-            TSC Activity Log
-          </h2>
-          <div className="w-12 h-1 bg-blue-500 mx-auto mt-6" />
-        </motion.div>
-
-        <motion.div
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-6 grid-flow-dense gap-1 md:gap-2 auto-rows-fr"
-          variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
+          variants={fadeInVariant}
+          // ★ mb-8 -> mb-3 に変更し、タイトルと画像の間隔をギリギリまで詰めました。
+          // ★ 画像の左端とタイトルの左端が揃うように px-4 md:px-8 を指定。
+          className="mb-3 flex flex-col items-start relative z-50 px-4 md:px-8"
         >
-          {/* 🌟 ルール違反の map ループを修正し、安全なコンポーネントを呼び出す形に変更 */}
-          {memoryItems.map((item: any, idx: number) => (
-            <GridItemTile 
-              key={item.id || idx} 
-              item={item} 
-              handleTileClick={handleTileClick} 
-              itemVariants={itemVariants}
-              cleanFont={cleanFont}
-            />
-          ))}
+          <div className="relative inline-flex flex-col items-start">
+            
+            <div className="relative flex items-center">
+              <svg 
+                className="absolute -left-2 md:-left-3 top-1/2 -translate-y-1/2 w-10 h-10 md:w-14 md:h-14 text-blue-200 z-0 pointer-events-none" 
+                viewBox="0 0 100 100" 
+                fill="currentColor"
+              >
+                <path d="M 30 10 L 10 90 L 30 90 L 50 10 Z" opacity="0.3" />
+                <path d="M 60 10 L 40 90 L 60 90 L 80 10 Z" opacity="0.6" />
+                <path d="M 90 10 L 70 90 L 90 90 L 110 10 Z" opacity="0.9" />
+              </svg>
+
+              <h2
+                className={`relative z-10 text-2xl md:text-3xl font-black tracking-tighter uppercase text-slate-800 scale-y-110 origin-left pl-3 md:pl-5 ${
+                  cleanFont?.className || ''
+                }`}
+              >
+                TSC ACTIVITY LOG
+              </h2>
+            </div>
+            
+            <p
+              className={`relative z-10 text-blue-500 font-bold text-[10px] md:text-xs tracking-[0.3em] mt-1 md:mt-2 ml-4 md:ml-6 ${
+                montserrat?.className || ''
+              }`}
+            >
+              アクティビティログ
+            </p>
+          </div>
         </motion.div>
+
+        {/* ▼ カルーセル（横スクロール）エリア ▼ */}
+        <motion.div 
+          className="relative group"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          variants={fadeInVariant}
+        >
+          <button 
+            onClick={() => scroll('left')}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-30 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-gray-800 hover:text-blue-600 hover:scale-110 transition-all opacity-0 group-hover:opacity-100 hidden md:flex ml-2"
+            aria-label="左へスクロール"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 md:h-6 md:w-6 pr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <div 
+            ref={scrollContainerRef}
+            // ★ py-4 -> py-2 に変更し、上下の隙間を圧縮。
+            className="flex gap-3 md:gap-4 overflow-x-auto snap-x snap-mandatory py-2 px-4 md:px-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          >
+            {memoryItems.map((item: any, idx: number) => (
+              <div 
+                key={item.id || idx} 
+                // ★ aspect-video を追加。
+                // ★ [&_img]:... で GridItemTile 内部の画像を強制的にトリミング(object-cover)し、全アイテムの縦横比を完全に一致させます。
+                className="snap-center shrink-0 w-[70vw] sm:w-[220px] md:w-[260px] lg:w-[280px] aspect-video relative rounded-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1 [&_img]:w-full [&_img]:h-full [&_img]:object-cover"
+              >
+                <GridItemTile 
+                  item={item} 
+                  handleTileClick={handleTileClick} 
+                  itemVariants={{}}
+                  cleanFont={cleanFont}
+                />
+              </div>
+            ))}
+          </div>
+
+          <button 
+            onClick={() => scroll('right')}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-30 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-gray-800 hover:text-blue-600 hover:scale-110 transition-all opacity-0 group-hover:opacity-100 hidden md:flex mr-2"
+            aria-label="右へスクロール"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 md:h-6 md:w-6 pl-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+        </motion.div>
+
       </div>
     </section>
   );
