@@ -1,7 +1,7 @@
 import UltimateCommunitySite from './UltimateCommunitySite';
 // 👇 1. スプレッドシートの代わりに、先ほど作った data.ts から直接データを引っこ抜く！
 // （※ data.ts の場所に合わせてパス './data' は微調整してください）
-import { newsItems, articleItems, galleryItems } from './data';
+import { newsItems, articleItems, galleryItems } from '@/data';
 
 export const metadata = {
   title: 'TSC Official | The Streamer Creator Server',

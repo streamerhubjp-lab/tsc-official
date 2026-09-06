@@ -54,7 +54,7 @@ import {
   sponsorData,
   collectiveData,
   adminList,
-} from './data';
+} from '@/data';
 
 // 🌟 ピックアップメディア用のスライダー部品
 // 🌟 adminId を受け取れるようにプロパティを追加します

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 
 // 🌟 修正①：本物のデータ名「articleItems」を読み込む
-import { articleItems } from "../../data";
+import { articleItems } from "@/data";
 
 export function generateStaticParams() {
   // 🌟 修正②：articleItems.map に変更
