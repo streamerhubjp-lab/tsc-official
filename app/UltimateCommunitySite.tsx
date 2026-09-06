@@ -56,6 +56,8 @@ import {
   adminList,
 } from './data';
 
+
+
 // 🌟 ピックアップメディア用のスライダー部品
 // 🌟 adminId を受け取れるようにプロパティを追加します
 const PickupMediaSlider = ({ mediaList, themeColor, cleanFont, adminId }: any) => {
@@ -180,6 +182,24 @@ const PickupMediaSlider = ({ mediaList, themeColor, cleanFont, adminId }: any) =
     </motion.div>
   );
 };
+
+
+// return の直前に追加する設定データ
+  const youtubeConfig = {
+    main: {
+      id: "dqgJctccONk", // メイン動画のID
+      title: "TSC鯖の歩き方",
+    },
+    subs: [
+      { id: "dqgJctccONk", title: "TSC鯖の歩き方" },
+      { id: "J66eoq_j8TQ", title: "チュートリアル 1：紹介" },
+      { id: "vSjeDWBjQsA", title: "VCについて①：雑談チャンネル" },
+      { id: "nX-Ioxu5xw0", title: "VCについて②：配信外VC" },
+      { id: "NM_ovzAFfcU", title: "VCについて③：配信VC" },
+      { id: "GHyXUgQFyXQ", title: "QAについて！" },
+    ]
+  };
+
 // コンポーネントの外側（他のフォント設定の近く）に追加
 const sixCaps = Six_Caps({
   weight: '400',
@@ -265,6 +285,9 @@ export default function UltimateCommunitySite({
   const [activeArticleId, setActiveArticleId] = useState<string | null>(null);
   const [memoryIndex, setMemoryIndex] = useState(0);
   const [previousPage, setPreviousPage] = useState('home');
+
+  // 🌟🌟🌟 ここに動画用のステートと設定を追加する！ 🌟🌟🌟
+  const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
 
   const [direction, setDirection] = useState(0);
   const [modalMode, setModalMode] = useState(''); // "" なら閉じている、"join" なら参加、"contact" なら問い合わせ
@@ -514,6 +537,7 @@ useEffect(() => {
   // 🌟 復活！最高のローディング画面 🌟
   if (loading)
     return (
+  
       <div className="h-screen w-full flex flex-col items-center justify-center bg-white fixed inset-0 z-[9999]">
         {/* max-w-xsを外して、画面幅いっぱい(w-full)で中央揃えにすることで狭いスマホにも対応 */}
         <div className="flex flex-col items-center w-full px-2">
@@ -1019,6 +1043,16 @@ useEffect(() => {
                   </motion.div>
                 </section>
 
+                 {/* 🌟 ここを変更中 🌟 */}
+
+                <ActivityLogGrid
+                  memoryItems={memoryItems}
+                  montserrat={montserrat}
+                  cleanFont={cleanFont}
+                />
+
+                {/* 🌟 ここまで 🌟 */}
+
                 {/* ⭐ NEWS & MAGAZINE セクション（2カラムレイアウト） ⭐ */}
                 <section className="py-24 bg-white relative z-20">
                   <div className="max-w-6xl mx-auto px-6">
@@ -1125,110 +1159,193 @@ useEffect(() => {
                   </div>
                 </section>
 
-                {/* 🌟 ここを変更中 🌟 */}
 
-                <ActivityLogGrid
-                  memoryItems={memoryItems}
-                  montserrat={montserrat}
-                  cleanFont={cleanFont}
+      <section className="py-12 md:py-16 px-4 md:px-8 bg-white border-t border-slate-100 overflow-hidden relative">
+        <div className="max-w-7xl mx-auto relative z-10">
+          
+          {/* ▼ ヘッダー部分 ▼ */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-100px' }}
+            variants={fadeInVariant}
+            className="mb-10 md:mb-12"
+          >
+            <p className="text-blue-500 font-bold text-[11px] tracking-[0.4em] uppercase mb-4">
+              About TSC
+            </p>
+            <h2 className={`text-4xl md:text-5xl font-black tracking-tight uppercase mb-4 text-slate-900 ${cleanFont?.className || ''}`}>
+              TSC鯖ってどんなところ?
+            </h2>
+            <div className="w-8 h-1 bg-blue-500" />
+          </motion.div>
+
+          {/* ▼ メインコンテンツ：2カラムレイアウト ▼ */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+            
+            {/* ＝＝＝ 左側：メイン動画エリア（サムネイル画像） ＝＝＝ */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInVariant}
+              className="w-full relative z-10"
+            >
+              <div 
+                onClick={() => setActiveVideoId(youtubeConfig.main.id)}
+                className="aspect-video w-full bg-slate-900 rounded-2xl overflow-hidden shadow-2xl relative group cursor-pointer"
+              >
+                <img 
+                  src={`https://img.youtube.com/vi/${youtubeConfig.main.id}/hqdefault.jpg`} 
+                  alt={youtubeConfig.main.title}
+                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                 />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-full bg-blue-500/80 flex items-center justify-center backdrop-blur-sm group-hover:bg-blue-500 group-hover:scale-110 transition-all shadow-[0_0_20px_rgba(59,130,246,0.5)]">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white pl-1" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-4 flex items-center gap-4 text-sm text-slate-500 font-medium">
+                <span className="w-10 h-[1px] bg-slate-300"></span>
+                製作者名「Stage-F」
+              </div>
+            </motion.div>
 
-                {/* 🌟 ここまで 🌟 */}
-                <section className="py-32 px-6 bg-white border-t border-slate-100 overflow-hidden relative">
+            {/* ＝＝＝ 右側：テキスト＆特徴カードエリア ＝＝＝ */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInVariant}
+              className="space-y-8 relative z-10"
+            >
+              <div className="space-y-5">
+                <p className="text-xl md:text-2xl leading-relaxed font-bold text-slate-800">
+                  表現する人、創る人、そして支える人。交差するすべての人が集う「第三の居場所」です。
+                </p>
+                <p className="leading-loose text-sm md:text-base text-slate-500">
+                  ここは、ただのチャットサーバーではありません。何気ない雑談からふと生まれるアイデアや、一人では辿り着けなかった最高の仲間との出会い。そして、培ってきた配信のノウハウや技術を惜しみなく分かち合う、創造の連鎖。
+                  <br className="hidden md:block" /><br className="hidden md:block" />
+                  一人で歩むよりも、遊ぶよりも誰かと共有する喜びを。技術と創造性を掛け合わせ、私たちは新しいエンターテインメントの形を追求しています。私たちは、あなたの「次の一歩」を応援するとともに、数ある世界の中の、ひとつの新しい居場所でありたいと願っています。
+                </p>
+              </div>
+
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 mt-6"
+              >
+                {[
+                  { title: 'OPEN ENVIRONMENT', desc: '誰でも歓迎するオープンな空気感。' },
+                  { title: 'TECH & CREATIVE', desc: '最新技術を取り入れた配信環境。' },
+                  { title: 'A NEW THIRD PLACE', desc: '誰もが自分らしくいられる「もうひとつの居場所」。' },
+                ].map((item, idx) => (
                   <motion.div
-                    style={{ x: parallaxX }}
-                    className="absolute top-16 left-0 w-[200%] pointer-events-none select-none z-0"
+                    variants={staggerItem}
+                    key={idx}
+                    className="flex flex-col items-center text-center p-4 xl:p-5 bg-[#FAFAFA] rounded-2xl border border-slate-100 hover:shadow-md transition-all group"
                   >
-                    <span
-                      className={`text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] font-black text-slate-100/60 whitespace-nowrap tracking-tighter ${cleanFont.className}`}
-                    >
-                      THE STREAMER CREATOR SERVER THE STREAMER CREATOR SERVER
-                    </span>
+                    <div className="w-5 h-5 bg-blue-100 rounded-full mb-3 group-hover:scale-110 transition-transform"></div>
+                    <h4 className={`font-bold text-[10px] xl:text-xs uppercase tracking-wider mb-2 text-slate-900 ${cleanFont?.className || ''}`}>
+                      {item.title}
+                    </h4>
+                    <p className="text-[10px] xl:text-xs text-slate-500 leading-relaxed">
+                      {item.desc}
+                    </p>
                   </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+          </div>
 
-                  <div className="max-w-5xl mx-auto relative z-10">
-                    <motion.div
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true, margin: '-100px' }}
-                      variants={fadeInVariant}
-                      className="mb-20"
-                    >
-                      <p className="text-blue-500 font-bold text-[11px] tracking-[0.4em] uppercase mb-4">
-                        About TSC
-                      </p>
-                      <h2
-                        className={`text-4xl md:text-5xl font-black tracking-tight uppercase mb-4 text-slate-900 ${cleanFont.className}`}
-                      >
-                        TSC鯖ってどんなところ?
-                      </h2>
-                      <div className="w-8 h-1 bg-blue-500" />
-                    </motion.div>
+          {/* ▼ 6つのサブ動画ギャラリー（サムネイル） ▼ */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-50px' }}
+            variants={fadeInVariant}
+            className="mt-20 pt-12 border-t border-slate-100 relative z-10"
+          >
+            <div className="flex items-center gap-4 mb-8">
+              <h3 className={`text-2xl font-bold text-slate-800 ${cleanFont?.className || ''}`}>
+                MORE CONTENTS
+              </h3>
+              <div className="h-[1px] flex-1 bg-slate-200"></div>
+            </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-                      <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeInVariant}
-                        className="space-y-6 text-slate-600 relative z-10"
-                      >
-                        <p className="text-xl leading-loose font-medium text-slate-800 bg-white/50 backdrop-blur-sm rounded-lg">
-                          表現する人、創る人、そして支える人。交差するすべての人が集う「第三の居場所」です。
-                        </p>
-                        <p className="leading-loose text-slate-500 bg-white/50 backdrop-blur-sm rounded-lg">
-                          ここは、ただのチャットサーバーではありません。何気ない雑談からふと生まれるアイデアや、一人では辿り着けなかった最高の仲間との出会い。そして、培ってきた配信のノウハウや技術を惜しみなく分かち合う、創造の連鎖。一人で歩むよりも、遊ぶよりも誰かと共有する喜びを。技術と創造性を掛け合わせ、私たちは新しいエンターテインメントの形を追求しています。私たちは、あなたの「次の一歩」を応援するとともに、数ある世界の中の、ひとつの新しい居場所でありたいと願っています。
-                        </p>
-                      </motion.div>
-
-                      <motion.div
-                        variants={staggerContainer}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        className="grid grid-cols-1 gap-4 relative z-10"
-                      >
-                        {[
-                          {
-                            icon: <Globe size={20} />,
-                            title: 'Open Environment',
-                            desc: '誰でも歓迎するオープンな空気感。',
-                          },
-                          {
-                            icon: <Zap size={20} />,
-                            title: 'Tech & Creative',
-                            desc: '最新技術を取り入れた配信環境。',
-                          },
-                          {
-                            icon: <Users size={20} />,
-                            title: 'A New Third Place',
-                            desc: '役割の垣根を超え、すべての人が自分らしくいられる「もうひとつの居場所」。',
-                          },
-                        ].map((item, idx) => (
-                          <motion.div
-                            variants={staggerItem}
-                            key={idx}
-                            className="flex items-start gap-5 p-8 bg-[#FAFAFA] rounded-2xl border border-slate-100 transition-all hover:shadow-md hover:border-blue-100 hover:-translate-y-1 group relative overflow-hidden"
-                          >
-                            <div className="text-blue-500 p-3 bg-white rounded-xl shadow-sm group-hover:scale-110 transition-transform relative z-10">
-                              {item.icon}
-                            </div>
-                            <div className="relative z-10">
-                              <h4
-                                className={`font-bold text-sm uppercase tracking-wider mb-2 text-slate-900 ${cleanFont.className}`}
-                              >
-                                {item.title}
-                              </h4>
-                              <p className="text-xs text-slate-500 leading-relaxed">
-                                {item.desc}
-                              </p>
-                            </div>
-                          </motion.div>
-                        ))}
-                      </motion.div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+              {youtubeConfig.subs.map((video, idx) => (
+                <div 
+                  key={idx} 
+                  onClick={() => setActiveVideoId(video.id)}
+                  className="group flex flex-col cursor-pointer"
+                >
+                  <div className="aspect-video w-full bg-slate-900 rounded-xl overflow-hidden relative mb-3 shadow-sm group-hover:shadow-lg transition-all">
+                    <img 
+                      src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`} 
+                      alt={video.title}
+                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-black/50 flex items-center justify-center backdrop-blur-sm group-hover:bg-blue-500 group-hover:scale-110 transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white pl-0.5" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                </section>
+                  <h4 className="font-bold text-sm text-slate-800 group-hover:text-blue-500 transition-colors line-clamp-2">
+                    {video.title}
+                  </h4>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ▼ ポップアップモーダル（タップで巨大化する画面） ▼ */}
+      <AnimatePresence>
+        {activeVideoId && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setActiveVideoId(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 md:p-8"
+          >
+            <button 
+              onClick={() => setActiveVideoId(null)}
+              className="absolute top-4 right-4 md:top-8 md:right-8 text-white/70 hover:text-white bg-black/50 hover:bg-black p-3 rounded-full transition-all"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            <motion.div
+              initial={{ scale: 0.95, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="w-full max-w-5xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl relative"
+            >
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src={`https://www.youtube.com/embed/${activeVideoId}?autoplay=1`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
                 {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
                 {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
