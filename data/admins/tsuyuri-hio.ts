@@ -48,6 +48,11 @@ export const tsuyuriHioAdmin = {
   spHeaderX: 50,                  // スマホ専用の右ズレ
   spHeaderY: -30,                 // スマホ専用の上ズレ
 
+  // 🌟 これを追加！【ノートPC（縦幅が狭い画面）専用の設定】🌟
+  laptopOffsetX: 60,    // 少しズレを調整
+  laptopOffsetY: 300,   // 570だと沈むので、浅くする
+  laptopScale:1.2,     // 1.5だと大きすぎるので少し小さく
+
 
   catchphrases: [
     'どこまでも真っ直ぐな、本気の軌跡。',
