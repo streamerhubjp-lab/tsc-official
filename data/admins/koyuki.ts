@@ -43,6 +43,12 @@ export const koyukiAdmin = {
   spHeaderX: 100,                  // スマホ専用の右ズレ
   spHeaderY: 10,                 // スマホ専用の上ズレ
 
+     // 🌟 これを追加！【ノートPC（縦幅が狭い画面）専用の設定】🌟
+  laptopOffsetX: 50,    // 少しズレを調整
+  laptopOffsetY: 340,   // 570だと沈むので、浅くする
+  laptopScale:  1.8,     // 1.5だと大きすぎるので少し小さく
+
+
   catchphrases: [
     '桜舞う。あなたと語らうひとときを。',
     '縁を紡ぎて咲き誇る、凛と立つのは桜華。'
