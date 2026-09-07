@@ -225,7 +225,7 @@ const PickupMediaSlider = ({ mediaList, themeColor, cleanFont, adminId }: any) =
         id: "NM_ovzAFfcU", 
         title: "配信VC",
         subtitle: "VOICE CHANNEL - ON STREAM",
-        description: "ライブ配信中に使用する「配信VC」のルールと活用法。コラボ配信でのスムーズなやり取りや、視聴者も巻き込んだインタラクティブな配信環境を構築するための専用チャンネルです。",
+        description: "ライブ配信中や配信用に活用できるボイスチャンネルのご案内です。\n\n・「レイドOKの配信者部屋」「配信用VC」\n配信中であることを他のメンバーにアピールできます。レイドは自由ですので交流のきっかけに！受け取りたくない場合はTwitch側の設定をご活用ください。※配信者の許可なき立ち入りはご遠慮ください。\n\n・「誰でも凸OK 配信部屋」\n自由に会話に参加できる、凸待ちや交流目的のオープンな配信部屋です。",
 
       },
       { 
