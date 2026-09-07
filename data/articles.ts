@@ -8,11 +8,15 @@ export const articleItems = [
     content: `5月の予選Aブロック、Bブロックを勝ち上がった総勢60名が本戦大会で頂点を決定！<br>
 予選大会から、スポンサー様や運営陣を合わせると総勢170名が関わる、「TSC鯖」過去最大規模のイベント<span class="text-blue-600 font-black text-lg md:text-xl">【TSC4000人記念APEXカスタム】</span>の本戦開催がいよいよ迫る！
 
-<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">本戦開催スケジュール</h2>
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 border-l-4 border-blue-600" style="padding-left: 1.25rem;">
+  本戦開催スケジュール
+</h2>
 <b>・日程：8月29日(土) 20:30～</b><br><br>
 当日は配信待機画面、カウントダウン、クロスワードクイズ、オープニングムービーから始まり、スポンサー様紹介、チーム紹介、本戦、エンディングムービー、次回予告と盛りだくさん！
 
-<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">超豪華！視聴者プレゼント</h2>
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 border-l-4 border-blue-600" style="padding-left: 1.25rem;">
+超豪華！視聴者プレゼント
+</h2>
 カウントダウン後のクロスワードクイズでは、超豪華な視聴者プレゼントが当たるチャンスもあり！<br>
 クロスワードクイズは<span class="text-red-500 font-bold bg-red-50 px-2 py-1 rounded">20:45～21:00</span>までになりますので、ぜひ刮目せよ！！<br>
 <span class="text-sm text-slate-500">（※賞品はすべて、同額分の「Amazonギフト券」でのお渡しとなります）</span><br><br>
@@ -32,7 +36,9 @@ export const articleItems = [
 <img src="/tsc-official/4000pl.webp" alt="プレゼント企画" class="w-full rounded-2xl my-10 shadow-md" />
 <img src="/tsc-official/4000pl2.webp" alt="プレゼント企画" class="w-full rounded-2xl my-10 shadow-md" />
 
-<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">Twitchフロントページ掲載！！</h2>
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 border-l-4 border-blue-600" style="padding-left: 1.25rem;">
+Twitchフロントページ掲載！！
+</h2>
 当日は初の<b>Twitchフロントページ掲載</b>も決定！！<br>
 いつも応援いただいている皆様も、初見の皆様もたくさんの皆様に、過去最高の仕上がりのカスタムをお届けします！<br><br>
 
@@ -73,15 +79,21 @@ export const articleItems = [
 <!-- 🌟 途中の挿絵（イベントの全体風景やロゴなどを想定） -->
 <img src="/tsc-official/3000_3.webp" alt="イベント風景" class="w-full rounded-2xl my-10 shadow-md" />
 
-<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">豪華演出で祭典の幕を開け！</h2>
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 border-l-4 border-blue-600" style="padding-left: 1.25rem;">
+豪華演出で祭典の幕を開け！
+</h2>
 カウントダウンクイズ動画から始まり、記念大会にふさわしい圧倒的なクオリティーの豪華なオープニング映像演出でスタートしました。<br><br>
 大会終わりのエンディング動画も含め、七皇の剣メンバー、<b>りき狐りき子氏</b>による完全オリジナル制作。プロフェッショナルな映像美が、参加者と視聴者の期待を一気に高めました。また、全20チーム60名のメンバー紹介や、本大会を支えてくださったスポンサー様紹介も丁寧に行われ、一人ひとりが主役になれる、まさに「配信者・クリエイターサーバー」らしい愛の詰まった運営が印象的でした。
 
-<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">コミュニティが一体となった「ライブビューイング」</h2>
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 border-l-4 border-blue-600" style="padding-left: 1.25rem;">
+コミュニティが一体となった「ライブビューイング」
+</h2>
 当日は配信画面だけでなく、Discordサーバー内のボイスチャットも大盛り上がり！ 多くのメンバーが集まり、リアルタイムで戦況を見守る<span class="font-bold text-slate-900">「ライブビューイング」</span>が実施されました。<br><br>
 ナイスプレイには歓喜の声が上がり、惜しい場面ではため息が漏れる。サーバー内での結束力がより一層深まり、最高の交流の場となりました。
 
-<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">総額45万円超え！豪華視聴者プレゼントでコメント欄も熱狂</h2>
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 border-l-4 border-blue-600" style="padding-left: 1.25rem;">
+総額45万円超え！豪華視聴者プレゼントでコメント欄も熱狂
+</h2>
 本大会の目玉の一つが、<span class="text-red-500 font-black text-xl">総額45万円を超える</span>という桁外れの視聴者プレゼント企画です。<br><br>
 豪華な景品が発表されるたびに、配信のコメント欄は驚きと喜びのメッセージで埋め尽くされました。プレイヤーだけでなく、視聴者も一緒に「お祭り」を楽しめる仕掛けが、大会の活気をさらに押し上げていました。
 
@@ -89,7 +101,9 @@ export const articleItems = [
 <img src="/tsc-official/3000_7_2.webp" alt="プレゼント企画" class="w-full rounded-2xl my-10 shadow-md" />
 <img src="/tsc-official/3000_7.webp" alt="プレゼント企画" class="w-full rounded-2xl my-10 shadow-md" />
 
-<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">激戦を制した優勝チームは…？</h2>
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 border-l-4 border-blue-600" style="padding-left: 1.25rem;">
+激戦を制した優勝チームは…？
+</h2>
 ハイレベルな攻防が繰り広げられた戦場を勝ち抜き、見事栄冠に輝いたのは……<br><br>
 <h2 class="text-center font-black mt-16 mb-12">
   <!-- 飾り文字（少し小さくして上品に） -->
@@ -107,7 +121,9 @@ export const articleItems = [
 
 チームワークと個々のスキルが光る、素晴らしい立ち回りで大会を制しました！
 
-<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">配信最大同時接続数を更新！大成功のフィナーレ</h2>
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 border-l-4 border-blue-600" style="padding-left: 1.25rem;">
+配信最大同時接続数を更新！大成功のフィナーレ
+</h2>
 今回のカスタムマッチは、大きなトラブルもなく、極めてスムーズに進行しました。<br>
 その結果、配信での<b>最大同時接続数も見事に更新</b>。数字としても、コミュニティの熱量としても、過去最大級の成功を収めることができました。<br><br>
 主催の七皇の剣（ヒロキング氏）を中心に、参加者、運営スタッフ、スポンサー、そして視聴者の皆様が一体となって作り上げたこの「3000人記念APEXカスタム」。The streamer Creator serverは、これからも配信者・クリエイターたちが繋がり、輝ける場所として歩み続けます。<br><br>
@@ -137,11 +153,15 @@ export const articleItems = [
 <!-- 🌟 途中の挿絵 -->
 <img src="/tsc-official/4000_play5.webp" alt="Aイベント風景" class="w-full rounded-2xl my-10 shadow-md" />
 <img src="/tsc-official/4000_play4.webp" alt="Bイベント風景" class="w-full rounded-2xl my-10 shadow-md" />
-<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">2日間連続の豪華演出で開幕！</h2>
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 border-l-4 border-blue-600" style="padding-left: 1.25rem;">
+2日間連続の豪華演出で開幕！
+</h2>
 今回の予選は、AブロックとBブロックで異なるオリジナル映像を用意！<br><br>
 カウントダウン、オープニング、エンディングにいたるまで、すべて主催の<b>七皇の剣</b>が完全新規でオリジナル制作。連日参加・視聴するファンを飽きさせない圧倒的なこだわりで大会を彩りました。全チームのメンバー紹介も丁寧に行われ、画面越しからも伝わる熱気とともに、2日間にわたる大祭典の幕が上がりました。
 
-<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">【予選Aブロック】圧倒的火力と“拳”のドラマ（5月23日）</h2>
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 border-l-4 border-blue-600" style="padding-left: 1.25rem;">
+【予選Aブロック】圧倒的火力と“拳”のドラマ（5月23日）
+</h2>
 途中で配信が途切れてしまうアクシデントもありつつも、それを吹き飛ばすほどの凄まじい名勝負が連発しました！<br><br>
 <b>🔥 怒涛の2連チャン（19キル＆17キル）</b><br>
 第一試合・第二試合では、リーダー「もの」氏率いる「ファイトマシマシ～ダウン多め、コール少なめ」が圧倒的なガンファイトを展開！第一試合で19キル、第二試合で17キルという破格のキル数を叩き出し、圧巻の2連続チャンピオンを獲得しました。<br><br>
@@ -152,21 +172,27 @@ export const articleItems = [
 <b>また白熱した試合の結果はこちらになります！</b><br>
 <img src="/tsc-official/4000_play7.webp" alt="優勝者の様子" class="w-full rounded-2xl my-10 shadow-md" />
 
-<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">【予選Bブロック】大混戦を制したドラマチックな結末（5月24日）</h2>
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 border-l-4 border-blue-600" style="padding-left: 1.25rem;">
+【予選Bブロック】大混戦を制したドラマチックな結末（5月24日）
+</h2>
 翌日行われたBブロックは、まさに最後まで展開が読めない大波乱の展開となりました。<br><br>
 <b>ぶるちゃっぴー氏の凄腕4タテ！</b><br>
 第二試合・第三試合では、リーダー「こゆびさま」氏率いる「ぶるちゃっぽんさま2」が2連続チャンピオンを獲得！特にぶるちゃっぴー氏がダブルタップオルタネーターで魅せた華麗な「4タテ」には、コメント欄も大歓喜となりました。<br><br>
 <b>怒涛の追撃を見せた社会人チーム</b><br>
 対する第四試合・第五試合では、リーダー「しゃちくさく」氏率いる「社会の歯車」が連勝を飾り、チャンピオンを連続奪取！
 
-<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">Bブロックを制したのは…？</h2>
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 border-l-4 border-blue-600" style="padding-left: 1.25rem;">
+Bブロックを制したのは…？
+</h2>
 2強の激突となり、どちらのチームが頂点に立つのか誰もが固唾をのんで見守る中……総合ポイントで見事Bブロック優勝を勝ち取ったのはこちら！<br><br>
 <img src="/tsc-official/4000_play1.webp" alt="優勝者の様子" class="w-full rounded-2xl my-10 shadow-md" />
 
 「からあげ護衛隊」でした！！最後まで諦めない立ち回りが実を結ぶ、見事な逆転劇となりました！
 <b>また白熱した試合の結果はこちらになります！</b><br>
 <img src="/tsc-official/4000_play6.webp" alt="優勝者の様子" class="w-full rounded-2xl my-10 shadow-md" />
-<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 pl-4 border-l-4 border-blue-600">いざ、8月29日（土）の本戦へ！</h2>
+<h2 class="text-2xl md:text-3xl font-black text-slate-900 mt-16 mb-8 border-l-4 border-blue-600" style="padding-left: 1.25rem;">
+いざ、8月29日（土）の本戦へ！
+</h2>
 予選Aブロック・Bブロックを勝ち抜いた猛者20チームが、ついに8月の「本戦」で一堂に会します。<br>
 アクシデントを乗り越え、チームメンバー同士の絆と熱量がさらに深まった素晴らしい2日間となりました。参加された選手の皆様、長時間の配信を見守った視聴者の皆様、本当にお疲れ様でした！<br><br>
 本戦まであと少し。さらなる高みへ――プルスウルトラ！
