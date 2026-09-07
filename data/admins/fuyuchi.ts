@@ -37,6 +37,11 @@ export const fuyuchiAdmin = {
   spHeaderX: 100,                  // スマホ専用の右ズレ
   spHeaderY: 0,                 // スマホ専用の上ズレ
 
+      // 🌟 これを追加！【ノートPC（縦幅が狭い画面）専用の設定】🌟
+  laptopOffsetX: 10,    // 少しズレを調整
+  laptopOffsetY: 10,   // 570だと沈むので、浅くする
+  laptopScale:   1.4,     // 1.5だと大きすぎるので少し小さく
+
 
   catchphrases: [
     '誰もが心地よく過ごせるように。',
