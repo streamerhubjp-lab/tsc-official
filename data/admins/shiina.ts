@@ -5,6 +5,7 @@ export const shiinaAdmin = {
   isMainAdmin: false, // サブ管理人
   role: 'Streamer',
   image: '/tsc-official/siinataiekougasitu.png', // 狼の野郎さんの立ち絵パス
+  headerImage: '/tsc-official/siinatatie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
   // 🌟 ミリシタ風の縦書きキャッチコピー（配列で複数行対応）
   // 🌟 これを追加！好きな色コード（HEX）を入れてください
   // 例：青系なら '#3B82F6'、赤系なら '#EF4444'、紫なら '#A855F7' など
