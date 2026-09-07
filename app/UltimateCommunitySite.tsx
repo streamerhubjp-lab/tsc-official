@@ -184,21 +184,61 @@ const PickupMediaSlider = ({ mediaList, themeColor, cleanFont, adminId }: any) =
 };
 
 
-// return の直前に追加する設定データ
+// 🌟 TSCサーバーの実際の動画リストに合わせた設定 🌟
   const youtubeConfig = {
     main: {
-      id: "dqgJctccONk", // メイン動画のID
+      id: "dqgJctccONk",
       title: "TSC鯖の歩き方",
+      subtitle: "ABOUT TSC SERVER",
+      description: "表現する人、創る人、そして支える人。交差するすべての人が集う「第三の居場所」です。\n\n何気ない雑談から生まれるアイデア。培ってきた配信のノウハウ。技術と創造性を掛け合わせ、新しいエンターテインメントの形を追求するクリエイティブ拠点です。",
     },
     subs: [
-      { id: "dqgJctccONk", title: "TSC鯖の歩き方" },
-      { id: "J66eoq_j8TQ", title: "チュートリアル 1：紹介" },
-      { id: "vSjeDWBjQsA", title: "VCについて①：雑談チャンネル" },
-      { id: "nX-Ioxu5xw0", title: "VCについて②：配信外VC" },
-      { id: "NM_ovzAFfcU", title: "VCについて③：配信VC" },
-      { id: "GHyXUgQFyXQ", title: "QAについて！" },
+      { 
+        id: "dqgJctccONk", 
+        title: "TSC鯖の歩き方",
+        subtitle: "ABOUT TSC SERVER",
+        description: "サーバーの全体像と歩き方を解説。表現する人、創る人、そして支える人が交差するコミュニティの全貌と、ここから始まる新しいエンターテインメントの形をご紹介します。",
+    
+      },
+      { 
+        id: "J66eoq_j8TQ", 
+        title: "チュートリアル 1：紹介",
+        subtitle: "TUTORIAL 01",
+        description: "TSCサーバーを裏から支える、個性豊かな運営チームやサブ管理人たちをご紹介！\n\n当サーバーにはたくさんのクリエイターが管理者として在籍し、皆さんが心地よく過ごせるように日々温かく見守っています。時には一緒に遊んだり、会話に混ざってコミュニティを盛り上げてくれるユニークなメンバーばかり。どんな人たちがいるのか、ぜひチェックしてみてください。",
+    
+      },
+      { 
+        id: "vSjeDWBjQsA", 
+        title: "雑談チャンネル",
+        subtitle: "VOICE CHANNEL - CHAT",
+        description: "配信外でも気軽に集まれる「雑談チャンネル」の使い方。ゲームの募集から日常の何気ない会話まで、メンバー同士の交流を深めるためのフリースペースです。いつでもお気軽にどうぞ！",
+
+      },
+      { 
+        id: "nX-Ioxu5xw0", 
+        title: "配信外VC",
+        subtitle: "VOICE CHANNEL - OFF STREAM",
+        description: "配信はしていないけれど、誰かと一緒に作業したい、裏でゲームを遊びたい時に活用する「配信外VC」。リラックスした状態で仲間と繋がれる、居心地の良いチャンネルです。",
+
+      },
+      { 
+        id: "NM_ovzAFfcU", 
+        title: "配信VC",
+        subtitle: "VOICE CHANNEL - ON STREAM",
+        description: "ライブ配信中に使用する「配信VC」のルールと活用法。コラボ配信でのスムーズなやり取りや、視聴者も巻き込んだインタラクティブな配信環境を構築するための専用チャンネルです。",
+
+      },
+      { 
+        id: "GHyXUgQFyXQ", 
+        title: "QAについて！",
+        subtitle: "Q&A / SUPPORT",
+        description: "サーバー内で分からないことがあった時や、配信機材・ソフトの設定でつまずいた時の「Q&A」の活用方法。クリエイター同士の知見を共有し、みんなで解決していくサポート体制について解説します。",
+
+      }
     ]
   };
+
+  
 
 // コンポーネントの外側（他のフォント設定の近く）に追加
 const sixCaps = Six_Caps({
@@ -285,6 +325,21 @@ export default function UltimateCommunitySite({
   const [activeArticleId, setActiveArticleId] = useState<string | null>(null);
   const [memoryIndex, setMemoryIndex] = useState(0);
   const [previousPage, setPreviousPage] = useState('home');
+
+  // 🌟🌟🌟【ここに配置します！】🌟🌟🌟
+  // 他の useState（activePageなど）が並んでいる一番上のエリアです。
+  const [windowHeight, setWindowHeight] = useState(1080);
+
+  useEffect(() => {
+    const handleResize = () => setWindowHeight(window.innerHeight);
+    handleResize(); // 初回実行
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+ // 🌟 800だとノートPCでも超えてしまうことが多いので、900か950にする！
+  const isLaptopSize = windowHeight < 800;
+  // 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟
 
   // 🌟🌟🌟 ここに動画用のステートと設定を追加する！ 🌟🌟🌟
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
@@ -1309,44 +1364,117 @@ useEffect(() => {
         </div>
       </section>
 
-      {/* ▼ ポップアップモーダル（タップで巨大化する画面） ▼ */}
+{/* ▼ ポップアップモーダル ▼ */}
       <AnimatePresence>
-        {activeVideoId && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setActiveVideoId(null)}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 md:p-8"
-          >
-            <button 
-              onClick={() => setActiveVideoId(null)}
-              className="absolute top-4 right-4 md:top-8 md:right-8 text-white/70 hover:text-white bg-black/50 hover:bg-black p-3 rounded-full transition-all"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
+        {activeVideoId && (() => {
+          const activeVideoData = 
+            youtubeConfig.main.id === activeVideoId 
+              ? youtubeConfig.main 
+              : youtubeConfig.subs.find(v => v.id === activeVideoId) || youtubeConfig.main;
 
+          return (
             <motion.div
-              initial={{ scale: 0.95, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.95, y: 20 }}
-              onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-5xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl relative"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => setActiveVideoId(null)}
+              style={{ perspective: "2000px" }}
+              className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-2 sm:p-6 lg:p-10"
             >
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src={`https://www.youtube.com/embed/${activeVideoId}?autoplay=1`}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              {/* 閉じるボタン */}
+              <button 
+                onClick={() => setActiveVideoId(null)}
+                className="absolute top-4 right-4 md:top-8 md:right-8 text-white/50 hover:text-white p-3 rounded-full hover:bg-white/20 transition-all duration-300 z-50"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
 
+              {/* 🌟 全体のコンテナ（ここはアニメーションさせず枠組みだけ） 🌟 */}
+              <div
+                onClick={(e) => e.stopPropagation()}
+                className="w-full max-w-[90rem] flex flex-col lg:flex-row gap-0 lg:gap-6 xl:gap-8 relative"
+              >
+                
+                {/* ＝＝＝ 左側：動画プレイヤー（くるりんアニメーション） ＝＝＝ */}
+                <motion.div
+                  initial={{ opacity: 0, rotateY: 90, scale: 0.8 }}
+                  animate={{ opacity: 1, rotateY: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotateY: -90, scale: 0.8 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 20, mass: 1 }}
+                  className="w-full lg:w-[70%] aspect-video bg-black rounded-xl lg:rounded-2xl overflow-hidden shadow-2xl relative border border-slate-800"
+                >
+                  <iframe
+                    className="absolute inset-0 w-full h-full"
+                    src={`https://www.youtube.com/embed/${activeVideoId}?autoplay=1`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </motion.div>
+
+          {/* ＝＝＝ 右側：サーバー/動画 概要パネル（上部画像付きレイアウト） ＝＝＝ */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                  // 🌟 全体の余白(p-6)と中央揃え(justify-center)を外し、上から順に並ぶように変更 🌟
+                  className="hidden md:flex md:w-[40%] lg:w-[30%] bg-white rounded-2xl border border-slate-200 shadow-xl flex-col relative overflow-hidden"
+                >
+                  
+                  {/* ▼① 上部：サムネイル画像エリア ▼ */}
+                  <div className="w-full h-40 xl:h-48 relative overflow-hidden flex-shrink-0 bg-slate-100">
+                    {/* 今選ばれている動画のサムネイルを自動で取得して表示 */}
+                    <img 
+                      src={`https://img.youtube.com/vi/${activeVideoId}/hqdefault.jpg`} 
+                      alt={activeVideoData.title}
+                      className="w-full h-full object-cover opacity-90"
+                    />
+                    {/* 画像の下側を白くグラデーションさせて、テキストエリアと自然に馴染ませる */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
+                  </div>
+
+                 {/* ▼② 下部：テキストエリア ▼ */}
+                  <div className="p-6 xl:p-8 flex flex-col flex-1 relative z-10">
+                    
+                    {/* 🌟 差し替え：装飾をモノトーンでおしゃれに 🌟 */}
+                    <div className="flex items-center gap-4 mb-5">
+                      <div className="text-[10px] xl:text-[11px] font-mono tracking-[0.2em] text-slate-400 uppercase">
+                        {activeVideoData.subtitle || "The Streamer Creator"}
+                      </div>
+                      <div className="flex-1 h-[1px] bg-slate-200"></div>
+                    </div>
+                    
+                    <h3 className="text-xl xl:text-2xl font-black text-slate-800 mb-6 uppercase tracking-wider leading-tight">
+                      {activeVideoData.title}
+                    </h3>
+                    
+                    {/* 🌟 文字が多くなっても溢れないようにスクロール(overflow-y-auto)を追加 🌟 */}
+                    <div className="space-y-4 text-slate-600 text-sm leading-relaxed whitespace-pre-wrap overflow-y-auto flex-1 pr-2">
+                      {activeVideoData.description}
+                    </div>
+
+                    {/* タグエリア */}
+                    <div className="mt-6 pt-5 border-t border-slate-100 flex flex-wrap gap-2 flex-shrink-0">
+                      {/* 🌟 (activeVideoData as any) に変更 🌟 */}
+                      {(activeVideoData as any).tags?.map((tag: string, idx: number) => (
+                        <span key={idx} className="px-3 py-1 bg-slate-50 text-slate-500 text-[11px] font-semibold rounded-full border border-slate-200">
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                </motion.div>
+              </div>
+            </motion.div>
+          );
+        })()}
+      </AnimatePresence>
+      
                 {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
                 {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
                 {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
@@ -2526,23 +2654,40 @@ useEffect(() => {
                         ))}
                       </div>
 
-                      {/* 🌟 立ち絵コンテナ */}
+                    {/* 🌟 立ち絵コンテナ */}
                       <div className="absolute bottom-0 w-full flex justify-center pointer-events-none z-10">
-                        {/* 👇 ひうひうさんの mobileOffsetX 等が確実に動くようにセット！ */}
+                        
+                        {/* 👇 スマホ用（変更なし） */}
                         <div 
                           key={`wrapper-sp-${admin.id}`} 
                           className="flex lg:hidden w-[130%] max-w-none justify-center origin-bottom will-change-transform" 
                           style={{ transform: `translateX(${(admin as any).mobileOffsetX || 0}px) translateY(${(admin as any).mobileOffsetY || 0}px) scale(${(admin as any).mobileScale || 1.0})` }}
                         >
-                          <motion.img key={`img-sp-${admin.id}`} initial={{ opacity: 0, scale: 0.95, y: 0 }} animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }} transition={{ opacity: { duration: 1.2 }, scale: { duration: 1.2 }, y: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 } }} src={admin.image} alt={admin.name} loading="eager" className="w-full h-auto object-contain object-bottom will-change-transform" />
+                          <motion.img 
+                            key={`img-sp-${admin.id}`} 
+                            initial={{ opacity: 0, scale: 0.95, y: 0 }} animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }} transition={{ opacity: { duration: 1.2 }, scale: { duration: 1.2 }, y: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 } }} 
+                            src={admin.image} alt={admin.name} loading="eager" className="w-full h-auto object-contain object-bottom will-change-transform" 
+                          />
                         </div>
                         
+                        {/* 👇 PC用（ノートPC判定による条件分岐版！） */}
                         <div 
                           key={`wrapper-pc-${admin.id}`} 
                           className="hidden lg:flex w-[150%] max-w-none justify-center origin-bottom will-change-transform" 
-                          style={{ transform: `translateX(${admin.offsetX || 0}px) translateY(${admin.offsetY || 0}px) scale(${admin.scale || 1.0})` }}
+                          style={{ 
+                            // 🌟 ここで手作業のデータを条件分岐で適用！🌟
+                            transform: `
+                              translateX(${isLaptopSize ? ((admin as any).laptopOffsetX ?? admin.offsetX ?? 0) : (admin.offsetX || 0)}px) 
+                              translateY(${isLaptopSize ? ((admin as any).laptopOffsetY ?? admin.offsetY ?? 0) : (admin.offsetY || 0)}px) 
+                              scale(${isLaptopSize ? ((admin as any).laptopScale ?? admin.scale ?? 1.0) : (admin.scale || 1.0)})
+                            ` 
+                          }}
                         >
-                          <motion.img key={`img-pc-${admin.id}`} initial={{ opacity: 0, scale: 0.95, y: 0 }} animate={{ opacity: 1, scale: 1, y: [0, -12, 0] }} transition={{ opacity: { duration: 1.2 }, scale: { duration: 1.2 }, y: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 } }} src={admin.image} alt={admin.name} loading="eager" className="w-full h-auto object-contain object-bottom will-change-transform" />
+                          <motion.img 
+                            key={`img-pc-${admin.id}`} 
+                            initial={{ opacity: 0, scale: 0.95, y: 0 }} animate={{ opacity: 1, scale: 1, y: [0, -12, 0] }} transition={{ opacity: { duration: 1.2 }, scale: { duration: 1.2 }, y: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: 0.5 } }} 
+                            src={admin.image} alt={admin.name} loading="eager" className="w-full h-auto object-contain object-bottom will-change-transform" 
+                          />
                         </div>
                       </div>
                     </div>
