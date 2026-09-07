@@ -30,7 +30,10 @@ export const aruuAdmin = {
   spHeaderScale: 2,               // PCより少し小さめにするなど
   spHeaderX: 100,                  // スマホ専用の右ズレ
   spHeaderY: 10,                 // スマホ専用の上ズレ
-
+  // 🌟 これを追加！【ノートPC（縦幅が狭い画面）専用の設定】🌟
+  laptopOffsetX: 60,    // 少しズレを調整
+  laptopOffsetY: 300,   // 570だと沈むので、浅くする
+  laptopScale:1.5,     // 1.5だと大きすぎるので少し小さく
 
   catchphrases: ['落ち着いた声色で届ける笑顔の時間。', 'サプライズ、準備完了。'],
   // 🌟 右側に並べるグリッド情報
