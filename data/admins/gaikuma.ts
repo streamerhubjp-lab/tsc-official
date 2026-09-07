@@ -13,7 +13,7 @@ export const gaikumaAdmin = {
 
   // 🌟 これらをドーンと追加！（PROFILEで設定していた数値と同じでOKです）
   offsetX: 100,
-  offsetY: 210,
+  offsetY: 280,
   scale: 1.5, // 👈 2倍の大きさに！
   mobileOffsetX: 0,
   mobileOffsetY: 700,
@@ -38,6 +38,11 @@ export const gaikumaAdmin = {
   spHeaderScale: 2,               // PCより少し小さめにするなど
   spHeaderX: 100,                  // スマホ専用の右ズレ
   spHeaderY: 10,                 // スマホ専用の上ズレ
+
+    // 🌟 これを追加！【ノートPC（縦幅が狭い画面）専用の設定】🌟
+  laptopOffsetX: 100,    // 少しズレを調整
+  laptopOffsetY: 10,   // 570だと沈むので、浅くする
+  laptopScale: 1.5,     // 1.5だと大きすぎるので少し小さく
 
   catchphrases: [
     '人間に憧れたクマは、今日も誰かの傍で笑う。',
