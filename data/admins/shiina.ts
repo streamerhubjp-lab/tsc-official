@@ -35,6 +35,11 @@ export const shiinaAdmin = {
   bgFaceY: -200,   // 🌟 プラスにすると「下」へ、マイナスにすると「上」へ移動
   bgFaceScale: 1, // 🌟 大きさを変えたい場合（1.1倍など）
 
+    // 🌟 これを追加！【ノートPC（縦幅が狭い画面）専用の設定】🌟
+  laptopOffsetX: 10,    // 少しズレを調整
+  laptopOffsetY: 50,   // 570だと沈むので、浅くする
+  laptopScale:  1.7,     // 1.5だと大きすぎるので少し小さく
+
   catchphrases: ['心温まる怪奇現象。', '不定期に発生する'],
   // 🌟 右側に並べるグリッド情報
   profileGrid: [
