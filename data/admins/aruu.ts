@@ -2,6 +2,7 @@ export const aruuAdmin = {
   id: 'creator_04',
   name: 'あるぅ',
   romanName: 'Aruud',
+  isMainAdmin: false, // サブ管理人
   role: 'Streamer',
   image: '/tsc-official/aruxutatie.webp', // 立ち絵パス
   headerImage: '/tsc-official/aruitimaie.webp',  // 🌟 ネームヘッダー専用に切り抜いた画像（任意）
