@@ -37,6 +37,12 @@ export const yorunerukaAdmin = {
   spHeaderX: 100,                  // スマホ専用の右ズレ
   spHeaderY: 10,                 // スマホ専用の上ズレ
 
+      // 🌟 これを追加！【ノートPC（縦幅が狭い画面）専用の設定】🌟
+  laptopOffsetX: 70,    // 少しズレを調整
+  laptopOffsetY: 210,   // 570だと沈むので、浅くする
+  laptopScale: 1.5,     // 1.5だと大きすぎるので少し小さく
+
+
   catchphrases: [
     '今夜もあなたに、セクシーサンキュー。',
     '月明かりの下でグラスを傾ける、清楚なお姉さん。'
