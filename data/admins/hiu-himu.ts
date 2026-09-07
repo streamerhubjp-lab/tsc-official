@@ -27,6 +27,11 @@ export const hiuHimuAdmin = {
   spHeaderX: -50,                  // スマホ専用の右ズレ
   spHeaderY: 0,                 // スマホ専用の上ズレ
 
+    // 🌟 これを追加！【ノートPC（縦幅が狭い画面）専用の設定】🌟
+  laptopOffsetX: 120,    // 少しズレを調整
+  laptopOffsetY: 30,   // 570だと沈むので、浅くする
+  laptopScale: 1.6,     // 1.5だと大きすぎるので少し小さく
+
   // 🌟 静かな夜のラジオ配信とメイド要素を合わせたキャッチコピー
   catchphrases: [
     '静かな夜のお供に、一杯の紅茶を。',
