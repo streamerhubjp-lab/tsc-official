@@ -39,6 +39,11 @@ export const wolfYarouAdmin = {
   spHeaderX: 200,                  // スマホ専用の右ズレ
   spHeaderY: 0,                 // スマホ専用の上ズレ
 
+  // 🌟 これを追加！【ノートPC（縦幅が狭い画面）専用の設定】🌟
+  laptopOffsetX: 680,    // 少しズレを調整
+  laptopOffsetY: 120,   // 570だと沈むので、浅くする
+  laptopScale: 3,     // 1.5だと大きすぎるので少し小さく
+
   catchphrases: ['ただの狼。最近は魔王になりたい。', '人間生活満喫中狼。'],
   // 🌟 右側に並べるグリッド情報
   profileGrid: [
