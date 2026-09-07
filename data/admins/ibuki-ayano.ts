@@ -43,6 +43,11 @@ export const ibukiAyanoAdmin = {
   spHeaderX: 200,                  // スマホ専用の右ズレ
   spHeaderY: -60,                 // スマホ専用の上ズレ
 
+    // 🌟 これを追加！【ノートPC（縦幅が狭い画面）専用の設定】🌟
+  laptopOffsetX: 60,    // 少しズレを調整
+  laptopOffsetY: -50,   // 570だと沈むので、浅くする
+  laptopScale:1.5,     // 1.5だと大きすぎるので少し小さく
+
   catchphrases: [
     'それでも辿り着くは、あなたが待つ温かな場所。',
     '揺れるしっぽと、迷子の足取り。'
