@@ -1520,7 +1520,7 @@ useEffect(() => {
                         { id: 'creator_05', image: '/tsc-official/ookamiitimaie.webp', roleName: 'サブ管理人', displayName: '狼の野郎', posX: '30%', posY: '50%', scale: 1.2, isTachie: false },
                         { id: 'creator_10', image: '/tsc-official/koyukiitimaie.webp', roleName: 'サブ管理人', displayName: 'こゆき', posX: '50%', posY: '50%', scale: 1, isTachie: false }, // ← adminListにまだ無い人は適当なIDでOK
                         { id: 'creator_07', image: '/tsc-official/tuyurihioitimaie.webp', roleName: 'サブ管理人', displayName: 'つゆりひお', posX: '50%', posY: '50%', scale: 1, isTachie: false },
-                        { id: 'creator_08', image: '/tsc-official/ayanoitimaie.webp', roleName: 'サブ管理人', displayName: 'あやの', posX: '20%', posY: '60%', scale: 2, isTachie: false },
+                        { id: 'creator_08', image: '/tsc-official/ayanoitimaie.webp', roleName: 'サブ管理人', displayName: '一楓あやの', posX: '20%', posY: '60%', scale: 2, isTachie: false },
                         { id: 'creator_11', image: '/tsc-official/gaikumaitimaie.webp', roleName: 'サブ管理人', displayName: 'がいくま', posX: '40%', posY: '50%', scale: 1, isTachie: false },
                         { id: 'creator_06', image: '/tsc-official/hiuhimuitimaie.webp', roleName: 'サブ管理人', displayName: 'ひうひむ', posX: '80%', posY: '50%', scale: 1, isTachie: false },
                         { id: 'creator_09', image: '/tsc-official/huyuti.webp', roleName: 'サブ管理人', displayName: 'ふゆち', posX: '60%', posY: '20%', scale: 3, isTachie: true },
