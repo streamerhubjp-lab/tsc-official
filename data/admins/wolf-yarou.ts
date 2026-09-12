@@ -44,6 +44,10 @@ export const wolfYarouAdmin = {
   laptopOffsetY: 120,   // 570だと沈むので、浅くする
   laptopScale: 3,     // 1.5だと大きすぎるので少し小さく
 
+  
+  // ▼ さらに細かく調整したい場合（例：左から30%、上から10%の位置に顔がある）
+  menuPosition: '20% 10%',
+
   catchphrases: ['ただの狼。最近は魔王になりたい。', '人間生活満喫中狼。'],
   // 🌟 右側に並べるグリッド情報
   profileGrid: [
