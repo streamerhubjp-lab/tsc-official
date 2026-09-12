@@ -238,7 +238,6 @@ const PickupMediaSlider = ({ mediaList, themeColor, cleanFont, adminId }: any) =
     ]
   };
 
-  
 
 // コンポーネントの外側（他のフォント設定の近く）に追加
 const sixCaps = Six_Caps({
@@ -588,6 +587,39 @@ useEffect(() => {
       </motion.div>
     </div>
   );
+
+  // 🌟🌟🌟 これを追加！（UltimateCommunitySiteコンポーネントの最初の方、useStateがたくさん並んでいる下あたりに）🌟🌟🌟
+  // ▼ PCドラッグスクロール用のステート
+  const dragScrollRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!dragScrollRef.current) return;
+    setIsDragging(true);
+    setStartX(e.pageX - dragScrollRef.current.offsetLeft);
+    setScrollLeft(dragScrollRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !dragScrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - dragScrollRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // スクロール速度（2倍）
+    dragScrollRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+// =========================================================================
+
 
   // 🌟 復活！最高のローディング画面 🌟
   if (loading)
@@ -2556,8 +2588,7 @@ useEffect(() => {
               </section>
             )}
 
-            {/* 🌟 CREATOR ページ（Mac Dock風ボトムUI ＆ 白基調ポップアップ仕様） */}
-            {/* 🌟 CREATOR ページ（極限軽量化・スマホ完全対応・スライドバナー仕様） */}
+{/* 🌟 CREATOR ページ（上部レイアウト完全維持 ＆ 下部拡張スライドメニュー仕様） */}
             {activePage === 'admins' &&
               (() => {
                 const admin = adminList[selectedCreatorIndex];
@@ -2573,51 +2604,12 @@ useEffect(() => {
                   );
 
                 return (
-                  <section className="relative w-full min-h-screen bg-[#FAFAFA] overflow-hidden flex flex-col lg:flex-row transition-colors duration-700">
+                  // 🌟 1. pb-[180px] md:pb-[220px] を追加！
+                  // これにより、下部のメニューの高さ分だけ、メイン画面の下に「見えない余白」が作られます。
+                  // そのため、上のレイアウトは今のまま一切崩れず、立ち絵の足も隠れません。
+                  <section className="relative w-full min-h-screen bg-[#FAFAFA] flex flex-col lg:flex-row transition-colors duration-700 pb-[180px] md:pb-[220px] overflow-hidden">
                     
-                    {/* 🌟 1. キャラクターバナー（スマホのメニュー被り回避） */}
-                    <div className="absolute top-16 lg:top-6 left-0 right-0 w-full z-50 pointer-events-auto">
-                      <div className="flex flex-nowrap items-center justify-start gap-1.5 md:gap-2 pb-4 pr-4 sm:px-8 lg:justify-center w-full overflow-x-auto snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-                        
-                        {/* 👇 これが効いていれば、左側に透明なスキマができてメニューと被らなくなります！ */}
-                        <div className="shrink-0 w-20 lg:hidden" />
-
-                        {adminList.map((person: any, idx: number) => {
-                          const isActive = idx === selectedCreatorIndex;
-                          return (
-                            <motion.button
-                              key={person.id}
-                              initial={{ opacity: 0, y: -15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: idx * 0.05, ease: "easeOut" }}
-                              onClick={() => setSelectedCreatorIndex(idx)}
-                              className={`relative group overflow-hidden rounded-md md:rounded-lg transition-all duration-300 flex-shrink-0 border-2 snap-center
-                                w-20 sm:w-24 md:w-32 lg:w-36 
-                                h-10 sm:h-11 md:h-10 lg:h-12
-                                ${isActive ? 'scale-110 shadow-lg z-10' : 'scale-95 border-transparent opacity-70 hover:opacity-100 hover:scale-100'}
-                              `}
-                              style={{ borderColor: isActive ? person.themeColor : 'transparent', boxShadow: isActive ? `0 0 15px ${person.themeColor}66` : 'none' }}
-                            >
-                              <img 
-                                src={person.headerImage || person.image} alt={person.name} loading="lazy" decoding="async"
-                                className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 will-change-transform ${isActive ? 'grayscale-0' : 'grayscale'}`}
-                                // 👇 バナー専用の顔位置調整！ bannerPosition が効くようになります
-                                style={{ objectPosition: person.bannerPosition || person.headerPosition || 'center 20%' }}
-                              />
-                              <div className={`absolute inset-0 transition-opacity duration-300 ${isActive ? 'bg-black/20' : 'bg-black/60 group-hover:bg-black/40'}`} />
-                              {isActive && ( <div className="absolute inset-0 opacity-40" style={{ backgroundColor: person.themeColor }} /> )}
-                              
-                              <div className="absolute inset-0 flex items-end justify-end pb-1 md:pb-1.5 px-2">
-                                {/* 👇 文字も極小サイズになります！ */}
-                                <span className={`text-[8px] md:text-[10px] font-bold tracking-wider text-white [text-shadow:_0_2px_4px_rgba(0,0,0,0.9)] truncate w-full text-right ${cleanFont?.className || ''}`}>
-                                  {person.name}
-                                </span>
-                              </div>
-                            </motion.button>
-                          );
-                        })}
-                      </div>
-                    </div>
-
-                    {/* 🌟 オーラ背景 ＆ 背景立ち絵 ＆ テック系図形 */}
+                    {/* 🌟 オーラ背景 ＆ 背景立ち絵 ＆ テック系図形（変更なし） */}
                     <div className="absolute inset-0 z-0 pointer-events-none transition-all duration-1000 opacity-15" style={{ background: `radial-gradient(circle at 25% 50%, ${admin.themeColor} 0%, transparent 70%)` }} />
                     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
                       <motion.div initial={{ scaleX: 0, opacity: 0 }} animate={{ scaleX: 1, opacity: 1 }} transition={{ duration: 1.2, ease: "easeOut" }} className="absolute top-[10%] right-[-10%] w-[120%] h-[350px] lg:h-[500px] origin-right will-change-transform" style={{ transform: 'rotate(25deg)', background: `linear-gradient(to left, ${admin.themeColor}33 0%, ${admin.themeColor}10 60%, transparent 100%)` }} />
@@ -2637,27 +2629,24 @@ useEffect(() => {
                       {admin.romanName.split(' ')[0]}
                     </div>
 
-                    {/* 🌟 画面端の切り替えボタン */}
+                    {/* 🌟 画面端の切り替えボタン（変更なし） */}
                     <button onClick={handlePrev} className="absolute left-1 lg:left-6 top-1/2 -translate-y-1/2 z-40 p-2 md:p-4 rounded-full bg-white/90 hover:bg-white border border-slate-200/50 shadow-lg text-slate-400 hover:text-slate-800 transition-all group"><svg className="w-5 h-5 md:w-8 md:h-8 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" /></svg></button>
                     <button onClick={handleNext} className="absolute right-1 lg:right-6 top-1/2 -translate-y-1/2 z-40 p-2 md:p-4 rounded-full bg-white/90 hover:bg-white border border-slate-200/50 shadow-lg text-slate-400 hover:text-slate-800 transition-all group"><svg className="w-5 h-5 md:w-8 md:h-8 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" /></svg></button>
                     
                     <div className="w-full lg:w-[45%] min-h-[65vh] lg:min-h-screen relative z-20 flex flex-col justify-center px-4 md:px-12 lg:pl-16 pt-32 lg:pt-24 pb-8 lg:pb-32">
                       
-                      {/* 👇 左の縦文字が邪魔にならないように、さらに右下にずらしました！ */}
+                      {/* 👇 左の縦文字（変更なし） */}
                       <div className="absolute top-28 lg:top-40 left-8 lg:left-24 flex gap-2 lg:gap-5 z-20 pointer-events-none">
                         {admin.catchphrases?.map((phrase: string, idx: number) => (
                           <motion.div key={`phrase-${idx}-${admin.id}`} initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: idx * 0.2 }} className="relative group">
                             <div className="absolute inset-0 bg-gradient-to-b from-white/95 to-white/80 skew-y-[8deg] shadow-[0_10px_20px_rgba(0,0,0,0.1)] border border-white/50" />
-                            {/* 👇 いじる前の、元のサイズ・余白に戻しました！ */}
                             <div className={`relative vertical-text text-base lg:text-2xl font-black text-slate-800 tracking-[0.15em] px-2 py-6 lg:py-10 ${cleanFont?.className || ''}`}>{phrase}</div>
                           </motion.div>
                         ))}
                       </div>
 
-                    {/* 🌟 立ち絵コンテナ */}
+                    {/* 🌟 立ち絵コンテナ（変更なし。底にピタッとくっつきます） */}
                       <div className="absolute bottom-0 w-full flex justify-center pointer-events-none z-10">
-                        
-                        {/* 👇 スマホ用（変更なし） */}
                         <div 
                           key={`wrapper-sp-${admin.id}`} 
                           className="flex lg:hidden w-[130%] max-w-none justify-center origin-bottom will-change-transform" 
@@ -2669,13 +2658,10 @@ useEffect(() => {
                             src={admin.image} alt={admin.name} loading="eager" className="w-full h-auto object-contain object-bottom will-change-transform" 
                           />
                         </div>
-                        
-                        {/* 👇 PC用（ノートPC判定による条件分岐版！） */}
                         <div 
                           key={`wrapper-pc-${admin.id}`} 
                           className="hidden lg:flex w-[150%] max-w-none justify-center origin-bottom will-change-transform" 
                           style={{ 
-                            // 🌟 ここで手作業のデータを条件分岐で適用！🌟
                             transform: `
                               translateX(${isLaptopSize ? ((admin as any).laptopOffsetX ?? admin.offsetX ?? 0) : (admin.offsetX || 0)}px) 
                               translateY(${isLaptopSize ? ((admin as any).laptopOffsetY ?? admin.offsetY ?? 0) : (admin.offsetY || 0)}px) 
@@ -2692,21 +2678,10 @@ useEffect(() => {
                       </div>
                     </div>
 
-                    <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" style={{ backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 1px, transparent 1px)`, backgroundSize: '45px 45px', transform: 'skewY(-6deg) rotate(-6deg)', scale: 1.2 }}>
-                      <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
-                        <div className="absolute left-0 right-0 h-[1.5px] opacity-40 animate-pulse transition-colors duration-1000" style={{ top: '16%', background: `linear-gradient(to right, ${admin.themeColor} 70%, transparent)` }} />
-                        <div className="absolute top-0 bottom-0 w-[1.5px] opacity-30 transition-colors duration-1000" style={{ right: '22%', background: `linear-gradient(to bottom, ${admin.themeColor}, transparent 90%)` }} />
-                        <div className="absolute w-2 h-2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center font-mono text-[10px] font-bold opacity-60 transition-colors duration-1000" style={{ top: '16%', right: '22%', color: admin.themeColor }}>+</div>
-                      </div>
-                      <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1.5, ease: 'easeOut' }} className={`absolute right-2 md:right-8 top-0 bottom-0 flex justify-center items-center [writing-mode:vertical-rl] text-[10rem] md:text-[16rem] leading-none tracking-widest select-none will-change-transform ${sixCaps?.className || ''}`} style={{ color: 'transparent', WebkitTextStroke: '2px rgba(0, 0, 0, 0.06)' }}>{admin.romanName}</motion.div>
-                    </div>
-
+                    {/* === 右側プロフィールパネル（変更なし） === */}
                     <div className="w-full lg:w-[55%] h-full relative z-20 px-3 sm:px-6 py-4 lg:px-16 lg:py-32 pb-32">
-                      {/* 🌟 ここから差し替え：ネームヘッダー */}
                       <motion.div key={`header-${admin.id}`} initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="relative mb-8 lg:mb-10 w-full max-w-none rounded-2xl overflow-hidden shadow-2xl bg-slate-900 border-l-4 will-change-transform" style={{ borderLeftColor: admin.themeColor }}>
                         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-                          
-                          {/* 👇 【追加】スマホ専用のヘッダー背景（spHeaderX などを読み込む） */}
                           <img 
                             src={(admin as any).headerImage || admin.image} alt="" loading="lazy" decoding="async" 
                             className="block lg:hidden w-full h-full object-cover opacity-50 grayscale contrast-125 origin-center will-change-transform" 
@@ -2715,8 +2690,6 @@ useEffect(() => {
                               transform: `translate(${(admin as any).spHeaderX ?? (admin as any).headerX ?? 0}px, ${(admin as any).spHeaderY ?? (admin as any).headerY ?? 0}px) scale(${(admin as any).spHeaderScale ?? (admin as any).headerScale ?? 1.0})` 
                             }} 
                           />
-                          
-                          {/* 👇 PC専用のヘッダー背景（今まで通り） */}
                           <img 
                             src={(admin as any).headerImage || admin.image} alt="" loading="lazy" decoding="async" 
                             className="hidden lg:block w-full h-full object-cover opacity-50 grayscale contrast-125 origin-center will-change-transform" 
@@ -2725,7 +2698,6 @@ useEffect(() => {
                               transform: `translate(${(admin as any).headerX || 0}px, ${(admin as any).headerY || 0}px) scale(${(admin as any).headerScale || 1.0})` 
                             }} 
                           />
-                          
                           <div className="absolute inset-0 opacity-60" style={{ backgroundColor: admin.themeColor }} />
                           <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/60 to-transparent opacity-90" />
                         </div>
@@ -2738,7 +2710,6 @@ useEffect(() => {
                           <p className="text-slate-400 font-bold text-xs tracking-[0.4em] uppercase">{admin.romanName}</p>
                         </div>
                       </motion.div>
-                      {/* 🌟 ここまで差し替え */}
                       <motion.div key={`profile-card-${admin.id}`} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="relative z-20 mb-10 w-full max-w-none will-change-transform">
                         <div className="relative p-4 lg:p-6 rounded-none bg-white/95 border border-slate-900/[0.08] shadow-[0_20px_50px_rgba(0,0,0,0.03)] overflow-hidden">
                           <div className="absolute top-0 left-0 w-2.5 h-2.5 border-t-2 border-l-2 transition-colors duration-1000" style={{ borderColor: admin.themeColor }} />
@@ -2783,10 +2754,109 @@ useEffect(() => {
                       </motion.div>
                     </div>
 
+
+                    {/* 🌟 4. 新設！下部の特大キャラクター選択レーン 🌟 */}
+                    {/* absolute bottom-0 を指定して、メイン画面の「はみ出た余白（pb-180px）」の場所にスッポリ収めます */}
+                    <div className="absolute bottom-0 left-0 w-full h-[180px] md:h-[220px] bg-[#FAFAFA] shadow-[0_-10px_30px_rgba(0,0,0,0.05)] border-t border-slate-200 z-50 flex items-center overflow-hidden">
+                      
+                      <div className="w-full h-full max-w-[95rem] mx-auto relative px-2 md:px-8 flex items-center">
+                        
+                        {/* グラデーションフェード（両端） */}
+                        <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-r from-[#FAFAFA] to-transparent z-30 pointer-events-none" />
+                        <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 bg-gradient-to-l from-[#FAFAFA] to-transparent z-30 pointer-events-none" />
+
+                        {/* 🌟 PCでもドラッグできる強力なCSSを追加したスクロールコンテナ */}
+                        <style>{`
+                          .custom-scrollbar-lane {
+                            overflow-x: auto;
+                            /* 📱 スマホでの滑らかなタッチスワイプを有効化 */
+                            -webkit-overflow-scrolling: touch;
+                            scroll-behavior: smooth;
+                          }
+                          /* 💻 PC向けにスクロールバーを太く表示して掴みやすくする */
+                          .custom-scrollbar-lane::-webkit-scrollbar {
+                            height: 10px;
+                          }
+                          .custom-scrollbar-lane::-webkit-scrollbar-track {
+                            background: transparent;
+                          }
+                          .custom-scrollbar-lane::-webkit-scrollbar-thumb {
+                            background: #cbd5e1;
+                            border-radius: 10px;
+                            border: 2px solid #FAFAFA;
+                          }
+                          .custom-scrollbar-lane::-webkit-scrollbar-thumb:hover {
+                            background: #94a3b8;
+                          }
+                        `}</style>
+
+                        <div className="custom-scrollbar-lane w-full h-full flex items-center snap-x snap-mandatory px-2 pb-2 pt-4">
+                          <div className="flex items-center gap-4 md:gap-6 min-w-max pb-4">
+                            {/* 左端の余白 */}
+                            <div className="shrink-0 w-2 lg:w-4" />
+
+                            {adminList.map((person: any, idx: number) => {
+                              const isActive = idx === selectedCreatorIndex;
+                              return (
+                              <button
+                                  key={person.id}
+                                  onClick={() => setSelectedCreatorIndex(idx)}
+                                  className={`group relative shrink-0 snap-center overflow-hidden transition-all duration-300 ease-out cursor-pointer bg-white
+                                    /* 🌟 角丸とサイズ */
+                                    rounded-[12px] md:rounded-[16px]
+                                    w-[90px] h-[130px] sm:w-[110px] sm:h-[160px] md:w-[130px] md:h-[180px]
+                                    ${isActive ? 'scale-110 z-20 shadow-[0_15px_30px_rgba(0,0,0,0.3)] ring-[3px] ring-offset-2 ring-offset-[#FAFAFA]' : 'scale-100 opacity-70 hover:opacity-100 hover:scale-105 hover:-translate-y-1 shadow-sm'}
+                                  `}
+                                  style={{
+                                    '--tw-ring-color': isActive ? person.themeColor : 'transparent',
+                                  } as any}
+                                >
+                                  {/* 🌟 1. 画像レイヤー（絶対に枠内でピッタリ収まるクリーンなコード） */}
+                                  <div className="absolute inset-0 z-0 pointer-events-none bg-slate-900">
+                                    <img 
+                                      src={person.headerImage || person.image} 
+                                      alt={person.name} 
+                                      loading="lazy" 
+                                      decoding="async"
+                                      // 🌟 object-cover でカードを隙間なく埋めます
+                                      className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out will-change-transform origin-center ${isActive ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`}
+                                      style={{ 
+                                        // 🌟 ここが超重要！「カメラの位置」と「ズーム」を決めます
+                                        objectPosition: person.menuPosition || person.bannerPosition || person.headerPosition || 'center center',
+                                        transform: `scale(${person.menuScale || 1.0})`
+                                      }}
+                                    />
+                                    {/* 非アクティブ時の暗転オーバーレイ */}
+                                    <div className={`absolute inset-0 transition-colors duration-300 ${isActive ? 'bg-transparent' : 'bg-slate-900/40 group-hover:bg-transparent'}`} />
+                                  </div>
+
+                                  {/* 🌟 2. 文字を見やすくするための黒グラデーション */}
+                                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none z-10" />
+
+                                  {/* 🌟 3. 名前表示エリア */}
+                                  <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3 flex flex-col justify-end items-center pointer-events-none z-20">
+                                    {/* 名前 */}
+                                    <span className={`text-[11px] md:text-[13px] font-black text-white truncate w-full text-center drop-shadow-md leading-tight ${cleanFont?.className || ''}`}>
+                                      {person.name}
+                                    </span>
+                                    {/* ローマ字 */}
+                                    <span className={`text-[8px] md:text-[9px] font-bold text-slate-300 tracking-widest uppercase truncate w-full text-center mt-0.5 drop-shadow-md leading-none ${montserrat?.className || ''}`}>
+                                      {person.romanName}
+                                    </span>
+                                  </div>
+                                </button>
+                              );
+                            })}
+                            
+                            {/* 右端の余白 */}
+                            <div className="shrink-0 w-12 lg:w-20" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </section>
                 );
               })()}
-
 
               {activePage === 'activity' && (
                 <section className="pt-32 md:pt-40 pb-32 px-6">
