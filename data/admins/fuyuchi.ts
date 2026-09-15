@@ -42,6 +42,11 @@ export const fuyuchiAdmin = {
   laptopOffsetY: 10,   // 570だと沈むので、浅くする
   laptopScale:   1.4,     // 1.5だと大きすぎるので少し小さく
 
+  // ① ズーム（1.3なら130%拡大）
+  menuScale: 1.5,
+
+  // ▼ さらに細かく調整したい場合（例：左から30%、上から10%の位置に顔がある）
+  menuPosition: '40% 10%',
 
   catchphrases: [
     '誰もが心地よく過ごせるように。',

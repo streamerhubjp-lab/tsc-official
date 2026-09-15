@@ -48,6 +48,11 @@ export const ibukiAyanoAdmin = {
   laptopOffsetY: -50,   // 570だと沈むので、浅くする
   laptopScale:1.5,     // 1.5だと大きすぎるので少し小さく
 
+   // ① ズーム（1.3なら130%拡大）
+  menuScale: 2,
+  // ▼ さらに細かく調整したい場合（例：左から30%、上から10%の位置に顔がある）
+  menuPosition: '30% 60%',
+
   catchphrases: [
     'それでも辿り着くは、あなたが待つ温かな場所。',
     '揺れるしっぽと、迷子の足取り。'

@@ -1,56 +1,33 @@
-// 🌟 1. データの型をアップデート
-export interface CreatorProfile {
-  id: string;
-  name: string;
-  image: string;
-  // ▼ これを追加！（立ち絵の微調整用データ）
-  imageStyle?: {
-    scale: number; // 拡大縮小（1が基準。1.2なら120%）
-    x: string;     // 横のズレ（例: '20px', '-5%'）
-    y: string;     // 縦のズレ（例: '10px', '-20px'）
-  };
-  scopes: string[]; 
-  platforms: { name: string; url: string }[]; 
-  description: string; 
-}
+export　const monthlyPickups: Record<string, any[]> = {
+  //"2026年8月": [
+    //{
+      //id: 'rec_aug_01',
+      //name: '狼の野郎',
+      //romanName: 'WOLF YAROU',
+      //birthDate: '1999/08/02',
+      //feature: '圧倒的エイムと知略のApexプレイヤー',
+      //reason: '常に冷静沈着なプレイで魅せる一方、原神では一転して感情豊かなリアクションを見せるギャップが魅力。配信の安定感と、リスナーへの丁寧な対応が光る、今一番推したいクリエイター。',
+      //image: '/tsc-official/aruxutatie.webp', 
+      //themeColor: '#FF3B30', 
 
-// 🌟 2. 実際のデータをアップデート
-export const recommendedCreators: CreatorProfile[] = [
-  {
-    id: 'wolf_yarou',
-    name: '狼の野郎',
-    image: '/tsc-official/ookami.webp', 
-    // ▼ ここで「このキャラ専用のベストポジション」を指定します！
-    imageStyle: {
-      scale: 3,    // ちょっと大きめに表示
-      x: '450px',      // 右に10pxズラす
-      y: '700px',      // 下に20pxズラす（足が浮いているのを直す等）
-    },
-    scopes: ['配信者', 'VTuber', 'モデレーター'],
-    platforms: [
-      { name: 'Twitch', url: 'https://twitch.tv/...' },
-      { name: 'YouTube', url: 'https://youtube.com/...' },
-      { name: 'X (Twitter)', url: 'https://x.com/...' },
-    ],
-    description: 'FPSゲームを中心に、リスナーとの距離が近い参加型配信をメインに活動中！コミュニティの盛り上げ役として様々な企画にも顔を出しています。',
-  },
-  // ... 他のメンバーも同様に追加（調整が不要なキャラは imageStyle を書かなくてもOKです）
-  {
-    id: 'aruxuxux',
-    name: 'あるぅ',
-    image: '/tsc-official/aruxu.webp', 
-    // ▼ ここで「このキャラ専用のベストポジション」を指定します！
-    imageStyle: {
-      scale: 2,    // ちょっと大きめに表示
-      x: '150px',      // 右に10pxズラす
-      y: '600px',      // 下に20pxズラす（足が浮いているのを直す等）
-    },
-    scopes: ['配信者', 'VTuber', 'モデレーター'],
-    platforms: [
-      { name: 'Twitch', url: 'https://twitch.tv/...' },
-      { name: 'YouTube', url: 'https://youtube.com/...' },
-      { name: 'X (Twitter)', url: 'https://x.com/...' },
-    ],
-    description: 'FPSゲームを中心に、リスナーとの距離が近い参加型配信をメインに活動中！コミュニティの盛り上げ役として様々な企画にも顔を出しています。',
-  },
-];
+      // 🌟 ここを追加！キャラクター個別の微調整ダイヤル
+      //adjustX: "30%",     // マイナスで左、プラスで右に移動（例: "-5%"）
+      //adjustY: "0%",     // マイナスで上、プラスで下に移動（例: "10%"）
+      //adjustScale: 1.0,  // 1.0を基準に拡大縮小（例: 1.15）
+    //},
+  //],
+  "2026年9月": [
+    //{
+      //id: 'rec_jul_01',
+      //name: 'しいな',
+      //romanName: 'SHIINA',
+      //birthDate: '2005/05/05',
+      //feature: '予測不能な癒やし系マスコット',
+      //reason: '独特のふんわりとした雰囲気で、どんなにピリついた試合でも場を和ませる才能を持つ。しかし時折見せる鋭いプレイのギャップに惹かれるリスナーが続出中。',
+      //image: '/tsc-official/siinatatie.webp', 
+      //themeColor: '#34C759', 
+      // 🌟 ここを追加！キャラクター個別の微調整ダイヤル
+      //adjustX: "30%",     // マイナスで左、プラスで右に移動（例: "-5%"）
+    //},
+  ]
+};

@@ -44,6 +44,9 @@ export const gaikumaAdmin = {
   laptopOffsetY: 10,   // 570だと沈むので、浅くする
   laptopScale: 1.5,     // 1.5だと大きすぎるので少し小さく
 
+  // ① ズーム（1.3なら130%拡大）
+  menuScale: 2,
+
   catchphrases: [
     '人間に憧れたクマは、今日も誰かの傍で笑う。',
     '夕暮れから深夜まで。少人数VCでこっそり営業中🧸💜'

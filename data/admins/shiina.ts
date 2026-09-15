@@ -40,6 +40,13 @@ export const shiinaAdmin = {
   laptopOffsetY: 50,   // 570だと沈むので、浅くする
   laptopScale:  1.7,     // 1.5だと大きすぎるので少し小さく
 
+  // ① ズーム（1.3なら130%拡大）
+  menuScale: 2.3,
+
+  // ▼ さらに細かく調整したい場合（例：左から30%、上から10%の位置に顔がある）
+  menuPosition: '40% 20%',
+
+
   catchphrases: ['心温まる怪奇現象。', '不定期に発生する'],
   // 🌟 右側に並べるグリッド情報
   profileGrid: [

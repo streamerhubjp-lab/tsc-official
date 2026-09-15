@@ -48,7 +48,7 @@ import {
   siteConfig,
   menuItems,
   memoryItems,
-  recommendedCreators,
+  monthlyPickups,
   faqList,
   guidelineList,
   sponsorData,
@@ -56,7 +56,7 @@ import {
   adminList,
 } from '@/data';
 
-
+import PickUpSection from './PickUpSection';
 
 // 🌟 ピックアップメディア用のスライダー部品
 // 🌟 adminId を受け取れるようにプロパティを追加します
@@ -419,17 +419,17 @@ export default function UltimateCommunitySite({
   // =========================================================================
   // =========================================================================
   const marqueeMembers = useMemo(() => {
-    const individuals = recommendedCreators.filter(
-      (s) => s.id !== 'collective'
+    const individuals = monthlyPickups['2026年9月'].filter(
+      (s: any) => s.id !== 'collective'
     );
     // 💡 12個の枠を埋めるために、メンバーを順番にループさせます
     return Array.from({ length: 12 }).map((_, idx) => {
-      const baseMember = individuals[idx % individuals.length];
+      const baseMember = individuals[idx % individuals.length]|| {};
       return {
         ...baseMember,
         uniqueKey: `marquee-${idx}`,
         // 💡 ダミーの名前ではなく、data.tsの本物のデータをそのまま使う！
-        displayName: baseMember.name,
+        displayName: baseMember.name || 'COMMUNITY MEMBER',
         roleName: baseMember.scopes?.[0] || 'メンバー', // ← scopesの1つ目を表示（無ければ'メンバー'）
       };
     });
@@ -834,7 +834,7 @@ useEffect(() => {
             animate="visible"
             className={`flex items-center space-x-10 text-[13px] font-bold tracking-[0.2em] text-slate-500 uppercase ${montserrat.className}`}
           >
-            {['home', 'news', 'admins', 'activity', 'guidelines', 'magazine', 'sponsors', 'faq'].map((page) => (
+            {['home', 'news', 'admins','PickUp Streamers', 'activity', 'guidelines', 'magazine', 'sponsors', 'faq'].map((page) => (
               <motion.button
                 key={page}
                 variants={headerNavItem}
@@ -2308,204 +2308,6 @@ useEffect(() => {
                 </div>
               </section>
             )}
-            
-  {/* おすすめ配信者 一覧ページ */}
-{activePage === 'profile' && (
-  <section className="relative w-full min-h-screen bg-[#FAFAFA] overflow-hidden">
-    {/* サイト全体の背景（ドット） */}
-    <div
-      className="absolute inset-0 z-0 pointer-events-none opacity-40"
-      aria-hidden="true"
-      style={{
-        backgroundImage: 'radial-gradient(circle, #cbd5e1 1px, transparent 1px)',
-        backgroundSize: '24px 24px',
-      }}
-    />
-
-    <div className="max-w-7xl mx-auto px-6 pt-0 pb-20 relative z-10">
-      
-      {/* ヒーローヘッダー（特大バナーエリア） */}
-      <div className="relative w-full rounded-3xl overflow-hidden mb-12 shadow-2xl min-h-[350px] md:min-h-[450px] flex flex-col">
-        {/* ▼ バナー画像のURL ▼ */}
-        <img
-          src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=2000&q=80"
-          alt="Hero Banner"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent"></div>
-        <div className="relative z-10 p-8 md:p-12 mt-auto flex flex-col md:flex-row md:items-end justify-between gap-6 w-full">
-          <div className="border-l-4 border-blue-500 pl-6">
-            <p className="text-blue-300 font-mono text-[10px] tracking-[0.3em] uppercase mb-2 drop-shadow-md" aria-hidden="true">
-              // Recommended
-            </p>
-            <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight drop-shadow-lg">
-              おすすめ
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 ml-3">
-                配信者 / クリエイター
-              </span>
-            </h2>
-          </div>
-          <div className="flex gap-2 pb-1 overflow-x-auto no-scrollbar">
-            {['6月', '7月', '8月'].map((month) => (
-              <button
-                key={month}
-                className="px-6 py-2.5 text-xs font-bold rounded-full border border-white/30 bg-white/10 backdrop-blur-md text-white hover:bg-white hover:text-slate-900 focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:outline-none transition-all whitespace-nowrap shadow-sm"
-              >
-                {month}アーカイブ
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* メンバー選択タブ */}
-      <div className="flex flex-wrap gap-2 mb-10 relative z-30">
-        {recommendedCreators?.map((creator, idx) => {
-          if (creator?.id === 'collective') return null;
-          const isSelected = selectedIndex === idx;
-          return (
-            <button
-              key={creator?.id || idx}
-              onClick={() => setSelectedIndex(idx)}
-              aria-current={isSelected ? 'true' : 'false'}
-              className={`px-6 py-3 text-sm font-bold tracking-wide transition-all rounded-t-lg border-b-2 focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:outline-none ${
-                isSelected
-                  ? 'bg-white text-slate-900 border-blue-600 shadow-sm'
-                  : 'bg-transparent text-slate-400 border-transparent hover:bg-white/50 hover:text-slate-600'
-              }`}
-            >
-              {creator?.name}
-            </button>
-          );
-        })}
-      </div>
-
-      {/* メイン：ショーケース（🌟 ここが丸ごとゲーム風UIになっています！） */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={selectedIndex}
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -15 }}
-          transition={{ duration: 0.4 }}
-          className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-white rounded-[40px] shadow-sm border border-slate-100 overflow-hidden p-6 md:p-10"
-        >
-          {/* 🌟 背景の巨大な透かし立ち絵（ウォーターマーク） */}
-          <div className="absolute top-0 left-[-20%] w-[80%] h-full opacity-[0.04] pointer-events-none overflow-hidden z-0">
-            <img
-              src={recommendedCreators[selectedIndex]?.image}
-              alt="Background Watermark"
-              className="w-full h-full object-cover object-top grayscale scale-150 transform -translate-y-10"
-            />
-          </div>
-
-         {/* --- 左側：立ち絵ビジュアル --- */}
-          <div className="lg:col-span-5 relative h-[450px] md:h-[650px] flex items-end justify-center pointer-events-none z-10">
-            {/* キャラクターの横に添える「縦書き」のアクセント */}
-            <div className="absolute left-0 top-1/4 -translate-x-4 hidden md:flex items-center text-slate-300 font-black text-2xl tracking-[0.5em] select-none z-0" style={{ writingMode: 'vertical-rl' }}>
-              {recommendedCreators[selectedIndex]?.id?.toUpperCase()}
-            </div>
-
-            {/* 🌟 ここが変更点！データから位置・サイズ情報を取得してCSSに適用するラッパー */}
-            <div 
-              className="relative z-10 w-full h-full flex items-end justify-center pointer-events-auto"
-              style={{
-                // data.tsに設定があればそれを使い、無ければデフォルト(ズレなし・等倍)にする
-                transform: `
-                  translate(
-                    ${recommendedCreators[selectedIndex]?.imageStyle?.x || '0px'}, 
-                    ${recommendedCreators[selectedIndex]?.imageStyle?.y || '0px'}
-                  ) 
-                  scale(${recommendedCreators[selectedIndex]?.imageStyle?.scale || 1})
-                `,
-                transformOrigin: 'bottom center' // 足元を基準に拡大縮小する
-              }}
-            >
-              <motion.img
-                initial={{ scale: 0.95, opacity: 0, x: -20 }}
-                animate={{ scale: 1, opacity: 1, x: 0 }}
-                transition={{ delay: 0.1, duration: 0.5, type: 'spring' }}
-                src={recommendedCreators[selectedIndex]?.image}
-                alt={`${recommendedCreators[selectedIndex]?.name || 'クリエイター'}の立ち絵`}
-                // max-wやmax-hの制限を少し緩めて、scaleで自由に大きくできるように調整
-                className="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.2)]"
-              />
-            </div>
-          </div>
-          
-          {/* --- 右側：詳細情報エリア --- */}
-          <div className="lg:col-span-7 flex flex-col relative z-10 h-full justify-center">
-            
-            {/* 🌟 名前と役職の「タイトルバナー」 */}
-            <div className="bg-gradient-to-r from-slate-900 to-slate-700 rounded-2xl p-6 md:p-8 mb-8 text-white shadow-lg relative overflow-hidden">
-              {/* バナー内のキラキラした装飾 */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 rounded-full blur-2xl transform translate-x-1/2 -translate-y-1/2"></div>
-              
-              <div className="flex flex-col gap-2 relative z-10">
-                <div className="flex flex-wrap gap-2 mb-1">
-                  {recommendedCreators[selectedIndex]?.scopes?.map((scope, i) => (
-                    <span 
-                      key={i} 
-                      className="px-3 py-1 bg-white/20 backdrop-blur-sm text-white text-[10px] font-bold tracking-[0.2em] uppercase rounded-full border border-white/10"
-                    >
-                      {scope}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex items-end gap-4">
-                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight drop-shadow-md">
-                    {recommendedCreators[selectedIndex]?.name}
-                  </h3>
-                  <span className="text-slate-300 font-bold tracking-widest uppercase text-sm mb-2 hidden md:block">
-                    {recommendedCreators[selectedIndex]?.id}
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* 紹介文 */}
-            <div className="mb-10 px-2">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-[2px] bg-blue-500"></div>
-                <h4 className="text-sm font-black text-slate-800 tracking-[0.2em] uppercase">
-                  紹介文
-                </h4>
-              </div>
-              <p className="text-slate-600 text-base md:text-lg leading-loose font-medium pl-11">
-                {recommendedCreators[selectedIndex]?.description || '紹介文が設定されていません。'}
-              </p>
-            </div>
-
-            {/* 活動プラットフォーム */}
-            <div className="mt-auto pt-6 px-2">
-              <h4 className="text-xs font-bold text-slate-400 tracking-[0.25em] uppercase mb-4 pl-11">
-                Official Links
-              </h4>
-              <div className="flex flex-wrap gap-3 pl-11">
-                {recommendedCreators[selectedIndex]?.platforms?.map((platform, i) => (
-                  <a
-                    key={i}
-                    href={platform.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center gap-2 px-5 py-2.5 bg-white text-slate-700 rounded-xl text-xs font-bold tracking-widest uppercase focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:outline-none transition-all duration-300 border-2 border-slate-200 hover:border-blue-500 hover:text-blue-600 hover:-translate-y-1 shadow-sm hover:shadow-md"
-                  >
-                    {platform.name}
-                    <svg className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </a>
-                ))}
-              </div>
-            </div>
-            
-          </div>
-        </motion.div>
-      </AnimatePresence>
-
-    </div>
-  </section>
-)}   
 
             {activePage === 'guidelines' && (
               <section className="pt-32 md:pt-40 pb-32 px-4 md:px-6 bg-[#FAFAFA] text-slate-900 min-h-screen relative overflow-hidden">
@@ -2798,49 +2600,51 @@ useEffect(() => {
                             {adminList.map((person: any, idx: number) => {
                               const isActive = idx === selectedCreatorIndex;
                               return (
-                              <button
+                             <button
                                   key={person.id}
                                   onClick={() => setSelectedCreatorIndex(idx)}
                                   className={`group relative shrink-0 snap-center overflow-hidden transition-all duration-300 ease-out cursor-pointer bg-white
                                     /* 🌟 角丸とサイズ */
                                     rounded-[12px] md:rounded-[16px]
                                     w-[90px] h-[130px] sm:w-[110px] sm:h-[160px] md:w-[130px] md:h-[180px]
-                                    ${isActive ? 'scale-110 z-20 shadow-[0_15px_30px_rgba(0,0,0,0.3)] ring-[3px] ring-offset-2 ring-offset-[#FAFAFA]' : 'scale-100 opacity-70 hover:opacity-100 hover:scale-105 hover:-translate-y-1 shadow-sm'}
+                                    ${isActive ? 'scale-110 z-20 shadow-[0_15px_30px_rgba(0,0,0,0.15)] ring-[3px] ring-offset-2 ring-offset-[#FAFAFA]' : 'scale-100 opacity-80 hover:opacity-100 hover:scale-105 hover:-translate-y-1 shadow-sm'}
                                   `}
                                   style={{
                                     '--tw-ring-color': isActive ? person.themeColor : 'transparent',
                                   } as any}
                                 >
-                                  {/* 🌟 1. 画像レイヤー（絶対に枠内でピッタリ収まるクリーンなコード） */}
-                                  <div className="absolute inset-0 z-0 pointer-events-none bg-slate-900">
-                                    <img 
+                                  {/* 🌟 1. 画像レイヤー（背景を白に固定） */}
+                                  <div className="absolute inset-0 z-0 pointer-events-none bg-white">
+                                   <img 
                                       src={person.headerImage || person.image} 
                                       alt={person.name} 
                                       loading="lazy" 
                                       decoding="async"
-                                      // 🌟 object-cover でカードを隙間なく埋めます
-                                      className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out will-change-transform origin-center ${isActive ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`}
+                                      // 🌟 1. className から `origin-center` という邪魔者を削除しました！
+                                      className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ease-out will-change-transform ${isActive ? 'grayscale-0' : 'grayscale group-hover:grayscale-0'}`}
                                       style={{ 
-                                        // 🌟 ここが超重要！「カメラの位置」と「ズーム」を決めます
+                                        // 🌟 2. transformOrigin を追加！ これで「顔を中心に」ズームされます！
+                                        transformOrigin: person.menuPosition || person.bannerPosition || person.headerPosition || 'center center',
                                         objectPosition: person.menuPosition || person.bannerPosition || person.headerPosition || 'center center',
                                         transform: `scale(${person.menuScale || 1.0})`
                                       }}
                                     />
-                                    {/* 非アクティブ時の暗転オーバーレイ */}
-                                    <div className={`absolute inset-0 transition-colors duration-300 ${isActive ? 'bg-transparent' : 'bg-slate-900/40 group-hover:bg-transparent'}`} />
+                                    {/* 🌟 非アクティブ時は「白」で薄く隠す */}
+                                    <div className={`absolute inset-0 transition-colors duration-300 ${isActive ? 'bg-transparent' : 'bg-white/60 group-hover:bg-white/20'}`} />
                                   </div>
 
-                                  {/* 🌟 2. 文字を見やすくするための黒グラデーション */}
-                                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none z-10" />
+                                  {/* 🌟 2. 下から上へ向かう「白い」グラデーション */}
+                                  <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-white/95 via-white/70 to-transparent pointer-events-none z-10" />
 
-                                  {/* 🌟 3. 名前表示エリア */}
-                                  <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3 flex flex-col justify-end items-center pointer-events-none z-20">
-                                    {/* 名前 */}
-                                    <span className={`text-[11px] md:text-[13px] font-black text-white truncate w-full text-center drop-shadow-md leading-tight ${cleanFont?.className || ''}`}>
+                                  {/* 🌟 3. 名前表示エリア（右下寄せ： items-end ） */}
+                                  <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3 flex flex-col justify-end items-end pointer-events-none z-20">
+
+                                    {/* 名前（黒文字・右寄せ） */}
+                                    <span className={`text-[12px] md:text-[14px] font-black text-slate-800 truncate w-full text-right leading-tight ${cleanFont?.className || ''}`}>
                                       {person.name}
                                     </span>
-                                    {/* ローマ字 */}
-                                    <span className={`text-[8px] md:text-[9px] font-bold text-slate-300 tracking-widest uppercase truncate w-full text-center mt-0.5 drop-shadow-md leading-none ${montserrat?.className || ''}`}>
+                                    {/* ローマ字（グレー文字・右寄せ） */}
+                                    <span className={`text-[8px] md:text-[9px] font-bold text-slate-400 tracking-widest uppercase truncate w-full text-right mt-0.5 leading-none ${montserrat?.className || ''}`}>
                                       {person.romanName}
                                     </span>
                                   </div>
@@ -2957,6 +2761,12 @@ useEffect(() => {
                     </motion.div>
                   </div>
                 </section>
+              )}
+
+            
+            {/* 🌟 【SYSTEM UPDATE : CREATOR ARCHIVE】歴代の「おすすめ配信者」を刻む電脳空間風ピックアップ画面（月別タブ切り替え・斜めカットUI・Framer Motion完全搭載版） */}
+            {activePage === 'PickUp Streamers' && (
+            <PickUpSection />
               )}
             
 
@@ -3651,3 +3461,4 @@ export const ActivityLogGrid = ({
     </section>
   );
 };
+

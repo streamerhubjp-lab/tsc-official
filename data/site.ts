@@ -15,7 +15,7 @@ export const menuItems = [
   { id: 'home', label: 'HOME' },
   { id: 'news', label: 'NEWS' },
   { id: 'admins', label: '管理者/サブ管理人' },
-  //{ id: 'profile', label: 'おすすめ配信者 / クリエイター' },
+  { id: 'PickUp Streamers', label: 'おすすめ配信者 / クリエイター' },
   //{ id: 'navigation', label: 'サーバーの使い方' },
   { id: 'activity', label: 'ACTIVITY' },
   { id: 'guidelines', label: 'ガイドライン' },
