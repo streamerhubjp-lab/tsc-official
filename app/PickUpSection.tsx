@@ -211,20 +211,32 @@ export default function PickUpSection() {
             })}
           </div>
         </>
-      ) : (
-        /* 🌟 データが無い場合の「COMING SOON」画面 */
+       ) : (
+        /* 🌟 データが無い場合の「COMING SOON」画面（明朝体＆タイトル共通デザイン版） */
         <div className="relative z-20 w-full h-full flex items-center justify-center pointer-events-none">
           <motion.div
             initial={{ opacity: 0, scale: 0.9, filter: 'blur(10px)' }}
             animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col items-center"
+            className="flex flex-col items-center px-4 text-center"
           >
-            <h3 className="text-4xl lg:text-7xl font-black text-slate-300 tracking-[0.2em] mb-4">
+            {/* タイトルの短い横棒とお揃いのアクセント */}
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-8 lg:w-12 h-[2px] bg-slate-400" />
+              <span className="text-xs lg:text-sm font-serif text-slate-400 tracking-[0.3em] uppercase">
+                Archive
+              </span>
+              <div className="w-8 lg:w-12 h-[2px] bg-slate-400" />
+            </div>
+
+            {/* あの大好きな「明朝体の文字の形」を適用！ */}
+            <h3 className="text-3xl sm:text-5xl lg:text-7xl font-serif font-bold text-slate-700 tracking-widest mb-4 drop-shadow-sm">
               COMING SOON
             </h3>
-            <div className="w-16 h-[2px] bg-slate-400 mb-4" />
-            <p className="text-xs lg:text-sm font-bold text-slate-400 tracking-widest">
+
+            <div className="w-12 h-[1px] bg-slate-300 mb-4" />
+
+            <p className="text-xs lg:text-sm font-serif text-slate-500 tracking-widest">
               次回のアップデートをお待ちください
             </p>
           </motion.div>
