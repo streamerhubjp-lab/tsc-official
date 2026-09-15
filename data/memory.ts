@@ -8,9 +8,17 @@ export const memoryItems = [
   {
     id: 'm2',
     type: 'image',
-    src: '/tsc-official/hirokinngupatona.jpg',
+    src: '/tsc-official/tuittihiroking.PNG',
     title: '管理者ヒロキングtwitchパートナーへ',
   },
+  {
+    id: 'm3',
+    type: 'image',
+    src: '/tsc-official/saba-gaiyou.PNG',
+    title: 'サーバー概要に動画が追加されました！',
+  },
+
+  
   
   //動画が絶妙にダサかったのでコメントアウトしてます。ただし、例としては残しておきます。動画を追加する場合は、twitchの動画IDを取得して、下記のように記述してください。
 
