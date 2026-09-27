@@ -1870,70 +1870,112 @@ useEffect(() => {
                   </div>
                 </section>
 
-                {/* ⭐ SPONSOR セクション（完全データ連動版！） ⭐ */}
-                <section className="py-24 bg-white relative z-20 border-t border-slate-100">
-                  <div className="max-w-5xl mx-auto px-6">
-                    <div className="text-center mb-12">
-                      <p
-                        className={`text-blue-500 font-bold text-[11px] tracking-[0.4em] uppercase mb-4 ${montserrat.className}`}
-                      >
-                        {sponsorData.headerTitle}
-                      </p>
-                      <h2
-                        className={`text-3xl md:text-4xl font-black tracking-tight text-slate-900 ${cleanFont.className}`}
-                      >
-                        {sponsorData.homeSection.title}
-                      </h2>
-                      <div className="w-12 h-1 bg-blue-500 mx-auto mt-6 rounded-full"></div>
+                            {/* ⭐ SPONSOR セクション（スマホ・PC完全分離 安定版） ⭐ */}
+                <section className="py-24 bg-white relative z-20 border-t border-slate-100 overflow-hidden">
+                  <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                    
+                    {/* =========================================
+                        左側：立ち絵エリア
+                    ========================================= */}
+                    {/* スマホは高さ400px、PCは600px */}
+                    <div className="w-full lg:w-2/5 relative flex justify-center items-center h-[400px] lg:h-[600px] pointer-events-none z-20">
+                      {/* 後光エフェクト */}
+                      <div className="absolute w-[200px] lg:w-[300px] h-[350px] lg:h-[550px] bg-slate-100/80 rounded-full blur-3xl -z-10" />
+                      
+                      {/* 📱 スマホ用立ち絵（PCでは隠す： lg:hidden） */}
+                      <motion.img
+                        initial={{ opacity: 0, y: 100, filter: 'blur(10px)' }}
+                        whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        src="/tsc-official/hirokingusinntatie.webp" 
+                        alt="Sponsor Character Mobile"
+                        // スマホでは等倍（scale-100等）で綺麗に枠内に収める
+                        className="block lg:hidden absolute bottom-0 w-auto h-[120%] object-contain origin-bottom drop-shadow-[0_20px_30px_rgba(0,0,0,0.15)] z-10"
+                      />
+
+                      {/* 💻 PC用立ち絵 大迫力版（スマホでは隠す： hidden lg:block） */}
+                      <motion.img
+                        initial={{ opacity: 0, x: -40, filter: 'blur(10px)', scale: 1 }}
+                        whileInView={{ 
+                          opacity: 1, 
+                          filter: 'blur(0px)',
+                          x: "40%",
+                          y: "120%",       
+                          scale: 2.3
+                        }} 
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        src="/tsc-official/hirokingusinntatie.webp" 
+                        alt="Sponsor Character PC"
+                        className="hidden lg:block absolute bottom-0 w-auto h-[125%] object-contain origin-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)] z-10"
+                      />
                     </div>
 
-                    <div className="bg-[#F8FAFC] rounded-3xl p-8 md:p-16 max-w-4xl mx-auto text-center shadow-sm border border-slate-100">
-                      <h3
-                        className={`text-xl md:text-2xl font-bold text-slate-800 mb-6 ${cleanFont.className}`}
-                      >
-                        {sponsorData.homeSection.subtitle}
-                      </h3>
-                      {/* 🌟 修正後： whitespace-pre-wrap に変更！ */}
-                      <p className="text-sm md:text-base text-slate-600 leading-loose mb-10 max-w-3xl mx-auto whitespace-pre-wrap">
-                        {sponsorData.homeSection.text}
-                      </p>
+                    {/* =========================================
+                        右側：コンテンツエリア
+                    ========================================= */}
+                    <div className="w-full lg:w-3/5 flex flex-col items-center lg:items-start text-center lg:text-left relative z-10 pointer-events-auto">
+                      
+                      {/* タイトル部分 */}
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="hidden lg:block w-8 h-[1px] bg-blue-500" />
+                        <p className="text-blue-500 font-bold text-xs lg:text-sm tracking-[0.4em] uppercase">
+                          {sponsorData.headerTitle}
+                        </p>
+                        <div className="w-8 h-[1px] bg-blue-500" />
+                      </div>
+                      
+                      <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-black tracking-widest text-slate-800 drop-shadow-sm mb-4">
+                        {sponsorData.homeSection.title}
+                      </h2>
+                      
+                      <div className="w-16 h-[2px] bg-slate-800 mb-8" />
 
-                      {/* 🌟 data.ts からタイトルと説明文を自動で読み込んでカードを作る！ */}
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mb-12 text-left relative z-10">
-                        {sponsorData.homeSection.features.map(
-                          (feature, idx) => (
+                      {/* 枠で囲まれた説明＆カード部分 */}
+                      <div className="w-full bg-[#F8FAFC] rounded-3xl p-8 lg:p-12 shadow-sm border border-slate-100 relative">
+                        <h3 className="text-2xl md:text-3xl font-serif font-bold text-slate-800 mb-6 tracking-wider">
+                          {sponsorData.homeSection.subtitle}
+                        </h3>
+                        <p className="text-sm md:text-base lg:text-lg text-slate-600 leading-relaxed mb-10 max-w-2xl whitespace-pre-wrap font-medium mx-auto lg:mx-0">
+                          {sponsorData.homeSection.text}
+                        </p>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full mb-10 text-left">
+                          {sponsorData.homeSection.features.map((feature, idx) => (
                             <div
                               key={idx}
-                              className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col gap-4 hover:shadow-md hover:border-blue-200 transition-all duration-300 group"
+                              className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col gap-3 hover:shadow-md hover:border-slate-300 transition-all duration-300 group"
                             >
-                              <div className="w-14 h-14 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                                {/* 1個目はビル、2個目はパーセントのアイコンを自動で出す */}
-                                {idx === 0 ? (
-                                  <Building size={28} />
-                                ) : (
-                                  <BadgePercent size={28} />
-                                )}
+                              <div className="w-12 h-12 bg-slate-50 text-slate-700 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:bg-slate-800 group-hover:text-white transition-all duration-300">
+                                {idx === 0 ? <Building size={24} /> : <BadgePercent size={24} />}
                               </div>
-                              <h4 className="text-lg md:text-xl font-bold text-slate-800">
+                              <h4 className="text-lg font-bold text-slate-800 tracking-wide">
                                 {feature.title}
                               </h4>
-                              <p className="text-sm text-slate-600 leading-relaxed">
+                              <p className="text-xs lg:text-sm text-slate-500 leading-relaxed font-medium">
                                 {feature.description}
                               </p>
                             </div>
-                          )
-                        )}
-                      </div>
+                          ))}
+                        </div>
 
-                      <button
-                        onClick={() => switchPage('sponsors')}
-                        className={`inline-flex items-center gap-2 bg-[#333333] text-white px-8 py-4 rounded-full text-xs md:text-sm font-bold tracking-widest hover:bg-blue-600 transition-colors uppercase shadow-md hover:shadow-lg hover:-translate-y-1 duration-300 ${montserrat.className}`}
-                      >
-                        VIEW SPONSORS <ArrowRight size={16} />
-                      </button>
+                        {/* 🌟 コートの裾を避けるために lg:ml-24 でボタンだけを右にずらす（PC時のみ） */}
+                        <div className="flex justify-center lg:justify-start mt-4 lg:ml-72">
+                          <button
+                            onClick={() => switchPage('sponsors')}
+                            className="inline-flex items-center gap-3 bg-slate-800 text-white px-8 py-4 rounded-full text-xs font-bold tracking-[0.2em] hover:bg-slate-700 transition-all uppercase shadow-md hover:shadow-xl hover:-translate-y-1 duration-300"
+                          >
+                            <ArrowRight size={16} /> VIEW SPONSORS
+                          </button>
+                        </div>
+                      </div>
                     </div>
+
                   </div>
                 </section>
+                
+
 
                 <section className="py-32 px-6 bg-white">
                   <div className="max-w-5xl mx-auto text-center">
