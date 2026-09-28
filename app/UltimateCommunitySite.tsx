@@ -1507,8 +1507,7 @@ useEffect(() => {
         })()}
       </AnimatePresence>
       
-                {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
-                {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
+
                 {/* 🔽🔽🔽 ここに変更中🔽🔽🔽 */}
                 <section className="py-20 bg-white border-y border-slate-200 overflow-hidden relative">
                   
@@ -1529,18 +1528,52 @@ useEffect(() => {
                   </div>
 
                   {/* タイトル部分 */}
-                  <div className="mb-12 flex flex-col items-center z-10 relative mt-8 md:mt-0">
-                    <p
-                      className={`text-blue-500 font-bold text-xs tracking-[0.3em] uppercase mb-2 ${montserrat?.className || ''}`}
-                    >
-                      Management & Sub-Admins
-                    </p>
-                    <h3
-                      className={`text-2xl md:text-3xl font-black text-slate-800 tracking-wider ${cleanFont?.className || ''}`}
-                    >
-                      コミュニティ運営陣
-                    </h3>
+                  {/* ▼▼ 高さ調整＆スタイリッシュな平行四辺形デザイン版 ▼▼ */}
+                  {/* mt をマイナスにして全体を上に引き上げ、背景の COMMUNITY と重ねます */}
+                  <div className="w-full flex flex-col items-end px-4 md:px-8 lg:px-12 mb-16 z-10 relative -mt-4 md:-mt-8">
+                    
+                    {/* ① スタイリッシュな平行四辺形のバッジ（日本語） */}
+                    <div className="flex items-center gap-3 md:gap-4 mb-2 md:mb-3">
+                      
+                      {/* ▼ バッジ本体を平行四辺形(skew-x)に ▼ */}
+                      {/* 外側を斜めに歪ませ(skew-x-[-15deg])、中の文字は逆方向に歪ませて(skew-x-[15deg])真っ直ぐに戻すテクニックです */}
+                      <div className="px-6 py-2 md:px-8 md:py-2.5 bg-[#11151f] shadow-[4px_4px_12px_rgba(0,0,0,0.15)] border-l-2 border-blue-400 transform -skew-x-12">
+                        <div className="transform skew-x-12">
+                          <span className={`text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300 font-bold text-xl md:text-2xl lg:text-3xl tracking-[0.25em] pl-[0.2em] ${cleanFont?.className || ''}`}>
+                            コミュニティ運営陣
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* 右側のアクセント縦線（こちらも少し斜めに合わせてスタイリッシュに） */}
+                      <div className="w-1.5 md:w-2 h-10 md:h-12 bg-gradient-to-b from-purple-500 to-indigo-500 transform -skew-x-12"></div>
+                    </div>
+                    
+                    {/* ② 英語タイトル部分 */}
+                    <div className="relative text-right flex flex-col items-end">
+                      
+                      {/* 2段目：MANAGEMENT */}
+                      <h3 className={`text-5xl md:text-6xl lg:text-[5.5rem] font-black tracking-tighter uppercase text-slate-900 leading-[0.9] ${montserrat?.className || ''}`}>
+                        MANAGEMENT
+                      </h3>
+                      
+                      {/* 3段目：/ SUB-ADMINS */}
+                      <div className="flex items-center justify-end gap-2 md:gap-3 mt-1 md:mt-2">
+                        <span className="inline-block text-transparent bg-clip-text bg-gradient-to-br from-blue-500 to-purple-500 italic transform -skew-x-12 text-5xl md:text-6xl lg:text-[5.5rem] font-black leading-none">
+                          /
+                        </span>
+                        <h3 className={`text-5xl md:text-6xl lg:text-[5.5rem] font-black tracking-tighter uppercase text-slate-400 leading-[0.9] ${montserrat?.className || ''}`}>
+                          SUB-ADMINS
+                        </h3>
+                      </div>
+                      
+                      {/* ③ 背景の細い横線 */}
+                      {/* 文字が上に上がったので、線の位置も少し上に(top-[30%])調整 */}
+                      <div className="absolute top-[30%] right-[-5vw] w-[150vw] h-[1px] bg-slate-200/80 -z-10 hidden md:block"></div>
+                    </div>
+
                   </div>
+                  {/* ▲▲ ここまで ▲▲ */}
 
                   {/* 🌟 全メンバーのデータ（ここに3名分追加しています！） */}
                   {/* 🌟 全メンバーのデータ */}
