@@ -1329,7 +1329,7 @@ useEffect(() => {
               >
                 {[
                   { title: 'OPEN ENVIRONMENT', desc: '誰でも歓迎するオープンな空気感。' },
-                  { title: 'TECH & CREATIVE', desc: '最新技術を取り入れた配信環境。' },
+                  { title: 'TECH & CREATIVE', desc: '技術交流も盛んです！教え教わり、良き環境へ。' },
                   { title: 'A NEW THIRD PLACE', desc: '誰もが自分らしくいられる「もうひとつの居場所」。' },
                 ].map((item, idx) => (
                   <motion.div
