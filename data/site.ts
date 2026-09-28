@@ -42,7 +42,7 @@ export const collectiveData = {
   subtitle: 'Admins & Sub-Admins',
   mainMessage: 'あなたの活動をサポートします。',
   description: [
-    'TSCサーバーでは、${this.adminCount}名の管理人と${this.subAdminCount}名のサブ管理人、計${this.totalCount}名の運営チームが日々サーバーの治安維持と環境アップデートに努めています。',
+    'TSCサーバーでは、1名の管理人と11名のサブ管理人、計12名の運営チームが日々サーバーの治安維持と環境アップデートに努めています。',
     '「Discordサーバーに参加するのは初めてで不安…」「もしトラブルがあったらどうしよう…」という方でも心配いりません。皆さんが安心して楽しく活動できるよう、しっかりとサポートする体制を整えています。',
   ],
 };
