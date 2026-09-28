@@ -1882,35 +1882,23 @@ useEffect(() => {
                       {/* 後光エフェクト */}
                       <div className="absolute w-[200px] lg:w-[300px] h-[350px] lg:h-[550px] bg-slate-100/80 rounded-full blur-3xl -z-10" />
                       
-                      {/* 📱 スマホ用立ち絵（PCでは隠す： lg:hidden） */}
-                      <motion.img
-                        initial={{ opacity: 0, y: 100, filter: 'blur(10px)' }}
-                        whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
+                      {/* 📱 スマホ用立ち絵（アニメーションなし） */}
+                      <img
                         src="/tsc-official/hirokingusinntatie.webp" 
                         alt="Sponsor Character Mobile"
-                        // スマホでは等倍（scale-100等）で綺麗に枠内に収める
                         className="block lg:hidden absolute bottom-0 w-auto h-[120%] object-contain origin-bottom drop-shadow-[0_20px_30px_rgba(0,0,0,0.15)] z-10"
                       />
 
-                      {/* 💻 PC用立ち絵 大迫力版（スマホでは隠す： hidden lg:block） */}
-                      <motion.img
-                        initial={{ opacity: 0, x: -40, filter: 'blur(10px)', scale: 1 }}
-                        whileInView={{ 
-                          opacity: 1, 
-                          filter: 'blur(0px)',
-                          x: "40%",
-                          y: "120%",       
-                          scale: 2.3
-                        }} 
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
+                      {/* 💻 PC用立ち絵 大迫力版（アニメーションなし） */}
+                      <img
                         src="/tsc-official/hirokingusinntatie.webp" 
                         alt="Sponsor Character PC"
                         className="hidden lg:block absolute bottom-0 w-auto h-[125%] object-contain origin-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)] z-10"
+                        // アニメーションの最終状態（位置ズレと拡大）をstyleで固定
+                        style={{ transform: 'translate(40%, 120%) scale(2.3)' }}
                       />
                     </div>
+
 
                     {/* =========================================
                         右側：コンテンツエリア
