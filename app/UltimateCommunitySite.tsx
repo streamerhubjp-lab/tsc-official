@@ -873,43 +873,80 @@ useEffect(() => {
           >
             {activePage === 'home' && (
               <>
-              {/* 🌟🌟🌟 ここで「ホーム画面の箱」スタート！ 🌟🌟🌟 */}
-                {/* 💡 flex-row (左右分割) に設定 */}
-                <section className="relative w-full min-h-screen flex flex-col lg:flex-row items-center justify-between overflow-hidden bg-white">
-                  {/* 1. 背景グリッド */}
-                  <div className="absolute inset-0 z-0 bg-grid-pattern opacity-100 pointer-events-none" />
+                        {/* 🌟🌟🌟 ここで「ホーム画面の箱」スタート！ 🌟🌟🌟 */}
+              <section className="relative w-full min-h-screen flex flex-col lg:flex-row items-center justify-between overflow-hidden bg-white">
+                {/* 1. 背景グリッド */}
+                <div className="absolute inset-0 z-0 bg-grid-pattern opacity-100 pointer-events-none" />
 
-                  {/* 🌟🌟 新規追加：セクション全体を覆う3連カットイン（ランダム表示対応版！） 🌟🌟 */}
-                  <div className="absolute top-1/2 -translate-y-1/2 right-[-10%] w-[120%] lg:w-[75%] z-[10] pointer-events-none flex flex-col transform -skew-x-[15deg] overflow-hidden opacity-[0.85] shadow-xl">
+                {/* ▼▼▼ スマホとPCで表示を分ける背景エリア ▼▼▼ */}
+                
+                {/* 🌟 【PC用】3連カットイン（スマホでは非表示: hidden lg:flex） */}
+                <div className="hidden lg:flex absolute top-1/2 -translate-y-1/2 right-[-10%] w-[120%] lg:w-[75%] z-[10] pointer-events-none flex-col transform -skew-x-[15deg] overflow-hidden opacity-[0.85] shadow-xl">
+                  {randomBanners.map((admin, idx) => (
+                    <motion.div
+                      key={`hero-bg-pc-${admin.id}-${idx}`}
+                      initial={{ x: 150, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ duration: 1.2, delay: 1.8 + idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
+                      className="relative w-full h-[180px] md:h-[240px] lg:h-[320px] border-b-[2px] border-white/30 last:border-0 overflow-hidden"
+                    >
+                      <div className="absolute left-0 top-0 bottom-0 w-3 z-20" style={{ backgroundColor: admin.themeColor }} />
+                      <img
+                        src={admin.headerImage || admin.image}
+                        alt=""
+                        className="absolute inset-0 w-[120%] h-full object-cover grayscale contrast-125"
+                        style={{ 
+                          objectPosition: (admin as any).headerPosition || 'center 30%',
+                          transform: `skewX(15deg) translate(${(admin as any).headerX || 0}px, ${(admin as any).headerY || 0}px) scale(${(admin as any).headerScale || 1.25})`
+                        }}
+                      />
+                      {/* 画像をメンバーカラーで染める */}
+                      <div className="absolute inset-0 mix-blend-color opacity-80 z-10" style={{ backgroundColor: admin.themeColor }} />
+                      {/* 少しだけ白みを入れて馴染ませる */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/10 z-20" />
+                    </motion.div>
+                  ))}
+                </div>
+
+
+                {/* ▼▼▼ スマホ専用：立ち絵背景エリア（※現在はコメントアウトで非表示） ▼▼▼ */}
+                {/* 
+                  実装時は、すぐ下の `{/*` と一番下の `* /}` を削除してください。
+                  その後、imgタグの style 内にある transform や objectPosition の数値をいじることで
+                  キャラクターごとの微調整が可能です！
+                */}
+                {/*
+                {randomBanners.length > 0 && (
+                  <motion.div
+                    key={`hero-bg-mobile-${randomBanners[0].id}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1.5, delay: 1.0, ease: "easeOut" }}
+                    // z-[5] にすることで、文字(z-10等)の後ろ、背景グリッド(z-0)の手前に配置されます
+                    className="flex lg:hidden absolute inset-0 z-[5] pointer-events-none overflow-hidden items-center justify-center"
+                  >
+                    <img
+                      // ※ randomBanners[0].tachieImage など、立ち絵用のプロパティがあれば変更してください
+                      src={randomBanners[0].image}
+                      alt=""
+                      // object-contain にすることで、画像が見切れずに全体を調整しやすくなります
+                      className="absolute inset-0 w-full h-full object-contain opacity-50 drop-shadow-xl"
+                      style={{
+                        // 🌟 ここでスマホ版の立ち絵の位置と大きさを微調整します！ 🌟
+                        
+                        // ① 画像枠内での基本位置 (例: 'center center', 'bottom right' など)
+                        objectPosition: 'center center',
+                        
+                        // ② 拡大率(scale)と、細かなXY座標のズレ(translate)を直接指定
+                        transform: `scale(1.2) translate(0px, 20px)`
+                      }}
+                    />
                     
-                    {/* 💡 ここを変更！ adminList ではなく、シャッフルされた randomBanners を使います！ */}
-                    {randomBanners.map((admin, idx) => (
-                      <motion.div
-                        key={`hero-bg-${admin.id}-${idx}`} // 💡 ランダムでキーが変わるようにadmin.idを追加！
-                        initial={{ x: 150, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 1.2, delay: 1.8 + idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
-                        className="relative w-full h-[180px] md:h-[240px] lg:h-[320px] border-b-[2px] border-white/30 last:border-0 overflow-hidden"
-                      >
-                        <div className="absolute left-0 top-0 bottom-0 w-3 z-20" style={{ backgroundColor: admin.themeColor }} />
-                        <img
-                          src={admin.headerImage || admin.image}
-                          alt=""
-                          className="absolute inset-0 w-[120%] h-full object-cover grayscale contrast-125"
-                          style={{ 
-                            objectPosition: (admin as any).headerPosition || 'center 30%',
-                            transform: `skewX(15deg) translate(${(admin as any).headerX || 0}px, ${(admin as any).headerY || 0}px) scale(${(admin as any).headerScale || 1.25})`
-                          }}
-                        />
-                        {/* 画像をメンバーカラーで染める */}
-                        <div className="absolute inset-0 mix-blend-color opacity-80 z-10" style={{ backgroundColor: admin.themeColor }} />
-
-                        {/* 少しだけ白みを入れて馴染ませる */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/10 z-20" />
-                      </motion.div>
-                    ))}
-                  </div>
-                  {/* 🌟🌟 追加ここまで 🌟🌟 */}
+                    // 下に向かって白くフェードアウトさせ、下の文字を読みやすくするグラデーション
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/40 to-white z-10" />
+                  </motion.div>
+                )}
+                */}
 
                   {/* 🌟 復活：サイドの縦書きテキスト（そのまま維持） 🌟 */}
                   <div
