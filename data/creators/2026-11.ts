@@ -45,8 +45,8 @@ export const pickups202611 = {
             themeColor: '#e2caff',
             // 🌟 ここを追加！キャラクター個別の微調整ダイヤル
             adjustX: "10%",     // マイナスで左、プラスで右に移動（例: "-5%"）
-            adjustScale: 0.7,  // バストアップが大きい場合は小さく調整
-            adjustY: "-20%",    // 位置の微調整（マイナスで上、プラスで下に移動）
+//            adjustScale: 0.7,  // バストアップが大きい場合は小さく調整
+//            adjustY: "-20%",    // 位置の微調整（マイナスで上、プラスで下に移動）
             // 🌟 SNS・プラットフォームリンクを追加
             links: {
                 x: 'https://x.com/Fearinota',
