@@ -49,6 +49,7 @@ import {
   menuItems,
   memoryItems,
   monthlyPickups,
+  latestMonth,
   faqList,
   guidelineList,
   sponsorData,
@@ -419,9 +420,11 @@ export default function UltimateCommunitySite({
   // =========================================================================
   // =========================================================================
   const marqueeMembers = useMemo(() => {
-    const individuals = monthlyPickups['2026年11月'].filter(
+    // 🌟 固定の '2026年11月' の代わりに latestMonth を使用するように変更
+    // 万が一データが存在しない場合の安全策として || [] も添えておく
+    const individuals = monthlyPickups[latestMonth]?.filter(
       (s: any) => s.id !== 'collective'
-    );
+    ) || [];
     // 💡 12個の枠を埋めるために、メンバーを順番にループさせます
     return Array.from({ length: 12 }).map((_, idx) => {
       const baseMember = individuals[idx % individuals.length]|| {};

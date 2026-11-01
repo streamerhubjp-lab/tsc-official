@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { monthlyPickups } from '@/data'; 
+// 🌟 latestMonth を追加インポート
+import { monthlyPickups, latestMonth } from '@/data/creators';
 
 export default function PickUpSection() {
-  const [activeMonth, setActiveMonth] = useState("2026年11月");
+  // 🌟 初期値に latestMonth を指定（これで常に最新月がデフォルトになります）
+  const [activeMonth, setActiveMonth] = useState(latestMonth);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
