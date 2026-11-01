@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { monthlyPickups } from '@/data'; 
 
 export default function PickUpSection() {
-  const [activeMonth, setActiveMonth] = useState("2026年8月");
+  const [activeMonth, setActiveMonth] = useState("2026年11月");
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -126,7 +126,8 @@ export default function PickUpSection() {
                 <motion.img
                   src={activeCreator.image}
                   alt={activeCreator.name}
-                  className="w-auto h-full object-contain origin-bottom"
+                  // 👇 w-full max-h-[85%] object-contain にすることで、バストアップが大きくなりすぎるのを防ぐ
+                  className="w-full max-h-[85%] lg:max-h-[90%] object-contain origin-bottom"
                   animate={{ 
                     x: activeCreator.adjustX || "0%", 
                     y: activeCreator.adjustY || "0%", 
@@ -173,6 +174,71 @@ export default function PickUpSection() {
                 <p className="text-xs sm:text-sm lg:text-base text-slate-700 font-bold leading-relaxed lg:leading-loose text-justify max-w-xl">
                   {activeCreator.reason}
                 </p>
+
+                {/* 🌟 リンクボタンエリア (X / Twitch / YouTube / その他) */}
+                {activeCreator.links && (
+                  <div className="flex flex-wrap items-center gap-3 pt-2">
+                    {activeCreator.links.x && (
+                      <a
+                        href={activeCreator.links.x}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => {
+                          // 確実に新規タブで開くためのフォールバック処理
+                          e.stopPropagation();
+                          }}
+                        className="relative z-30 pointer-events-auto flex items-center gap-2 px-4 py-2 text-xs lg:text-sm font-bold text-slate-800 bg-white border border-slate-300 shadow-sm hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all duration-300 cursor-pointer"
+                      >
+                        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                        <span>X (Twitter)</span>
+                      </a>
+                    )}
+
+                    {activeCreator.links.twitch && (
+                      <a
+                        href={activeCreator.links.twitch}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 text-xs lg:text-sm font-bold text-[#9146FF] bg-white border border-[#9146FF]/30 shadow-sm hover:bg-[#9146FF] hover:text-white transition-all duration-300"
+                      >
+                        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                          <path d="M11.571 4.714h1.715v5.143h-1.715zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z" />
+                        </svg>
+                        <span>Twitch</span>
+                      </a>
+                    )}
+
+                    {activeCreator.links.youtube && (
+                      <a
+                        href={activeCreator.links.youtube}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 text-xs lg:text-sm font-bold text-[#FF0000] bg-white border border-[#FF0000]/30 shadow-sm hover:bg-[#FF0000] hover:text-white transition-all duration-300"
+                      >
+                        <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                        </svg>
+                        <span>YouTube</span>
+                      </a>
+                    )}
+
+                    {activeCreator.links.other && (
+                      <a
+                        href={activeCreator.links.other}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 text-xs lg:text-sm font-bold text-slate-700 bg-white border border-slate-300 shadow-sm hover:bg-slate-700 hover:text-white transition-all duration-300"
+                      >
+                        <svg className="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                        </svg>
+                        <span>Official Link</span>
+                      </a>
+                    )}
+                  </div>
+                )}
               </motion.div>
             </div>
           </div>

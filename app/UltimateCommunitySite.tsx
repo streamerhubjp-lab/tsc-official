@@ -419,7 +419,7 @@ export default function UltimateCommunitySite({
   // =========================================================================
   // =========================================================================
   const marqueeMembers = useMemo(() => {
-    const individuals = monthlyPickups['2026年9月'].filter(
+    const individuals = monthlyPickups['2026年11月'].filter(
       (s: any) => s.id !== 'collective'
     );
     // 💡 12個の枠を埋めるために、メンバーを順番にループさせます
