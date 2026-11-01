@@ -10,18 +10,21 @@ import { tsuyuriHioAdmin } from './admins/tsuyuri-hio';
 import { ibukiAyanoAdmin } from './admins/ibuki-ayano';
 import { yukihaKayoAdmin } from './admins/yukiha-kayo';
 import { yorunerukaAdmin } from './admins/yoruneruka';
+//import { ebikoAdmin } from './admins/ebiko';  // ※海音えびこさんのデータ。実装する時にコメントアウトを解除してください。
 
+// ※idは重複しないように割り振ること
 export const adminList = [
-  hirokingAdmin,
-  fuyuchiAdmin,
-  shiinaAdmin,
-  hiuHimuAdmin,
-  gaikumaAdmin,
-  wolfYarouAdmin,
-  koyukiAdmin,
-  aruuAdmin,
-  tsuyuriHioAdmin,
-  ibukiAyanoAdmin,
-  yukihaKayoAdmin,
-  yorunerukaAdmin,
+  hirokingAdmin,      // id:creator_01
+  fuyuchiAdmin,       // id:creator_09
+  shiinaAdmin,        // id:creator_03
+  hiuHimuAdmin,       // id:creator_06
+  gaikumaAdmin,       // id:creator_11
+  wolfYarouAdmin,     // id:creator_05
+  koyukiAdmin,        // id:creator_10
+  aruuAdmin,          // id:creator_04
+  tsuyuriHioAdmin,    // id:creator_07
+  ibukiAyanoAdmin,    // id:creator_08
+  yukihaKayoAdmin,    // id:creator_02
+  yorunerukaAdmin,    // id:creator_12
+//  ebikoAdmin,         // id:creator_13　// ※海音えびこさんのデータ。実装する時にコメントアウトを解除してください。
 ];
