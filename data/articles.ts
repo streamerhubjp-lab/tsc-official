@@ -3,8 +3,10 @@ import { news001 } from './articles/news-001';
 import { activity001 } from './articles/activity-001';
 import { activity002 } from './articles/activity-002';
 import { news002 } from './articles/news-002';
+import { activity003 } from './articles/activity-003';
 
 const rawArticles = [
+  activity003,
   news003,
   news001,
   activity001,
