@@ -75,6 +75,7 @@ export const koyukiAdmin = {
     youtube: 'https://www.youtube.com/@hajikoyuch',
   },
   pickupMedia: [
-    { type: 'image', src: '/tsc-official/koyukiitimaie.webp'},
+    { type: 'image', src: '/tsc-official/koyukiitimaie.webp' ,position: 'top',},
+    { type: 'image', src: '/tsc-official/koyukiitimaie2.png',mode: 'contain'},
   ],
 };
