@@ -1619,7 +1619,7 @@ useEffect(() => {
                   {/* 🌟 全メンバーのデータ */}
                   {(() => {
                       const allMembers = [
-                        // 👇 adminList に合わせて id を追加しました！
+                        // 👇 adminList に合わせて id を追加しました！※TODO；ここそのうち改善したい！！
                         { id: 'creator_01', image: '/tsc-official/hirokingitimaie.webp', roleName: '管理者', displayName: 'ヒロキング', posX: '10%', posY: '20%', scale: 1, isTachie: false },
                         { id: 'creator_04', image: '/tsc-official/aruitimaie.webp', roleName: 'サブ管理人', displayName: 'あるぅ', posX: '50%', posY: '50%', scale: 1, isTachie: false },
                         { id: 'creator_05', image: '/tsc-official/ookamiitimaie.webp', roleName: 'サブ管理人', displayName: '狼の野郎', posX: '30%', posY: '50%', scale: 1.2, isTachie: false },
@@ -1632,6 +1632,7 @@ useEffect(() => {
                         { id: 'creator_03', image: '/tsc-official/siinatatie.webp', roleName: 'サブ管理人', displayName: 'しいな', posX: '50%', posY: '30%', scale: 4.2, isTachie: true },
                         { id: 'creator_02', image: '/tsc-official/kayotatie3.webp', roleName: 'サブ管理人', displayName: '雪羽かよ', posX: '50%', posY: '50%', scale: 1, isTachie: false },
                         { id: 'creator_12', image: '/tsc-official/yorunerukatatie1.webp', roleName: 'サブ管理人', displayName: 'よるねるか', posX: '53%', posY: '50%', scale: 1, isTachie: false },
+                        { id: 'creator_13', image: '/tsc-official/ebikoitimaie.webp', roleName: 'サブ管理人', displayName: '海音えびこ', posX: '45%', posY: '50%', scale: 1, isTachie: false },
                       ];
 
                     return (
@@ -1728,7 +1729,7 @@ useEffect(() => {
                           })}
                         </motion.div>
 
-                        {/* 🌟 下の段（7〜12人目） */}
+                        {/* 🌟 下の段（7〜13人目） */}
                         <motion.div
                           initial="hidden"
                           whileInView="visible"
@@ -1736,7 +1737,7 @@ useEffect(() => {
                           transition={{ staggerChildren: 0.15, delayChildren: 0.3 }}
                           className="w-full flex justify-center items-center h-[35vh] md:h-[45vh] gap-1 md:gap-2 z-0 relative -mt-4 md:-mt-8"
                         >
-                          {allMembers.slice(6, 12).map((member, idx) => {
+                          {allMembers.slice(6, 13).map((member, idx) => {
                             const isEven = idx % 2 === 0;
                             return (
                               <div

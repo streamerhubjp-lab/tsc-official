@@ -10,7 +10,7 @@ import { tsuyuriHioAdmin } from './admins/tsuyuri-hio';
 import { ibukiAyanoAdmin } from './admins/ibuki-ayano';
 import { yukihaKayoAdmin } from './admins/yukiha-kayo';
 import { yorunerukaAdmin } from './admins/yoruneruka';
-//import { ebikoAdmin } from './admins/ebiko';  // ※海音えびこさんのデータ。実装する時にコメントアウトを解除してください。
+import { ebikoAdmin } from './admins/ebiko';  // ※海音えびこさんのデータ。実装する時にコメントアウトを解除してください。
 
 // ※idは重複しないように割り振ること
 export const adminList = [
@@ -26,5 +26,5 @@ export const adminList = [
   ibukiAyanoAdmin,    // id:creator_08
   yukihaKayoAdmin,    // id:creator_02
   yorunerukaAdmin,    // id:creator_12
-//  ebikoAdmin,         // id:creator_13　// ※海音えびこさんのデータ。実装する時にコメントアウトを解除してください。
+  ebikoAdmin,         // id:creator_13　// ※海音えびこさんのデータ。実装する時にコメントアウトを解除してください。
 ];
